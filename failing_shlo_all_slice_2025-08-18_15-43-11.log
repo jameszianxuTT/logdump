@@ -1,0 +1,1291 @@
+WARNING:root:Defaulting to PJRT_DEVICE=CPU
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.1, pluggy-1.6.0 -- /localdev/jameszianxu/gen_mc/tt-torch/env/venv/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /localdev/jameszianxu/gen_mc/tt-torch
+configfile: pytest.ini
+plugins: cov-6.2.1, forked-1.6.0, xdist-3.8.0, split-0.10.0
+collecting ... collected 1 item
+
+tests/models/llama/test_llama3_generative.py::test_llama3_generate Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 50.82it/s]
+2025-08-18 15:41:06.351677: W torch_xla/csrc/runtime/profiler.cpp:88] Profiler API not found for PJRT plugin
+[James] Manually forwarding attention mask
+Initial prompt: '<|begin_of_text|>I like taking walks in the'
+Setting up XLA environment...
+num_devices = 2
+XLA environment configured.
+Created device mesh: (1, 2) with 2 devices
+USING STATIC CACHE
+[SHARD_DEBUG] ADDED tensor: id=140229787834368, shape=[1, 7], dtype=torch.int64, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, None)
+[SHARD_DEBUG] ADDED tensor: id=140226783464080, shape=[7], dtype=torch.int64, device=cpu
+[SHARD_DEBUG]   shard_spec: (None,)
+[SHARD_DEBUG] ADDED tensor: id=140226871866240, shape=[1, 8, 128, 128], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model', None, None)
+[SHARD_DEBUG] ADDED tensor: id=140229780085936, shape=[1, 8, 128, 128], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model', None, None)
+[SHARD_DEBUG] ADDED tensor: id=140229779565648, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779560928, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779557888, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229779568448, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779567728, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779566928, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779558848, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229779558768, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779566768, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779570608, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229787921088, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229787923968, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229787922768, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229787919968, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783598512, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783593152, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783585552, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783264112, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783261632, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783260512, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783593952, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783262832, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783272192, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783266512, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140230575341008, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230577889312, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230575340608, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230575340048, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140230574595648, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574602368, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574603808, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140230574598848, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574603888, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574593968, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574599488, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229787912048, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574603648, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574602128, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140230574599968, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574595968, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574597088, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574596048, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140230574601248, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574600288, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574598928, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140230574598608, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574602048, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574601728, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574601408, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140230574603168, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574602688, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574597008, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140230574599408, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574602928, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574602448, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574599808, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140230574599648, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574603248, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574600048, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140230574599568, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574603088, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574601968, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574601808, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140230574596608, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574596688, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574596448, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140230578015104, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574603728, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230578013664, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230577798848, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229787923648, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229787911648, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229787918368, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229787916528, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229787921248, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229787920608, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229787913648, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229787919088, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229787912288, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229787910288, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229788226784, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783489728, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783491328, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783501648, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783489888, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783487568, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783487968, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783496048, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783498288, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783502768, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783498048, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783489808, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783496608, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783487888, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783497808, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783501888, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783496208, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783487168, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229788385200, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229788384960, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229788374160, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229788370800, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229788383920, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229788375120, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229788380640, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229788380560, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229788371840, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229788376240, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229788369840, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229788380880, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229788385040, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230577216768, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783200656, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783207696, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783204736, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783195616, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783196096, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783192176, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783205056, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783201056, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783193056, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783205936, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783598112, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783592912, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783585632, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783590912, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229788221504, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783588912, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783599632, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783597712, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783587952, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783592432, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783600832, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783597232, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783589712, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783592032, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783591792, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783598912, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783600992, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783599232, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783262192, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783270752, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230577218848, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783271872, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783270512, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783268672, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783259552, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229788209200, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229788210000, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229788205760, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229788218080, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229788207120, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229780078352, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229788218640, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229779948864, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779948384, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779948224, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229779957584, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779949504, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779949984, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779959104, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229779960624, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779948144, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779954624, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229788218240, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229787924688, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779958944, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779963584, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229779962224, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779950704, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779957904, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229779951744, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779963424, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779948944, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779960144, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229779955744, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230577609184, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779960864, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229779953504, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229787922608, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783445696, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779961264, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783438176, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229780071072, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783445296, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783444416, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783448816, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574599328, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229779961104, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783445536, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783449936, shape=[8192, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783445616, shape=[3072, 8192], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140229783447776, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783452256, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140229783441136, shape=[1024, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+[SHARD_DEBUG] ADDED tensor: id=140230574600128, shape=[3072, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: (None, 'model')
+[SHARD_DEBUG] ADDED tensor: id=140230577964912, shape=[128256, 3072], dtype=torch.bfloat16, device=cpu
+[SHARD_DEBUG]   shard_spec: ('model', None)
+<|begin_of_text|>I like taking walks in theNote: Using experimental XLA backend.
+[James] disable rectify buffer inplace copy
+[SHARD_DEBUG] GET tensor: id=140229779558928, shape=[3072], dtype=torch.bfloat16 -> NOT FOUND
+[Cache] Cached new tensor for L__self___model_layers__modules__0___input_layernorm_weight
+[SHARD_DEBUG] GET tensor: id=140229779561568, shape=[3072], dtype=torch.bfloat16 -> NOT FOUND
+[Cache] Cached new tensor for L__self___model_layers__modules__0___post_attention_layernorm_weight
+[SHARD_DEBUG] GET tensor: id=140229783446336, shape=[3072], dtype=torch.bfloat16 -> NOT FOUND
+[Cache] Cached new tensor for L__self___model_norm_weight
+[SHARD_DEBUG] GET tensor: id=140230577964912, shape=[128256, 3072], dtype=torch.bfloat16 -> shard_spec: ('model', None)
+[Sharding] Applying cached shard_spec ('model', None) to L__self___lm_head.weight
+[Cache] Cached new tensor for L__self___lm_head.weight
+[SHARD_DEBUG] GET tensor: id=140226590800640, shape=[128], dtype=torch.int64 -> NOT FOUND
+[Cache] Cached new tensor for _FX_CONST_FOLDED_ATTRS.0
+[SHARD_DEBUG] GET tensor: id=140226774342112, shape=[7, 128], dtype=torch.bfloat16 -> NOT FOUND
+[Cache] Cached new tensor for _FX_CONST_FOLDED_ATTRS.1
+[SHARD_DEBUG] GET tensor: id=140230888250944, shape=[1, 64, 1], dtype=torch.float32 -> NOT FOUND
+[Cache] Cached new tensor for _FX_CONST_FOLDED_ATTRS.2
+[SHARD_DEBUG] GET tensor: id=140226053998848, shape=[3072, 3072], dtype=torch.bfloat16 -> NOT FOUND
+[Cache] Cached new tensor for _FX_CONST_FOLDED_ATTRS.3
+[SHARD_DEBUG] GET tensor: id=140226053998768, shape=[3072, 1024], dtype=torch.bfloat16 -> NOT FOUND
+[Cache] Cached new tensor for _FX_CONST_FOLDED_ATTRS.4
+[SHARD_DEBUG] GET tensor: id=140229788358336, shape=[3072, 1024], dtype=torch.bfloat16 -> NOT FOUND
+[Cache] Cached new tensor for _FX_CONST_FOLDED_ATTRS.5
+[SHARD_DEBUG] GET tensor: id=140226058682288, shape=[3072, 3072], dtype=torch.bfloat16 -> NOT FOUND
+[Cache] Cached new tensor for _FX_CONST_FOLDED_ATTRS.6
+[SHARD_DEBUG] GET tensor: id=140226058666128, shape=[3072, 8192], dtype=torch.bfloat16 -> NOT FOUND
+[Cache] Cached new tensor for _FX_CONST_FOLDED_ATTRS.7
+[SHARD_DEBUG] GET tensor: id=140225655326336, shape=[3072, 8192], dtype=torch.bfloat16 -> NOT FOUND
+[Cache] Cached new tensor for _FX_CONST_FOLDED_ATTRS.8
+[SHARD_DEBUG] GET tensor: id=140225655325776, shape=[8192, 3072], dtype=torch.bfloat16 -> NOT FOUND
+[Cache] Cached new tensor for _FX_CONST_FOLDED_ATTRS.9
+[SHARD_DEBUG] GET tensor: id=140225655330016, shape=[3072, 128256], dtype=torch.bfloat16 -> NOT FOUND
+[Cache] Cached new tensor for _FX_CONST_FOLDED_ATTRS.10
+[SHARD_DEBUG] GET tensor: id=140229779568448, shape=[3072, 3072], dtype=torch.bfloat16 -> shard_spec: ('model', None)
+[Sharding] Applying cached shard_spec ('model', None) to const_subgraph_module.L__self___model_layers__modules__0___self_attn_q_proj.weight
+[Cache] Cached new tensor for const_subgraph_module.L__self___model_layers__modules__0___self_attn_q_proj.weight
+[SHARD_DEBUG] GET tensor: id=140229779567728, shape=[1024, 3072], dtype=torch.bfloat16 -> shard_spec: ('model', None)
+[Sharding] Applying cached shard_spec ('model', None) to const_subgraph_module.L__self___model_layers__modules__0___self_attn_k_proj.weight
+[Cache] Cached new tensor for const_subgraph_module.L__self___model_layers__modules__0___self_attn_k_proj.weight
+[SHARD_DEBUG] GET tensor: id=140229779566928, shape=[1024, 3072], dtype=torch.bfloat16 -> shard_spec: ('model', None)
+[Sharding] Applying cached shard_spec ('model', None) to const_subgraph_module.L__self___model_layers__modules__0___self_attn_v_proj.weight
+[Cache] Cached new tensor for const_subgraph_module.L__self___model_layers__modules__0___self_attn_v_proj.weight
+[SHARD_DEBUG] GET tensor: id=140229779558848, shape=[3072, 3072], dtype=torch.bfloat16 -> shard_spec: (None, 'model')
+[Sharding] Applying cached shard_spec (None, 'model') to const_subgraph_module.L__self___model_layers__modules__0___self_attn_o_proj.weight
+[Cache] Cached new tensor for const_subgraph_module.L__self___model_layers__modules__0___self_attn_o_proj.weight
+[SHARD_DEBUG] GET tensor: id=140229779560928, shape=[8192, 3072], dtype=torch.bfloat16 -> shard_spec: ('model', None)
+[Sharding] Applying cached shard_spec ('model', None) to const_subgraph_module.L__self___model_layers__modules__0___mlp_gate_proj.weight
+[Cache] Cached new tensor for const_subgraph_module.L__self___model_layers__modules__0___mlp_gate_proj.weight
+[SHARD_DEBUG] GET tensor: id=140229779565648, shape=[8192, 3072], dtype=torch.bfloat16 -> shard_spec: ('model', None)
+[Sharding] Applying cached shard_spec ('model', None) to const_subgraph_module.L__self___model_layers__modules__0___mlp_up_proj.weight
+[Cache] Cached new tensor for const_subgraph_module.L__self___model_layers__modules__0___mlp_up_proj.weight
+[SHARD_DEBUG] GET tensor: id=140229779557888, shape=[3072, 8192], dtype=torch.bfloat16 -> shard_spec: (None, 'model')
+[Sharding] Applying cached shard_spec (None, 'model') to const_subgraph_module.L__self___model_layers__modules__0___mlp_down_proj.weight
+[Cache] Cached new tensor for const_subgraph_module.L__self___model_layers__modules__0___mlp_down_proj.weight
+[SHARD_DEBUG] GET tensor: id=140230577964912, shape=[128256, 3072], dtype=torch.bfloat16 -> shard_spec: ('model', None)
+[Sharding] Applying cached shard_spec ('model', None) to const_subgraph_module.L__self___lm_head.weight
+[Cache] Cached new tensor for const_subgraph_module.L__self___lm_head.weight
+[SHARD_DEBUG] GET tensor: id=140226871866240, shape=[1, 8, 128, 128], dtype=torch.bfloat16 -> shard_spec: (None, 'model', None, None)
+[Sharding] Applying cached shard_spec (None, 'model', None, None) to kwargs____past_key_values___key_cache_0
+[Cache] Cached new tensor for kwargs____past_key_values___key_cache_0
+[SHARD_DEBUG] GET tensor: id=140229780085936, shape=[1, 8, 128, 128], dtype=torch.bfloat16 -> shard_spec: (None, 'model', None, None)
+[Sharding] Applying cached shard_spec (None, 'model', None, None) to kwargs____past_key_values___value_cache_0
+[Cache] Cached new tensor for kwargs____past_key_values___value_cache_0
+[SHARD_DEBUG] GET tensor: id=140229783176432, shape=[64], dtype=torch.float32 -> NOT FOUND
+[Cache] Cached new tensor for const_subgraph_module.L__self___model_rotary_emb_inv_freq
+attempting retrieval of shard spec for inputs tensor([[128000,     40,   1093,   4737,  23291,    304,    279]])
+[SHARD_DEBUG] GET tensor: id=140229787834368, shape=[1, 7], dtype=torch.int64 -> shard_spec: (None, None)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | User provided a tensor of data type: Int64 which is not supported by runtime/ttnn. Casting to: Int32, this may impact throughput and the integrity of the data.
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | User provided a tensor of data type: Int64 which is not supported by runtime/ttnn. Casting to: Int32, this may impact throughput and the integrity of the data.
+[Sharding] Applying runtime shard_spec (None, None) to tensor shape torch.Size([1, 7])
+attempting retrieval of shard spec for inputs tensor([0, 1, 2, 3, 4, 5, 6])
+[SHARD_DEBUG] GET tensor: id=140226783464080, shape=[7], dtype=torch.int64 -> shard_spec: (None,)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | User provided a tensor of data type: Int64 which is not supported by runtime/ttnn. Casting to: Int32, this may impact throughput and the integrity of the data.
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | User provided a tensor of data type: Int64 which is not supported by runtime/ttnn. Casting to: Int32, this may impact throughput and the integrity of the data.
+[Sharding] Applying runtime shard_spec (None,) to tensor shape torch.Size([7])
+
+[XLA Cache] === DETAILED CACHE ANALYSIS ===
+[XLA Cache] Total inputs to analyze: 28
+[XLA Cache] Current cache contains 0 unique tensor keys
+[XLA Cache] Input 0: input_0_shape_[3072]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140226058670848, shape=(3072,), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140226058670848
+[XLA Cache]   XLA tensor id: 1
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 1: input_1_shape_[3072]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140226058670928, shape=(3072,), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140226058670928
+[XLA Cache]   XLA tensor id: 2
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 2: input_2_shape_[3072]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140226058670768, shape=(3072,), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140226058670768
+[XLA Cache]   XLA tensor id: 3
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 3: input_3_shape_[128256, 3072]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140226058670688, shape=(128256, 3072), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140226058670688
+[XLA Cache]   XLA tensor id: 4
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 4: input_4_shape_[128]_dtype_torch.int64
+[XLA Cache]   Cache key: id=140226059373920, shape=(128,), dtype=torch.int64, device=xla:0
+[XLA Cache]   Tensor object id: 140226059373920
+[XLA Cache]   XLA tensor id: 5
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 5: input_5_shape_[7, 128]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140226058670288, shape=(7, 128), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140226058670288
+[XLA Cache]   XLA tensor id: 6
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 6: input_6_shape_[1, 64, 1]_dtype_torch.float32
+[XLA Cache]   Cache key: id=140225383211520, shape=(1, 64, 1), dtype=torch.float32, device=xla:0
+[XLA Cache]   Tensor object id: 140225383211520
+[XLA Cache]   XLA tensor id: 7
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 7: input_7_shape_[3072, 3072]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383211440, shape=(3072, 3072), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383211440
+[XLA Cache]   XLA tensor id: 8
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 8: input_8_shape_[3072, 1024]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383211600, shape=(3072, 1024), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383211600
+[XLA Cache]   XLA tensor id: 9
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 9: input_9_shape_[3072, 1024]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383211680, shape=(3072, 1024), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383211680
+[XLA Cache]   XLA tensor id: 10
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 10: input_10_shape_[3072, 3072]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383211760, shape=(3072, 3072), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383211760
+[XLA Cache]   XLA tensor id: 11
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 11: input_11_shape_[3072, 8192]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383211840, shape=(3072, 8192), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383211840
+[XLA Cache]   XLA tensor id: 12
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 12: input_12_shape_[3072, 8192]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383211920, shape=(3072, 8192), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383211920
+[XLA Cache]   XLA tensor id: 13
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 13: input_13_shape_[8192, 3072]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383212000, shape=(8192, 3072), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383212000
+[XLA Cache]   XLA tensor id: 14
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 14: input_14_shape_[3072, 128256]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383212080, shape=(3072, 128256), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383212080
+[XLA Cache]   XLA tensor id: 15
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 15: input_15_shape_[3072, 3072]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383212240, shape=(3072, 3072), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383212240
+[XLA Cache]   XLA tensor id: 16
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 16: input_16_shape_[1024, 3072]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383212160, shape=(1024, 3072), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383212160
+[XLA Cache]   XLA tensor id: 17
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 17: input_17_shape_[1024, 3072]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383212320, shape=(1024, 3072), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383212320
+[XLA Cache]   XLA tensor id: 18
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 18: input_18_shape_[3072, 3072]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383212400, shape=(3072, 3072), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383212400
+[XLA Cache]   XLA tensor id: 19
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 19: input_19_shape_[8192, 3072]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383212480, shape=(8192, 3072), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383212480
+[XLA Cache]   XLA tensor id: 20
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 20: input_20_shape_[8192, 3072]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383212560, shape=(8192, 3072), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383212560
+[XLA Cache]   XLA tensor id: 21
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 21: input_21_shape_[3072, 8192]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383212640, shape=(3072, 8192), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383212640
+[XLA Cache]   XLA tensor id: 22
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 22: input_22_shape_[128256, 3072]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383212720, shape=(128256, 3072), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383212720
+[XLA Cache]   XLA tensor id: 23
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 23: input_23_shape_[1, 8, 128, 128]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383212880, shape=(1, 8, 128, 128), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383212880
+[XLA Cache]   XLA tensor id: 24
+[XLA Cache]   *** STATIC CACHE TENSOR DETECTED ***
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   *** CACHE MISS ANALYSIS FOR STATIC CACHE ***
+[XLA Cache]   Reason: Each tensor object has unique id() = 140225383212880
+[XLA Cache]   Even identical static cache tensors get different cache keys due to object identity
+[XLA Cache]   Total static cache tensors in cache: 1
+[XLA Cache]   Similar cache keys with same shape/dtype/device:
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | User provided a tensor of data type: Int64 which is not supported by runtime/ttnn. Casting to: Int32, this may impact throughput and the integrity of the data.
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | User provided a tensor of data type: Int64 which is not supported by runtime/ttnn. Casting to: Int32, this may impact throughput and the integrity of the data.
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | User provided a tensor of data type: Int64 which is not supported by runtime/ttnn. Casting to: Int32, this may impact throughput and the integrity of the data.
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | User provided a tensor of data type: Int64 which is not supported by runtime/ttnn. Casting to: Int32, this may impact throughput and the integrity of the data.
+[XLA Cache]     id=140225383212880 (different from current 140225383212880)
+[XLA Cache]   ---
+[XLA Cache] Input 24: input_24_shape_[1, 8, 128, 128]_dtype_torch.bfloat16
+[XLA Cache]   Cache key: id=140225383213120, shape=(1, 8, 128, 128), dtype=torch.bfloat16, device=xla:0
+[XLA Cache]   Tensor object id: 140225383213120
+[XLA Cache]   XLA tensor id: 25
+[XLA Cache]   *** STATIC CACHE TENSOR DETECTED ***
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   *** CACHE MISS ANALYSIS FOR STATIC CACHE ***
+[XLA Cache]   Reason: Each tensor object has unique id() = 140225383213120
+[XLA Cache]   Even identical static cache tensors get different cache keys due to object identity
+[XLA Cache]   Total static cache tensors in cache: 2
+[XLA Cache]   Similar cache keys with same shape/dtype/device:
+[XLA Cache]     id=140225383212880 (different from current 140225383213120)
+[XLA Cache]     id=140225383213120 (different from current 140225383213120)
+[XLA Cache]   ---
+[XLA Cache] Input 25: input_25_shape_[64]_dtype_torch.float32
+[XLA Cache]   Cache key: id=140225383213200, shape=(64,), dtype=torch.float32, device=xla:0
+[XLA Cache]   Tensor object id: 140225383213200
+[XLA Cache]   XLA tensor id: 26
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 26: input_26_shape_[1, 7]_dtype_torch.int64
+[XLA Cache]   Cache key: id=140229788216720, shape=(1, 7), dtype=torch.int64, device=xla:0
+[XLA Cache]   Tensor object id: 140229788216720
+[XLA Cache]   XLA tensor id: 27
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] Input 27: input_27_shape_[7]_dtype_torch.int64
+[XLA Cache]   Cache key: id=140226590382160, shape=(7,), dtype=torch.int64, device=xla:0
+[XLA Cache]   Tensor object id: 140226590382160
+[XLA Cache]   XLA tensor id: 28
+[XLA Cache]   Result: CACHE MISS - added to cache
+[XLA Cache]   ---
+[XLA Cache] CACHE MISSES (28): ['input_0_shape_[3072]_dtype_torch.bfloat16 (idx=0)', 'input_1_shape_[3072]_dtype_torch.bfloat16 (idx=1)', 'input_2_shape_[3072]_dtype_torch.bfloat16 (idx=2)', 'input_3_shape_[128256, 3072]_dtype_torch.bfloat16 (idx=3)', 'input_4_shape_[128]_dtype_torch.int64 (idx=4)', 'input_5_shape_[7, 128]_dtype_torch.bfloat16 (idx=5)', 'input_6_shape_[1, 64, 1]_dtype_torch.float32 (idx=6)', 'input_7_shape_[3072, 3072]_dtype_torch.bfloat16 (idx=7)', 'input_8_shape_[3072, 1024]_dtype_torch.bfloat16 (idx=8)', 'input_9_shape_[3072, 1024]_dtype_torch.bfloat16 (idx=9)', 'input_10_shape_[3072, 3072]_dtype_torch.bfloat16 (idx=10)', 'input_11_shape_[3072, 8192]_dtype_torch.bfloat16 (idx=11)', 'input_12_shape_[3072, 8192]_dtype_torch.bfloat16 (idx=12)', 'input_13_shape_[8192, 3072]_dtype_torch.bfloat16 (idx=13)', 'input_14_shape_[3072, 128256]_dtype_torch.bfloat16 (idx=14)', 'input_15_shape_[3072, 3072]_dtype_torch.bfloat16 (idx=15)', 'input_16_shape_[1024, 3072]_dtype_torch.bfloat16 (idx=16)', 'input_17_shape_[1024, 3072]_dtype_torch.bfloat16 (idx=17)', 'input_18_shape_[3072, 3072]_dtype_torch.bfloat16 (idx=18)', 'input_19_shape_[8192, 3072]_dtype_torch.bfloat16 (idx=19)', 'input_20_shape_[8192, 3072]_dtype_torch.bfloat16 (idx=20)', 'input_21_shape_[3072, 8192]_dtype_torch.bfloat16 (idx=21)', 'input_22_shape_[128256, 3072]_dtype_torch.bfloat16 (idx=22)', 'input_23_shape_[1, 8, 128, 128]_dtype_torch.bfloat16 (idx=23)', 'input_24_shape_[1, 8, 128, 128]_dtype_torch.bfloat16 (idx=24)', 'input_25_shape_[64]_dtype_torch.float32 (idx=25)', 'input_26_shape_[1, 7]_dtype_torch.int64 (idx=26)', 'input_27_shape_[7]_dtype_torch.int64 (idx=27)']
+[XLA Cache] STATIC CACHE TENSORS FOUND (2):
+[XLA Cache]   input_23_shape_[1, 8, 128, 128]_dtype_torch.bfloat16 -> HIT (tensor_id=140225383212880, xla_id=24)
+[XLA Cache]   input_24_shape_[1, 8, 128, 128]_dtype_torch.bfloat16 -> HIT (tensor_id=140225383213120, xla_id=25)
+[XLA Cache] Updated cache size: 28 unique tensors
+[XLA Cache] === END CACHE ANALYSIS ===
+
+Hlo input positions pre normalization [15, 219, 14, 13, 11, 10, 27, 23, 1, 28, -1, 25, 5, 6, 151, 7, 9, 24, 8, 2, 12, 3]
+Hlo input positions post normalization [16, 220, 15, 14, 12, 11, 28, 24, 2, 29, 0, 26, 6, 7, 152, 8, 10, 25, 9, 3, 13, 4]
+[JAMES] setting arg ref map to  refs=140229779567728,constant_unknown,140229779568448,140225655330016,140225655326336,140226058666128,constant_unknown,140229780085936,140229783446336,constant_unknown,140229779558928,user_input,140230888250944,140226053998848,constant_unknown,140226053998768,140226058682288,140229783176432,140229788358336,140230577964912,140225655325776,140226590800640
+module @SyncTensorsGraph.362 attributes {mhlo.cross_program_prefetches = [], mhlo.frontend_attributes = {xla.sdy.meshes = "{mesh = #sdy.mesh<[\22_axis_0\22=2]>}"}, mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  vhlo.func_v1 @main(%arg0: !vhlo.tensor_v1<7x!vhlo.i64_v1>, %arg1: !vhlo.tensor_v1<1x64x1x!vhlo.f32_v1>, %arg2: !vhlo.tensor_v1<3072x1024x!vhlo.bf16_v1>, %arg3: !vhlo.tensor_v1<!vhlo.f32_v1>, %arg4: !vhlo.tensor_v1<1x7x!vhlo.i64_v1>, %arg5: !vhlo.tensor_v1<128256x3072x!vhlo.bf16_v1>, %arg6: !vhlo.tensor_v1<3072x!vhlo.bf16_v1>, %arg7: !vhlo.tensor_v1<!vhlo.i64_v1>, %arg8: !vhlo.tensor_v1<1x8x128x128x!vhlo.bf16_v1>, %arg9: !vhlo.tensor_v1<3072x1024x!vhlo.bf16_v1>, %arg10: !vhlo.tensor_v1<1x8x128x128x!vhlo.bf16_v1>, %arg11: !vhlo.tensor_v1<3072x128256x!vhlo.bf16_v1>, %arg12: !vhlo.tensor_v1<8192x3072x!vhlo.bf16_v1>, %arg13: !vhlo.tensor_v1<3072x8192x!vhlo.bf16_v1>, %arg14: !vhlo.tensor_v1<3072x3072x!vhlo.bf16_v1>, %arg15: !vhlo.tensor_v1<128x!vhlo.i64_v1>, %arg16: !vhlo.tensor_v1<7x128x!vhlo.bf16_v1>, %arg17: !vhlo.tensor_v1<!vhlo.f32_v1>, %arg18: !vhlo.tensor_v1<3072x3072x!vhlo.bf16_v1>, %arg19: !vhlo.tensor_v1<3072x!vhlo.bf16_v1>, %arg20: !vhlo.tensor_v1<3072x8192x!vhlo.bf16_v1>, %arg21: !vhlo.tensor_v1<3072x!vhlo.bf16_v1>) -> (!vhlo.tensor_v1<1x8x128x128x!vhlo.bf16_v1>, !vhlo.tensor_v1<1x8x128x128x!vhlo.bf16_v1>, !vhlo.tensor_v1<7x128256x!vhlo.bf16_v1>, !vhlo.tensor_v1<1x7x128256x!vhlo.bf16_v1>) {
+    %0 = "vhlo.constant_v1"() <{value = #vhlo.tensor_v1<dense<0> : tensor<7xi64>>}> : () -> !vhlo.tensor_v1<7x!vhlo.i64_v1>
+    %1 = "vhlo.constant_v1"() <{value = #vhlo.tensor_v1<dense<0.000000e+00> : tensor<f32>>}> : () -> !vhlo.tensor_v1<!vhlo.f32_v1>
+    %2 = "vhlo.constant_v1"() <{value = #vhlo.tensor_v1<dense<0xFF800000> : tensor<f32>>}> : () -> !vhlo.tensor_v1<!vhlo.f32_v1>
+    %3 = "vhlo.constant_v1"() <{value = #vhlo.tensor_v1<dense<3.25520843E-4> : tensor<1x7xf32>>}> : () -> !vhlo.tensor_v1<1x7x!vhlo.f32_v1>
+    %4 = "vhlo.constant_v1"() <{value = #vhlo.tensor_v1<dense<2.000000e+00> : tensor<f32>>}> : () -> !vhlo.tensor_v1<!vhlo.f32_v1>
+    %5 = "vhlo.broadcast_in_dim_v1"(%4) <{broadcast_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>}> : (!vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %6 = "vhlo.compare_v1"(%arg0, %0) <{compare_type = #vhlo<comparison_type_v1 NOTYPE>, comparison_direction = #vhlo<comparison_direction_v1 LT>}> : (!vhlo.tensor_v1<7x!vhlo.i64_v1>, !vhlo.tensor_v1<7x!vhlo.i64_v1>) -> !vhlo.tensor_v1<7x!vhlo.bool_v1>
+    %7 = "vhlo.broadcast_in_dim_v1"(%arg7) <{broadcast_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>}> : (!vhlo.tensor_v1<!vhlo.i64_v1>) -> !vhlo.tensor_v1<7x!vhlo.i64_v1>
+    %8 = "vhlo.add_v1"(%arg0, %7) : (!vhlo.tensor_v1<7x!vhlo.i64_v1>, !vhlo.tensor_v1<7x!vhlo.i64_v1>) -> !vhlo.tensor_v1<7x!vhlo.i64_v1>
+    %9 = "vhlo.select_v1"(%6, %8, %arg0) : (!vhlo.tensor_v1<7x!vhlo.bool_v1>, !vhlo.tensor_v1<7x!vhlo.i64_v1>, !vhlo.tensor_v1<7x!vhlo.i64_v1>) -> !vhlo.tensor_v1<7x!vhlo.i64_v1>
+    %10 = "vhlo.reshape_v1"(%9) : (!vhlo.tensor_v1<7x!vhlo.i64_v1>) -> !vhlo.tensor_v1<7x1x!vhlo.i64_v1>
+    %11 = "vhlo.convert_v1"(%arg6) : (!vhlo.tensor_v1<3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<3072x!vhlo.f32_v1>
+    %12 = "vhlo.broadcast_in_dim_v1"(%11) <{broadcast_dimensions = #vhlo.tensor_v1<dense<2> : tensor<1xi64>>}> : (!vhlo.tensor_v1<3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %13 = "vhlo.reshape_v1"(%arg4) : (!vhlo.tensor_v1<1x7x!vhlo.i64_v1>) -> !vhlo.tensor_v1<7x!vhlo.i64_v1>
+    %14 = "vhlo.convert_v1"(%13) : (!vhlo.tensor_v1<7x!vhlo.i64_v1>) -> !vhlo.tensor_v1<7x!vhlo.ui32_v1>
+    %15 = "vhlo.gather_v2"(%arg5, %14) <{collapsed_slice_dims = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, index_vector_dim = #vhlo.integer_v1<1 : i64>, indices_are_sorted = #vhlo.bool_v1<false>, offset_dims = #vhlo.tensor_v1<dense<1> : tensor<1xi64>>, operand_batching_dims = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, slice_sizes = #vhlo.tensor_v1<dense<[1, 3072]> : tensor<2xi64>>, start_index_map = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, start_indices_batching_dims = #vhlo.tensor_v1<dense<> : tensor<0xi64>>}> : (!vhlo.tensor_v1<128256x3072x!vhlo.bf16_v1>, !vhlo.tensor_v1<7x!vhlo.ui32_v1>) -> !vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>
+    %16 = "vhlo.reshape_v1"(%15) : (!vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>
+    %17 = "vhlo.convert_v1"(%16) : (!vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %18 = "vhlo.power_v1"(%17, %5) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %19 = "vhlo.reduce_v1"(%18, %1) <{dimensions = #vhlo.tensor_v1<dense<2> : tensor<1xi64>>}> ({
+    ^bb0(%arg22: !vhlo.tensor_v1<!vhlo.f32_v1>, %arg23: !vhlo.tensor_v1<!vhlo.f32_v1>):
+      %180 = "vhlo.add_v1"(%arg22, %arg23) : (!vhlo.tensor_v1<!vhlo.f32_v1>, !vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<!vhlo.f32_v1>
+      "vhlo.return_v1"(%180) : (!vhlo.tensor_v1<!vhlo.f32_v1>) -> ()
+    }) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>, !vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x!vhlo.f32_v1>
+    %20 = "vhlo.multiply_v1"(%19, %3) : (!vhlo.tensor_v1<1x7x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x!vhlo.f32_v1>
+    %21 = "vhlo.reshape_v1"(%20) : (!vhlo.tensor_v1<1x7x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>
+    %22 = "vhlo.broadcast_in_dim_v1"(%arg3) <{broadcast_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>}> : (!vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>
+    %23 = "vhlo.add_v1"(%21, %22) : (!vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>
+    %24 = "vhlo.rsqrt_v2"(%23) <{result_accuracy = #vhlo.result_accuracy_v1<atol = 0.000000e+00, rtol = 0.000000e+00, ulps = 0, mode = #vhlo<result_accuracy_mode_v1 DEFAULT>>}> : (!vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>
+    %25 = "vhlo.reshape_v1"(%24) : (!vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x!vhlo.f32_v1>
+    %26 = "vhlo.broadcast_in_dim_v1"(%25) <{broadcast_dimensions = #vhlo.tensor_v1<dense<[0, 1]> : tensor<2xi64>>}> : (!vhlo.tensor_v1<1x7x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %27 = "vhlo.multiply_v1"(%17, %26) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %28 = "vhlo.convert_v1"(%27) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>
+    %29 = "vhlo.convert_v1"(%28) : (!vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %30 = "vhlo.multiply_v1"(%12, %29) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %31 = "vhlo.convert_v1"(%30) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>
+    %32 = "vhlo.reshape_v1"(%31) : (!vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>
+    %33 = "vhlo.dot_general_v2"(%32, %arg2) <{accumulation_type = #vhlo.type_v1<!vhlo.none_v1>, allow_imprecise_accumulation = #vhlo.type_v1<!vhlo.none_v1>, lhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, lhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, lhs_contracting_dimensions = #vhlo.tensor_v1<dense<1> : tensor<1xi64>>, lhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>, num_primitive_operations = #vhlo.type_v1<!vhlo.none_v1>, precision_config = #vhlo.array_v1<[#vhlo<precision_v1 DEFAULT>, #vhlo<precision_v1 DEFAULT>]>, rhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, rhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, rhs_contracting_dimensions = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, rhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>}> : (!vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>, !vhlo.tensor_v1<3072x1024x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<7x1024x!vhlo.bf16_v1>
+    %34 = "vhlo.reshape_v1"(%33) : (!vhlo.tensor_v1<7x1024x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x8x128x!vhlo.bf16_v1>
+    %35 = "vhlo.transpose_v1"(%34) <{permutation = #vhlo.tensor_v1<dense<[0, 2, 1, 3]> : tensor<4xi64>>}> {result_layout = #vhlo.tensor_v1<dense<[3, 1, 2, 0]> : tensor<4xindex>>, xla_shape = #vhlo.string_v1<"bf16[1,8,7,128]{3,1,2,0}">} : (!vhlo.tensor_v1<1x7x8x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x8x7x128x!vhlo.bf16_v1>
+    %36 = "vhlo.convert_v1"(%35) {result_layout = #vhlo.tensor_v1<dense<[3, 1, 2, 0]> : tensor<4xindex>>, xla_shape = #vhlo.string_v1<"f32[1,8,7,128]{3,1,2,0}">} : (!vhlo.tensor_v1<1x8x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x8x7x128x!vhlo.f32_v1>
+    %37 = "vhlo.reshape_v1"(%arg0) : (!vhlo.tensor_v1<7x!vhlo.i64_v1>) -> !vhlo.tensor_v1<1x1x7x!vhlo.i64_v1>
+    %38 = "vhlo.convert_v1"(%37) : (!vhlo.tensor_v1<1x1x7x!vhlo.i64_v1>) -> !vhlo.tensor_v1<1x1x7x!vhlo.f32_v1>
+    %39 = "vhlo.dot_general_v2"(%arg1, %38) <{accumulation_type = #vhlo.type_v1<!vhlo.none_v1>, allow_imprecise_accumulation = #vhlo.type_v1<!vhlo.none_v1>, lhs_batching_dimensions = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, lhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, lhs_contracting_dimensions = #vhlo.tensor_v1<dense<2> : tensor<1xi64>>, lhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>, num_primitive_operations = #vhlo.type_v1<!vhlo.none_v1>, precision_config = #vhlo.array_v1<[#vhlo<precision_v1 DEFAULT>, #vhlo<precision_v1 DEFAULT>]>, rhs_batching_dimensions = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, rhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, rhs_contracting_dimensions = #vhlo.tensor_v1<dense<1> : tensor<1xi64>>, rhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>}> : (!vhlo.tensor_v1<1x64x1x!vhlo.f32_v1>, !vhlo.tensor_v1<1x1x7x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x64x7x!vhlo.f32_v1>
+    %40 = "vhlo.transpose_v1"(%39) <{permutation = #vhlo.tensor_v1<dense<[0, 2, 1]> : tensor<3xi64>>}> {result_layout = #vhlo.tensor_v1<dense<[1, 2, 0]> : tensor<3xindex>>, xla_shape = #vhlo.string_v1<"f32[1,7,64]{1,2,0}">} : (!vhlo.tensor_v1<1x64x7x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x64x!vhlo.f32_v1>
+    %41 = "vhlo.concatenate_v1"(%40, %40) <{dimension = #vhlo.integer_v1<2 : i64>}> : (!vhlo.tensor_v1<1x7x64x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x64x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x128x!vhlo.f32_v1>
+    %42 = "vhlo.cosine_v2"(%41) <{result_accuracy = #vhlo.result_accuracy_v1<atol = 0.000000e+00, rtol = 0.000000e+00, ulps = 0, mode = #vhlo<result_accuracy_mode_v1 DEFAULT>>}> : (!vhlo.tensor_v1<1x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x128x!vhlo.f32_v1>
+    %43 = "vhlo.convert_v1"(%42) : (!vhlo.tensor_v1<1x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x128x!vhlo.bf16_v1>
+    %44 = "vhlo.reshape_v1"(%43) : (!vhlo.tensor_v1<1x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x1x7x128x!vhlo.bf16_v1>
+    %45 = "vhlo.convert_v1"(%44) : (!vhlo.tensor_v1<1x1x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x1x7x128x!vhlo.f32_v1>
+    %46 = "vhlo.reshape_v1"(%45) : (!vhlo.tensor_v1<1x1x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x128x!vhlo.f32_v1>
+    %47 = "vhlo.broadcast_in_dim_v1"(%46) <{broadcast_dimensions = #vhlo.tensor_v1<dense<[0, 2, 3]> : tensor<3xi64>>}> : (!vhlo.tensor_v1<1x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x8x7x128x!vhlo.f32_v1>
+    %48 = "vhlo.multiply_v1"(%36, %47) : (!vhlo.tensor_v1<1x8x7x128x!vhlo.f32_v1>, !vhlo.tensor_v1<1x8x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x8x7x128x!vhlo.f32_v1>
+    %49 = "vhlo.convert_v1"(%48) : (!vhlo.tensor_v1<1x8x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x8x7x128x!vhlo.bf16_v1>
+    %50 = "vhlo.slice_v1"(%35) <{limit_indices = #vhlo.tensor_v1<dense<[1, 8, 7, 128]> : tensor<4xi64>>, start_indices = #vhlo.tensor_v1<dense<[0, 0, 0, 64]> : tensor<4xi64>>, strides = #vhlo.tensor_v1<dense<1> : tensor<4xi64>>}> : (!vhlo.tensor_v1<1x8x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x8x7x64x!vhlo.bf16_v1>
+    %51 = "vhlo.negate_v1"(%50) : (!vhlo.tensor_v1<1x8x7x64x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x8x7x64x!vhlo.bf16_v1>
+    %52 = "vhlo.slice_v1"(%35) <{limit_indices = #vhlo.tensor_v1<dense<[1, 8, 7, 64]> : tensor<4xi64>>, start_indices = #vhlo.tensor_v1<dense<0> : tensor<4xi64>>, strides = #vhlo.tensor_v1<dense<1> : tensor<4xi64>>}> : (!vhlo.tensor_v1<1x8x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x8x7x64x!vhlo.bf16_v1>
+    %53 = "vhlo.concatenate_v1"(%51, %52) <{dimension = #vhlo.integer_v1<3 : i64>}> : (!vhlo.tensor_v1<1x8x7x64x!vhlo.bf16_v1>, !vhlo.tensor_v1<1x8x7x64x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x8x7x128x!vhlo.bf16_v1>
+    %54 = "vhlo.convert_v1"(%53) : (!vhlo.tensor_v1<1x8x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x8x7x128x!vhlo.f32_v1>
+    %55 = "vhlo.sine_v2"(%41) <{result_accuracy = #vhlo.result_accuracy_v1<atol = 0.000000e+00, rtol = 0.000000e+00, ulps = 0, mode = #vhlo<result_accuracy_mode_v1 DEFAULT>>}> : (!vhlo.tensor_v1<1x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x128x!vhlo.f32_v1>
+    %56 = "vhlo.convert_v1"(%55) : (!vhlo.tensor_v1<1x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x128x!vhlo.bf16_v1>
+    %57 = "vhlo.reshape_v1"(%56) : (!vhlo.tensor_v1<1x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x1x7x128x!vhlo.bf16_v1>
+    %58 = "vhlo.convert_v1"(%57) : (!vhlo.tensor_v1<1x1x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x1x7x128x!vhlo.f32_v1>
+    %59 = "vhlo.reshape_v1"(%58) : (!vhlo.tensor_v1<1x1x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x128x!vhlo.f32_v1>
+    %60 = "vhlo.broadcast_in_dim_v1"(%59) <{broadcast_dimensions = #vhlo.tensor_v1<dense<[0, 2, 3]> : tensor<3xi64>>}> : (!vhlo.tensor_v1<1x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x8x7x128x!vhlo.f32_v1>
+    %61 = "vhlo.multiply_v1"(%54, %60) : (!vhlo.tensor_v1<1x8x7x128x!vhlo.f32_v1>, !vhlo.tensor_v1<1x8x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x8x7x128x!vhlo.f32_v1>
+    %62 = "vhlo.convert_v1"(%61) : (!vhlo.tensor_v1<1x8x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x8x7x128x!vhlo.bf16_v1>
+    %63 = "vhlo.add_v1"(%49, %62) : (!vhlo.tensor_v1<1x8x7x128x!vhlo.bf16_v1>, !vhlo.tensor_v1<1x8x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x8x7x128x!vhlo.bf16_v1>
+    %64 = "vhlo.scatter_v2"(%arg8, %10, %63) <{index_vector_dim = #vhlo.integer_v1<1 : i64>, indices_are_sorted = #vhlo.bool_v1<false>, input_batching_dims = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, inserted_window_dims = #vhlo.tensor_v1<dense<2> : tensor<1xi64>>, scatter_dims_to_operand_dims = #vhlo.tensor_v1<dense<2> : tensor<1xi64>>, scatter_indices_batching_dims = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, unique_indices = #vhlo.bool_v1<false>, update_window_dims = #vhlo.tensor_v1<dense<[0, 1, 3]> : tensor<3xi64>>}> ({
+    ^bb0(%arg22: !vhlo.tensor_v1<!vhlo.bf16_v1>, %arg23: !vhlo.tensor_v1<!vhlo.bf16_v1>):
+      "vhlo.return_v1"(%arg23) : (!vhlo.tensor_v1<!vhlo.bf16_v1>) -> ()
+    }) : (!vhlo.tensor_v1<1x8x128x128x!vhlo.bf16_v1>, !vhlo.tensor_v1<7x1x!vhlo.i64_v1>, !vhlo.tensor_v1<1x8x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x8x128x128x!vhlo.bf16_v1>
+    %65 = "vhlo.custom_call_v1"(%64) <{api_version = #vhlo<api_version_v1 API_VERSION_ORIGINAL>, backend_config = #vhlo.string_v1<"">, call_target_name = #vhlo.string_v1<"Sharding">, called_computations = #vhlo.array_v1<[]>, has_side_effect = #vhlo.bool_v1<false>, operand_layouts = #vhlo.array_v1<[]>, output_operand_aliases = #vhlo.array_v1<[]>, result_layouts = #vhlo.array_v1<[]>}> {mhlo.frontend_attributes = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding_per_value<[<@mesh, [{}, {\22_axis_0\22}, {}, {}]>]>">}>, mhlo.sharding = #vhlo.string_v1<"{devices=[1,2,1,1]<=[2]}">} : (!vhlo.tensor_v1<1x8x128x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x8x128x128x!vhlo.bf16_v1>
+    %66 = "vhlo.dot_general_v2"(%32, %arg9) <{accumulation_type = #vhlo.type_v1<!vhlo.none_v1>, allow_imprecise_accumulation = #vhlo.type_v1<!vhlo.none_v1>, lhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, lhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, lhs_contracting_dimensions = #vhlo.tensor_v1<dense<1> : tensor<1xi64>>, lhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>, num_primitive_operations = #vhlo.type_v1<!vhlo.none_v1>, precision_config = #vhlo.array_v1<[#vhlo<precision_v1 DEFAULT>, #vhlo<precision_v1 DEFAULT>]>, rhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, rhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, rhs_contracting_dimensions = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, rhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>}> : (!vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>, !vhlo.tensor_v1<3072x1024x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<7x1024x!vhlo.bf16_v1>
+    %67 = "vhlo.reshape_v1"(%66) : (!vhlo.tensor_v1<7x1024x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x8x128x!vhlo.bf16_v1>
+    %68 = "vhlo.transpose_v1"(%67) <{permutation = #vhlo.tensor_v1<dense<[0, 2, 1, 3]> : tensor<4xi64>>}> {result_layout = #vhlo.tensor_v1<dense<[3, 1, 2, 0]> : tensor<4xindex>>, xla_shape = #vhlo.string_v1<"bf16[1,8,7,128]{3,1,2,0}">} : (!vhlo.tensor_v1<1x7x8x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x8x7x128x!vhlo.bf16_v1>
+    %69 = "vhlo.scatter_v2"(%arg10, %10, %68) <{index_vector_dim = #vhlo.integer_v1<1 : i64>, indices_are_sorted = #vhlo.bool_v1<false>, input_batching_dims = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, inserted_window_dims = #vhlo.tensor_v1<dense<2> : tensor<1xi64>>, scatter_dims_to_operand_dims = #vhlo.tensor_v1<dense<2> : tensor<1xi64>>, scatter_indices_batching_dims = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, unique_indices = #vhlo.bool_v1<false>, update_window_dims = #vhlo.tensor_v1<dense<[0, 1, 3]> : tensor<3xi64>>}> ({
+    ^bb0(%arg22: !vhlo.tensor_v1<!vhlo.bf16_v1>, %arg23: !vhlo.tensor_v1<!vhlo.bf16_v1>):
+      "vhlo.return_v1"(%arg23) : (!vhlo.tensor_v1<!vhlo.bf16_v1>) -> ()
+    }) : (!vhlo.tensor_v1<1x8x128x128x!vhlo.bf16_v1>, !vhlo.tensor_v1<7x1x!vhlo.i64_v1>, !vhlo.tensor_v1<1x8x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x8x128x128x!vhlo.bf16_v1>
+    %70 = "vhlo.custom_call_v1"(%69) <{api_version = #vhlo<api_version_v1 API_VERSION_ORIGINAL>, backend_config = #vhlo.string_v1<"">, call_target_name = #vhlo.string_v1<"Sharding">, called_computations = #vhlo.array_v1<[]>, has_side_effect = #vhlo.bool_v1<false>, operand_layouts = #vhlo.array_v1<[]>, output_operand_aliases = #vhlo.array_v1<[]>, result_layouts = #vhlo.array_v1<[]>}> {mhlo.frontend_attributes = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding_per_value<[<@mesh, [{}, {\22_axis_0\22}, {}, {}]>]>">}>, mhlo.sharding = #vhlo.string_v1<"{devices=[1,2,1,1]<=[2]}">} : (!vhlo.tensor_v1<1x8x128x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x8x128x128x!vhlo.bf16_v1>
+    %71 = "vhlo.convert_v1"(%arg21) : (!vhlo.tensor_v1<3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<3072x!vhlo.f32_v1>
+    %72 = "vhlo.broadcast_in_dim_v1"(%71) <{broadcast_dimensions = #vhlo.tensor_v1<dense<2> : tensor<1xi64>>}> : (!vhlo.tensor_v1<3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %73 = "vhlo.dot_general_v2"(%32, %arg18) <{accumulation_type = #vhlo.type_v1<!vhlo.none_v1>, allow_imprecise_accumulation = #vhlo.type_v1<!vhlo.none_v1>, lhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, lhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, lhs_contracting_dimensions = #vhlo.tensor_v1<dense<1> : tensor<1xi64>>, lhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>, num_primitive_operations = #vhlo.type_v1<!vhlo.none_v1>, precision_config = #vhlo.array_v1<[#vhlo<precision_v1 DEFAULT>, #vhlo<precision_v1 DEFAULT>]>, rhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, rhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, rhs_contracting_dimensions = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, rhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>}> : (!vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>, !vhlo.tensor_v1<3072x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>
+    %74 = "vhlo.reshape_v1"(%73) : (!vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x24x128x!vhlo.bf16_v1>
+    %75 = "vhlo.transpose_v1"(%74) <{permutation = #vhlo.tensor_v1<dense<[0, 2, 1, 3]> : tensor<4xi64>>}> {result_layout = #vhlo.tensor_v1<dense<[3, 1, 2, 0]> : tensor<4xindex>>, xla_shape = #vhlo.string_v1<"bf16[1,24,7,128]{3,1,2,0}">} : (!vhlo.tensor_v1<1x7x24x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>
+    %76 = "vhlo.convert_v1"(%75) {result_layout = #vhlo.tensor_v1<dense<[3, 1, 2, 0]> : tensor<4xindex>>, xla_shape = #vhlo.string_v1<"f32[1,24,7,128]{3,1,2,0}">} : (!vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>
+    %77 = "vhlo.broadcast_in_dim_v1"(%46) <{broadcast_dimensions = #vhlo.tensor_v1<dense<[0, 2, 3]> : tensor<3xi64>>}> : (!vhlo.tensor_v1<1x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>
+    %78 = "vhlo.multiply_v1"(%76, %77) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>, !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>
+    %79 = "vhlo.convert_v1"(%78) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>
+    %80 = "vhlo.slice_v1"(%75) <{limit_indices = #vhlo.tensor_v1<dense<[1, 24, 7, 128]> : tensor<4xi64>>, start_indices = #vhlo.tensor_v1<dense<[0, 0, 0, 64]> : tensor<4xi64>>, strides = #vhlo.tensor_v1<dense<1> : tensor<4xi64>>}> : (!vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x24x7x64x!vhlo.bf16_v1>
+    %81 = "vhlo.negate_v1"(%80) : (!vhlo.tensor_v1<1x24x7x64x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x24x7x64x!vhlo.bf16_v1>
+    %82 = "vhlo.slice_v1"(%75) <{limit_indices = #vhlo.tensor_v1<dense<[1, 24, 7, 64]> : tensor<4xi64>>, start_indices = #vhlo.tensor_v1<dense<0> : tensor<4xi64>>, strides = #vhlo.tensor_v1<dense<1> : tensor<4xi64>>}> : (!vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x24x7x64x!vhlo.bf16_v1>
+    %83 = "vhlo.concatenate_v1"(%81, %82) <{dimension = #vhlo.integer_v1<3 : i64>}> : (!vhlo.tensor_v1<1x24x7x64x!vhlo.bf16_v1>, !vhlo.tensor_v1<1x24x7x64x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>
+    %84 = "vhlo.convert_v1"(%83) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>
+    %85 = "vhlo.broadcast_in_dim_v1"(%59) <{broadcast_dimensions = #vhlo.tensor_v1<dense<[0, 2, 3]> : tensor<3xi64>>}> : (!vhlo.tensor_v1<1x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>
+    %86 = "vhlo.multiply_v1"(%84, %85) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>, !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>
+    %87 = "vhlo.convert_v1"(%86) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>
+    %88 = "vhlo.add_v1"(%79, %87) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>, !vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>
+    %89 = "vhlo.reshape_v1"(%88) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<24x7x128x!vhlo.bf16_v1>
+    %90 = "vhlo.broadcast_in_dim_v1"(%64) <{broadcast_dimensions = #vhlo.tensor_v1<dense<[0, 1, 3, 4]> : tensor<4xi64>>}> : (!vhlo.tensor_v1<1x8x128x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x8x3x128x128x!vhlo.bf16_v1>
+    %91 = "vhlo.reshape_v1"(%90) : (!vhlo.tensor_v1<1x8x3x128x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x24x128x128x!vhlo.bf16_v1>
+    %92 = "vhlo.transpose_v1"(%91) <{permutation = #vhlo.tensor_v1<dense<[0, 1, 3, 2]> : tensor<4xi64>>}> {result_layout = #vhlo.tensor_v1<dense<[2, 3, 1, 0]> : tensor<4xindex>>, xla_shape = #vhlo.string_v1<"bf16[1,24,128,128]{2,3,1,0}">} : (!vhlo.tensor_v1<1x24x128x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x24x128x128x!vhlo.bf16_v1>
+    %93 = "vhlo.reshape_v1"(%92) : (!vhlo.tensor_v1<1x24x128x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<24x128x128x!vhlo.bf16_v1>
+    %94 = "vhlo.dot_general_v2"(%89, %93) <{accumulation_type = #vhlo.type_v1<!vhlo.none_v1>, allow_imprecise_accumulation = #vhlo.type_v1<!vhlo.none_v1>, lhs_batching_dimensions = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, lhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, lhs_contracting_dimensions = #vhlo.tensor_v1<dense<2> : tensor<1xi64>>, lhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>, num_primitive_operations = #vhlo.type_v1<!vhlo.none_v1>, precision_config = #vhlo.array_v1<[#vhlo<precision_v1 DEFAULT>, #vhlo<precision_v1 DEFAULT>]>, rhs_batching_dimensions = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, rhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, rhs_contracting_dimensions = #vhlo.tensor_v1<dense<1> : tensor<1xi64>>, rhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>}> : (!vhlo.tensor_v1<24x7x128x!vhlo.bf16_v1>, !vhlo.tensor_v1<24x128x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<24x7x128x!vhlo.bf16_v1>
+    %95 = "vhlo.reshape_v1"(%94) : (!vhlo.tensor_v1<24x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>
+    %96 = "vhlo.convert_v1"(%95) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>
+    %97 = "vhlo.broadcast_in_dim_v1"(%arg17) <{broadcast_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>}> : (!vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>
+    %98 = "vhlo.multiply_v1"(%96, %97) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>, !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>
+    %99 = "vhlo.convert_v1"(%98) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>
+    %100 = "vhlo.convert_v1"(%arg16) : (!vhlo.tensor_v1<7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<7x128x!vhlo.f32_v1>
+    %101 = "vhlo.broadcast_in_dim_v1"(%arg15) <{broadcast_dimensions = #vhlo.tensor_v1<dense<1> : tensor<1xi64>>}> : (!vhlo.tensor_v1<128x!vhlo.i64_v1>) -> !vhlo.tensor_v1<7x128x!vhlo.i64_v1>
+    %102 = "vhlo.broadcast_in_dim_v1"(%arg0) <{broadcast_dimensions = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>}> : (!vhlo.tensor_v1<7x!vhlo.i64_v1>) -> !vhlo.tensor_v1<7x128x!vhlo.i64_v1>
+    %103 = "vhlo.compare_v1"(%101, %102) <{compare_type = #vhlo<comparison_type_v1 NOTYPE>, comparison_direction = #vhlo<comparison_direction_v1 GT>}> : (!vhlo.tensor_v1<7x128x!vhlo.i64_v1>, !vhlo.tensor_v1<7x128x!vhlo.i64_v1>) -> !vhlo.tensor_v1<7x128x!vhlo.bool_v1>
+    %104 = "vhlo.convert_v1"(%103) : (!vhlo.tensor_v1<7x128x!vhlo.bool_v1>) -> !vhlo.tensor_v1<7x128x!vhlo.f32_v1>
+    %105 = "vhlo.multiply_v1"(%100, %104) : (!vhlo.tensor_v1<7x128x!vhlo.f32_v1>, !vhlo.tensor_v1<7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<7x128x!vhlo.f32_v1>
+    %106 = "vhlo.convert_v1"(%105) : (!vhlo.tensor_v1<7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<7x128x!vhlo.bf16_v1>
+    %107 = "vhlo.reshape_v1"(%106) : (!vhlo.tensor_v1<7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x128x!vhlo.bf16_v1>
+    %108 = "vhlo.broadcast_in_dim_v1"(%107) <{broadcast_dimensions = #vhlo.tensor_v1<dense<[0, 2, 3]> : tensor<3xi64>>}> : (!vhlo.tensor_v1<1x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>
+    %109 = "vhlo.add_v1"(%99, %108) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>, !vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>
+    %110 = "vhlo.convert_v1"(%109) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>
+    %111 = "vhlo.reduce_v1"(%110, %2) <{dimensions = #vhlo.tensor_v1<dense<3> : tensor<1xi64>>}> ({
+    ^bb0(%arg22: !vhlo.tensor_v1<!vhlo.f32_v1>, %arg23: !vhlo.tensor_v1<!vhlo.f32_v1>):
+      %180 = "vhlo.maximum_v1"(%arg22, %arg23) : (!vhlo.tensor_v1<!vhlo.f32_v1>, !vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<!vhlo.f32_v1>
+      "vhlo.return_v1"(%180) : (!vhlo.tensor_v1<!vhlo.f32_v1>) -> ()
+    }) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>, !vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x!vhlo.f32_v1>
+    %112 = "vhlo.broadcast_in_dim_v1"(%111) <{broadcast_dimensions = #vhlo.tensor_v1<dense<[0, 1, 2]> : tensor<3xi64>>}> : (!vhlo.tensor_v1<1x24x7x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>
+    %113 = "vhlo.subtract_v1"(%110, %112) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>, !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>
+    %114 = "vhlo.exponential_v2"(%113) <{result_accuracy = #vhlo.result_accuracy_v1<atol = 0.000000e+00, rtol = 0.000000e+00, ulps = 0, mode = #vhlo<result_accuracy_mode_v1 DEFAULT>>}> : (!vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>
+    %115 = "vhlo.reduce_v1"(%114, %1) <{dimensions = #vhlo.tensor_v1<dense<3> : tensor<1xi64>>}> ({
+    ^bb0(%arg22: !vhlo.tensor_v1<!vhlo.f32_v1>, %arg23: !vhlo.tensor_v1<!vhlo.f32_v1>):
+      %180 = "vhlo.add_v1"(%arg22, %arg23) : (!vhlo.tensor_v1<!vhlo.f32_v1>, !vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<!vhlo.f32_v1>
+      "vhlo.return_v1"(%180) : (!vhlo.tensor_v1<!vhlo.f32_v1>) -> ()
+    }) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>, !vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x!vhlo.f32_v1>
+    %116 = "vhlo.broadcast_in_dim_v1"(%115) <{broadcast_dimensions = #vhlo.tensor_v1<dense<[0, 1, 2]> : tensor<3xi64>>}> : (!vhlo.tensor_v1<1x24x7x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>
+    %117 = "vhlo.divide_v1"(%114, %116) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>, !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>
+    %118 = "vhlo.convert_v1"(%117) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>
+    %119 = "vhlo.reshape_v1"(%118) : (!vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<24x7x128x!vhlo.bf16_v1>
+    %120 = "vhlo.broadcast_in_dim_v1"(%69) <{broadcast_dimensions = #vhlo.tensor_v1<dense<[0, 1, 3, 4]> : tensor<4xi64>>}> : (!vhlo.tensor_v1<1x8x128x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x8x3x128x128x!vhlo.bf16_v1>
+    %121 = "vhlo.reshape_v1"(%120) : (!vhlo.tensor_v1<1x8x3x128x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<24x128x128x!vhlo.bf16_v1>
+    %122 = "vhlo.dot_general_v2"(%119, %121) <{accumulation_type = #vhlo.type_v1<!vhlo.none_v1>, allow_imprecise_accumulation = #vhlo.type_v1<!vhlo.none_v1>, lhs_batching_dimensions = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, lhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, lhs_contracting_dimensions = #vhlo.tensor_v1<dense<2> : tensor<1xi64>>, lhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>, num_primitive_operations = #vhlo.type_v1<!vhlo.none_v1>, precision_config = #vhlo.array_v1<[#vhlo<precision_v1 DEFAULT>, #vhlo<precision_v1 DEFAULT>]>, rhs_batching_dimensions = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, rhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, rhs_contracting_dimensions = #vhlo.tensor_v1<dense<1> : tensor<1xi64>>, rhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>}> : (!vhlo.tensor_v1<24x7x128x!vhlo.bf16_v1>, !vhlo.tensor_v1<24x128x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<24x7x128x!vhlo.bf16_v1>
+    %123 = "vhlo.reshape_v1"(%122) : (!vhlo.tensor_v1<24x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>
+    %124 = "vhlo.transpose_v1"(%123) <{permutation = #vhlo.tensor_v1<dense<[0, 2, 1, 3]> : tensor<4xi64>>}> {result_layout = #vhlo.tensor_v1<dense<[3, 1, 2, 0]> : tensor<4xindex>>, xla_shape = #vhlo.string_v1<"bf16[1,7,24,128]{3,1,2,0}">} : (!vhlo.tensor_v1<1x24x7x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x24x128x!vhlo.bf16_v1>
+    %125 = "vhlo.reshape_v1"(%124) : (!vhlo.tensor_v1<1x7x24x128x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>
+    %126 = "vhlo.dot_general_v2"(%125, %arg14) <{accumulation_type = #vhlo.type_v1<!vhlo.none_v1>, allow_imprecise_accumulation = #vhlo.type_v1<!vhlo.none_v1>, lhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, lhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, lhs_contracting_dimensions = #vhlo.tensor_v1<dense<1> : tensor<1xi64>>, lhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>, num_primitive_operations = #vhlo.type_v1<!vhlo.none_v1>, precision_config = #vhlo.array_v1<[#vhlo<precision_v1 DEFAULT>, #vhlo<precision_v1 DEFAULT>]>, rhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, rhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, rhs_contracting_dimensions = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, rhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>}> : (!vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>, !vhlo.tensor_v1<3072x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>
+    %127 = "vhlo.reshape_v1"(%126) : (!vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>
+    %128 = "vhlo.add_v1"(%16, %127) : (!vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>, !vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>
+    %129 = "vhlo.convert_v1"(%arg19) : (!vhlo.tensor_v1<3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<3072x!vhlo.f32_v1>
+    %130 = "vhlo.broadcast_in_dim_v1"(%129) <{broadcast_dimensions = #vhlo.tensor_v1<dense<2> : tensor<1xi64>>}> : (!vhlo.tensor_v1<3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %131 = "vhlo.convert_v1"(%128) : (!vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %132 = "vhlo.power_v1"(%131, %5) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %133 = "vhlo.reduce_v1"(%132, %1) <{dimensions = #vhlo.tensor_v1<dense<2> : tensor<1xi64>>}> ({
+    ^bb0(%arg22: !vhlo.tensor_v1<!vhlo.f32_v1>, %arg23: !vhlo.tensor_v1<!vhlo.f32_v1>):
+      %180 = "vhlo.add_v1"(%arg22, %arg23) : (!vhlo.tensor_v1<!vhlo.f32_v1>, !vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<!vhlo.f32_v1>
+      "vhlo.return_v1"(%180) : (!vhlo.tensor_v1<!vhlo.f32_v1>) -> ()
+    }) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>, !vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x!vhlo.f32_v1>
+    %134 = "vhlo.multiply_v1"(%133, %3) : (!vhlo.tensor_v1<1x7x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x!vhlo.f32_v1>
+    %135 = "vhlo.reshape_v1"(%134) : (!vhlo.tensor_v1<1x7x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>
+    %136 = "vhlo.add_v1"(%135, %22) : (!vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>
+    %137 = "vhlo.rsqrt_v2"(%136) <{result_accuracy = #vhlo.result_accuracy_v1<atol = 0.000000e+00, rtol = 0.000000e+00, ulps = 0, mode = #vhlo<result_accuracy_mode_v1 DEFAULT>>}> : (!vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>
+    %138 = "vhlo.reshape_v1"(%137) : (!vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x!vhlo.f32_v1>
+    %139 = "vhlo.broadcast_in_dim_v1"(%138) <{broadcast_dimensions = #vhlo.tensor_v1<dense<[0, 1]> : tensor<2xi64>>}> : (!vhlo.tensor_v1<1x7x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %140 = "vhlo.multiply_v1"(%131, %139) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %141 = "vhlo.convert_v1"(%140) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>
+    %142 = "vhlo.convert_v1"(%141) : (!vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %143 = "vhlo.multiply_v1"(%130, %142) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %144 = "vhlo.convert_v1"(%143) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>
+    %145 = "vhlo.reshape_v1"(%144) : (!vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>
+    %146 = "vhlo.dot_general_v2"(%145, %arg20) <{accumulation_type = #vhlo.type_v1<!vhlo.none_v1>, allow_imprecise_accumulation = #vhlo.type_v1<!vhlo.none_v1>, lhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, lhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, lhs_contracting_dimensions = #vhlo.tensor_v1<dense<1> : tensor<1xi64>>, lhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>, num_primitive_operations = #vhlo.type_v1<!vhlo.none_v1>, precision_config = #vhlo.array_v1<[#vhlo<precision_v1 DEFAULT>, #vhlo<precision_v1 DEFAULT>]>, rhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, rhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, rhs_contracting_dimensions = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, rhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>}> : (!vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>, !vhlo.tensor_v1<3072x8192x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<7x8192x!vhlo.bf16_v1>
+    %147 = "vhlo.reshape_v1"(%146) : (!vhlo.tensor_v1<7x8192x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x8192x!vhlo.bf16_v1>
+    %148 = "vhlo.convert_v1"(%147) : (!vhlo.tensor_v1<1x7x8192x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x8192x!vhlo.f32_v1>
+    %149 = "vhlo.logistic_v2"(%147) <{result_accuracy = #vhlo.result_accuracy_v1<atol = 0.000000e+00, rtol = 0.000000e+00, ulps = 0, mode = #vhlo<result_accuracy_mode_v1 DEFAULT>>}> : (!vhlo.tensor_v1<1x7x8192x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x8192x!vhlo.bf16_v1>
+    %150 = "vhlo.convert_v1"(%149) : (!vhlo.tensor_v1<1x7x8192x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x8192x!vhlo.f32_v1>
+    %151 = "vhlo.multiply_v1"(%148, %150) : (!vhlo.tensor_v1<1x7x8192x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x8192x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x8192x!vhlo.f32_v1>
+    %152 = "vhlo.convert_v1"(%151) : (!vhlo.tensor_v1<1x7x8192x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x8192x!vhlo.bf16_v1>
+    %153 = "vhlo.convert_v1"(%152) : (!vhlo.tensor_v1<1x7x8192x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x8192x!vhlo.f32_v1>
+    %154 = "vhlo.dot_general_v2"(%145, %arg13) <{accumulation_type = #vhlo.type_v1<!vhlo.none_v1>, allow_imprecise_accumulation = #vhlo.type_v1<!vhlo.none_v1>, lhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, lhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, lhs_contracting_dimensions = #vhlo.tensor_v1<dense<1> : tensor<1xi64>>, lhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>, num_primitive_operations = #vhlo.type_v1<!vhlo.none_v1>, precision_config = #vhlo.array_v1<[#vhlo<precision_v1 DEFAULT>, #vhlo<precision_v1 DEFAULT>]>, rhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, rhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, rhs_contracting_dimensions = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, rhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>}> : (!vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>, !vhlo.tensor_v1<3072x8192x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<7x8192x!vhlo.bf16_v1>
+    %155 = "vhlo.reshape_v1"(%154) : (!vhlo.tensor_v1<7x8192x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x8192x!vhlo.bf16_v1>
+    %156 = "vhlo.convert_v1"(%155) : (!vhlo.tensor_v1<1x7x8192x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x8192x!vhlo.f32_v1>
+    %157 = "vhlo.multiply_v1"(%153, %156) : (!vhlo.tensor_v1<1x7x8192x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x8192x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x8192x!vhlo.f32_v1>
+    %158 = "vhlo.convert_v1"(%157) : (!vhlo.tensor_v1<1x7x8192x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x8192x!vhlo.bf16_v1>
+    %159 = "vhlo.reshape_v1"(%158) : (!vhlo.tensor_v1<1x7x8192x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<7x8192x!vhlo.bf16_v1>
+    %160 = "vhlo.dot_general_v2"(%159, %arg12) <{accumulation_type = #vhlo.type_v1<!vhlo.none_v1>, allow_imprecise_accumulation = #vhlo.type_v1<!vhlo.none_v1>, lhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, lhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, lhs_contracting_dimensions = #vhlo.tensor_v1<dense<1> : tensor<1xi64>>, lhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>, num_primitive_operations = #vhlo.type_v1<!vhlo.none_v1>, precision_config = #vhlo.array_v1<[#vhlo<precision_v1 DEFAULT>, #vhlo<precision_v1 DEFAULT>]>, rhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, rhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, rhs_contracting_dimensions = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, rhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>}> : (!vhlo.tensor_v1<7x8192x!vhlo.bf16_v1>, !vhlo.tensor_v1<8192x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>
+    %161 = "vhlo.reshape_v1"(%160) : (!vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>
+    %162 = "vhlo.add_v1"(%128, %161) : (!vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>, !vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>
+    %163 = "vhlo.convert_v1"(%162) : (!vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %164 = "vhlo.power_v1"(%163, %5) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %165 = "vhlo.reduce_v1"(%164, %1) <{dimensions = #vhlo.tensor_v1<dense<2> : tensor<1xi64>>}> ({
+    ^bb0(%arg22: !vhlo.tensor_v1<!vhlo.f32_v1>, %arg23: !vhlo.tensor_v1<!vhlo.f32_v1>):
+      %180 = "vhlo.add_v1"(%arg22, %arg23) : (!vhlo.tensor_v1<!vhlo.f32_v1>, !vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<!vhlo.f32_v1>
+      "vhlo.return_v1"(%180) : (!vhlo.tensor_v1<!vhlo.f32_v1>) -> ()
+    }) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>, !vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x!vhlo.f32_v1>
+    %166 = "vhlo.multiply_v1"(%165, %3) : (!vhlo.tensor_v1<1x7x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x!vhlo.f32_v1>
+    %167 = "vhlo.reshape_v1"(%166) : (!vhlo.tensor_v1<1x7x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>
+    %168 = "vhlo.add_v1"(%167, %22) : (!vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>
+    %169 = "vhlo.rsqrt_v2"(%168) <{result_accuracy = #vhlo.result_accuracy_v1<atol = 0.000000e+00, rtol = 0.000000e+00, ulps = 0, mode = #vhlo<result_accuracy_mode_v1 DEFAULT>>}> : (!vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>
+    %170 = "vhlo.reshape_v1"(%169) : (!vhlo.tensor_v1<1x7x1x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x!vhlo.f32_v1>
+    %171 = "vhlo.broadcast_in_dim_v1"(%170) <{broadcast_dimensions = #vhlo.tensor_v1<dense<[0, 1]> : tensor<2xi64>>}> : (!vhlo.tensor_v1<1x7x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %172 = "vhlo.multiply_v1"(%163, %171) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %173 = "vhlo.convert_v1"(%172) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>
+    %174 = "vhlo.convert_v1"(%173) : (!vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %175 = "vhlo.multiply_v1"(%72, %174) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>, !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>
+    %176 = "vhlo.convert_v1"(%175) : (!vhlo.tensor_v1<1x7x3072x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>
+    %177 = "vhlo.reshape_v1"(%176) : (!vhlo.tensor_v1<1x7x3072x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>
+    %178 = "vhlo.dot_general_v2"(%177, %arg11) <{accumulation_type = #vhlo.type_v1<!vhlo.none_v1>, allow_imprecise_accumulation = #vhlo.type_v1<!vhlo.none_v1>, lhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, lhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, lhs_contracting_dimensions = #vhlo.tensor_v1<dense<1> : tensor<1xi64>>, lhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>, num_primitive_operations = #vhlo.type_v1<!vhlo.none_v1>, precision_config = #vhlo.array_v1<[#vhlo<precision_v1 DEFAULT>, #vhlo<precision_v1 DEFAULT>]>, rhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, rhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, rhs_contracting_dimensions = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, rhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>}> : (!vhlo.tensor_v1<7x3072x!vhlo.bf16_v1>, !vhlo.tensor_v1<3072x128256x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<7x128256x!vhlo.bf16_v1>
+    %179 = "vhlo.reshape_v1"(%178) : (!vhlo.tensor_v1<7x128256x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x7x128256x!vhlo.bf16_v1>
+    "vhlo.return_v1"(%65, %70, %178, %179) : (!vhlo.tensor_v1<1x8x128x128x!vhlo.bf16_v1>, !vhlo.tensor_v1<1x8x128x128x!vhlo.bf16_v1>, !vhlo.tensor_v1<7x128256x!vhlo.bf16_v1>, !vhlo.tensor_v1<1x7x128256x!vhlo.bf16_v1>) -> ()
+  } {arg_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}, {}, {}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}, {}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, []>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}, {}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{\22_axis_0\22}, {}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{devices=[2,1]<=[2]}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, []>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}, {\22_axis_0\22}, {}, {}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{devices=[1,2,1,1]<=[2]}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}, {}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}, {\22_axis_0\22}, {}, {}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{devices=[1,2,1,1]<=[2]}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}, {}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}, {}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}, {}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}, {}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}, {}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, []>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}, {}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}, {}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>]>, res_attrs = #vhlo.array_v1<[]>, sym_visibility = #vhlo.string_v1<"">}
+}
+module @SyncTensorsGraph.362 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  sdy.mesh @mesh = <["_axis_0"=2]>
+  func.func @main(%arg0: tensor<7xi64> {sdy.sharding = #sdy.sharding<@mesh, [{}]>}, %arg1: tensor<1x64x1xf32> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}, {}]>}, %arg2: tensor<3072x1024xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}]>}, %arg3: tensor<f32> {sdy.sharding = #sdy.sharding<@mesh, []>}, %arg4: tensor<1x7xi64> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}]>}, %arg5: tensor<128256x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{"_axis_0"}, {}]>}, %arg6: tensor<3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}]>}, %arg7: tensor<i64> {sdy.sharding = #sdy.sharding<@mesh, []>}, %arg8: tensor<1x8x128x128xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {"_axis_0"}, {}, {}]>}, %arg9: tensor<3072x1024xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}]>}, %arg10: tensor<1x8x128x128xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {"_axis_0"}, {}, {}]>}, %arg11: tensor<3072x128256xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}]>}, %arg12: tensor<8192x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}]>}, %arg13: tensor<3072x8192xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}]>}, %arg14: tensor<3072x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}]>}, %arg15: tensor<128xi64> {sdy.sharding = #sdy.sharding<@mesh, [{}]>}, %arg16: tensor<7x128xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}]>}, %arg17: tensor<f32> {sdy.sharding = #sdy.sharding<@mesh, []>}, %arg18: tensor<3072x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}]>}, %arg19: tensor<3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}]>}, %arg20: tensor<3072x8192xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}]>}, %arg21: tensor<3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}]>}) -> (tensor<1x8x128x128xbf16>, tensor<1x8x128x128xbf16>, tensor<7x128256xbf16>, tensor<1x7x128256xbf16>) {
+    %c = stablehlo.constant dense<0> : tensor<7xi64>
+    %cst = stablehlo.constant dense<0.000000e+00> : tensor<f32>
+    %cst_0 = stablehlo.constant dense<0xFF800000> : tensor<f32>
+    %cst_1 = stablehlo.constant dense<3.25520843E-4> : tensor<1x7xf32>
+    %cst_2 = stablehlo.constant dense<2.000000e+00> : tensor<f32>
+    %0 = stablehlo.broadcast_in_dim %cst_2, dims = [] : (tensor<f32>) -> tensor<1x7x3072xf32>
+    %1 = stablehlo.compare  LT, %arg0, %c : (tensor<7xi64>, tensor<7xi64>) -> tensor<7xi1>
+    %2 = stablehlo.broadcast_in_dim %arg7, dims = [] : (tensor<i64>) -> tensor<7xi64>
+    %3 = stablehlo.add %arg0, %2 : tensor<7xi64>
+    %4 = stablehlo.select %1, %3, %arg0 : tensor<7xi1>, tensor<7xi64>
+    %5 = stablehlo.reshape %4 : (tensor<7xi64>) -> tensor<7x1xi64>
+    %6 = stablehlo.convert %arg6 : (tensor<3072xbf16>) -> tensor<3072xf32>
+    %7 = stablehlo.broadcast_in_dim %6, dims = [2] : (tensor<3072xf32>) -> tensor<1x7x3072xf32>
+    %8 = stablehlo.convert %arg4 : (tensor<1x7xi64>) -> tensor<1x7xui32>
+    %9 = stablehlo.reshape %8 : (tensor<1x7xui32>) -> tensor<7xui32>
+    %10 = "stablehlo.gather"(%arg5, %9) <{dimension_numbers = #stablehlo.gather<offset_dims = [1], collapsed_slice_dims = [0], start_index_map = [0], index_vector_dim = 1>, slice_sizes = array<i64: 1, 3072>}> : (tensor<128256x3072xbf16>, tensor<7xui32>) -> tensor<7x3072xbf16>
+    %11 = stablehlo.reshape %10 : (tensor<7x3072xbf16>) -> tensor<1x7x3072xbf16>
+    %12 = stablehlo.convert %11 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+    %13 = stablehlo.power %12, %0 : tensor<1x7x3072xf32>
+    %14 = stablehlo.reduce(%13 init: %cst) applies stablehlo.add across dimensions = [2] : (tensor<1x7x3072xf32>, tensor<f32>) -> tensor<1x7xf32>
+    %15 = stablehlo.multiply %14, %cst_1 : tensor<1x7xf32>
+    %16 = stablehlo.reshape %15 : (tensor<1x7xf32>) -> tensor<1x7x1xf32>
+    %17 = stablehlo.broadcast_in_dim %arg3, dims = [] : (tensor<f32>) -> tensor<1x7x1xf32>
+    %18 = stablehlo.add %16, %17 : tensor<1x7x1xf32>
+    %19 = stablehlo.rsqrt %18 : tensor<1x7x1xf32>
+    %20 = stablehlo.reshape %19 : (tensor<1x7x1xf32>) -> tensor<1x7xf32>
+    %21 = stablehlo.broadcast_in_dim %20, dims = [0, 1] : (tensor<1x7xf32>) -> tensor<1x7x3072xf32>
+    %22 = stablehlo.multiply %12, %21 : tensor<1x7x3072xf32>
+    %23 = stablehlo.convert %22 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+    %24 = stablehlo.convert %23 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+    %25 = stablehlo.multiply %7, %24 : tensor<1x7x3072xf32>
+    %26 = stablehlo.convert %25 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+    %27 = stablehlo.reshape %26 : (tensor<1x7x3072xbf16>) -> tensor<7x3072xbf16>
+    %28 = stablehlo.dot_general %27, %arg2, contracting_dims = [1] x [0] : (tensor<7x3072xbf16>, tensor<3072x1024xbf16>) -> tensor<7x1024xbf16>
+    %29 = stablehlo.reshape %28 : (tensor<7x1024xbf16>) -> tensor<1x7x8x128xbf16>
+    %30 = stablehlo.transpose %29, dims = [0, 2, 1, 3] {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, xla_shape = "bf16[1,8,7,128]{3,1,2,0}"} : (tensor<1x7x8x128xbf16>) -> tensor<1x8x7x128xbf16>
+    %31 = stablehlo.convert %30 {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, xla_shape = "f32[1,8,7,128]{3,1,2,0}"} : (tensor<1x8x7x128xbf16>) -> tensor<1x8x7x128xf32>
+    %32 = stablehlo.convert %arg0 : (tensor<7xi64>) -> tensor<7xf32>
+    %33 = stablehlo.reshape %32 : (tensor<7xf32>) -> tensor<1x1x7xf32>
+    %34 = stablehlo.dot_general %arg1, %33, batching_dims = [0] x [0], contracting_dims = [2] x [1] : (tensor<1x64x1xf32>, tensor<1x1x7xf32>) -> tensor<1x64x7xf32>
+    %35 = stablehlo.transpose %34, dims = [0, 2, 1] {result_layout = dense<[1, 2, 0]> : tensor<3xindex>, xla_shape = "f32[1,7,64]{1,2,0}"} : (tensor<1x64x7xf32>) -> tensor<1x7x64xf32>
+    %36 = stablehlo.concatenate %35, %35, dim = 2 : (tensor<1x7x64xf32>, tensor<1x7x64xf32>) -> tensor<1x7x128xf32>
+    %37 = stablehlo.cosine %36 : tensor<1x7x128xf32>
+    %38 = stablehlo.convert %37 : (tensor<1x7x128xf32>) -> tensor<1x7x128xbf16>
+    %39 = stablehlo.convert %38 : (tensor<1x7x128xbf16>) -> tensor<1x7x128xf32>
+    %40 = stablehlo.broadcast_in_dim %39, dims = [0, 2, 3] : (tensor<1x7x128xf32>) -> tensor<1x8x7x128xf32>
+    %41 = stablehlo.multiply %31, %40 : tensor<1x8x7x128xf32>
+    %42 = stablehlo.convert %41 : (tensor<1x8x7x128xf32>) -> tensor<1x8x7x128xbf16>
+    %43 = stablehlo.slice %30 [0:1, 0:8, 0:7, 64:128] : (tensor<1x8x7x128xbf16>) -> tensor<1x8x7x64xbf16>
+    %44 = stablehlo.negate %43 : tensor<1x8x7x64xbf16>
+    %45 = stablehlo.slice %30 [0:1, 0:8, 0:7, 0:64] : (tensor<1x8x7x128xbf16>) -> tensor<1x8x7x64xbf16>
+    %46 = stablehlo.concatenate %44, %45, dim = 3 : (tensor<1x8x7x64xbf16>, tensor<1x8x7x64xbf16>) -> tensor<1x8x7x128xbf16>
+    %47 = stablehlo.convert %46 : (tensor<1x8x7x128xbf16>) -> tensor<1x8x7x128xf32>
+    %48 = stablehlo.sine %36 : tensor<1x7x128xf32>
+    %49 = stablehlo.convert %48 : (tensor<1x7x128xf32>) -> tensor<1x7x128xbf16>
+    %50 = stablehlo.convert %49 : (tensor<1x7x128xbf16>) -> tensor<1x7x128xf32>
+    %51 = stablehlo.broadcast_in_dim %50, dims = [0, 2, 3] : (tensor<1x7x128xf32>) -> tensor<1x8x7x128xf32>
+    %52 = stablehlo.multiply %47, %51 : tensor<1x8x7x128xf32>
+    %53 = stablehlo.convert %52 : (tensor<1x8x7x128xf32>) -> tensor<1x8x7x128xbf16>
+    %54 = stablehlo.add %42, %53 : tensor<1x8x7x128xbf16>
+    %55 = "stablehlo.scatter"(%arg8, %5, %54) <{scatter_dimension_numbers = #stablehlo.scatter<update_window_dims = [0, 1, 3], inserted_window_dims = [2], scatter_dims_to_operand_dims = [2], index_vector_dim = 1>}> ({
+    ^bb0(%arg22: tensor<bf16>, %arg23: tensor<bf16>):
+      stablehlo.return %arg23 : tensor<bf16>
+    }) : (tensor<1x8x128x128xbf16>, tensor<7x1xi64>, tensor<1x8x7x128xbf16>) -> tensor<1x8x128x128xbf16>
+    %56 = sdy.sharding_constraint %55 <@mesh, [{}, {"_axis_0"}, {}, {}]> : tensor<1x8x128x128xbf16>
+    %57 = stablehlo.dot_general %27, %arg9, contracting_dims = [1] x [0] : (tensor<7x3072xbf16>, tensor<3072x1024xbf16>) -> tensor<7x1024xbf16>
+    %58 = stablehlo.reshape %57 : (tensor<7x1024xbf16>) -> tensor<1x7x8x128xbf16>
+    %59 = stablehlo.transpose %58, dims = [0, 2, 1, 3] {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, xla_shape = "bf16[1,8,7,128]{3,1,2,0}"} : (tensor<1x7x8x128xbf16>) -> tensor<1x8x7x128xbf16>
+    %60 = "stablehlo.scatter"(%arg10, %5, %59) <{scatter_dimension_numbers = #stablehlo.scatter<update_window_dims = [0, 1, 3], inserted_window_dims = [2], scatter_dims_to_operand_dims = [2], index_vector_dim = 1>}> ({
+    ^bb0(%arg22: tensor<bf16>, %arg23: tensor<bf16>):
+      stablehlo.return %arg23 : tensor<bf16>
+    }) : (tensor<1x8x128x128xbf16>, tensor<7x1xi64>, tensor<1x8x7x128xbf16>) -> tensor<1x8x128x128xbf16>
+    %61 = sdy.sharding_constraint %60 <@mesh, [{}, {"_axis_0"}, {}, {}]> : tensor<1x8x128x128xbf16>
+    %62 = stablehlo.convert %arg21 : (tensor<3072xbf16>) -> tensor<3072xf32>
+    %63 = stablehlo.broadcast_in_dim %62, dims = [2] : (tensor<3072xf32>) -> tensor<1x7x3072xf32>
+    %64 = stablehlo.dot_general %27, %arg18, contracting_dims = [1] x [0] : (tensor<7x3072xbf16>, tensor<3072x3072xbf16>) -> tensor<7x3072xbf16>
+    %65 = stablehlo.reshape %64 : (tensor<7x3072xbf16>) -> tensor<1x7x24x128xbf16>
+    %66 = stablehlo.transpose %65, dims = [0, 2, 1, 3] {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, xla_shape = "bf16[1,24,7,128]{3,1,2,0}"} : (tensor<1x7x24x128xbf16>) -> tensor<1x24x7x128xbf16>
+    %67 = stablehlo.convert %66 {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, xla_shape = "f32[1,24,7,128]{3,1,2,0}"} : (tensor<1x24x7x128xbf16>) -> tensor<1x24x7x128xf32>
+    %68 = stablehlo.broadcast_in_dim %39, dims = [0, 2, 3] : (tensor<1x7x128xf32>) -> tensor<1x24x7x128xf32>
+    %69 = stablehlo.multiply %67, %68 : tensor<1x24x7x128xf32>
+    %70 = stablehlo.convert %69 : (tensor<1x24x7x128xf32>) -> tensor<1x24x7x128xbf16>
+    %71 = stablehlo.slice %66 [0:1, 0:24, 0:7, 64:128] : (tensor<1x24x7x128xbf16>) -> tensor<1x24x7x64xbf16>
+    %72 = stablehlo.negate %71 : tensor<1x24x7x64xbf16>
+    %73 = stablehlo.slice %66 [0:1, 0:24, 0:7, 0:64] : (tensor<1x24x7x128xbf16>) -> tensor<1x24x7x64xbf16>
+    %74 = stablehlo.concatenate %72, %73, dim = 3 : (tensor<1x24x7x64xbf16>, tensor<1x24x7x64xbf16>) -> tensor<1x24x7x128xbf16>
+    %75 = stablehlo.convert %74 : (tensor<1x24x7x128xbf16>) -> tensor<1x24x7x128xf32>
+    %76 = stablehlo.broadcast_in_dim %50, dims = [0, 2, 3] : (tensor<1x7x128xf32>) -> tensor<1x24x7x128xf32>
+    %77 = stablehlo.multiply %75, %76 : tensor<1x24x7x128xf32>
+    %78 = stablehlo.convert %77 : (tensor<1x24x7x128xf32>) -> tensor<1x24x7x128xbf16>
+    %79 = stablehlo.add %70, %78 : tensor<1x24x7x128xbf16>
+    %80 = stablehlo.reshape %79 : (tensor<1x24x7x128xbf16>) -> tensor<24x7x128xbf16>
+    %81 = stablehlo.broadcast_in_dim %55, dims = [0, 1, 3, 4] : (tensor<1x8x128x128xbf16>) -> tensor<1x8x3x128x128xbf16>
+    %82 = stablehlo.reshape %81 : (tensor<1x8x3x128x128xbf16>) -> tensor<1x24x128x128xbf16>
+    %83 = stablehlo.transpose %82, dims = [0, 1, 3, 2] {result_layout = dense<[2, 3, 1, 0]> : tensor<4xindex>, xla_shape = "bf16[1,24,128,128]{2,3,1,0}"} : (tensor<1x24x128x128xbf16>) -> tensor<1x24x128x128xbf16>
+    %84 = stablehlo.reshape %83 : (tensor<1x24x128x128xbf16>) -> tensor<24x128x128xbf16>
+    %85 = stablehlo.dot_general %80, %84, batching_dims = [0] x [0], contracting_dims = [2] x [1] : (tensor<24x7x128xbf16>, tensor<24x128x128xbf16>) -> tensor<24x7x128xbf16>
+    %86 = stablehlo.convert %85 : (tensor<24x7x128xbf16>) -> tensor<24x7x128xf32>
+    %87 = stablehlo.reshape %86 : (tensor<24x7x128xf32>) -> tensor<1x24x7x128xf32>
+    %88 = stablehlo.broadcast_in_dim %arg17, dims = [] : (tensor<f32>) -> tensor<1x24x7x128xf32>
+    %89 = stablehlo.multiply %87, %88 : tensor<1x24x7x128xf32>
+    %90 = stablehlo.convert %89 : (tensor<1x24x7x128xf32>) -> tensor<1x24x7x128xbf16>
+    %91 = stablehlo.convert %arg16 : (tensor<7x128xbf16>) -> tensor<7x128xf32>
+    %92 = stablehlo.broadcast_in_dim %arg15, dims = [1] : (tensor<128xi64>) -> tensor<7x128xi64>
+    %93 = stablehlo.broadcast_in_dim %arg0, dims = [0] : (tensor<7xi64>) -> tensor<7x128xi64>
+    %94 = stablehlo.compare  GT, %92, %93 : (tensor<7x128xi64>, tensor<7x128xi64>) -> tensor<7x128xi1>
+    %95 = stablehlo.convert %94 : (tensor<7x128xi1>) -> tensor<7x128xf32>
+    %96 = stablehlo.multiply %91, %95 : tensor<7x128xf32>
+    %97 = stablehlo.convert %96 : (tensor<7x128xf32>) -> tensor<7x128xbf16>
+    %98 = stablehlo.reshape %97 : (tensor<7x128xbf16>) -> tensor<1x7x128xbf16>
+    %99 = stablehlo.broadcast_in_dim %98, dims = [0, 2, 3] : (tensor<1x7x128xbf16>) -> tensor<1x24x7x128xbf16>
+    %100 = stablehlo.add %90, %99 : tensor<1x24x7x128xbf16>
+    %101 = stablehlo.convert %100 : (tensor<1x24x7x128xbf16>) -> tensor<1x24x7x128xf32>
+    %102 = stablehlo.reduce(%101 init: %cst_0) applies stablehlo.maximum across dimensions = [3] : (tensor<1x24x7x128xf32>, tensor<f32>) -> tensor<1x24x7xf32>
+    %103 = stablehlo.broadcast_in_dim %102, dims = [0, 1, 2] : (tensor<1x24x7xf32>) -> tensor<1x24x7x128xf32>
+    %104 = stablehlo.subtract %101, %103 : tensor<1x24x7x128xf32>
+    %105 = stablehlo.exponential %104 : tensor<1x24x7x128xf32>
+    %106 = stablehlo.reduce(%105 init: %cst) applies stablehlo.add across dimensions = [3] : (tensor<1x24x7x128xf32>, tensor<f32>) -> tensor<1x24x7xf32>
+    %107 = stablehlo.broadcast_in_dim %106, dims = [0, 1, 2] : (tensor<1x24x7xf32>) -> tensor<1x24x7x128xf32>
+    %108 = stablehlo.divide %105, %107 : tensor<1x24x7x128xf32>
+    %109 = stablehlo.convert %108 : (tensor<1x24x7x128xf32>) -> tensor<1x24x7x128xbf16>
+    %110 = stablehlo.reshape %109 : (tensor<1x24x7x128xbf16>) -> tensor<24x7x128xbf16>
+    %111 = stablehlo.broadcast_in_dim %60, dims = [0, 1, 3, 4] : (tensor<1x8x128x128xbf16>) -> tensor<1x8x3x128x128xbf16>
+    %112 = stablehlo.reshape %111 : (tensor<1x8x3x128x128xbf16>) -> tensor<24x128x128xbf16>
+    %113 = stablehlo.dot_general %110, %112, batching_dims = [0] x [0], contracting_dims = [2] x [1] : (tensor<24x7x128xbf16>, tensor<24x128x128xbf16>) -> tensor<24x7x128xbf16>
+    %114 = stablehlo.reshape %113 : (tensor<24x7x128xbf16>) -> tensor<1x24x7x128xbf16>
+    %115 = stablehlo.transpose %114, dims = [0, 2, 1, 3] {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, xla_shape = "bf16[1,7,24,128]{3,1,2,0}"} : (tensor<1x24x7x128xbf16>) -> tensor<1x7x24x128xbf16>
+    %116 = stablehlo.reshape %115 : (tensor<1x7x24x128xbf16>) -> tensor<7x3072xbf16>
+    %117 = stablehlo.dot_general %116, %arg14, contracting_dims = [1] x [0] : (tensor<7x3072xbf16>, tensor<3072x3072xbf16>) -> tensor<7x3072xbf16>
+    %118 = stablehlo.reshape %117 : (tensor<7x3072xbf16>) -> tensor<1x7x3072xbf16>
+    %119 = stablehlo.add %11, %118 : tensor<1x7x3072xbf16>
+    %120 = stablehlo.convert %arg19 : (tensor<3072xbf16>) -> tensor<3072xf32>
+    %121 = stablehlo.broadcast_in_dim %120, dims = [2] : (tensor<3072xf32>) -> tensor<1x7x3072xf32>
+    %122 = stablehlo.convert %119 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+    %123 = stablehlo.power %122, %0 : tensor<1x7x3072xf32>
+    %124 = stablehlo.reduce(%123 init: %cst) applies stablehlo.add across dimensions = [2] : (tensor<1x7x3072xf32>, tensor<f32>) -> tensor<1x7xf32>
+    %125 = stablehlo.multiply %124, %cst_1 : tensor<1x7xf32>
+    %126 = stablehlo.reshape %125 : (tensor<1x7xf32>) -> tensor<1x7x1xf32>
+    %127 = stablehlo.add %126, %17 : tensor<1x7x1xf32>
+    %128 = stablehlo.rsqrt %127 : tensor<1x7x1xf32>
+    %129 = stablehlo.reshape %128 : (tensor<1x7x1xf32>) -> tensor<1x7xf32>
+    %130 = stablehlo.broadcast_in_dim %129, dims = [0, 1] : (tensor<1x7xf32>) -> tensor<1x7x3072xf32>
+    %131 = stablehlo.multiply %122, %130 : tensor<1x7x3072xf32>
+    %132 = stablehlo.convert %131 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+    %133 = stablehlo.convert %132 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+    %134 = stablehlo.multiply %121, %133 : tensor<1x7x3072xf32>
+    %135 = stablehlo.convert %134 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+    %136 = stablehlo.reshape %135 : (tensor<1x7x3072xbf16>) -> tensor<7x3072xbf16>
+    %137 = stablehlo.dot_general %136, %arg20, contracting_dims = [1] x [0] : (tensor<7x3072xbf16>, tensor<3072x8192xbf16>) -> tensor<7x8192xbf16>
+    %138 = stablehlo.reshape %137 : (tensor<7x8192xbf16>) -> tensor<1x7x8192xbf16>
+    %139 = stablehlo.convert %138 : (tensor<1x7x8192xbf16>) -> tensor<1x7x8192xf32>
+    %140 = stablehlo.logistic %138 : tensor<1x7x8192xbf16>
+    %141 = stablehlo.convert %140 : (tensor<1x7x8192xbf16>) -> tensor<1x7x8192xf32>
+    %142 = stablehlo.multiply %139, %141 : tensor<1x7x8192xf32>
+    %143 = stablehlo.convert %142 : (tensor<1x7x8192xf32>) -> tensor<1x7x8192xbf16>
+    %144 = stablehlo.convert %143 : (tensor<1x7x8192xbf16>) -> tensor<1x7x8192xf32>
+    %145 = stablehlo.dot_general %136, %arg13, contracting_dims = [1] x [0] : (tensor<7x3072xbf16>, tensor<3072x8192xbf16>) -> tensor<7x8192xbf16>
+    %146 = stablehlo.convert %145 : (tensor<7x8192xbf16>) -> tensor<7x8192xf32>
+    %147 = stablehlo.reshape %146 : (tensor<7x8192xf32>) -> tensor<1x7x8192xf32>
+    %148 = stablehlo.multiply %144, %147 : tensor<1x7x8192xf32>
+    %149 = stablehlo.convert %148 : (tensor<1x7x8192xf32>) -> tensor<1x7x8192xbf16>
+    %150 = stablehlo.reshape %149 : (tensor<1x7x8192xbf16>) -> tensor<7x8192xbf16>
+    %151 = stablehlo.dot_general %150, %arg12, contracting_dims = [1] x [0] : (tensor<7x8192xbf16>, tensor<8192x3072xbf16>) -> tensor<7x3072xbf16>
+    %152 = stablehlo.reshape %151 : (tensor<7x3072xbf16>) -> tensor<1x7x3072xbf16>
+    %153 = stablehlo.add %119, %152 : tensor<1x7x3072xbf16>
+    %154 = stablehlo.convert %153 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+    %155 = stablehlo.power %154, %0 : tensor<1x7x3072xf32>
+    %156 = stablehlo.reduce(%155 init: %cst) applies stablehlo.add across dimensions = [2] : (tensor<1x7x3072xf32>, tensor<f32>) -> tensor<1x7xf32>
+    %157 = stablehlo.multiply %156, %cst_1 : tensor<1x7xf32>
+    %158 = stablehlo.reshape %157 : (tensor<1x7xf32>) -> tensor<1x7x1xf32>
+    %159 = stablehlo.add %158, %17 : tensor<1x7x1xf32>
+    %160 = stablehlo.rsqrt %159 : tensor<1x7x1xf32>
+    %161 = stablehlo.reshape %160 : (tensor<1x7x1xf32>) -> tensor<1x7xf32>
+    %162 = stablehlo.broadcast_in_dim %161, dims = [0, 1] : (tensor<1x7xf32>) -> tensor<1x7x3072xf32>
+    %163 = stablehlo.multiply %154, %162 : tensor<1x7x3072xf32>
+    %164 = stablehlo.convert %163 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+    %165 = stablehlo.convert %164 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+    %166 = stablehlo.multiply %63, %165 : tensor<1x7x3072xf32>
+    %167 = stablehlo.convert %166 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+    %168 = stablehlo.reshape %167 : (tensor<1x7x3072xbf16>) -> tensor<7x3072xbf16>
+    %169 = stablehlo.dot_general %168, %arg11, contracting_dims = [1] x [0] : (tensor<7x3072xbf16>, tensor<3072x128256xbf16>) -> tensor<7x128256xbf16>
+    %170 = stablehlo.reshape %169 : (tensor<7x128256xbf16>) -> tensor<1x7x128256xbf16>
+    return %56, %61, %169, %170 : tensor<1x8x128x128xbf16>, tensor<1x8x128x128xbf16>, tensor<7x128256xbf16>, tensor<1x7x128256xbf16>
+  }
+}
+loc("p2.20"): error: 'sdy.all_slice' op operates on axis "_axis_0" which is already bound by a parent sdy.manual_computation op
+FAILED
+
+=================================== FAILURES ===================================
+_____________________________ test_llama3_generate _____________________________
+
+    @torch.inference_mode()
+    def test_llama3_generate():
+        # Initialize model and inputs
+        start_time = time.time()
+        model, tokenizer = load_model()
+        input_args = load_inputs(model, tokenizer)
+        golden_input_args = input_args.copy()
+        generated_ids = input_args["input_ids"]
+        model_load_time = time.time() - start_time
+    
+        initial_prompt = tokenizer.decode(generated_ids[0].tolist())
+        print(f"Initial prompt: '{initial_prompt}'")
+    
+        # setup XLA environment and device mesh
+        setup_xla_environment()
+        mesh = create_device_mesh()
+    
+        # apply shardings
+        if use_static_cache:
+            print ("USING STATIC CACHE")
+            ts.mark_sharding(input_args["input_ids"], (None, None))
+            ts.mark_sharding(input_args["cache_position"], (None,))
+    
+    
+            for i, (key, value) in enumerate(
+                zip(input_args['past_key_values'].key_cache, input_args['past_key_values'].value_cache)
+            ):
+                # Sharding these over the model dim causes a shardy loop ->manual compute block scatter + all_slice error
+                # ts.mark_sharding(key, (None, "batch", None, None))
+                # ts.mark_sharding(value, (None, "batch", None, None))
+                ts.mark_sharding(key, (None, "model", None, None))
+                ts.mark_sharding(value, (None, "model", None, None))
+        else:
+            print("NOT USING STATIC CACHE")
+    
+        for layer in model.model.layers:
+            ts.mark_sharding(layer.mlp.up_proj.weight, ("model", None))
+            ts.mark_sharding(layer.mlp.gate_proj.weight, ("model", None))
+            ts.mark_sharding(layer.mlp.down_proj.weight, (None, "model"))
+    
+            ts.mark_sharding(layer.self_attn.q_proj.weight, ("model", None))
+            ts.mark_sharding(layer.self_attn.k_proj.weight, ("model", None))
+            ts.mark_sharding(layer.self_attn.v_proj.weight, ("model", None))
+            ts.mark_sharding(layer.self_attn.o_proj.weight, (None, "model"))
+    
+        ts.mark_sharding(model.lm_head.weight, ("model", None))
+    
+        # Allow local disablement of golden verification to accelerate tests
+        # by avoiding dev2host transfer of static cache
+        enable_golden = False
+    
+        # Setup compilation
+        clear_dynamo_cache()
+        cc = CompilerConfig()
+        cc.mesh = mesh # routed into xlaBackend
+    
+        # Consteval disabled due to 4D Causal Attention Mask evaluation getting constant folded in torchfx
+        #   due to incorrect tracing of static cache and malformed output missing static cache tensors
+        cc.enable_consteval = True
+        cc.consteval_parameters = True
+    
+        options = BackendOptions()
+        options.compiler_config = cc
+    
+        # device = DeviceManager.create_parent_mesh_device(mesh_shape=[1, 1])
+        # options.devices = [device]
+    
+        buffer_cache = {}
+        options.buffer_cache = buffer_cache
+    
+        constant_cache = {}
+        options.constant_cache = constant_cache
+    
+        # _backend = backend
+        _backend = 'tt-experimental'
+    
+    
+        compiled_model = torch.compile(
+            model, backend=_backend, dynamic=False, options=options
+        )
+    
+        # Token generation with data collection
+        golden_pccs = []
+        cache_pccs_per_iteration = []  # Store cache PCCs for each iteration
+        golden_ids = input_args["input_ids"]
+        timings = []
+        generated_tokens = []
+        golden_generated_tokens = []  # Track golden tokens separately
+    
+        print(initial_prompt, end="", flush=True)
+    
+        generation_start = time.time()
+    
+        is_prefill = True
+    
+        for i in range(tokens_to_generate):
+            iteration_start = time.time()
+    
+            # os.environ["IS_PREFILL"]="1" if is_prefill else "0"
+            # print("[James] set IS_PREFILL to", os.environ["IS_PREFILL"])
+            # Execute model
+>           outputs = compiled_model(**input_args)
+
+tests/models/llama/test_llama3_generative.py:237: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+env/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1751: in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+env/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1762: in _call_impl
+    return forward_call(*args, **kwargs)
+env/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:655: in _fn
+    return fn(*args, **kwargs)
+env/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1751: in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+env/venv/lib/python3.10/site-packages/torch/nn/modules/module.py:1762: in _call_impl
+    return forward_call(*args, **kwargs)
+env/venv/lib/python3.10/site-packages/transformers/utils/generic.py:953: in wrapper
+    @wraps(func)
+env/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:838: in _fn
+    return fn(*args, **kwargs)
+tt_torch/dynamo/experimental/xla_backend.py:913: in __call__
+    xm.mark_step() # explicit compile step
+env/venv/lib/python3.10/site-packages/typing_extensions.py:2956: in wrapper
+    return arg(*args, **kwargs)
+env/venv/lib/python3.10/site-packages/torch_xla/core/xla_model.py:1035: in mark_step
+    torch_xla.sync(wait, reset_scope)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+wait = False, reset_scope = True
+
+    def sync(wait: bool = False, reset_scope: bool = True):
+      """Launches all pending graph operations.
+    
+      Args:
+        wait (bool): whether to block the current process until the execution finished.
+        reset_scope (bool): whether to reset the torch::lazy::ScopeContext of the IR Nodes.
+      """
+      if xu.getenv_as('XLA_EMIT_STEPLOG', bool, False):
+        print('torch_xla.torch_xla::sync\n', end='', file=sys.stderr, flush=True)
+>     torch_xla._XLAC._xla_step_marker(
+          torch_xla._XLAC._xla_get_default_device(), [],
+          wait=xu.getenv_as('XLA_SYNC_WAIT', bool, wait),
+          reset_scope=reset_scope)
+E     ValueError: Error code: 13
+
+env/venv/lib/python3.10/site-packages/torch_xla/torch_xla.py:87: ValueError
+=============================== warnings summary ===============================
+tests/models/llama/test_llama3_generative.py::test_llama3_generate
+  /localdev/jameszianxu/gen_mc/tt-torch/env/venv/lib/python3.10/site-packages/torch/fx/experimental/const_fold.py:264: UserWarning: Attempted to insert a get_attr Node with no underlying reference in the owning GraphModule! Call GraphModule.add_submodule to add the necessary submodule, GraphModule.add_parameter to add the necessary Parameter, or nn.Module.register_buffer to add the necessary buffer
+    new_node = root_const_gm.graph.get_attr(in_node.target)
+
+tests/models/llama/test_llama3_generative.py::test_llama3_generate
+  /localdev/jameszianxu/gen_mc/tt-torch/env/venv/lib/python3.10/site-packages/torch/fx/graph.py:1316: UserWarning: Failed to fetch module L__self___model_layers__modules__0___self_attn_q_proj!
+    warnings.warn(f"Failed to fetch module {module_path}!")
+
+tests/models/llama/test_llama3_generative.py::test_llama3_generate
+  /localdev/jameszianxu/gen_mc/tt-torch/env/venv/lib/python3.10/site-packages/torch/fx/graph.py:1316: UserWarning: Failed to fetch module L__self___model_layers__modules__0___self_attn_k_proj!
+    warnings.warn(f"Failed to fetch module {module_path}!")
+
+tests/models/llama/test_llama3_generative.py::test_llama3_generate
+  /localdev/jameszianxu/gen_mc/tt-torch/env/venv/lib/python3.10/site-packages/torch/fx/graph.py:1316: UserWarning: Failed to fetch module L__self___model_layers__modules__0___self_attn_v_proj!
+    warnings.warn(f"Failed to fetch module {module_path}!")
+
+tests/models/llama/test_llama3_generative.py::test_llama3_generate
+  /localdev/jameszianxu/gen_mc/tt-torch/env/venv/lib/python3.10/site-packages/torch/fx/graph.py:1316: UserWarning: Failed to fetch module L__self___model_layers__modules__0___self_attn_o_proj!
+    warnings.warn(f"Failed to fetch module {module_path}!")
+
+tests/models/llama/test_llama3_generative.py::test_llama3_generate
+  /localdev/jameszianxu/gen_mc/tt-torch/env/venv/lib/python3.10/site-packages/torch/fx/graph.py:1316: UserWarning: Failed to fetch module L__self___model_layers__modules__0___mlp_gate_proj!
+    warnings.warn(f"Failed to fetch module {module_path}!")
+
+tests/models/llama/test_llama3_generative.py::test_llama3_generate
+  /localdev/jameszianxu/gen_mc/tt-torch/env/venv/lib/python3.10/site-packages/torch/fx/graph.py:1316: UserWarning: Failed to fetch module L__self___model_layers__modules__0___mlp_up_proj!
+    warnings.warn(f"Failed to fetch module {module_path}!")
+
+tests/models/llama/test_llama3_generative.py::test_llama3_generate
+  /localdev/jameszianxu/gen_mc/tt-torch/env/venv/lib/python3.10/site-packages/torch/fx/graph.py:1316: UserWarning: Failed to fetch module L__self___model_layers__modules__0___mlp_down_proj!
+    warnings.warn(f"Failed to fetch module {module_path}!")
+
+tests/models/llama/test_llama3_generative.py::test_llama3_generate
+  /localdev/jameszianxu/gen_mc/tt-torch/env/venv/lib/python3.10/site-packages/torch/fx/graph.py:1316: UserWarning: Failed to fetch module L__self___lm_head!
+    warnings.warn(f"Failed to fetch module {module_path}!")
+
+tests/models/llama/test_llama3_generative.py::test_llama3_generate
+  /localdev/jameszianxu/gen_mc/tt-torch/tt_torch/dynamo/experimental/xla_backend.py:913: DeprecationWarning: Use torch_xla.sync instead
+    xm.mark_step() # explicit compile step
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/models/llama/test_llama3_generative.py::test_llama3_generate - ValueError: Error code: 13
+======================= 1 failed, 10 warnings in 10.94s ========================
