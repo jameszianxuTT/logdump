@@ -1,0 +1,868 @@
+NOTE: There is no allslice in prefill
+
+// -----// IR Dump Before UpdateGlobalToLocalShapesPass (update-global-to-local-shapes) ('builtin.module' operation: @SyncTensorsGraph.374) //----- //
+module @SyncTensorsGraph.374 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  sdy.mesh @mesh = <["_axis_0_updated"=1, "_axis_0"=2]>
+  func.func @main(%arg0: tensor<7xi64> {sdy.sharding = #sdy.sharding<@mesh, [{}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg1: tensor<64xf32> {sdy.sharding = #sdy.sharding<@mesh, [{}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg2: tensor<1024x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{"_axis_0"}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg3: tensor<f32> {sdy.sharding = #sdy.sharding<@mesh, []>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg4: tensor<1x7xi64> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg5: tensor<128256x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{"_axis_0"}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg6: tensor<3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg7: tensor<i64> {sdy.sharding = #sdy.sharding<@mesh, []>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg8: tensor<1x8x128x128xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {"_axis_0"}, {}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg9: tensor<1024x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{"_axis_0"}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg10: tensor<1x8x128x128xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {"_axis_0"}, {}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg11: tensor<3072x8192xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {"_axis_0"}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg12: tensor<8192x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{"_axis_0"}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg13: tensor<3072x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {"_axis_0"}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg14: tensor<128xi64> {sdy.sharding = #sdy.sharding<@mesh, [{}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg15: tensor<7x128xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg16: tensor<f32> {sdy.sharding = #sdy.sharding<@mesh, []>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg17: tensor<3072x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{"_axis_0"}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg18: tensor<3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg19: tensor<8192x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{"_axis_0"}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg20: tensor<3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}) -> (tensor<1x8x128x128xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>, ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<1x8x128x128xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>, ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<7x128256xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{?}, {"_axis_0", ?}]>, ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<1x7x128256xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{?}, {?}, {"_axis_0", ?}]>, ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+    %0:4 = sdy.manual_computation(%arg0, %arg1, %arg2, %arg3, %arg4, %arg5, %arg6, %arg7, %arg8, %arg9, %arg10, %arg11, %arg12, %arg13, %arg14, %arg15, %arg16, %arg17, %arg18, %arg19, %arg20) in_shardings=[<@mesh, [{}]>, <@mesh, [{}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, []>, <@mesh, [{}, {}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}]>, <@mesh, []>, <@mesh, [{}, {"_axis_0"}, {}, {}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}, {"_axis_0"}, {}, {}]>, <@mesh, [{}, {"_axis_0"}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}, {"_axis_0"}]>, <@mesh, [{}]>, <@mesh, [{}, {}]>, <@mesh, []>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}]>] out_shardings=[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>, <@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>, <@mesh, [{?}, {"_axis_0", ?}]>, <@mesh, [{?}, {?}, {"_axis_0", ?}]>] manual_axes={} (%arg21: tensor<7xi64>, %arg22: tensor<64xf32>, %arg23: tensor<1024x3072xbf16>, %arg24: tensor<f32>, %arg25: tensor<1x7xi64>, %arg26: tensor<128256x3072xbf16>, %arg27: tensor<3072xbf16>, %arg28: tensor<i64>, %arg29: tensor<1x8x128x128xbf16>, %arg30: tensor<1024x3072xbf16>, %arg31: tensor<1x8x128x128xbf16>, %arg32: tensor<3072x8192xbf16>, %arg33: tensor<8192x3072xbf16>, %arg34: tensor<3072x3072xbf16>, %arg35: tensor<128xi64>, %arg36: tensor<7x128xbf16>, %arg37: tensor<f32>, %arg38: tensor<3072x3072xbf16>, %arg39: tensor<3072xbf16>, %arg40: tensor<8192x3072xbf16>, %arg41: tensor<3072xbf16>) {
+      %c = stablehlo.constant dense<0> : tensor<7xi64>
+      %cst = stablehlo.constant dense<0.000000e+00> : tensor<f32>
+      %cst_0 = stablehlo.constant dense<0xFF800000> : tensor<f32>
+      %cst_1 = stablehlo.constant dense<3.25520843E-4> : tensor<1x7xf32>
+      %cst_2 = stablehlo.constant dense<2.000000e+00> : tensor<f32>
+      %1 = stablehlo.broadcast_in_dim %cst_2, dims = [] : (tensor<f32>) -> tensor<1x7x3072xf32>
+      %2 = stablehlo.compare  LT, %arg21, %c : (tensor<7xi64>, tensor<7xi64>) -> tensor<7xi1>
+      %3 = stablehlo.broadcast_in_dim %arg28, dims = [] : (tensor<i64>) -> tensor<7xi64>
+      %4 = stablehlo.add %arg21, %3 : tensor<7xi64>
+      %5 = stablehlo.select %2, %4, %arg21 : tensor<7xi1>, tensor<7xi64>
+      %6 = stablehlo.reshape %5 : (tensor<7xi64>) -> tensor<7x1xi64>
+      %7 = stablehlo.convert %arg27 : (tensor<3072xbf16>) -> tensor<3072xf32>
+      %8 = stablehlo.broadcast_in_dim %7, dims = [2] : (tensor<3072xf32>) -> tensor<1x7x3072xf32>
+      %9 = stablehlo.convert %arg25 : (tensor<1x7xi64>) -> tensor<1x7xui32>
+      %10 = stablehlo.reshape %9 : (tensor<1x7xui32>) -> tensor<7xui32>
+      %11 = "stablehlo.gather"(%arg26, %10) <{dimension_numbers = #stablehlo.gather<offset_dims = [1], collapsed_slice_dims = [0], start_index_map = [0], index_vector_dim = 1>, slice_sizes = array<i64: 1, 3072>}> : (tensor<128256x3072xbf16>, tensor<7xui32>) -> tensor<7x3072xbf16>
+      %12 = sdy.all_reduce {"_axis_0"} %11 out_sharding=<@mesh, [{}, {}]> : tensor<7x3072xbf16>
+      %13 = stablehlo.reshape %12 : (tensor<7x3072xbf16>) -> tensor<1x7x3072xbf16>
+      %14 = stablehlo.convert %13 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+      %15 = stablehlo.power %14, %1 : tensor<1x7x3072xf32>
+      %16 = stablehlo.reduce(%15 init: %cst) applies stablehlo.add across dimensions = [2] : (tensor<1x7x3072xf32>, tensor<f32>) -> tensor<1x7xf32>
+      %17 = stablehlo.multiply %16, %cst_1 : tensor<1x7xf32>
+      %18 = stablehlo.reshape %17 : (tensor<1x7xf32>) -> tensor<1x7x1xf32>
+      %19 = stablehlo.broadcast_in_dim %arg24, dims = [] : (tensor<f32>) -> tensor<1x7x1xf32>
+      %20 = stablehlo.add %18, %19 : tensor<1x7x1xf32>
+      %21 = stablehlo.rsqrt %20 : tensor<1x7x1xf32>
+      %22 = stablehlo.reshape %21 : (tensor<1x7x1xf32>) -> tensor<1x7xf32>
+      %23 = stablehlo.broadcast_in_dim %22, dims = [0, 1] : (tensor<1x7xf32>) -> tensor<1x7x3072xf32>
+      %24 = stablehlo.multiply %14, %23 : tensor<1x7x3072xf32>
+      %25 = stablehlo.convert %24 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+      %26 = stablehlo.convert %25 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+      %27 = stablehlo.multiply %8, %26 : tensor<1x7x3072xf32>
+      %28 = stablehlo.convert %27 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+      %29 = stablehlo.reshape %28 : (tensor<1x7x3072xbf16>) -> tensor<7x3072xbf16>
+      %30 = stablehlo.transpose %arg23, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>, xla_shape = "bf16[3072,1024]{0,1}"} : (tensor<1024x3072xbf16>) -> tensor<3072x1024xbf16>
+      %31 = stablehlo.dot_general %29, %30, contracting_dims = [1] x [0] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<7x3072xbf16>, tensor<3072x1024xbf16>) -> tensor<7x1024xbf16>
+      %32 = stablehlo.reshape %31 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}, {?}]>]>} : (tensor<7x1024xbf16>) -> tensor<1x7x8x128xbf16>
+      %33 = stablehlo.transpose %32, dims = [0, 2, 1, 3] {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>, xla_shape = "bf16[1,8,7,128]{3,1,2,0}"} : (tensor<1x7x8x128xbf16>) -> tensor<1x8x7x128xbf16>
+      %34 = stablehlo.convert %33 {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>, xla_shape = "f32[1,8,7,128]{3,1,2,0}"} : (tensor<1x8x7x128xbf16>) -> tensor<1x8x7x128xf32>
+      %35 = stablehlo.reshape %arg22 : (tensor<64xf32>) -> tensor<1x64x1xf32>
+      %36 = stablehlo.convert %arg21 : (tensor<7xi64>) -> tensor<7xf32>
+      %37 = stablehlo.reshape %36 : (tensor<7xf32>) -> tensor<1x1x7xf32>
+      %38 = stablehlo.dot_general %35, %37, batching_dims = [0] x [0], contracting_dims = [2] x [1] : (tensor<1x64x1xf32>, tensor<1x1x7xf32>) -> tensor<1x64x7xf32>
+      %39 = stablehlo.transpose %38, dims = [0, 2, 1] {result_layout = dense<[1, 2, 0]> : tensor<3xindex>, xla_shape = "f32[1,7,64]{1,2,0}"} : (tensor<1x64x7xf32>) -> tensor<1x7x64xf32>
+      %40 = stablehlo.concatenate %39, %39, dim = 2 : (tensor<1x7x64xf32>, tensor<1x7x64xf32>) -> tensor<1x7x128xf32>
+      %41 = stablehlo.cosine %40 : tensor<1x7x128xf32>
+      %42 = stablehlo.convert %41 : (tensor<1x7x128xf32>) -> tensor<1x7x128xbf16>
+      %43 = stablehlo.convert %42 : (tensor<1x7x128xbf16>) -> tensor<1x7x128xf32>
+      %44 = stablehlo.broadcast_in_dim %43, dims = [0, 2, 3] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x7x128xf32>) -> tensor<1x8x7x128xf32>
+      %45 = stablehlo.multiply %34, %44 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x8x7x128xf32>
+      %46 = stablehlo.convert %45 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x8x7x128xf32>) -> tensor<1x8x7x128xbf16>
+      %47 = stablehlo.slice %33 [0:1, 0:8, 0:7, 64:128] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x8x7x128xbf16>) -> tensor<1x8x7x64xbf16>
+      %48 = stablehlo.negate %47 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x8x7x64xbf16>
+      %49 = stablehlo.slice %33 [0:1, 0:8, 0:7, 0:64] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x8x7x128xbf16>) -> tensor<1x8x7x64xbf16>
+      %50 = stablehlo.concatenate %48, %49, dim = 3 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x8x7x64xbf16>, tensor<1x8x7x64xbf16>) -> tensor<1x8x7x128xbf16>
+      %51 = stablehlo.convert %50 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x8x7x128xbf16>) -> tensor<1x8x7x128xf32>
+      %52 = stablehlo.sine %40 : tensor<1x7x128xf32>
+      %53 = stablehlo.convert %52 : (tensor<1x7x128xf32>) -> tensor<1x7x128xbf16>
+      %54 = stablehlo.convert %53 : (tensor<1x7x128xbf16>) -> tensor<1x7x128xf32>
+      %55 = stablehlo.broadcast_in_dim %54, dims = [0, 2, 3] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x7x128xf32>) -> tensor<1x8x7x128xf32>
+      %56 = stablehlo.multiply %51, %55 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x8x7x128xf32>
+      %57 = stablehlo.convert %56 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x8x7x128xf32>) -> tensor<1x8x7x128xbf16>
+      %58 = stablehlo.add %46, %57 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x8x7x128xbf16>
+      %59 = "stablehlo.scatter"(%arg29, %6, %58) <{scatter_dimension_numbers = #stablehlo.scatter<update_window_dims = [0, 1, 3], inserted_window_dims = [2], scatter_dims_to_operand_dims = [2], index_vector_dim = 1>}> ({
+      ^bb0(%arg42: tensor<bf16>, %arg43: tensor<bf16>):
+        stablehlo.return %arg43 : tensor<bf16>
+      }) {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{}, {"_axis_0"}, {}, {}]>]>} : (tensor<1x8x128x128xbf16>, tensor<7x1xi64>, tensor<1x8x7x128xbf16>) -> tensor<1x8x128x128xbf16>
+      %60 = stablehlo.transpose %arg30, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>, xla_shape = "bf16[3072,1024]{0,1}"} : (tensor<1024x3072xbf16>) -> tensor<3072x1024xbf16>
+      %61 = stablehlo.dot_general %29, %60, contracting_dims = [1] x [0] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<7x3072xbf16>, tensor<3072x1024xbf16>) -> tensor<7x1024xbf16>
+      %62 = stablehlo.reshape %61 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}, {?}]>]>} : (tensor<7x1024xbf16>) -> tensor<1x7x8x128xbf16>
+      %63 = stablehlo.transpose %62, dims = [0, 2, 1, 3] {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>, xla_shape = "bf16[1,8,7,128]{3,1,2,0}"} : (tensor<1x7x8x128xbf16>) -> tensor<1x8x7x128xbf16>
+      %64 = "stablehlo.scatter"(%arg31, %6, %63) <{scatter_dimension_numbers = #stablehlo.scatter<update_window_dims = [0, 1, 3], inserted_window_dims = [2], scatter_dims_to_operand_dims = [2], index_vector_dim = 1>}> ({
+      ^bb0(%arg42: tensor<bf16>, %arg43: tensor<bf16>):
+        stablehlo.return %arg43 : tensor<bf16>
+      }) {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{}, {"_axis_0"}, {}, {}]>]>} : (tensor<1x8x128x128xbf16>, tensor<7x1xi64>, tensor<1x8x7x128xbf16>) -> tensor<1x8x128x128xbf16>
+      %65 = stablehlo.convert %arg41 : (tensor<3072xbf16>) -> tensor<3072xf32>
+      %66 = stablehlo.broadcast_in_dim %65, dims = [2] : (tensor<3072xf32>) -> tensor<1x7x3072xf32>
+      %67 = stablehlo.transpose %arg38, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>, xla_shape = "bf16[3072,3072]{0,1}"} : (tensor<3072x3072xbf16>) -> tensor<3072x3072xbf16>
+      %68 = stablehlo.dot_general %29, %67, contracting_dims = [1] x [0] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<7x3072xbf16>, tensor<3072x3072xbf16>) -> tensor<7x3072xbf16>
+      %69 = stablehlo.reshape %68 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}, {?}]>]>} : (tensor<7x3072xbf16>) -> tensor<1x7x24x128xbf16>
+      %70 = stablehlo.transpose %69, dims = [0, 2, 1, 3] {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>, xla_shape = "bf16[1,24,7,128]{3,1,2,0}"} : (tensor<1x7x24x128xbf16>) -> tensor<1x24x7x128xbf16>
+      %71 = stablehlo.convert %70 {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>, xla_shape = "f32[1,24,7,128]{3,1,2,0}"} : (tensor<1x24x7x128xbf16>) -> tensor<1x24x7x128xf32>
+      %72 = stablehlo.broadcast_in_dim %43, dims = [0, 2, 3] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x7x128xf32>) -> tensor<1x24x7x128xf32>
+      %73 = stablehlo.multiply %71, %72 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x7x128xf32>
+      %74 = stablehlo.convert %73 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x7x128xf32>) -> tensor<1x24x7x128xbf16>
+      %75 = stablehlo.slice %70 [0:1, 0:24, 0:7, 64:128] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x7x128xbf16>) -> tensor<1x24x7x64xbf16>
+      %76 = stablehlo.negate %75 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x7x64xbf16>
+      %77 = stablehlo.slice %70 [0:1, 0:24, 0:7, 0:64] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x7x128xbf16>) -> tensor<1x24x7x64xbf16>
+      %78 = stablehlo.concatenate %76, %77, dim = 3 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x7x64xbf16>, tensor<1x24x7x64xbf16>) -> tensor<1x24x7x128xbf16>
+      %79 = stablehlo.convert %78 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x7x128xbf16>) -> tensor<1x24x7x128xf32>
+      %80 = stablehlo.broadcast_in_dim %54, dims = [0, 2, 3] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x7x128xf32>) -> tensor<1x24x7x128xf32>
+      %81 = stablehlo.multiply %79, %80 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x7x128xf32>
+      %82 = stablehlo.convert %81 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x7x128xf32>) -> tensor<1x24x7x128xbf16>
+      %83 = stablehlo.add %74, %82 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x7x128xbf16>
+      %84 = stablehlo.reshape %83 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x7x128xbf16>) -> tensor<24x7x128xbf16>
+      %85 = stablehlo.broadcast_in_dim %59, dims = [0, 1, 3, 4] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}, {?}]>]>} : (tensor<1x8x128x128xbf16>) -> tensor<1x8x3x128x128xbf16>
+      %86 = stablehlo.reshape %85 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x8x3x128x128xbf16>) -> tensor<1x24x128x128xbf16>
+      %87 = stablehlo.transpose %86, dims = [0, 1, 3, 2] {result_layout = dense<[2, 3, 1, 0]> : tensor<4xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>, xla_shape = "bf16[1,24,128,128]{2,3,1,0}"} : (tensor<1x24x128x128xbf16>) -> tensor<1x24x128x128xbf16>
+      %88 = stablehlo.reshape %87 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x128x128xbf16>) -> tensor<24x128x128xbf16>
+      %89 = stablehlo.dot_general %84, %88, batching_dims = [0] x [0], contracting_dims = [2] x [1] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}, {?}]>]>} : (tensor<24x7x128xbf16>, tensor<24x128x128xbf16>) -> tensor<24x7x128xbf16>
+      %90 = stablehlo.convert %89 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}, {?}]>]>} : (tensor<24x7x128xbf16>) -> tensor<24x7x128xf32>
+      %91 = stablehlo.reshape %90 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<24x7x128xf32>) -> tensor<1x24x7x128xf32>
+      %92 = stablehlo.broadcast_in_dim %arg37, dims = [] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<f32>) -> tensor<1x24x7x128xf32>
+      %93 = stablehlo.multiply %91, %92 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x7x128xf32>
+      %94 = stablehlo.convert %93 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x7x128xf32>) -> tensor<1x24x7x128xbf16>
+      %95 = stablehlo.convert %arg36 : (tensor<7x128xbf16>) -> tensor<7x128xf32>
+      %96 = stablehlo.broadcast_in_dim %arg35, dims = [1] : (tensor<128xi64>) -> tensor<7x128xi64>
+      %97 = stablehlo.broadcast_in_dim %arg21, dims = [0] : (tensor<7xi64>) -> tensor<7x128xi64>
+      %98 = stablehlo.compare  GT, %96, %97 : (tensor<7x128xi64>, tensor<7x128xi64>) -> tensor<7x128xi1>
+      %99 = stablehlo.convert %98 : (tensor<7x128xi1>) -> tensor<7x128xf32>
+      %100 = stablehlo.multiply %95, %99 : tensor<7x128xf32>
+      %101 = stablehlo.convert %100 : (tensor<7x128xf32>) -> tensor<7x128xbf16>
+      %102 = stablehlo.reshape %101 : (tensor<7x128xbf16>) -> tensor<1x7x128xbf16>
+      %103 = stablehlo.broadcast_in_dim %102, dims = [0, 2, 3] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x7x128xbf16>) -> tensor<1x24x7x128xbf16>
+      %104 = stablehlo.add %94, %103 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x7x128xbf16>
+      %105 = stablehlo.convert %104 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x7x128xbf16>) -> tensor<1x24x7x128xf32>
+      %106 = stablehlo.reduce(%105 init: %cst_0) applies stablehlo.maximum across dimensions = [3] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}]>]>} : (tensor<1x24x7x128xf32>, tensor<f32>) -> tensor<1x24x7xf32>
+      %107 = stablehlo.broadcast_in_dim %106, dims = [0, 1, 2] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x7xf32>) -> tensor<1x24x7x128xf32>
+      %108 = stablehlo.subtract %105, %107 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x7x128xf32>
+      %109 = stablehlo.exponential %108 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x7x128xf32>
+      %110 = stablehlo.reduce(%109 init: %cst) applies stablehlo.add across dimensions = [3] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}]>]>} : (tensor<1x24x7x128xf32>, tensor<f32>) -> tensor<1x24x7xf32>
+      %111 = stablehlo.broadcast_in_dim %110, dims = [0, 1, 2] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x7xf32>) -> tensor<1x24x7x128xf32>
+      %112 = stablehlo.divide %109, %111 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x7x128xf32>
+      %113 = stablehlo.convert %112 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x7x128xf32>) -> tensor<1x24x7x128xbf16>
+      %114 = stablehlo.reshape %113 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x7x128xbf16>) -> tensor<24x7x128xbf16>
+      %115 = stablehlo.broadcast_in_dim %64, dims = [0, 1, 3, 4] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}, {?}]>]>} : (tensor<1x8x128x128xbf16>) -> tensor<1x8x3x128x128xbf16>
+      %116 = stablehlo.reshape %115 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x8x3x128x128xbf16>) -> tensor<24x128x128xbf16>
+      %117 = stablehlo.dot_general %114, %116, batching_dims = [0] x [0], contracting_dims = [2] x [1] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}, {?}]>]>} : (tensor<24x7x128xbf16>, tensor<24x128x128xbf16>) -> tensor<24x7x128xbf16>
+      %118 = stablehlo.reshape %117 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<24x7x128xbf16>) -> tensor<1x24x7x128xbf16>
+      %119 = stablehlo.transpose %118, dims = [0, 2, 1, 3] {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}, {?}]>]>, xla_shape = "bf16[1,7,24,128]{3,1,2,0}"} : (tensor<1x24x7x128xbf16>) -> tensor<1x7x24x128xbf16>
+      %120 = stablehlo.reshape %119 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<1x7x24x128xbf16>) -> tensor<7x3072xbf16>
+      %121 = stablehlo.transpose %arg34, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}]>]>, xla_shape = "bf16[3072,3072]{0,1}"} : (tensor<3072x3072xbf16>) -> tensor<3072x3072xbf16>
+      %122 = stablehlo.dot_general %120, %121, contracting_dims = [1] x [0] : (tensor<7x3072xbf16>, tensor<3072x3072xbf16>) -> tensor<7x3072xbf16>
+      %123 = sdy.all_reduce {"_axis_0"} %122 out_sharding=<@mesh, [{}, {}]> : tensor<7x3072xbf16>
+      %124 = stablehlo.reshape %123 : (tensor<7x3072xbf16>) -> tensor<1x7x3072xbf16>
+      %125 = stablehlo.add %13, %124 : tensor<1x7x3072xbf16>
+      %126 = stablehlo.convert %arg39 : (tensor<3072xbf16>) -> tensor<3072xf32>
+      %127 = stablehlo.broadcast_in_dim %126, dims = [2] : (tensor<3072xf32>) -> tensor<1x7x3072xf32>
+      %128 = stablehlo.convert %125 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+      %129 = stablehlo.power %128, %1 : tensor<1x7x3072xf32>
+      %130 = stablehlo.reduce(%129 init: %cst) applies stablehlo.add across dimensions = [2] : (tensor<1x7x3072xf32>, tensor<f32>) -> tensor<1x7xf32>
+      %131 = stablehlo.multiply %130, %cst_1 : tensor<1x7xf32>
+      %132 = stablehlo.reshape %131 : (tensor<1x7xf32>) -> tensor<1x7x1xf32>
+      %133 = stablehlo.add %132, %19 : tensor<1x7x1xf32>
+      %134 = stablehlo.rsqrt %133 : tensor<1x7x1xf32>
+      %135 = stablehlo.reshape %134 : (tensor<1x7x1xf32>) -> tensor<1x7xf32>
+      %136 = stablehlo.broadcast_in_dim %135, dims = [0, 1] : (tensor<1x7xf32>) -> tensor<1x7x3072xf32>
+      %137 = stablehlo.multiply %128, %136 : tensor<1x7x3072xf32>
+      %138 = stablehlo.convert %137 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+      %139 = stablehlo.convert %138 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+      %140 = stablehlo.multiply %127, %139 : tensor<1x7x3072xf32>
+      %141 = stablehlo.convert %140 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+      %142 = stablehlo.reshape %141 : (tensor<1x7x3072xbf16>) -> tensor<7x3072xbf16>
+      %143 = stablehlo.transpose %arg40, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>, xla_shape = "bf16[3072,8192]{0,1}"} : (tensor<8192x3072xbf16>) -> tensor<3072x8192xbf16>
+      %144 = stablehlo.dot_general %142, %143, contracting_dims = [1] x [0] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<7x3072xbf16>, tensor<3072x8192xbf16>) -> tensor<7x8192xbf16>
+      %145 = stablehlo.reshape %144 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : (tensor<7x8192xbf16>) -> tensor<1x7x8192xbf16>
+      %146 = stablehlo.convert %145 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : (tensor<1x7x8192xbf16>) -> tensor<1x7x8192xf32>
+      %147 = stablehlo.logistic %145 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : tensor<1x7x8192xbf16>
+      %148 = stablehlo.convert %147 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : (tensor<1x7x8192xbf16>) -> tensor<1x7x8192xf32>
+      %149 = stablehlo.multiply %146, %148 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : tensor<1x7x8192xf32>
+      %150 = stablehlo.convert %149 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : (tensor<1x7x8192xf32>) -> tensor<1x7x8192xbf16>
+      %151 = stablehlo.convert %150 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : (tensor<1x7x8192xbf16>) -> tensor<1x7x8192xf32>
+      %152 = stablehlo.transpose %arg33, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>, xla_shape = "bf16[3072,8192]{0,1}"} : (tensor<8192x3072xbf16>) -> tensor<3072x8192xbf16>
+      %153 = stablehlo.dot_general %142, %152, contracting_dims = [1] x [0] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<7x3072xbf16>, tensor<3072x8192xbf16>) -> tensor<7x8192xbf16>
+      %154 = stablehlo.convert %153 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<7x8192xbf16>) -> tensor<7x8192xf32>
+      %155 = stablehlo.reshape %154 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : (tensor<7x8192xf32>) -> tensor<1x7x8192xf32>
+      %156 = stablehlo.multiply %151, %155 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : tensor<1x7x8192xf32>
+      %157 = stablehlo.convert %156 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : (tensor<1x7x8192xf32>) -> tensor<1x7x8192xbf16>
+      %158 = stablehlo.reshape %157 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<1x7x8192xbf16>) -> tensor<7x8192xbf16>
+      %159 = stablehlo.transpose %arg32, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}]>]>, xla_shape = "bf16[8192,3072]{0,1}"} : (tensor<3072x8192xbf16>) -> tensor<8192x3072xbf16>
+      %160 = stablehlo.dot_general %158, %159, contracting_dims = [1] x [0] : (tensor<7x8192xbf16>, tensor<8192x3072xbf16>) -> tensor<7x3072xbf16>
+      %161 = sdy.all_reduce {"_axis_0"} %160 out_sharding=<@mesh, [{}, {}]> : tensor<7x3072xbf16>
+      %162 = stablehlo.reshape %161 : (tensor<7x3072xbf16>) -> tensor<1x7x3072xbf16>
+      %163 = stablehlo.add %125, %162 : tensor<1x7x3072xbf16>
+      %164 = stablehlo.convert %163 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+      %165 = stablehlo.power %164, %1 : tensor<1x7x3072xf32>
+      %166 = stablehlo.reduce(%165 init: %cst) applies stablehlo.add across dimensions = [2] : (tensor<1x7x3072xf32>, tensor<f32>) -> tensor<1x7xf32>
+      %167 = stablehlo.multiply %166, %cst_1 : tensor<1x7xf32>
+      %168 = stablehlo.reshape %167 : (tensor<1x7xf32>) -> tensor<1x7x1xf32>
+      %169 = stablehlo.add %168, %19 : tensor<1x7x1xf32>
+      %170 = stablehlo.rsqrt %169 : tensor<1x7x1xf32>
+      %171 = stablehlo.reshape %170 : (tensor<1x7x1xf32>) -> tensor<1x7xf32>
+      %172 = stablehlo.broadcast_in_dim %171, dims = [0, 1] : (tensor<1x7xf32>) -> tensor<1x7x3072xf32>
+      %173 = stablehlo.multiply %164, %172 : tensor<1x7x3072xf32>
+      %174 = stablehlo.convert %173 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+      %175 = stablehlo.convert %174 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+      %176 = stablehlo.multiply %66, %175 : tensor<1x7x3072xf32>
+      %177 = stablehlo.convert %176 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+      %178 = stablehlo.reshape %177 : (tensor<1x7x3072xbf16>) -> tensor<7x3072xbf16>
+      %179 = stablehlo.transpose %arg26, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>, xla_shape = "bf16[3072,128256]{0,1}"} : (tensor<128256x3072xbf16>) -> tensor<3072x128256xbf16>
+      %180 = stablehlo.dot_general %178, %179, contracting_dims = [1] x [0] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<7x3072xbf16>, tensor<3072x128256xbf16>) -> tensor<7x128256xbf16>
+      %181 = stablehlo.reshape %180 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : (tensor<7x128256xbf16>) -> tensor<1x7x128256xbf16>
+      sdy.return %59, %64, %180, %181 : tensor<1x8x128x128xbf16>, tensor<1x8x128x128xbf16>, tensor<7x128256xbf16>, tensor<1x7x128256xbf16>
+    } : (tensor<7xi64>, tensor<64xf32>, tensor<1024x3072xbf16>, tensor<f32>, tensor<1x7xi64>, tensor<128256x3072xbf16>, tensor<3072xbf16>, tensor<i64>, tensor<1x8x128x128xbf16>, tensor<1024x3072xbf16>, tensor<1x8x128x128xbf16>, tensor<3072x8192xbf16>, tensor<8192x3072xbf16>, tensor<3072x3072xbf16>, tensor<128xi64>, tensor<7x128xbf16>, tensor<f32>, tensor<3072x3072xbf16>, tensor<3072xbf16>, tensor<8192x3072xbf16>, tensor<3072xbf16>) -> (tensor<1x8x128x128xbf16>, tensor<1x8x128x128xbf16>, tensor<7x128256xbf16>, tensor<1x7x128256xbf16>)
+    return %0#0, %0#1, %0#2, %0#3 : tensor<1x8x128x128xbf16>, tensor<1x8x128x128xbf16>, tensor<7x128256xbf16>, tensor<1x7x128256xbf16>
+  }
+}
+
+
+// -----// IR Dump After UpdateGlobalToLocalShapesPass (update-global-to-local-shapes) ('builtin.module' operation: @SyncTensorsGraph.374) //----- //
+module @SyncTensorsGraph.374 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  sdy.mesh @mesh = <["_axis_0_updated"=1, "_axis_0"=2]>
+  func.func @main(%arg0: tensor<7xi64> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg1: tensor<64xf32> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg2: tensor<1024x3072xbf16> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg3: tensor<f32> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg4: tensor<1x7xi64> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg5: tensor<128256x3072xbf16> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg6: tensor<3072xbf16> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg7: tensor<i64> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg8: tensor<1x8x128x128xbf16> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg9: tensor<1024x3072xbf16> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg10: tensor<1x8x128x128xbf16> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg11: tensor<3072x8192xbf16> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg12: tensor<8192x3072xbf16> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg13: tensor<3072x3072xbf16> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg14: tensor<128xi64> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg15: tensor<7x128xbf16> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg16: tensor<f32> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg17: tensor<3072x3072xbf16> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg18: tensor<3072xbf16> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg19: tensor<8192x3072xbf16> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg20: tensor<3072xbf16> {ttcore.shard_status = #ttcore.shard_status<presharded>}) -> (tensor<1x8x128x128xbf16> {ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<1x8x128x128xbf16> {ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<7x128256xbf16> {ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<1x7x128256xbf16> {ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+    %0:4 = sdy.manual_computation(%arg0, %arg1, %arg2, %arg3, %arg4, %arg5, %arg6, %arg7, %arg8, %arg9, %arg10, %arg11, %arg12, %arg13, %arg14, %arg15, %arg16, %arg17, %arg18, %arg19, %arg20) in_shardings=[<@mesh, [{}]>, <@mesh, [{}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, []>, <@mesh, [{}, {}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}]>, <@mesh, []>, <@mesh, [{}, {"_axis_0"}, {}, {}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}, {"_axis_0"}, {}, {}]>, <@mesh, [{}, {"_axis_0"}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}, {"_axis_0"}]>, <@mesh, [{}]>, <@mesh, [{}, {}]>, <@mesh, []>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}]>] out_shardings=[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>, <@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>, <@mesh, [{?}, {"_axis_0", ?}]>, <@mesh, [{?}, {?}, {"_axis_0", ?}]>] manual_axes={"_axis_0_updated", "_axis_0"} (%arg21: tensor<7xi64>, %arg22: tensor<64xf32>, %arg23: tensor<512x3072xbf16>, %arg24: tensor<f32>, %arg25: tensor<1x7xi64>, %arg26: tensor<64128x3072xbf16>, %arg27: tensor<3072xbf16>, %arg28: tensor<i64>, %arg29: tensor<1x4x128x128xbf16>, %arg30: tensor<512x3072xbf16>, %arg31: tensor<1x4x128x128xbf16>, %arg32: tensor<3072x4096xbf16>, %arg33: tensor<4096x3072xbf16>, %arg34: tensor<3072x1536xbf16>, %arg35: tensor<128xi64>, %arg36: tensor<7x128xbf16>, %arg37: tensor<f32>, %arg38: tensor<1536x3072xbf16>, %arg39: tensor<3072xbf16>, %arg40: tensor<4096x3072xbf16>, %arg41: tensor<3072xbf16>) {
+      %c = stablehlo.constant dense<0> : tensor<7xi64>
+      %cst = stablehlo.constant dense<0.000000e+00> : tensor<f32>
+      %cst_0 = stablehlo.constant dense<0xFF800000> : tensor<f32>
+      %cst_1 = stablehlo.constant dense<3.25520843E-4> : tensor<1x7xf32>
+      %cst_2 = stablehlo.constant dense<2.000000e+00> : tensor<f32>
+      %1 = stablehlo.broadcast_in_dim %cst_2, dims = [] : (tensor<f32>) -> tensor<1x7x3072xf32>
+      %2 = stablehlo.compare  LT, %arg21, %c : (tensor<7xi64>, tensor<7xi64>) -> tensor<7xi1>
+      %3 = stablehlo.broadcast_in_dim %arg28, dims = [] : (tensor<i64>) -> tensor<7xi64>
+      %4 = stablehlo.add %arg21, %3 : tensor<7xi64>
+      %5 = stablehlo.select %2, %4, %arg21 : tensor<7xi1>, tensor<7xi64>
+      %6 = stablehlo.reshape %5 : (tensor<7xi64>) -> tensor<7x1xi64>
+      %7 = stablehlo.convert %arg27 : (tensor<3072xbf16>) -> tensor<3072xf32>
+      %8 = stablehlo.broadcast_in_dim %7, dims = [2] : (tensor<3072xf32>) -> tensor<1x7x3072xf32>
+      %9 = stablehlo.convert %arg25 : (tensor<1x7xi64>) -> tensor<1x7xui32>
+      %10 = stablehlo.reshape %9 : (tensor<1x7xui32>) -> tensor<7xui32>
+      %11 = "stablehlo.gather"(%arg26, %10) <{dimension_numbers = #stablehlo.gather<offset_dims = [1], collapsed_slice_dims = [0], start_index_map = [0], index_vector_dim = 1>, slice_sizes = array<i64: 1, 3072>}> : (tensor<64128x3072xbf16>, tensor<7xui32>) -> tensor<7x3072xbf16>
+      %12 = "stablehlo.all_reduce"(%11) <{channel_handle = #stablehlo.channel_handle<handle = 1, type = 1>, replica_groups = dense<[[0, 1]]> : tensor<1x2xi64>}> ({
+      ^bb0(%arg42: tensor<bf16>, %arg43: tensor<bf16>):
+        %182 = stablehlo.add %arg42, %arg43 : tensor<bf16>
+        stablehlo.return %182 : tensor<bf16>
+      }) : (tensor<7x3072xbf16>) -> tensor<7x3072xbf16>
+      %13 = stablehlo.reshape %12 : (tensor<7x3072xbf16>) -> tensor<1x7x3072xbf16>
+      %14 = stablehlo.convert %13 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+      %15 = stablehlo.power %14, %1 : tensor<1x7x3072xf32>
+      %16 = stablehlo.reduce(%15 init: %cst) applies stablehlo.add across dimensions = [2] : (tensor<1x7x3072xf32>, tensor<f32>) -> tensor<1x7xf32>
+      %17 = stablehlo.multiply %16, %cst_1 : tensor<1x7xf32>
+      %18 = stablehlo.reshape %17 : (tensor<1x7xf32>) -> tensor<1x7x1xf32>
+      %19 = stablehlo.broadcast_in_dim %arg24, dims = [] : (tensor<f32>) -> tensor<1x7x1xf32>
+      %20 = stablehlo.add %18, %19 : tensor<1x7x1xf32>
+      %21 = stablehlo.rsqrt %20 : tensor<1x7x1xf32>
+      %22 = stablehlo.reshape %21 : (tensor<1x7x1xf32>) -> tensor<1x7xf32>
+      %23 = stablehlo.broadcast_in_dim %22, dims = [0, 1] : (tensor<1x7xf32>) -> tensor<1x7x3072xf32>
+      %24 = stablehlo.multiply %14, %23 : tensor<1x7x3072xf32>
+      %25 = stablehlo.convert %24 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+      %26 = stablehlo.convert %25 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+      %27 = stablehlo.multiply %8, %26 : tensor<1x7x3072xf32>
+      %28 = stablehlo.convert %27 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+      %29 = stablehlo.reshape %28 : (tensor<1x7x3072xbf16>) -> tensor<7x3072xbf16>
+      %30 = stablehlo.transpose %arg23, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, xla_shape = "bf16[3072,1024]{0,1}"} : (tensor<512x3072xbf16>) -> tensor<3072x512xbf16>
+      %31 = stablehlo.dot_general %29, %30, contracting_dims = [1] x [0] : (tensor<7x3072xbf16>, tensor<3072x512xbf16>) -> tensor<7x512xbf16>
+      %32 = stablehlo.reshape %31 : (tensor<7x512xbf16>) -> tensor<1x7x4x128xbf16>
+      %33 = stablehlo.transpose %32, dims = [0, 2, 1, 3] {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, xla_shape = "bf16[1,8,7,128]{3,1,2,0}"} : (tensor<1x7x4x128xbf16>) -> tensor<1x4x7x128xbf16>
+      %34 = stablehlo.convert %33 {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, xla_shape = "f32[1,8,7,128]{3,1,2,0}"} : (tensor<1x4x7x128xbf16>) -> tensor<1x4x7x128xf32>
+      %35 = stablehlo.reshape %arg22 : (tensor<64xf32>) -> tensor<1x64x1xf32>
+      %36 = stablehlo.convert %arg21 : (tensor<7xi64>) -> tensor<7xf32>
+      %37 = stablehlo.reshape %36 : (tensor<7xf32>) -> tensor<1x1x7xf32>
+      %38 = stablehlo.dot_general %35, %37, batching_dims = [0] x [0], contracting_dims = [2] x [1] : (tensor<1x64x1xf32>, tensor<1x1x7xf32>) -> tensor<1x64x7xf32>
+      %39 = stablehlo.transpose %38, dims = [0, 2, 1] {result_layout = dense<[1, 2, 0]> : tensor<3xindex>, xla_shape = "f32[1,7,64]{1,2,0}"} : (tensor<1x64x7xf32>) -> tensor<1x7x64xf32>
+      %40 = stablehlo.concatenate %39, %39, dim = 2 : (tensor<1x7x64xf32>, tensor<1x7x64xf32>) -> tensor<1x7x128xf32>
+      %41 = stablehlo.cosine %40 : tensor<1x7x128xf32>
+      %42 = stablehlo.convert %41 : (tensor<1x7x128xf32>) -> tensor<1x7x128xbf16>
+      %43 = stablehlo.convert %42 : (tensor<1x7x128xbf16>) -> tensor<1x7x128xf32>
+      %44 = stablehlo.broadcast_in_dim %43, dims = [0, 2, 3] : (tensor<1x7x128xf32>) -> tensor<1x4x7x128xf32>
+      %45 = stablehlo.multiply %34, %44 : tensor<1x4x7x128xf32>
+      %46 = stablehlo.convert %45 : (tensor<1x4x7x128xf32>) -> tensor<1x4x7x128xbf16>
+      %47 = stablehlo.slice %33 [0:1, 0:4, 0:7, 64:128] : (tensor<1x4x7x128xbf16>) -> tensor<1x4x7x64xbf16>
+      %48 = stablehlo.negate %47 : tensor<1x4x7x64xbf16>
+      %49 = stablehlo.slice %33 [0:1, 0:4, 0:7, 0:64] : (tensor<1x4x7x128xbf16>) -> tensor<1x4x7x64xbf16>
+      %50 = stablehlo.concatenate %48, %49, dim = 3 : (tensor<1x4x7x64xbf16>, tensor<1x4x7x64xbf16>) -> tensor<1x4x7x128xbf16>
+      %51 = stablehlo.convert %50 : (tensor<1x4x7x128xbf16>) -> tensor<1x4x7x128xf32>
+      %52 = stablehlo.sine %40 : tensor<1x7x128xf32>
+      %53 = stablehlo.convert %52 : (tensor<1x7x128xf32>) -> tensor<1x7x128xbf16>
+      %54 = stablehlo.convert %53 : (tensor<1x7x128xbf16>) -> tensor<1x7x128xf32>
+      %55 = stablehlo.broadcast_in_dim %54, dims = [0, 2, 3] : (tensor<1x7x128xf32>) -> tensor<1x4x7x128xf32>
+      %56 = stablehlo.multiply %51, %55 : tensor<1x4x7x128xf32>
+      %57 = stablehlo.convert %56 : (tensor<1x4x7x128xf32>) -> tensor<1x4x7x128xbf16>
+      %58 = stablehlo.add %46, %57 : tensor<1x4x7x128xbf16>
+      %59 = "stablehlo.scatter"(%arg29, %6, %58) <{scatter_dimension_numbers = #stablehlo.scatter<update_window_dims = [0, 1, 3], inserted_window_dims = [2], scatter_dims_to_operand_dims = [2], index_vector_dim = 1>}> ({
+      ^bb0(%arg42: tensor<bf16>, %arg43: tensor<bf16>):
+        stablehlo.return %arg43 : tensor<bf16>
+      }) : (tensor<1x4x128x128xbf16>, tensor<7x1xi64>, tensor<1x4x7x128xbf16>) -> tensor<1x4x128x128xbf16>
+      %60 = stablehlo.transpose %arg30, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, xla_shape = "bf16[3072,1024]{0,1}"} : (tensor<512x3072xbf16>) -> tensor<3072x512xbf16>
+      %61 = stablehlo.dot_general %29, %60, contracting_dims = [1] x [0] : (tensor<7x3072xbf16>, tensor<3072x512xbf16>) -> tensor<7x512xbf16>
+      %62 = stablehlo.reshape %61 : (tensor<7x512xbf16>) -> tensor<1x7x4x128xbf16>
+      %63 = stablehlo.transpose %62, dims = [0, 2, 1, 3] {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, xla_shape = "bf16[1,8,7,128]{3,1,2,0}"} : (tensor<1x7x4x128xbf16>) -> tensor<1x4x7x128xbf16>
+      %64 = "stablehlo.scatter"(%arg31, %6, %63) <{scatter_dimension_numbers = #stablehlo.scatter<update_window_dims = [0, 1, 3], inserted_window_dims = [2], scatter_dims_to_operand_dims = [2], index_vector_dim = 1>}> ({
+      ^bb0(%arg42: tensor<bf16>, %arg43: tensor<bf16>):
+        stablehlo.return %arg43 : tensor<bf16>
+      }) : (tensor<1x4x128x128xbf16>, tensor<7x1xi64>, tensor<1x4x7x128xbf16>) -> tensor<1x4x128x128xbf16>
+      %65 = stablehlo.convert %arg41 : (tensor<3072xbf16>) -> tensor<3072xf32>
+      %66 = stablehlo.broadcast_in_dim %65, dims = [2] : (tensor<3072xf32>) -> tensor<1x7x3072xf32>
+      %67 = stablehlo.transpose %arg38, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, xla_shape = "bf16[3072,3072]{0,1}"} : (tensor<1536x3072xbf16>) -> tensor<3072x1536xbf16>
+      %68 = stablehlo.dot_general %29, %67, contracting_dims = [1] x [0] : (tensor<7x3072xbf16>, tensor<3072x1536xbf16>) -> tensor<7x1536xbf16>
+      %69 = stablehlo.reshape %68 : (tensor<7x1536xbf16>) -> tensor<1x7x12x128xbf16>
+      %70 = stablehlo.transpose %69, dims = [0, 2, 1, 3] {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, xla_shape = "bf16[1,24,7,128]{3,1,2,0}"} : (tensor<1x7x12x128xbf16>) -> tensor<1x12x7x128xbf16>
+      %71 = stablehlo.convert %70 {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, xla_shape = "f32[1,24,7,128]{3,1,2,0}"} : (tensor<1x12x7x128xbf16>) -> tensor<1x12x7x128xf32>
+      %72 = stablehlo.broadcast_in_dim %43, dims = [0, 2, 3] : (tensor<1x7x128xf32>) -> tensor<1x12x7x128xf32>
+      %73 = stablehlo.multiply %71, %72 : tensor<1x12x7x128xf32>
+      %74 = stablehlo.convert %73 : (tensor<1x12x7x128xf32>) -> tensor<1x12x7x128xbf16>
+      %75 = stablehlo.slice %70 [0:1, 0:12, 0:7, 64:128] : (tensor<1x12x7x128xbf16>) -> tensor<1x12x7x64xbf16>
+      %76 = stablehlo.negate %75 : tensor<1x12x7x64xbf16>
+      %77 = stablehlo.slice %70 [0:1, 0:12, 0:7, 0:64] : (tensor<1x12x7x128xbf16>) -> tensor<1x12x7x64xbf16>
+      %78 = stablehlo.concatenate %76, %77, dim = 3 : (tensor<1x12x7x64xbf16>, tensor<1x12x7x64xbf16>) -> tensor<1x12x7x128xbf16>
+      %79 = stablehlo.convert %78 : (tensor<1x12x7x128xbf16>) -> tensor<1x12x7x128xf32>
+      %80 = stablehlo.broadcast_in_dim %54, dims = [0, 2, 3] : (tensor<1x7x128xf32>) -> tensor<1x12x7x128xf32>
+      %81 = stablehlo.multiply %79, %80 : tensor<1x12x7x128xf32>
+      %82 = stablehlo.convert %81 : (tensor<1x12x7x128xf32>) -> tensor<1x12x7x128xbf16>
+      %83 = stablehlo.add %74, %82 : tensor<1x12x7x128xbf16>
+      %84 = stablehlo.reshape %83 : (tensor<1x12x7x128xbf16>) -> tensor<12x7x128xbf16>
+      %85 = stablehlo.broadcast_in_dim %59, dims = [0, 1, 3, 4] : (tensor<1x4x128x128xbf16>) -> tensor<1x4x3x128x128xbf16>
+      %86 = stablehlo.reshape %85 : (tensor<1x4x3x128x128xbf16>) -> tensor<1x12x128x128xbf16>
+      %87 = stablehlo.transpose %86, dims = [0, 1, 3, 2] {result_layout = dense<[2, 3, 1, 0]> : tensor<4xindex>, xla_shape = "bf16[1,24,128,128]{2,3,1,0}"} : (tensor<1x12x128x128xbf16>) -> tensor<1x12x128x128xbf16>
+      %88 = stablehlo.reshape %87 : (tensor<1x12x128x128xbf16>) -> tensor<12x128x128xbf16>
+      %89 = stablehlo.dot_general %84, %88, batching_dims = [0] x [0], contracting_dims = [2] x [1] : (tensor<12x7x128xbf16>, tensor<12x128x128xbf16>) -> tensor<12x7x128xbf16>
+      %90 = stablehlo.convert %89 : (tensor<12x7x128xbf16>) -> tensor<12x7x128xf32>
+      %91 = stablehlo.reshape %90 : (tensor<12x7x128xf32>) -> tensor<1x12x7x128xf32>
+      %92 = stablehlo.broadcast_in_dim %arg37, dims = [] : (tensor<f32>) -> tensor<1x12x7x128xf32>
+      %93 = stablehlo.multiply %91, %92 : tensor<1x12x7x128xf32>
+      %94 = stablehlo.convert %93 : (tensor<1x12x7x128xf32>) -> tensor<1x12x7x128xbf16>
+      %95 = stablehlo.convert %arg36 : (tensor<7x128xbf16>) -> tensor<7x128xf32>
+      %96 = stablehlo.broadcast_in_dim %arg35, dims = [1] : (tensor<128xi64>) -> tensor<7x128xi64>
+      %97 = stablehlo.broadcast_in_dim %arg21, dims = [0] : (tensor<7xi64>) -> tensor<7x128xi64>
+      %98 = stablehlo.compare  GT, %96, %97 : (tensor<7x128xi64>, tensor<7x128xi64>) -> tensor<7x128xi1>
+      %99 = stablehlo.convert %98 : (tensor<7x128xi1>) -> tensor<7x128xf32>
+      %100 = stablehlo.multiply %95, %99 : tensor<7x128xf32>
+      %101 = stablehlo.convert %100 : (tensor<7x128xf32>) -> tensor<7x128xbf16>
+      %102 = stablehlo.reshape %101 : (tensor<7x128xbf16>) -> tensor<1x7x128xbf16>
+      %103 = stablehlo.broadcast_in_dim %102, dims = [0, 2, 3] : (tensor<1x7x128xbf16>) -> tensor<1x12x7x128xbf16>
+      %104 = stablehlo.add %94, %103 : tensor<1x12x7x128xbf16>
+      %105 = stablehlo.convert %104 : (tensor<1x12x7x128xbf16>) -> tensor<1x12x7x128xf32>
+      %106 = stablehlo.reduce(%105 init: %cst_0) applies stablehlo.maximum across dimensions = [3] : (tensor<1x12x7x128xf32>, tensor<f32>) -> tensor<1x12x7xf32>
+      %107 = stablehlo.broadcast_in_dim %106, dims = [0, 1, 2] : (tensor<1x12x7xf32>) -> tensor<1x12x7x128xf32>
+      %108 = stablehlo.subtract %105, %107 : tensor<1x12x7x128xf32>
+      %109 = stablehlo.exponential %108 : tensor<1x12x7x128xf32>
+      %110 = stablehlo.reduce(%109 init: %cst) applies stablehlo.add across dimensions = [3] : (tensor<1x12x7x128xf32>, tensor<f32>) -> tensor<1x12x7xf32>
+      %111 = stablehlo.broadcast_in_dim %110, dims = [0, 1, 2] : (tensor<1x12x7xf32>) -> tensor<1x12x7x128xf32>
+      %112 = stablehlo.divide %109, %111 : tensor<1x12x7x128xf32>
+      %113 = stablehlo.convert %112 : (tensor<1x12x7x128xf32>) -> tensor<1x12x7x128xbf16>
+      %114 = stablehlo.reshape %113 : (tensor<1x12x7x128xbf16>) -> tensor<12x7x128xbf16>
+      %115 = stablehlo.broadcast_in_dim %64, dims = [0, 1, 3, 4] : (tensor<1x4x128x128xbf16>) -> tensor<1x4x3x128x128xbf16>
+      %116 = stablehlo.reshape %115 : (tensor<1x4x3x128x128xbf16>) -> tensor<12x128x128xbf16>
+      %117 = stablehlo.dot_general %114, %116, batching_dims = [0] x [0], contracting_dims = [2] x [1] : (tensor<12x7x128xbf16>, tensor<12x128x128xbf16>) -> tensor<12x7x128xbf16>
+      %118 = stablehlo.reshape %117 : (tensor<12x7x128xbf16>) -> tensor<1x12x7x128xbf16>
+      %119 = stablehlo.transpose %118, dims = [0, 2, 1, 3] {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, xla_shape = "bf16[1,7,24,128]{3,1,2,0}"} : (tensor<1x12x7x128xbf16>) -> tensor<1x7x12x128xbf16>
+      %120 = stablehlo.reshape %119 : (tensor<1x7x12x128xbf16>) -> tensor<7x1536xbf16>
+      %121 = stablehlo.transpose %arg34, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, xla_shape = "bf16[3072,3072]{0,1}"} : (tensor<3072x1536xbf16>) -> tensor<1536x3072xbf16>
+      %122 = stablehlo.dot_general %120, %121, contracting_dims = [1] x [0] : (tensor<7x1536xbf16>, tensor<1536x3072xbf16>) -> tensor<7x3072xbf16>
+      %123 = "stablehlo.all_reduce"(%122) <{channel_handle = #stablehlo.channel_handle<handle = 1, type = 1>, replica_groups = dense<[[0, 1]]> : tensor<1x2xi64>}> ({
+      ^bb0(%arg42: tensor<bf16>, %arg43: tensor<bf16>):
+        %182 = stablehlo.add %arg42, %arg43 : tensor<bf16>
+        stablehlo.return %182 : tensor<bf16>
+      }) : (tensor<7x3072xbf16>) -> tensor<7x3072xbf16>
+      %124 = stablehlo.reshape %123 : (tensor<7x3072xbf16>) -> tensor<1x7x3072xbf16>
+      %125 = stablehlo.add %13, %124 : tensor<1x7x3072xbf16>
+      %126 = stablehlo.convert %arg39 : (tensor<3072xbf16>) -> tensor<3072xf32>
+      %127 = stablehlo.broadcast_in_dim %126, dims = [2] : (tensor<3072xf32>) -> tensor<1x7x3072xf32>
+      %128 = stablehlo.convert %125 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+      %129 = stablehlo.power %128, %1 : tensor<1x7x3072xf32>
+      %130 = stablehlo.reduce(%129 init: %cst) applies stablehlo.add across dimensions = [2] : (tensor<1x7x3072xf32>, tensor<f32>) -> tensor<1x7xf32>
+      %131 = stablehlo.multiply %130, %cst_1 : tensor<1x7xf32>
+      %132 = stablehlo.reshape %131 : (tensor<1x7xf32>) -> tensor<1x7x1xf32>
+      %133 = stablehlo.add %132, %19 : tensor<1x7x1xf32>
+      %134 = stablehlo.rsqrt %133 : tensor<1x7x1xf32>
+      %135 = stablehlo.reshape %134 : (tensor<1x7x1xf32>) -> tensor<1x7xf32>
+      %136 = stablehlo.broadcast_in_dim %135, dims = [0, 1] : (tensor<1x7xf32>) -> tensor<1x7x3072xf32>
+      %137 = stablehlo.multiply %128, %136 : tensor<1x7x3072xf32>
+      %138 = stablehlo.convert %137 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+      %139 = stablehlo.convert %138 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+      %140 = stablehlo.multiply %127, %139 : tensor<1x7x3072xf32>
+      %141 = stablehlo.convert %140 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+      %142 = stablehlo.reshape %141 : (tensor<1x7x3072xbf16>) -> tensor<7x3072xbf16>
+      %143 = stablehlo.transpose %arg40, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, xla_shape = "bf16[3072,8192]{0,1}"} : (tensor<4096x3072xbf16>) -> tensor<3072x4096xbf16>
+      %144 = stablehlo.dot_general %142, %143, contracting_dims = [1] x [0] : (tensor<7x3072xbf16>, tensor<3072x4096xbf16>) -> tensor<7x4096xbf16>
+      %145 = stablehlo.reshape %144 : (tensor<7x4096xbf16>) -> tensor<1x7x4096xbf16>
+      %146 = stablehlo.convert %145 : (tensor<1x7x4096xbf16>) -> tensor<1x7x4096xf32>
+      %147 = stablehlo.logistic %145 : tensor<1x7x4096xbf16>
+      %148 = stablehlo.convert %147 : (tensor<1x7x4096xbf16>) -> tensor<1x7x4096xf32>
+      %149 = stablehlo.multiply %146, %148 : tensor<1x7x4096xf32>
+      %150 = stablehlo.convert %149 : (tensor<1x7x4096xf32>) -> tensor<1x7x4096xbf16>
+      %151 = stablehlo.convert %150 : (tensor<1x7x4096xbf16>) -> tensor<1x7x4096xf32>
+      %152 = stablehlo.transpose %arg33, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, xla_shape = "bf16[3072,8192]{0,1}"} : (tensor<4096x3072xbf16>) -> tensor<3072x4096xbf16>
+      %153 = stablehlo.dot_general %142, %152, contracting_dims = [1] x [0] : (tensor<7x3072xbf16>, tensor<3072x4096xbf16>) -> tensor<7x4096xbf16>
+      %154 = stablehlo.convert %153 : (tensor<7x4096xbf16>) -> tensor<7x4096xf32>
+      %155 = stablehlo.reshape %154 : (tensor<7x4096xf32>) -> tensor<1x7x4096xf32>
+      %156 = stablehlo.multiply %151, %155 : tensor<1x7x4096xf32>
+      %157 = stablehlo.convert %156 : (tensor<1x7x4096xf32>) -> tensor<1x7x4096xbf16>
+      %158 = stablehlo.reshape %157 : (tensor<1x7x4096xbf16>) -> tensor<7x4096xbf16>
+      %159 = stablehlo.transpose %arg32, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, xla_shape = "bf16[8192,3072]{0,1}"} : (tensor<3072x4096xbf16>) -> tensor<4096x3072xbf16>
+      %160 = stablehlo.dot_general %158, %159, contracting_dims = [1] x [0] : (tensor<7x4096xbf16>, tensor<4096x3072xbf16>) -> tensor<7x3072xbf16>
+      %161 = "stablehlo.all_reduce"(%160) <{channel_handle = #stablehlo.channel_handle<handle = 1, type = 1>, replica_groups = dense<[[0, 1]]> : tensor<1x2xi64>}> ({
+      ^bb0(%arg42: tensor<bf16>, %arg43: tensor<bf16>):
+        %182 = stablehlo.add %arg42, %arg43 : tensor<bf16>
+        stablehlo.return %182 : tensor<bf16>
+      }) : (tensor<7x3072xbf16>) -> tensor<7x3072xbf16>
+      %162 = stablehlo.reshape %161 : (tensor<7x3072xbf16>) -> tensor<1x7x3072xbf16>
+      %163 = stablehlo.add %125, %162 : tensor<1x7x3072xbf16>
+      %164 = stablehlo.convert %163 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+      %165 = stablehlo.power %164, %1 : tensor<1x7x3072xf32>
+      %166 = stablehlo.reduce(%165 init: %cst) applies stablehlo.add across dimensions = [2] : (tensor<1x7x3072xf32>, tensor<f32>) -> tensor<1x7xf32>
+      %167 = stablehlo.multiply %166, %cst_1 : tensor<1x7xf32>
+      %168 = stablehlo.reshape %167 : (tensor<1x7xf32>) -> tensor<1x7x1xf32>
+      %169 = stablehlo.add %168, %19 : tensor<1x7x1xf32>
+      %170 = stablehlo.rsqrt %169 : tensor<1x7x1xf32>
+      %171 = stablehlo.reshape %170 : (tensor<1x7x1xf32>) -> tensor<1x7xf32>
+      %172 = stablehlo.broadcast_in_dim %171, dims = [0, 1] : (tensor<1x7xf32>) -> tensor<1x7x3072xf32>
+      %173 = stablehlo.multiply %164, %172 : tensor<1x7x3072xf32>
+      %174 = stablehlo.convert %173 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+      %175 = stablehlo.convert %174 : (tensor<1x7x3072xbf16>) -> tensor<1x7x3072xf32>
+      %176 = stablehlo.multiply %66, %175 : tensor<1x7x3072xf32>
+      %177 = stablehlo.convert %176 : (tensor<1x7x3072xf32>) -> tensor<1x7x3072xbf16>
+      %178 = stablehlo.reshape %177 : (tensor<1x7x3072xbf16>) -> tensor<7x3072xbf16>
+      %179 = stablehlo.transpose %arg26, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, xla_shape = "bf16[3072,128256]{0,1}"} : (tensor<64128x3072xbf16>) -> tensor<3072x64128xbf16>
+      %180 = stablehlo.dot_general %178, %179, contracting_dims = [1] x [0] : (tensor<7x3072xbf16>, tensor<3072x64128xbf16>) -> tensor<7x64128xbf16>
+      %181 = stablehlo.reshape %180 : (tensor<7x64128xbf16>) -> tensor<1x7x64128xbf16>
+      sdy.return %59, %64, %180, %181 : tensor<1x4x128x128xbf16>, tensor<1x4x128x128xbf16>, tensor<7x64128xbf16>, tensor<1x7x64128xbf16>
+    } : (tensor<7xi64>, tensor<64xf32>, tensor<1024x3072xbf16>, tensor<f32>, tensor<1x7xi64>, tensor<128256x3072xbf16>, tensor<3072xbf16>, tensor<i64>, tensor<1x8x128x128xbf16>, tensor<1024x3072xbf16>, tensor<1x8x128x128xbf16>, tensor<3072x8192xbf16>, tensor<8192x3072xbf16>, tensor<3072x3072xbf16>, tensor<128xi64>, tensor<7x128xbf16>, tensor<f32>, tensor<3072x3072xbf16>, tensor<3072xbf16>, tensor<8192x3072xbf16>, tensor<3072xbf16>) -> (tensor<1x8x128x128xbf16>, tensor<1x8x128x128xbf16>, tensor<7x128256xbf16>, tensor<1x7x128256xbf16>)
+    return %0#0, %0#1, %0#2, %0#3 : tensor<1x8x128x128xbf16>, tensor<1x8x128x128xbf16>, tensor<7x128256xbf16>, tensor<1x7x128256xbf16>
+  }
+}
+
+
+NOTE However, in decode, we attempt to produce an all_slice. Why?
+
+
+// -----// IR Dump Before UpdateGlobalToLocalShapesPass (update-global-to-local-shapes) ('builtin.module' operation: @SyncTensorsGraph.370) //----- //
+module @SyncTensorsGraph.370 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  sdy.mesh @mesh = <["_axis_0_updated"=1, "_axis_0"=2]>
+  func.func @main(%arg0: tensor<1xi64> {sdy.sharding = #sdy.sharding<@mesh, [{}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg1: tensor<64xf32> {sdy.sharding = #sdy.sharding<@mesh, [{}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg2: tensor<1024x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{"_axis_0"}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg3: tensor<f32> {sdy.sharding = #sdy.sharding<@mesh, []>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg4: tensor<1x1xi64> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg5: tensor<128256x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{"_axis_0"}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg6: tensor<3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg7: tensor<i64> {sdy.sharding = #sdy.sharding<@mesh, []>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg8: tensor<1x8x128x128xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}, {}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg9: tensor<1024x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{"_axis_0"}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg10: tensor<1x8x128x128xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}, {}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg11: tensor<3072x8192xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {"_axis_0"}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg12: tensor<8192x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{"_axis_0"}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg13: tensor<3072x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {"_axis_0"}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg14: tensor<128xi64> {sdy.sharding = #sdy.sharding<@mesh, [{}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg15: tensor<1x128xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg16: tensor<f32> {sdy.sharding = #sdy.sharding<@mesh, []>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg17: tensor<3072x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{"_axis_0"}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg18: tensor<3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg19: tensor<8192x3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{"_axis_0"}, {}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg20: tensor<3072xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{}]>, ttcore.shard_status = #ttcore.shard_status<presharded>}) -> (tensor<1x8x128x128xbf16> {ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<1x8x128x128xbf16> {ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<1x128256xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{?}, {"_axis_0", ?}]>, ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<1x1x128256xbf16> {sdy.sharding = #sdy.sharding<@mesh, [{?}, {?}, {"_axis_0", ?}]>, ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+    %0:4 = sdy.manual_computation(%arg0, %arg1, %arg2, %arg3, %arg4, %arg5, %arg6, %arg7, %arg8, %arg9, %arg10, %arg11, %arg12, %arg13, %arg14, %arg15, %arg16, %arg17, %arg18, %arg19, %arg20) in_shardings=[<@mesh, [{}]>, <@mesh, [{}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, []>, <@mesh, [{}, {}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}]>, <@mesh, []>, <@mesh, [{}, {}, {}, {}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}, {}, {}, {}]>, <@mesh, [{}, {"_axis_0"}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}, {"_axis_0"}]>, <@mesh, [{}]>, <@mesh, [{}, {}]>, <@mesh, []>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}]>] out_shardings=[<@mesh, [{?}, {?}, {?}, {?}]>, <@mesh, [{?}, {?}, {?}, {?}]>, <@mesh, [{?}, {"_axis_0", ?}]>, <@mesh, [{?}, {?}, {"_axis_0", ?}]>] manual_axes={} (%arg21: tensor<1xi64>, %arg22: tensor<64xf32>, %arg23: tensor<1024x3072xbf16>, %arg24: tensor<f32>, %arg25: tensor<1x1xi64>, %arg26: tensor<128256x3072xbf16>, %arg27: tensor<3072xbf16>, %arg28: tensor<i64>, %arg29: tensor<1x8x128x128xbf16>, %arg30: tensor<1024x3072xbf16>, %arg31: tensor<1x8x128x128xbf16>, %arg32: tensor<3072x8192xbf16>, %arg33: tensor<8192x3072xbf16>, %arg34: tensor<3072x3072xbf16>, %arg35: tensor<128xi64>, %arg36: tensor<1x128xbf16>, %arg37: tensor<f32>, %arg38: tensor<3072x3072xbf16>, %arg39: tensor<3072xbf16>, %arg40: tensor<8192x3072xbf16>, %arg41: tensor<3072xbf16>) {
+      %c = stablehlo.constant dense<0> : tensor<1xi64>
+      %cst = stablehlo.constant dense<0.000000e+00> : tensor<f32>
+      %cst_0 = stablehlo.constant dense<0xFF800000> : tensor<f32>
+      %cst_1 = stablehlo.constant dense<3.25520843E-4> : tensor<1x1xf32>
+      %cst_2 = stablehlo.constant dense<2.000000e+00> : tensor<f32>
+      %1 = stablehlo.broadcast_in_dim %cst_2, dims = [] : (tensor<f32>) -> tensor<1x1x3072xf32>
+      %2 = stablehlo.compare  LT, %arg21, %c : (tensor<1xi64>, tensor<1xi64>) -> tensor<1xi1>
+      %3 = stablehlo.reshape %arg28 : (tensor<i64>) -> tensor<1xi64>
+      %4 = stablehlo.add %arg21, %3 : tensor<1xi64>
+      %5 = stablehlo.select %2, %4, %arg21 : tensor<1xi1>, tensor<1xi64>
+      %6 = stablehlo.reshape %5 : (tensor<1xi64>) -> tensor<1x1xi64>
+      %7 = stablehlo.convert %arg27 : (tensor<3072xbf16>) -> tensor<3072xf32>
+      %8 = stablehlo.reshape %7 : (tensor<3072xf32>) -> tensor<1x1x3072xf32>
+      %9 = stablehlo.convert %arg25 : (tensor<1x1xi64>) -> tensor<1x1xui32>
+      %10 = stablehlo.reshape %9 : (tensor<1x1xui32>) -> tensor<1xui32>
+      %11 = "stablehlo.gather"(%arg26, %10) <{dimension_numbers = #stablehlo.gather<offset_dims = [1], collapsed_slice_dims = [0], start_index_map = [0], index_vector_dim = 1>, slice_sizes = array<i64: 1, 3072>}> : (tensor<128256x3072xbf16>, tensor<1xui32>) -> tensor<1x3072xbf16>
+      %12 = sdy.all_reduce {"_axis_0"} %11 out_sharding=<@mesh, [{}, {}]> : tensor<1x3072xbf16>
+      %13 = stablehlo.reshape %12 : (tensor<1x3072xbf16>) -> tensor<1x1x3072xbf16>
+      %14 = stablehlo.convert %13 : (tensor<1x1x3072xbf16>) -> tensor<1x1x3072xf32>
+      %15 = stablehlo.power %14, %1 : tensor<1x1x3072xf32>
+      %16 = stablehlo.reduce(%15 init: %cst) applies stablehlo.add across dimensions = [2] : (tensor<1x1x3072xf32>, tensor<f32>) -> tensor<1x1xf32>
+      %17 = stablehlo.multiply %16, %cst_1 : tensor<1x1xf32>
+      %18 = stablehlo.reshape %17 : (tensor<1x1xf32>) -> tensor<1x1x1xf32>
+      %19 = stablehlo.reshape %arg24 : (tensor<f32>) -> tensor<1x1x1xf32>
+      %20 = stablehlo.add %18, %19 : tensor<1x1x1xf32>
+      %21 = stablehlo.rsqrt %20 : tensor<1x1x1xf32>
+      %22 = stablehlo.reshape %21 : (tensor<1x1x1xf32>) -> tensor<1x1xf32>
+      %23 = stablehlo.broadcast_in_dim %22, dims = [0, 1] : (tensor<1x1xf32>) -> tensor<1x1x3072xf32>
+      %24 = stablehlo.multiply %14, %23 : tensor<1x1x3072xf32>
+      %25 = stablehlo.convert %24 : (tensor<1x1x3072xf32>) -> tensor<1x1x3072xbf16>
+      %26 = stablehlo.convert %25 : (tensor<1x1x3072xbf16>) -> tensor<1x1x3072xf32>
+      %27 = stablehlo.multiply %8, %26 : tensor<1x1x3072xf32>
+      %28 = stablehlo.convert %27 : (tensor<1x1x3072xf32>) -> tensor<1x1x3072xbf16>
+      %29 = stablehlo.reshape %28 : (tensor<1x1x3072xbf16>) -> tensor<1x3072xbf16>
+      %30 = stablehlo.transpose %arg23, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>, xla_shape = "bf16[3072,1024]{0,1}"} : (tensor<1024x3072xbf16>) -> tensor<3072x1024xbf16>
+      %31 = stablehlo.dot_general %29, %30, contracting_dims = [1] x [0] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<1x3072xbf16>, tensor<3072x1024xbf16>) -> tensor<1x1024xbf16>
+      %32 = stablehlo.reshape %31 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x1024xbf16>) -> tensor<1x8x1x128xbf16>
+      %33 = stablehlo.convert %32 {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>, xla_shape = "f32[1,8,1,128]{3,1,2,0}"} : (tensor<1x8x1x128xbf16>) -> tensor<1x8x1x128xf32>
+      %34 = stablehlo.reshape %arg22 : (tensor<64xf32>) -> tensor<1x64x1xf32>
+      %35 = stablehlo.convert %arg21 : (tensor<1xi64>) -> tensor<1xf32>
+      %36 = stablehlo.reshape %35 : (tensor<1xf32>) -> tensor<1x1x1xf32>
+      %37 = stablehlo.dot_general %34, %36, batching_dims = [0] x [0], contracting_dims = [2] x [1] : (tensor<1x64x1xf32>, tensor<1x1x1xf32>) -> tensor<1x64x1xf32>
+      %38 = stablehlo.reshape %37 : (tensor<1x64x1xf32>) -> tensor<1x1x64xf32>
+      %39 = stablehlo.concatenate %38, %38, dim = 2 : (tensor<1x1x64xf32>, tensor<1x1x64xf32>) -> tensor<1x1x128xf32>
+      %40 = stablehlo.cosine %39 : tensor<1x1x128xf32>
+      %41 = stablehlo.convert %40 : (tensor<1x1x128xf32>) -> tensor<1x1x128xbf16>
+      %42 = stablehlo.convert %41 : (tensor<1x1x128xbf16>) -> tensor<1x1x128xf32>
+      %43 = stablehlo.broadcast_in_dim %42, dims = [0, 2, 3] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x1x128xf32>) -> tensor<1x8x1x128xf32>
+      %44 = stablehlo.multiply %33, %43 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x8x1x128xf32>
+      %45 = stablehlo.convert %44 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x8x1x128xf32>) -> tensor<1x8x1x128xbf16>
+      %46 = stablehlo.slice %32 [0:1, 0:8, 0:1, 64:128] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x8x1x128xbf16>) -> tensor<1x8x1x64xbf16>
+      %47 = stablehlo.negate %46 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x8x1x64xbf16>
+      %48 = stablehlo.slice %32 [0:1, 0:8, 0:1, 0:64] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x8x1x128xbf16>) -> tensor<1x8x1x64xbf16>
+      %49 = stablehlo.concatenate %47, %48, dim = 3 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x8x1x64xbf16>, tensor<1x8x1x64xbf16>) -> tensor<1x8x1x128xbf16>
+      %50 = stablehlo.convert %49 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x8x1x128xbf16>) -> tensor<1x8x1x128xf32>
+      %51 = stablehlo.sine %39 : tensor<1x1x128xf32>
+      %52 = stablehlo.convert %51 : (tensor<1x1x128xf32>) -> tensor<1x1x128xbf16>
+      %53 = stablehlo.convert %52 : (tensor<1x1x128xbf16>) -> tensor<1x1x128xf32>
+      %54 = stablehlo.broadcast_in_dim %53, dims = [0, 2, 3] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x1x128xf32>) -> tensor<1x8x1x128xf32>
+      %55 = stablehlo.multiply %50, %54 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x8x1x128xf32>
+      %56 = stablehlo.convert %55 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x8x1x128xf32>) -> tensor<1x8x1x128xbf16>
+      %57 = stablehlo.add %45, %56 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x8x1x128xbf16>
+      %58 = sdy.all_slice [{}, {"_axis_0"}, {}, {}] %arg29 out_sharding=<@mesh, [{}, {"_axis_0"}, {}, {}]> : tensor<1x8x128x128xbf16>
+      %59 = "stablehlo.scatter"(%58, %6, %57) <{scatter_dimension_numbers = #stablehlo.scatter<update_window_dims = [0, 1, 3], inserted_window_dims = [2], scatter_dims_to_operand_dims = [2], index_vector_dim = 1>}> ({
+      ^bb0(%arg42: tensor<bf16>, %arg43: tensor<bf16>):
+        stablehlo.return %arg43 : tensor<bf16>
+      }) {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{}, {"_axis_0"}, {}, {}]>]>} : (tensor<1x8x128x128xbf16>, tensor<1x1xi64>, tensor<1x8x1x128xbf16>) -> tensor<1x8x128x128xbf16>
+      %60 = sdy.all_gather [{}, {"_axis_0"}, {}, {}] %59 out_sharding=<@mesh, [{}, {}, {}, {}]> : tensor<1x8x128x128xbf16>
+      %61 = stablehlo.transpose %arg30, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>, xla_shape = "bf16[3072,1024]{0,1}"} : (tensor<1024x3072xbf16>) -> tensor<3072x1024xbf16>
+      %62 = stablehlo.dot_general %29, %61, contracting_dims = [1] x [0] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<1x3072xbf16>, tensor<3072x1024xbf16>) -> tensor<1x1024xbf16>
+      %63 = stablehlo.reshape %62 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x1024xbf16>) -> tensor<1x8x1x128xbf16>
+      %64 = sdy.all_slice [{}, {"_axis_0"}, {}, {}] %arg31 out_sharding=<@mesh, [{}, {"_axis_0"}, {}, {}]> : tensor<1x8x128x128xbf16>
+      %65 = "stablehlo.scatter"(%64, %6, %63) <{scatter_dimension_numbers = #stablehlo.scatter<update_window_dims = [0, 1, 3], inserted_window_dims = [2], scatter_dims_to_operand_dims = [2], index_vector_dim = 1>}> ({
+      ^bb0(%arg42: tensor<bf16>, %arg43: tensor<bf16>):
+        stablehlo.return %arg43 : tensor<bf16>
+      }) {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{}, {"_axis_0"}, {}, {}]>]>} : (tensor<1x8x128x128xbf16>, tensor<1x1xi64>, tensor<1x8x1x128xbf16>) -> tensor<1x8x128x128xbf16>
+      %66 = sdy.all_gather [{}, {"_axis_0"}, {}, {}] %65 out_sharding=<@mesh, [{}, {}, {}, {}]> : tensor<1x8x128x128xbf16>
+      %67 = stablehlo.convert %arg41 : (tensor<3072xbf16>) -> tensor<3072xf32>
+      %68 = stablehlo.reshape %67 : (tensor<3072xf32>) -> tensor<1x1x3072xf32>
+      %69 = stablehlo.transpose %arg38, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>, xla_shape = "bf16[3072,3072]{0,1}"} : (tensor<3072x3072xbf16>) -> tensor<3072x3072xbf16>
+      %70 = stablehlo.dot_general %29, %69, contracting_dims = [1] x [0] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<1x3072xbf16>, tensor<3072x3072xbf16>) -> tensor<1x3072xbf16>
+      %71 = stablehlo.reshape %70 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x3072xbf16>) -> tensor<1x24x1x128xbf16>
+      %72 = stablehlo.convert %71 {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>, xla_shape = "f32[1,24,1,128]{3,1,2,0}"} : (tensor<1x24x1x128xbf16>) -> tensor<1x24x1x128xf32>
+      %73 = stablehlo.broadcast_in_dim %42, dims = [0, 2, 3] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x1x128xf32>) -> tensor<1x24x1x128xf32>
+      %74 = stablehlo.multiply %72, %73 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x1x128xf32>
+      %75 = stablehlo.convert %74 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x1x128xf32>) -> tensor<1x24x1x128xbf16>
+      %76 = stablehlo.slice %71 [0:1, 0:24, 0:1, 64:128] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x1x128xbf16>) -> tensor<1x24x1x64xbf16>
+      %77 = stablehlo.negate %76 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x1x64xbf16>
+      %78 = stablehlo.slice %71 [0:1, 0:24, 0:1, 0:64] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x1x128xbf16>) -> tensor<1x24x1x64xbf16>
+      %79 = stablehlo.concatenate %77, %78, dim = 3 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x1x64xbf16>, tensor<1x24x1x64xbf16>) -> tensor<1x24x1x128xbf16>
+      %80 = stablehlo.convert %79 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x1x128xbf16>) -> tensor<1x24x1x128xf32>
+      %81 = stablehlo.broadcast_in_dim %53, dims = [0, 2, 3] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x1x128xf32>) -> tensor<1x24x1x128xf32>
+      %82 = stablehlo.multiply %80, %81 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x1x128xf32>
+      %83 = stablehlo.convert %82 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x1x128xf32>) -> tensor<1x24x1x128xbf16>
+      %84 = stablehlo.add %75, %83 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x1x128xbf16>
+      %85 = stablehlo.reshape %84 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x1x128xbf16>) -> tensor<24x1x128xbf16>
+      %86 = sdy.all_slice [{}, {"_axis_0"}, {}, {}] %60 out_sharding=<@mesh, [{}, {"_axis_0"}, {}, {}]> : tensor<1x8x128x128xbf16>
+      %87 = stablehlo.broadcast_in_dim %86, dims = [0, 1, 3, 4] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}, {?}]>]>} : (tensor<1x8x128x128xbf16>) -> tensor<1x8x3x128x128xbf16>
+      %88 = stablehlo.reshape %87 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x8x3x128x128xbf16>) -> tensor<1x24x128x128xbf16>
+      %89 = stablehlo.transpose %88, dims = [0, 1, 3, 2] {result_layout = dense<[2, 3, 1, 0]> : tensor<4xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>, xla_shape = "bf16[1,24,128,128]{2,3,1,0}"} : (tensor<1x24x128x128xbf16>) -> tensor<1x24x128x128xbf16>
+      %90 = stablehlo.reshape %89 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x128x128xbf16>) -> tensor<24x128x128xbf16>
+      %91 = stablehlo.dot_general %85, %90, batching_dims = [0] x [0], contracting_dims = [2] x [1] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}, {?}]>]>} : (tensor<24x1x128xbf16>, tensor<24x128x128xbf16>) -> tensor<24x1x128xbf16>
+      %92 = stablehlo.convert %91 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}, {?}]>]>} : (tensor<24x1x128xbf16>) -> tensor<24x1x128xf32>
+      %93 = stablehlo.reshape %92 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<24x1x128xf32>) -> tensor<1x24x1x128xf32>
+      %94 = stablehlo.broadcast_in_dim %arg37, dims = [] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<f32>) -> tensor<1x24x1x128xf32>
+      %95 = stablehlo.multiply %93, %94 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x1x128xf32>
+      %96 = stablehlo.convert %95 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x1x128xf32>) -> tensor<1x24x1x128xbf16>
+      %97 = stablehlo.convert %arg36 : (tensor<1x128xbf16>) -> tensor<1x128xf32>
+      %98 = stablehlo.reshape %arg35 : (tensor<128xi64>) -> tensor<1x128xi64>
+      %99 = stablehlo.broadcast_in_dim %arg21, dims = [0] : (tensor<1xi64>) -> tensor<1x128xi64>
+      %100 = stablehlo.compare  GT, %98, %99 : (tensor<1x128xi64>, tensor<1x128xi64>) -> tensor<1x128xi1>
+      %101 = stablehlo.convert %100 : (tensor<1x128xi1>) -> tensor<1x128xf32>
+      %102 = stablehlo.multiply %97, %101 : tensor<1x128xf32>
+      %103 = stablehlo.convert %102 : (tensor<1x128xf32>) -> tensor<1x128xbf16>
+      %104 = stablehlo.reshape %103 : (tensor<1x128xbf16>) -> tensor<1x1x128xbf16>
+      %105 = stablehlo.broadcast_in_dim %104, dims = [0, 2, 3] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x1x128xbf16>) -> tensor<1x24x1x128xbf16>
+      %106 = stablehlo.add %96, %105 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x1x128xbf16>
+      %107 = stablehlo.convert %106 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x1x128xbf16>) -> tensor<1x24x1x128xf32>
+      %108 = stablehlo.reduce(%107 init: %cst_0) applies stablehlo.maximum across dimensions = [3] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}]>]>} : (tensor<1x24x1x128xf32>, tensor<f32>) -> tensor<1x24x1xf32>
+      %109 = stablehlo.broadcast_in_dim %108, dims = [0, 1, 2] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x1xf32>) -> tensor<1x24x1x128xf32>
+      %110 = stablehlo.subtract %107, %109 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x1x128xf32>
+      %111 = stablehlo.exponential %110 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x1x128xf32>
+      %112 = stablehlo.reduce(%111 init: %cst) applies stablehlo.add across dimensions = [3] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}]>]>} : (tensor<1x24x1x128xf32>, tensor<f32>) -> tensor<1x24x1xf32>
+      %113 = stablehlo.broadcast_in_dim %112, dims = [0, 1, 2] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x1xf32>) -> tensor<1x24x1x128xf32>
+      %114 = stablehlo.divide %111, %113 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : tensor<1x24x1x128xf32>
+      %115 = stablehlo.convert %114 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x1x128xf32>) -> tensor<1x24x1x128xbf16>
+      %116 = stablehlo.reshape %115 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x24x1x128xbf16>) -> tensor<24x1x128xbf16>
+      %117 = sdy.all_slice [{}, {"_axis_0"}, {}, {}] %66 out_sharding=<@mesh, [{}, {"_axis_0"}, {}, {}]> : tensor<1x8x128x128xbf16>
+      %118 = stablehlo.broadcast_in_dim %117, dims = [0, 1, 3, 4] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}, {?}, {?}, {?}]>]>} : (tensor<1x8x128x128xbf16>) -> tensor<1x8x3x128x128xbf16>
+      %119 = stablehlo.reshape %118 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}, {?}]>]>} : (tensor<1x8x3x128x128xbf16>) -> tensor<24x128x128xbf16>
+      %120 = stablehlo.dot_general %116, %119, batching_dims = [0] x [0], contracting_dims = [2] x [1] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}, {?}]>]>} : (tensor<24x1x128xbf16>, tensor<24x128x128xbf16>) -> tensor<24x1x128xbf16>
+      %121 = stablehlo.reshape %120 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<24x1x128xbf16>) -> tensor<1x3072xbf16>
+      %122 = stablehlo.transpose %arg34, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}]>]>, xla_shape = "bf16[3072,3072]{0,1}"} : (tensor<3072x3072xbf16>) -> tensor<3072x3072xbf16>
+      %123 = stablehlo.dot_general %121, %122, contracting_dims = [1] x [0] : (tensor<1x3072xbf16>, tensor<3072x3072xbf16>) -> tensor<1x3072xbf16>
+      %124 = sdy.all_reduce {"_axis_0"} %123 out_sharding=<@mesh, [{}, {}]> : tensor<1x3072xbf16>
+      %125 = stablehlo.reshape %124 : (tensor<1x3072xbf16>) -> tensor<1x1x3072xbf16>
+      %126 = stablehlo.add %13, %125 : tensor<1x1x3072xbf16>
+      %127 = stablehlo.convert %arg39 : (tensor<3072xbf16>) -> tensor<3072xf32>
+      %128 = stablehlo.reshape %127 : (tensor<3072xf32>) -> tensor<1x1x3072xf32>
+      %129 = stablehlo.convert %126 : (tensor<1x1x3072xbf16>) -> tensor<1x1x3072xf32>
+      %130 = stablehlo.power %129, %1 : tensor<1x1x3072xf32>
+      %131 = stablehlo.reduce(%130 init: %cst) applies stablehlo.add across dimensions = [2] : (tensor<1x1x3072xf32>, tensor<f32>) -> tensor<1x1xf32>
+      %132 = stablehlo.multiply %131, %cst_1 : tensor<1x1xf32>
+      %133 = stablehlo.reshape %132 : (tensor<1x1xf32>) -> tensor<1x1x1xf32>
+      %134 = stablehlo.add %133, %19 : tensor<1x1x1xf32>
+      %135 = stablehlo.rsqrt %134 : tensor<1x1x1xf32>
+      %136 = stablehlo.reshape %135 : (tensor<1x1x1xf32>) -> tensor<1x1xf32>
+      %137 = stablehlo.broadcast_in_dim %136, dims = [0, 1] : (tensor<1x1xf32>) -> tensor<1x1x3072xf32>
+      %138 = stablehlo.multiply %129, %137 : tensor<1x1x3072xf32>
+      %139 = stablehlo.convert %138 : (tensor<1x1x3072xf32>) -> tensor<1x1x3072xbf16>
+      %140 = stablehlo.convert %139 : (tensor<1x1x3072xbf16>) -> tensor<1x1x3072xf32>
+      %141 = stablehlo.multiply %128, %140 : tensor<1x1x3072xf32>
+      %142 = stablehlo.convert %141 : (tensor<1x1x3072xf32>) -> tensor<1x1x3072xbf16>
+      %143 = stablehlo.reshape %142 : (tensor<1x1x3072xbf16>) -> tensor<1x3072xbf16>
+      %144 = stablehlo.transpose %arg40, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>, xla_shape = "bf16[3072,8192]{0,1}"} : (tensor<8192x3072xbf16>) -> tensor<3072x8192xbf16>
+      %145 = stablehlo.dot_general %143, %144, contracting_dims = [1] x [0] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<1x3072xbf16>, tensor<3072x8192xbf16>) -> tensor<1x8192xbf16>
+      %146 = stablehlo.reshape %145 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : (tensor<1x8192xbf16>) -> tensor<1x1x8192xbf16>
+      %147 = stablehlo.convert %146 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : (tensor<1x1x8192xbf16>) -> tensor<1x1x8192xf32>
+      %148 = stablehlo.logistic %146 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : tensor<1x1x8192xbf16>
+      %149 = stablehlo.convert %148 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : (tensor<1x1x8192xbf16>) -> tensor<1x1x8192xf32>
+      %150 = stablehlo.multiply %147, %149 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : tensor<1x1x8192xf32>
+      %151 = stablehlo.convert %150 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : (tensor<1x1x8192xf32>) -> tensor<1x1x8192xbf16>
+      %152 = stablehlo.convert %151 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : (tensor<1x1x8192xbf16>) -> tensor<1x1x8192xf32>
+      %153 = stablehlo.transpose %arg33, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>, xla_shape = "bf16[3072,8192]{0,1}"} : (tensor<8192x3072xbf16>) -> tensor<3072x8192xbf16>
+      %154 = stablehlo.dot_general %143, %153, contracting_dims = [1] x [0] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<1x3072xbf16>, tensor<3072x8192xbf16>) -> tensor<1x8192xbf16>
+      %155 = stablehlo.convert %154 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<1x8192xbf16>) -> tensor<1x8192xf32>
+      %156 = stablehlo.reshape %155 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : (tensor<1x8192xf32>) -> tensor<1x1x8192xf32>
+      %157 = stablehlo.multiply %152, %156 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : tensor<1x1x8192xf32>
+      %158 = stablehlo.convert %157 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : (tensor<1x1x8192xf32>) -> tensor<1x1x8192xbf16>
+      %159 = stablehlo.reshape %158 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<1x1x8192xbf16>) -> tensor<1x8192xbf16>
+      %160 = stablehlo.transpose %arg32, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{"_axis_0", ?}, {?}]>]>, xla_shape = "bf16[8192,3072]{0,1}"} : (tensor<3072x8192xbf16>) -> tensor<8192x3072xbf16>
+      %161 = stablehlo.dot_general %159, %160, contracting_dims = [1] x [0] : (tensor<1x8192xbf16>, tensor<8192x3072xbf16>) -> tensor<1x3072xbf16>
+      %162 = sdy.all_reduce {"_axis_0"} %161 out_sharding=<@mesh, [{}, {}]> : tensor<1x3072xbf16>
+      %163 = stablehlo.reshape %162 : (tensor<1x3072xbf16>) -> tensor<1x1x3072xbf16>
+      %164 = stablehlo.add %126, %163 : tensor<1x1x3072xbf16>
+      %165 = stablehlo.convert %164 : (tensor<1x1x3072xbf16>) -> tensor<1x1x3072xf32>
+      %166 = stablehlo.power %165, %1 : tensor<1x1x3072xf32>
+      %167 = stablehlo.reduce(%166 init: %cst) applies stablehlo.add across dimensions = [2] : (tensor<1x1x3072xf32>, tensor<f32>) -> tensor<1x1xf32>
+      %168 = stablehlo.multiply %167, %cst_1 : tensor<1x1xf32>
+      %169 = stablehlo.reshape %168 : (tensor<1x1xf32>) -> tensor<1x1x1xf32>
+      %170 = stablehlo.add %169, %19 : tensor<1x1x1xf32>
+      %171 = stablehlo.rsqrt %170 : tensor<1x1x1xf32>
+      %172 = stablehlo.reshape %171 : (tensor<1x1x1xf32>) -> tensor<1x1xf32>
+      %173 = stablehlo.broadcast_in_dim %172, dims = [0, 1] : (tensor<1x1xf32>) -> tensor<1x1x3072xf32>
+      %174 = stablehlo.multiply %165, %173 : tensor<1x1x3072xf32>
+      %175 = stablehlo.convert %174 : (tensor<1x1x3072xf32>) -> tensor<1x1x3072xbf16>
+      %176 = stablehlo.convert %175 : (tensor<1x1x3072xbf16>) -> tensor<1x1x3072xf32>
+      %177 = stablehlo.multiply %68, %176 : tensor<1x1x3072xf32>
+      %178 = stablehlo.convert %177 : (tensor<1x1x3072xf32>) -> tensor<1x1x3072xbf16>
+      %179 = stablehlo.reshape %178 : (tensor<1x1x3072xbf16>) -> tensor<1x3072xbf16>
+      %180 = stablehlo.transpose %arg26, dims = [1, 0] {result_layout = dense<[0, 1]> : tensor<2xindex>, sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>, xla_shape = "bf16[3072,128256]{0,1}"} : (tensor<128256x3072xbf16>) -> tensor<3072x128256xbf16>
+      %181 = stablehlo.dot_general %179, %180, contracting_dims = [1] x [0] {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {"_axis_0", ?}]>]>} : (tensor<1x3072xbf16>, tensor<3072x128256xbf16>) -> tensor<1x128256xbf16>
+      %182 = stablehlo.reshape %181 {sdy.sharding = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {"_axis_0", ?}]>]>} : (tensor<1x128256xbf16>) -> tensor<1x1x128256xbf16>
+      sdy.return %60, %66, %181, %182 : tensor<1x8x128x128xbf16>, tensor<1x8x128x128xbf16>, tensor<1x128256xbf16>, tensor<1x1x128256xbf16>
+    } : (tensor<1xi64>, tensor<64xf32>, tensor<1024x3072xbf16>, tensor<f32>, tensor<1x1xi64>, tensor<128256x3072xbf16>, tensor<3072xbf16>, tensor<i64>, tensor<1x8x128x128xbf16>, tensor<1024x3072xbf16>, tensor<1x8x128x128xbf16>, tensor<3072x8192xbf16>, tensor<8192x3072xbf16>, tensor<3072x3072xbf16>, tensor<128xi64>, tensor<1x128xbf16>, tensor<f32>, tensor<3072x3072xbf16>, tensor<3072xbf16>, tensor<8192x3072xbf16>, tensor<3072xbf16>) -> (tensor<1x8x128x128xbf16>, tensor<1x8x128x128xbf16>, tensor<1x128256xbf16>, tensor<1x1x128256xbf16>)
+    return %0#0, %0#1, %0#2, %0#3 : tensor<1x8x128x128xbf16>, tensor<1x8x128x128xbf16>, tensor<1x128256xbf16>, tensor<1x1x128256xbf16>
+  }
+}
+
+
+loc("p8.110"): error: 'sdy.all_slice' op operates on axis "_axis_0" which is already bound by a parent sdy.manual_computation op
+// -----// IR Dump After UpdateGlobalToLocalShapesPass Failed (update-global-to-local-shapes) ('builtin.module' operation: @SyncTensorsGraph.370) //----- //
+"builtin.module"() <{sym_name = "SyncTensorsGraph.370"}> ({
+  "sdy.mesh"() <{mesh = #sdy.mesh<["_axis_0_updated"=1, "_axis_0"=2]>, sym_name = "mesh"}> : () -> ()
+  "func.func"() <{arg_attrs = [{ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}, {ttcore.shard_status = #ttcore.shard_status<presharded>}], function_type = (tensor<1xi64>, tensor<64xf32>, tensor<1024x3072xbf16>, tensor<f32>, tensor<1x1xi64>, tensor<128256x3072xbf16>, tensor<3072xbf16>, tensor<i64>, tensor<1x8x128x128xbf16>, tensor<1024x3072xbf16>, tensor<1x8x128x128xbf16>, tensor<3072x8192xbf16>, tensor<8192x3072xbf16>, tensor<3072x3072xbf16>, tensor<128xi64>, tensor<1x128xbf16>, tensor<f32>, tensor<3072x3072xbf16>, tensor<3072xbf16>, tensor<8192x3072xbf16>, tensor<3072xbf16>) -> (tensor<1x8x128x128xbf16>, tensor<1x8x128x128xbf16>, tensor<1x128256xbf16>, tensor<1x1x128256xbf16>), res_attrs = [{ttcore.shard_status = #ttcore.shard_status<unsharded>}, {ttcore.shard_status = #ttcore.shard_status<unsharded>}, {ttcore.shard_status = #ttcore.shard_status<unsharded>}, {ttcore.shard_status = #ttcore.shard_status<unsharded>}], sym_name = "main"}> ({
+  ^bb0(%arg0: tensor<1xi64>, %arg1: tensor<64xf32>, %arg2: tensor<1024x3072xbf16>, %arg3: tensor<f32>, %arg4: tensor<1x1xi64>, %arg5: tensor<128256x3072xbf16>, %arg6: tensor<3072xbf16>, %arg7: tensor<i64>, %arg8: tensor<1x8x128x128xbf16>, %arg9: tensor<1024x3072xbf16>, %arg10: tensor<1x8x128x128xbf16>, %arg11: tensor<3072x8192xbf16>, %arg12: tensor<8192x3072xbf16>, %arg13: tensor<3072x3072xbf16>, %arg14: tensor<128xi64>, %arg15: tensor<1x128xbf16>, %arg16: tensor<f32>, %arg17: tensor<3072x3072xbf16>, %arg18: tensor<3072xbf16>, %arg19: tensor<8192x3072xbf16>, %arg20: tensor<3072xbf16>):
+    %0:4 = "sdy.manual_computation"(%arg0, %arg1, %arg2, %arg3, %arg4, %arg5, %arg6, %arg7, %arg8, %arg9, %arg10, %arg11, %arg12, %arg13, %arg14, %arg15, %arg16, %arg17, %arg18, %arg19, %arg20) <{in_shardings = #sdy.sharding_per_value<[<@mesh, [{}]>, <@mesh, [{}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, []>, <@mesh, [{}, {}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}]>, <@mesh, []>, <@mesh, [{}, {}, {}, {}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}, {}, {}, {}]>, <@mesh, [{}, {"_axis_0"}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}, {"_axis_0"}]>, <@mesh, [{}]>, <@mesh, [{}, {}]>, <@mesh, []>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}]>, <@mesh, [{"_axis_0"}, {}]>, <@mesh, [{}]>]>, manual_axes = #sdy<manual_axes{"_axis_0_updated", "_axis_0"}>, out_shardings = #sdy.sharding_per_value<[<@mesh, [{?}, {?}, {?}, {?}]>, <@mesh, [{?}, {?}, {?}, {?}]>, <@mesh, [{?}, {"_axis_0", ?}]>, <@mesh, [{?}, {?}, {"_axis_0", ?}]>]>}> ({
+    ^bb0(%arg21: tensor<1xi64>, %arg22: tensor<64xf32>, %arg23: tensor<512x3072xbf16>, %arg24: tensor<f32>, %arg25: tensor<1x1xi64>, %arg26: tensor<64128x3072xbf16>, %arg27: tensor<3072xbf16>, %arg28: tensor<i64>, %arg29: tensor<1x8x128x128xbf16>, %arg30: tensor<512x3072xbf16>, %arg31: tensor<1x8x128x128xbf16>, %arg32: tensor<3072x4096xbf16>, %arg33: tensor<4096x3072xbf16>, %arg34: tensor<3072x1536xbf16>, %arg35: tensor<128xi64>, %arg36: tensor<1x128xbf16>, %arg37: tensor<f32>, %arg38: tensor<1536x3072xbf16>, %arg39: tensor<3072xbf16>, %arg40: tensor<4096x3072xbf16>, %arg41: tensor<3072xbf16>):
+      %1 = "stablehlo.constant"() <{value = dense<0> : tensor<1xi64>}> : () -> tensor<1xi64>
+      %2 = "stablehlo.constant"() <{value = dense<0.000000e+00> : tensor<f32>}> : () -> tensor<f32>
+      %3 = "stablehlo.constant"() <{value = dense<0xFF800000> : tensor<f32>}> : () -> tensor<f32>
+      %4 = "stablehlo.constant"() <{value = dense<3.25520843E-4> : tensor<1x1xf32>}> : () -> tensor<1x1xf32>
+      %5 = "stablehlo.constant"() <{value = dense<2.000000e+00> : tensor<f32>}> : () -> tensor<f32>
+      %6 = "stablehlo.broadcast_in_dim"(%5) <{broadcast_dimensions = array<i64>}> : (tensor<f32>) -> tensor<1x1x3072xf32>
+      %7 = "stablehlo.compare"(%arg21, %1) <{comparison_direction = #stablehlo<comparison_direction LT>}> : (tensor<1xi64>, tensor<1xi64>) -> tensor<1xi1>
+      %8 = "stablehlo.reshape"(%arg28) : (tensor<i64>) -> tensor<1xi64>
+      %9 = "stablehlo.add"(%arg21, %8) : (tensor<1xi64>, tensor<1xi64>) -> tensor<1xi64>
+      %10 = "stablehlo.select"(%7, %9, %arg21) : (tensor<1xi1>, tensor<1xi64>, tensor<1xi64>) -> tensor<1xi64>
+      %11 = "stablehlo.reshape"(%10) : (tensor<1xi64>) -> tensor<1x1xi64>
+      %12 = "stablehlo.convert"(%arg27) : (tensor<3072xbf16>) -> tensor<3072xf32>
+      %13 = "stablehlo.reshape"(%12) : (tensor<3072xf32>) -> tensor<1x1x3072xf32>
+      %14 = "stablehlo.convert"(%arg25) : (tensor<1x1xi64>) -> tensor<1x1xui32>
+      %15 = "stablehlo.reshape"(%14) : (tensor<1x1xui32>) -> tensor<1xui32>
+      %16 = "stablehlo.gather"(%arg26, %15) <{dimension_numbers = #stablehlo.gather<offset_dims = [1], collapsed_slice_dims = [0], start_index_map = [0], index_vector_dim = 1>, slice_sizes = array<i64: 1, 3072>}> : (tensor<64128x3072xbf16>, tensor<1xui32>) -> tensor<1x3072xbf16>
+      %17 = "stablehlo.all_reduce"(%16) <{channel_handle = #stablehlo.channel_handle<handle = 1, type = 1>, replica_groups = dense<[[0, 1]]> : tensor<1x2xi64>}> ({
+      ^bb0(%arg60: tensor<bf16>, %arg61: tensor<bf16>):
+        %195 = "stablehlo.add"(%arg60, %arg61) : (tensor<bf16>, tensor<bf16>) -> tensor<bf16>
+        "stablehlo.return"(%195) : (tensor<bf16>) -> ()
+      }) : (tensor<1x3072xbf16>) -> tensor<1x3072xbf16>
+      %18 = "stablehlo.reshape"(%17) : (tensor<1x3072xbf16>) -> tensor<1x1x3072xbf16>
+      %19 = "stablehlo.convert"(%18) : (tensor<1x1x3072xbf16>) -> tensor<1x1x3072xf32>
+      %20 = "stablehlo.power"(%19, %6) : (tensor<1x1x3072xf32>, tensor<1x1x3072xf32>) -> tensor<1x1x3072xf32>
+      %21 = "stablehlo.reduce"(%20, %2) <{dimensions = array<i64: 2>}> ({
+      ^bb0(%arg58: tensor<f32>, %arg59: tensor<f32>):
+        %194 = "stablehlo.add"(%arg58, %arg59) : (tensor<f32>, tensor<f32>) -> tensor<f32>
+        "stablehlo.return"(%194) : (tensor<f32>) -> ()
+      }) : (tensor<1x1x3072xf32>, tensor<f32>) -> tensor<1x1xf32>
+      %22 = "stablehlo.multiply"(%21, %4) : (tensor<1x1xf32>, tensor<1x1xf32>) -> tensor<1x1xf32>
+      %23 = "stablehlo.reshape"(%22) : (tensor<1x1xf32>) -> tensor<1x1x1xf32>
+      %24 = "stablehlo.reshape"(%arg24) : (tensor<f32>) -> tensor<1x1x1xf32>
+      %25 = "stablehlo.add"(%23, %24) : (tensor<1x1x1xf32>, tensor<1x1x1xf32>) -> tensor<1x1x1xf32>
+      %26 = "stablehlo.rsqrt"(%25) : (tensor<1x1x1xf32>) -> tensor<1x1x1xf32>
+      %27 = "stablehlo.reshape"(%26) : (tensor<1x1x1xf32>) -> tensor<1x1xf32>
+      %28 = "stablehlo.broadcast_in_dim"(%27) <{broadcast_dimensions = array<i64: 0, 1>}> : (tensor<1x1xf32>) -> tensor<1x1x3072xf32>
+      %29 = "stablehlo.multiply"(%19, %28) : (tensor<1x1x3072xf32>, tensor<1x1x3072xf32>) -> tensor<1x1x3072xf32>
+      %30 = "stablehlo.convert"(%29) : (tensor<1x1x3072xf32>) -> tensor<1x1x3072xbf16>
+      %31 = "stablehlo.convert"(%30) : (tensor<1x1x3072xbf16>) -> tensor<1x1x3072xf32>
+      %32 = "stablehlo.multiply"(%13, %31) : (tensor<1x1x3072xf32>, tensor<1x1x3072xf32>) -> tensor<1x1x3072xf32>
+      %33 = "stablehlo.convert"(%32) : (tensor<1x1x3072xf32>) -> tensor<1x1x3072xbf16>
+      %34 = "stablehlo.reshape"(%33) : (tensor<1x1x3072xbf16>) -> tensor<1x3072xbf16>
+      %35 = "stablehlo.transpose"(%arg23) <{permutation = array<i64: 1, 0>}> {result_layout = dense<[0, 1]> : tensor<2xindex>, xla_shape = "bf16[3072,1024]{0,1}"} : (tensor<512x3072xbf16>) -> tensor<3072x512xbf16>
+      %36 = "stablehlo.dot_general"(%34, %35) <{dot_dimension_numbers = #stablehlo.dot<lhs_contracting_dimensions = [1], rhs_contracting_dimensions = [0]>}> : (tensor<1x3072xbf16>, tensor<3072x512xbf16>) -> tensor<1x512xbf16>
+      %37 = "stablehlo.reshape"(%36) : (tensor<1x512xbf16>) -> tensor<1x4x1x128xbf16>
+      %38 = "stablehlo.convert"(%37) {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, xla_shape = "f32[1,8,1,128]{3,1,2,0}"} : (tensor<1x4x1x128xbf16>) -> tensor<1x4x1x128xf32>
+      %39 = "stablehlo.reshape"(%arg22) : (tensor<64xf32>) -> tensor<1x64x1xf32>
+      %40 = "stablehlo.convert"(%arg21) : (tensor<1xi64>) -> tensor<1xf32>
+      %41 = "stablehlo.reshape"(%40) : (tensor<1xf32>) -> tensor<1x1x1xf32>
+      %42 = "stablehlo.dot_general"(%39, %41) <{dot_dimension_numbers = #stablehlo.dot<lhs_batching_dimensions = [0], rhs_batching_dimensions = [0], lhs_contracting_dimensions = [2], rhs_contracting_dimensions = [1]>}> : (tensor<1x64x1xf32>, tensor<1x1x1xf32>) -> tensor<1x64x1xf32>
+      %43 = "stablehlo.reshape"(%42) : (tensor<1x64x1xf32>) -> tensor<1x1x64xf32>
+      %44 = "stablehlo.concatenate"(%43, %43) <{dimension = 2 : i64}> : (tensor<1x1x64xf32>, tensor<1x1x64xf32>) -> tensor<1x1x128xf32>
+      %45 = "stablehlo.cosine"(%44) : (tensor<1x1x128xf32>) -> tensor<1x1x128xf32>
+      %46 = "stablehlo.convert"(%45) : (tensor<1x1x128xf32>) -> tensor<1x1x128xbf16>
+      %47 = "stablehlo.convert"(%46) : (tensor<1x1x128xbf16>) -> tensor<1x1x128xf32>
+      %48 = "stablehlo.broadcast_in_dim"(%47) <{broadcast_dimensions = array<i64: 0, 2, 3>}> : (tensor<1x1x128xf32>) -> tensor<1x4x1x128xf32>
+      %49 = "stablehlo.multiply"(%38, %48) : (tensor<1x4x1x128xf32>, tensor<1x4x1x128xf32>) -> tensor<1x4x1x128xf32>
+      %50 = "stablehlo.convert"(%49) : (tensor<1x4x1x128xf32>) -> tensor<1x4x1x128xbf16>
+      %51 = "stablehlo.slice"(%37) <{limit_indices = array<i64: 1, 4, 1, 128>, start_indices = array<i64: 0, 0, 0, 64>, strides = array<i64: 1, 1, 1, 1>}> : (tensor<1x4x1x128xbf16>) -> tensor<1x4x1x64xbf16>
+      %52 = "stablehlo.negate"(%51) : (tensor<1x4x1x64xbf16>) -> tensor<1x4x1x64xbf16>
+      %53 = "stablehlo.slice"(%37) <{limit_indices = array<i64: 1, 4, 1, 64>, start_indices = array<i64: 0, 0, 0, 0>, strides = array<i64: 1, 1, 1, 1>}> : (tensor<1x4x1x128xbf16>) -> tensor<1x4x1x64xbf16>
+      %54 = "stablehlo.concatenate"(%52, %53) <{dimension = 3 : i64}> : (tensor<1x4x1x64xbf16>, tensor<1x4x1x64xbf16>) -> tensor<1x4x1x128xbf16>
+      %55 = "stablehlo.convert"(%54) : (tensor<1x4x1x128xbf16>) -> tensor<1x4x1x128xf32>
+      %56 = "stablehlo.sine"(%44) : (tensor<1x1x128xf32>) -> tensor<1x1x128xf32>
+      %57 = "stablehlo.convert"(%56) : (tensor<1x1x128xf32>) -> tensor<1x1x128xbf16>
+      %58 = "stablehlo.convert"(%57) : (tensor<1x1x128xbf16>) -> tensor<1x1x128xf32>
+      %59 = "stablehlo.broadcast_in_dim"(%58) <{broadcast_dimensions = array<i64: 0, 2, 3>}> : (tensor<1x1x128xf32>) -> tensor<1x4x1x128xf32>
+      %60 = "stablehlo.multiply"(%55, %59) : (tensor<1x4x1x128xf32>, tensor<1x4x1x128xf32>) -> tensor<1x4x1x128xf32>
+      %61 = "stablehlo.convert"(%60) : (tensor<1x4x1x128xf32>) -> tensor<1x4x1x128xbf16>
+      %62 = "stablehlo.add"(%50, %61) : (tensor<1x4x1x128xbf16>, tensor<1x4x1x128xbf16>) -> tensor<1x4x1x128xbf16>
+      %63 = "sdy.all_slice"(%arg29) <{out_sharding = #sdy.sharding<@mesh, [{}, {"_axis_0"}, {}, {}]>, slicing_axes = #sdy<list_of_axis_ref_lists[{}, {"_axis_0"}, {}, {}]>}> : (tensor<1x8x128x128xbf16>) -> tensor<1x8x128x128xbf16>
+      %64 = "stablehlo.scatter"(%63, %11, %62) <{scatter_dimension_numbers = #stablehlo.scatter<update_window_dims = [0, 1, 3], inserted_window_dims = [2], scatter_dims_to_operand_dims = [2], index_vector_dim = 1>}> ({
+      ^bb0(%arg56: tensor<bf16>, %arg57: tensor<bf16>):
+        "stablehlo.return"(%arg57) : (tensor<bf16>) -> ()
+      }) : (tensor<1x8x128x128xbf16>, tensor<1x1xi64>, tensor<1x4x1x128xbf16>) -> tensor<1x4x128x128xbf16>
+      %65 = "stablehlo.all_gather"(%64) <{all_gather_dim = 1 : i64, channel_handle = #stablehlo.channel_handle<handle = 1, type = 1>, replica_groups = dense<[[0, 1]]> : tensor<1x2xi64>}> : (tensor<1x4x128x128xbf16>) -> tensor<1x8x128x128xbf16>
+      %66 = "stablehlo.transpose"(%arg30) <{permutation = array<i64: 1, 0>}> {result_layout = dense<[0, 1]> : tensor<2xindex>, xla_shape = "bf16[3072,1024]{0,1}"} : (tensor<512x3072xbf16>) -> tensor<3072x512xbf16>
+      %67 = "stablehlo.dot_general"(%34, %66) <{dot_dimension_numbers = #stablehlo.dot<lhs_contracting_dimensions = [1], rhs_contracting_dimensions = [0]>}> : (tensor<1x3072xbf16>, tensor<3072x512xbf16>) -> tensor<1x512xbf16>
+      %68 = "stablehlo.reshape"(%67) : (tensor<1x512xbf16>) -> tensor<1x4x1x128xbf16>
+      %69 = "sdy.all_slice"(%arg31) <{out_sharding = #sdy.sharding<@mesh, [{}, {"_axis_0"}, {}, {}]>, slicing_axes = #sdy<list_of_axis_ref_lists[{}, {"_axis_0"}, {}, {}]>}> : (tensor<1x8x128x128xbf16>) -> tensor<1x8x128x128xbf16>
+      %70 = "stablehlo.scatter"(%69, %11, %68) <{scatter_dimension_numbers = #stablehlo.scatter<update_window_dims = [0, 1, 3], inserted_window_dims = [2], scatter_dims_to_operand_dims = [2], index_vector_dim = 1>}> ({
+      ^bb0(%arg54: tensor<bf16>, %arg55: tensor<bf16>):
+        "stablehlo.return"(%arg55) : (tensor<bf16>) -> ()
+      }) : (tensor<1x8x128x128xbf16>, tensor<1x1xi64>, tensor<1x4x1x128xbf16>) -> tensor<1x4x128x128xbf16>
+      %71 = "stablehlo.all_gather"(%70) <{all_gather_dim = 1 : i64, channel_handle = #stablehlo.channel_handle<handle = 1, type = 1>, replica_groups = dense<[[0, 1]]> : tensor<1x2xi64>}> : (tensor<1x4x128x128xbf16>) -> tensor<1x8x128x128xbf16>
+      %72 = "stablehlo.convert"(%arg41) : (tensor<3072xbf16>) -> tensor<3072xf32>
+      %73 = "stablehlo.reshape"(%72) : (tensor<3072xf32>) -> tensor<1x1x3072xf32>
+      %74 = "stablehlo.transpose"(%arg38) <{permutation = array<i64: 1, 0>}> {result_layout = dense<[0, 1]> : tensor<2xindex>, xla_shape = "bf16[3072,3072]{0,1}"} : (tensor<1536x3072xbf16>) -> tensor<3072x1536xbf16>
+      %75 = "stablehlo.dot_general"(%34, %74) <{dot_dimension_numbers = #stablehlo.dot<lhs_contracting_dimensions = [1], rhs_contracting_dimensions = [0]>}> : (tensor<1x3072xbf16>, tensor<3072x1536xbf16>) -> tensor<1x1536xbf16>
+      %76 = "stablehlo.reshape"(%75) : (tensor<1x1536xbf16>) -> tensor<1x12x1x128xbf16>
+      %77 = "stablehlo.convert"(%76) {result_layout = dense<[3, 1, 2, 0]> : tensor<4xindex>, xla_shape = "f32[1,24,1,128]{3,1,2,0}"} : (tensor<1x12x1x128xbf16>) -> tensor<1x12x1x128xf32>
+      %78 = "stablehlo.broadcast_in_dim"(%47) <{broadcast_dimensions = array<i64: 0, 2, 3>}> : (tensor<1x1x128xf32>) -> tensor<1x12x1x128xf32>
+      %79 = "stablehlo.multiply"(%77, %78) : (tensor<1x12x1x128xf32>, tensor<1x12x1x128xf32>) -> tensor<1x12x1x128xf32>
+      %80 = "stablehlo.convert"(%79) : (tensor<1x12x1x128xf32>) -> tensor<1x12x1x128xbf16>
+      %81 = "stablehlo.slice"(%76) <{limit_indices = array<i64: 1, 12, 1, 128>, start_indices = array<i64: 0, 0, 0, 64>, strides = array<i64: 1, 1, 1, 1>}> : (tensor<1x12x1x128xbf16>) -> tensor<1x12x1x64xbf16>
+      %82 = "stablehlo.negate"(%81) : (tensor<1x12x1x64xbf16>) -> tensor<1x12x1x64xbf16>
+      %83 = "stablehlo.slice"(%76) <{limit_indices = array<i64: 1, 12, 1, 64>, start_indices = array<i64: 0, 0, 0, 0>, strides = array<i64: 1, 1, 1, 1>}> : (tensor<1x12x1x128xbf16>) -> tensor<1x12x1x64xbf16>
+      %84 = "stablehlo.concatenate"(%82, %83) <{dimension = 3 : i64}> : (tensor<1x12x1x64xbf16>, tensor<1x12x1x64xbf16>) -> tensor<1x12x1x128xbf16>
+      %85 = "stablehlo.convert"(%84) : (tensor<1x12x1x128xbf16>) -> tensor<1x12x1x128xf32>
+      %86 = "stablehlo.broadcast_in_dim"(%58) <{broadcast_dimensions = array<i64: 0, 2, 3>}> : (tensor<1x1x128xf32>) -> tensor<1x12x1x128xf32>
+      %87 = "stablehlo.multiply"(%85, %86) : (tensor<1x12x1x128xf32>, tensor<1x12x1x128xf32>) -> tensor<1x12x1x128xf32>
+      %88 = "stablehlo.convert"(%87) : (tensor<1x12x1x128xf32>) -> tensor<1x12x1x128xbf16>
+      %89 = "stablehlo.add"(%80, %88) : (tensor<1x12x1x128xbf16>, tensor<1x12x1x128xbf16>) -> tensor<1x12x1x128xbf16>
+      %90 = "stablehlo.reshape"(%89) : (tensor<1x12x1x128xbf16>) -> tensor<12x1x128xbf16>
+      %91 = "sdy.all_slice"(%65) <{out_sharding = #sdy.sharding<@mesh, [{}, {"_axis_0"}, {}, {}]>, slicing_axes = #sdy<list_of_axis_ref_lists[{}, {"_axis_0"}, {}, {}]>}> : (tensor<1x8x128x128xbf16>) -> tensor<1x8x128x128xbf16>
+      %92 = "stablehlo.broadcast_in_dim"(%91) <{broadcast_dimensions = array<i64: 0, 1, 3, 4>}> : (tensor<1x8x128x128xbf16>) -> tensor<1x4x3x128x128xbf16>
+      %93 = "stablehlo.reshape"(%92) : (tensor<1x4x3x128x128xbf16>) -> tensor<1x12x128x128xbf16>
+      %94 = "stablehlo.transpose"(%93) <{permutation = array<i64: 0, 1, 3, 2>}> {result_layout = dense<[2, 3, 1, 0]> : tensor<4xindex>, xla_shape = "bf16[1,24,128,128]{2,3,1,0}"} : (tensor<1x12x128x128xbf16>) -> tensor<1x12x128x128xbf16>
+      %95 = "stablehlo.reshape"(%94) : (tensor<1x12x128x128xbf16>) -> tensor<12x128x128xbf16>
+      %96 = "stablehlo.dot_general"(%90, %95) <{dot_dimension_numbers = #stablehlo.dot<lhs_batching_dimensions = [0], rhs_batching_dimensions = [0], lhs_contracting_dimensions = [2], rhs_contracting_dimensions = [1]>}> : (tensor<12x1x128xbf16>, tensor<12x128x128xbf16>) -> tensor<12x1x128xbf16>
+      %97 = "stablehlo.convert"(%96) : (tensor<12x1x128xbf16>) -> tensor<12x1x128xf32>
+      %98 = "stablehlo.reshape"(%97) : (tensor<12x1x128xf32>) -> tensor<1x12x1x128xf32>
+      %99 = "stablehlo.broadcast_in_dim"(%arg37) <{broadcast_dimensions = array<i64>}> : (tensor<f32>) -> tensor<1x12x1x128xf32>
+      %100 = "stablehlo.multiply"(%98, %99) : (tensor<1x12x1x128xf32>, tensor<1x12x1x128xf32>) -> tensor<1x12x1x128xf32>
+      %101 = "stablehlo.convert"(%100) : (tensor<1x12x1x128xf32>) -> tensor<1x12x1x128xbf16>
+      %102 = "stablehlo.convert"(%arg36) : (tensor<1x128xbf16>) -> tensor<1x128xf32>
+      %103 = "stablehlo.reshape"(%arg35) : (tensor<128xi64>) -> tensor<1x128xi64>
+      %104 = "stablehlo.broadcast_in_dim"(%arg21) <{broadcast_dimensions = array<i64: 0>}> : (tensor<1xi64>) -> tensor<1x128xi64>
+      %105 = "stablehlo.compare"(%103, %104) <{comparison_direction = #stablehlo<comparison_direction GT>}> : (tensor<1x128xi64>, tensor<1x128xi64>) -> tensor<1x128xi1>
+      %106 = "stablehlo.convert"(%105) : (tensor<1x128xi1>) -> tensor<1x128xf32>
+      %107 = "stablehlo.multiply"(%102, %106) : (tensor<1x128xf32>, tensor<1x128xf32>) -> tensor<1x128xf32>
+      %108 = "stablehlo.convert"(%107) : (tensor<1x128xf32>) -> tensor<1x128xbf16>
+      %109 = "stablehlo.reshape"(%108) : (tensor<1x128xbf16>) -> tensor<1x1x128xbf16>
+      %110 = "stablehlo.broadcast_in_dim"(%109) <{broadcast_dimensions = array<i64: 0, 2, 3>}> : (tensor<1x1x128xbf16>) -> tensor<1x12x1x128xbf16>
+      %111 = "stablehlo.add"(%101, %110) : (tensor<1x12x1x128xbf16>, tensor<1x12x1x128xbf16>) -> tensor<1x12x1x128xbf16>
+      %112 = "stablehlo.convert"(%111) : (tensor<1x12x1x128xbf16>) -> tensor<1x12x1x128xf32>
+      %113 = "stablehlo.reduce"(%112, %3) <{dimensions = array<i64: 3>}> ({
+      ^bb0(%arg52: tensor<f32>, %arg53: tensor<f32>):
+        %193 = "stablehlo.maximum"(%arg52, %arg53) : (tensor<f32>, tensor<f32>) -> tensor<f32>
+        "stablehlo.return"(%193) : (tensor<f32>) -> ()
+      }) : (tensor<1x12x1x128xf32>, tensor<f32>) -> tensor<1x12x1xf32>
+      %114 = "stablehlo.broadcast_in_dim"(%113) <{broadcast_dimensions = array<i64: 0, 1, 2>}> : (tensor<1x12x1xf32>) -> tensor<1x12x1x128xf32>
+      %115 = "stablehlo.subtract"(%112, %114) : (tensor<1x12x1x128xf32>, tensor<1x12x1x128xf32>) -> tensor<1x12x1x128xf32>
+      %116 = "stablehlo.exponential"(%115) : (tensor<1x12x1x128xf32>) -> tensor<1x12x1x128xf32>
+      %117 = "stablehlo.reduce"(%116, %2) <{dimensions = array<i64: 3>}> ({
+      ^bb0(%arg50: tensor<f32>, %arg51: tensor<f32>):
+        %192 = "stablehlo.add"(%arg50, %arg51) : (tensor<f32>, tensor<f32>) -> tensor<f32>
+        "stablehlo.return"(%192) : (tensor<f32>) -> ()
+      }) : (tensor<1x12x1x128xf32>, tensor<f32>) -> tensor<1x12x1xf32>
+      %118 = "stablehlo.broadcast_in_dim"(%117) <{broadcast_dimensions = array<i64: 0, 1, 2>}> : (tensor<1x12x1xf32>) -> tensor<1x12x1x128xf32>
+      %119 = "stablehlo.divide"(%116, %118) : (tensor<1x12x1x128xf32>, tensor<1x12x1x128xf32>) -> tensor<1x12x1x128xf32>
+      %120 = "stablehlo.convert"(%119) : (tensor<1x12x1x128xf32>) -> tensor<1x12x1x128xbf16>
+      %121 = "stablehlo.reshape"(%120) : (tensor<1x12x1x128xbf16>) -> tensor<12x1x128xbf16>
+      %122 = "sdy.all_slice"(%71) <{out_sharding = #sdy.sharding<@mesh, [{}, {"_axis_0"}, {}, {}]>, slicing_axes = #sdy<list_of_axis_ref_lists[{}, {"_axis_0"}, {}, {}]>}> : (tensor<1x8x128x128xbf16>) -> tensor<1x8x128x128xbf16>
+      %123 = "stablehlo.broadcast_in_dim"(%122) <{broadcast_dimensions = array<i64: 0, 1, 3, 4>}> : (tensor<1x8x128x128xbf16>) -> tensor<1x4x3x128x128xbf16>
+      %124 = "stablehlo.reshape"(%123) : (tensor<1x4x3x128x128xbf16>) -> tensor<12x128x128xbf16>
+      %125 = "stablehlo.dot_general"(%121, %124) <{dot_dimension_numbers = #stablehlo.dot<lhs_batching_dimensions = [0], rhs_batching_dimensions = [0], lhs_contracting_dimensions = [2], rhs_contracting_dimensions = [1]>}> : (tensor<12x1x128xbf16>, tensor<12x128x128xbf16>) -> tensor<12x1x128xbf16>
+      %126 = "stablehlo.reshape"(%125) : (tensor<12x1x128xbf16>) -> tensor<1x1536xbf16>
+      %127 = "stablehlo.transpose"(%arg34) <{permutation = array<i64: 1, 0>}> {result_layout = dense<[0, 1]> : tensor<2xindex>, xla_shape = "bf16[3072,3072]{0,1}"} : (tensor<3072x1536xbf16>) -> tensor<1536x3072xbf16>
+      %128 = "stablehlo.dot_general"(%126, %127) <{dot_dimension_numbers = #stablehlo.dot<lhs_contracting_dimensions = [1], rhs_contracting_dimensions = [0]>}> : (tensor<1x1536xbf16>, tensor<1536x3072xbf16>) -> tensor<1x3072xbf16>
+      %129 = "stablehlo.all_reduce"(%128) <{channel_handle = #stablehlo.channel_handle<handle = 1, type = 1>, replica_groups = dense<[[0, 1]]> : tensor<1x2xi64>}> ({
+      ^bb0(%arg48: tensor<bf16>, %arg49: tensor<bf16>):
+        %191 = "stablehlo.add"(%arg48, %arg49) : (tensor<bf16>, tensor<bf16>) -> tensor<bf16>
+        "stablehlo.return"(%191) : (tensor<bf16>) -> ()
+      }) : (tensor<1x3072xbf16>) -> tensor<1x3072xbf16>
+      %130 = "stablehlo.reshape"(%129) : (tensor<1x3072xbf16>) -> tensor<1x1x3072xbf16>
+      %131 = "stablehlo.add"(%18, %130) : (tensor<1x1x3072xbf16>, tensor<1x1x3072xbf16>) -> tensor<1x1x3072xbf16>
+      %132 = "stablehlo.convert"(%arg39) : (tensor<3072xbf16>) -> tensor<3072xf32>
+      %133 = "stablehlo.reshape"(%132) : (tensor<3072xf32>) -> tensor<1x1x3072xf32>
+      %134 = "stablehlo.convert"(%131) : (tensor<1x1x3072xbf16>) -> tensor<1x1x3072xf32>
+      %135 = "stablehlo.power"(%134, %6) : (tensor<1x1x3072xf32>, tensor<1x1x3072xf32>) -> tensor<1x1x3072xf32>
+      %136 = "stablehlo.reduce"(%135, %2) <{dimensions = array<i64: 2>}> ({
+      ^bb0(%arg46: tensor<f32>, %arg47: tensor<f32>):
+        %190 = "stablehlo.add"(%arg46, %arg47) : (tensor<f32>, tensor<f32>) -> tensor<f32>
+        "stablehlo.return"(%190) : (tensor<f32>) -> ()
+      }) : (tensor<1x1x3072xf32>, tensor<f32>) -> tensor<1x1xf32>
+      %137 = "stablehlo.multiply"(%136, %4) : (tensor<1x1xf32>, tensor<1x1xf32>) -> tensor<1x1xf32>
+      %138 = "stablehlo.reshape"(%137) : (tensor<1x1xf32>) -> tensor<1x1x1xf32>
+      %139 = "stablehlo.add"(%138, %24) : (tensor<1x1x1xf32>, tensor<1x1x1xf32>) -> tensor<1x1x1xf32>
+      %140 = "stablehlo.rsqrt"(%139) : (tensor<1x1x1xf32>) -> tensor<1x1x1xf32>
+      %141 = "stablehlo.reshape"(%140) : (tensor<1x1x1xf32>) -> tensor<1x1xf32>
+      %142 = "stablehlo.broadcast_in_dim"(%141) <{broadcast_dimensions = array<i64: 0, 1>}> : (tensor<1x1xf32>) -> tensor<1x1x3072xf32>
+      %143 = "stablehlo.multiply"(%134, %142) : (tensor<1x1x3072xf32>, tensor<1x1x3072xf32>) -> tensor<1x1x3072xf32>
+      %144 = "stablehlo.convert"(%143) : (tensor<1x1x3072xf32>) -> tensor<1x1x3072xbf16>
+      %145 = "stablehlo.convert"(%144) : (tensor<1x1x3072xbf16>) -> tensor<1x1x3072xf32>
+      %146 = "stablehlo.multiply"(%133, %145) : (tensor<1x1x3072xf32>, tensor<1x1x3072xf32>) -> tensor<1x1x3072xf32>
+      %147 = "stablehlo.convert"(%146) : (tensor<1x1x3072xf32>) -> tensor<1x1x3072xbf16>
+      %148 = "stablehlo.reshape"(%147) : (tensor<1x1x3072xbf16>) -> tensor<1x3072xbf16>
+      %149 = "stablehlo.transpose"(%arg40) <{permutation = array<i64: 1, 0>}> {result_layout = dense<[0, 1]> : tensor<2xindex>, xla_shape = "bf16[3072,8192]{0,1}"} : (tensor<4096x3072xbf16>) -> tensor<3072x4096xbf16>
+      %150 = "stablehlo.dot_general"(%148, %149) <{dot_dimension_numbers = #stablehlo.dot<lhs_contracting_dimensions = [1], rhs_contracting_dimensions = [0]>}> : (tensor<1x3072xbf16>, tensor<3072x4096xbf16>) -> tensor<1x4096xbf16>
+      %151 = "stablehlo.reshape"(%150) : (tensor<1x4096xbf16>) -> tensor<1x1x4096xbf16>
+      %152 = "stablehlo.convert"(%151) : (tensor<1x1x4096xbf16>) -> tensor<1x1x4096xf32>
+      %153 = "stablehlo.logistic"(%151) : (tensor<1x1x4096xbf16>) -> tensor<1x1x4096xbf16>
+      %154 = "stablehlo.convert"(%153) : (tensor<1x1x4096xbf16>) -> tensor<1x1x4096xf32>
+      %155 = "stablehlo.multiply"(%152, %154) : (tensor<1x1x4096xf32>, tensor<1x1x4096xf32>) -> tensor<1x1x4096xf32>
+      %156 = "stablehlo.convert"(%155) : (tensor<1x1x4096xf32>) -> tensor<1x1x4096xbf16>
+      %157 = "stablehlo.convert"(%156) : (tensor<1x1x4096xbf16>) -> tensor<1x1x4096xf32>
+      %158 = "stablehlo.transpose"(%arg33) <{permutation = array<i64: 1, 0>}> {result_layout = dense<[0, 1]> : tensor<2xindex>, xla_shape = "bf16[3072,8192]{0,1}"} : (tensor<4096x3072xbf16>) -> tensor<3072x4096xbf16>
+      %159 = "stablehlo.dot_general"(%148, %158) <{dot_dimension_numbers = #stablehlo.dot<lhs_contracting_dimensions = [1], rhs_contracting_dimensions = [0]>}> : (tensor<1x3072xbf16>, tensor<3072x4096xbf16>) -> tensor<1x4096xbf16>
+      %160 = "stablehlo.convert"(%159) : (tensor<1x4096xbf16>) -> tensor<1x4096xf32>
+      %161 = "stablehlo.reshape"(%160) : (tensor<1x4096xf32>) -> tensor<1x1x4096xf32>
+      %162 = "stablehlo.multiply"(%157, %161) : (tensor<1x1x4096xf32>, tensor<1x1x4096xf32>) -> tensor<1x1x4096xf32>
+      %163 = "stablehlo.convert"(%162) : (tensor<1x1x4096xf32>) -> tensor<1x1x4096xbf16>
+      %164 = "stablehlo.reshape"(%163) : (tensor<1x1x4096xbf16>) -> tensor<1x4096xbf16>
+      %165 = "stablehlo.transpose"(%arg32) <{permutation = array<i64: 1, 0>}> {result_layout = dense<[0, 1]> : tensor<2xindex>, xla_shape = "bf16[8192,3072]{0,1}"} : (tensor<3072x4096xbf16>) -> tensor<4096x3072xbf16>
+      %166 = "stablehlo.dot_general"(%164, %165) <{dot_dimension_numbers = #stablehlo.dot<lhs_contracting_dimensions = [1], rhs_contracting_dimensions = [0]>}> : (tensor<1x4096xbf16>, tensor<4096x3072xbf16>) -> tensor<1x3072xbf16>
+      %167 = "stablehlo.all_reduce"(%166) <{channel_handle = #stablehlo.channel_handle<handle = 1, type = 1>, replica_groups = dense<[[0, 1]]> : tensor<1x2xi64>}> ({
+      ^bb0(%arg44: tensor<bf16>, %arg45: tensor<bf16>):
+        %189 = "stablehlo.add"(%arg44, %arg45) : (tensor<bf16>, tensor<bf16>) -> tensor<bf16>
+        "stablehlo.return"(%189) : (tensor<bf16>) -> ()
+      }) : (tensor<1x3072xbf16>) -> tensor<1x3072xbf16>
+      %168 = "stablehlo.reshape"(%167) : (tensor<1x3072xbf16>) -> tensor<1x1x3072xbf16>
+      %169 = "stablehlo.add"(%131, %168) : (tensor<1x1x3072xbf16>, tensor<1x1x3072xbf16>) -> tensor<1x1x3072xbf16>
+      %170 = "stablehlo.convert"(%169) : (tensor<1x1x3072xbf16>) -> tensor<1x1x3072xf32>
+      %171 = "stablehlo.power"(%170, %6) : (tensor<1x1x3072xf32>, tensor<1x1x3072xf32>) -> tensor<1x1x3072xf32>
+      %172 = "stablehlo.reduce"(%171, %2) <{dimensions = array<i64: 2>}> ({
+      ^bb0(%arg42: tensor<f32>, %arg43: tensor<f32>):
+        %188 = "stablehlo.add"(%arg42, %arg43) : (tensor<f32>, tensor<f32>) -> tensor<f32>
+        "stablehlo.return"(%188) : (tensor<f32>) -> ()
+      }) : (tensor<1x1x3072xf32>, tensor<f32>) -> tensor<1x1xf32>
+      %173 = "stablehlo.multiply"(%172, %4) : (tensor<1x1xf32>, tensor<1x1xf32>) -> tensor<1x1xf32>
+      %174 = "stablehlo.reshape"(%173) : (tensor<1x1xf32>) -> tensor<1x1x1xf32>
+      %175 = "stablehlo.add"(%174, %24) : (tensor<1x1x1xf32>, tensor<1x1x1xf32>) -> tensor<1x1x1xf32>
+      %176 = "stablehlo.rsqrt"(%175) : (tensor<1x1x1xf32>) -> tensor<1x1x1xf32>
+      %177 = "stablehlo.reshape"(%176) : (tensor<1x1x1xf32>) -> tensor<1x1xf32>
+      %178 = "stablehlo.broadcast_in_dim"(%177) <{broadcast_dimensions = array<i64: 0, 1>}> : (tensor<1x1xf32>) -> tensor<1x1x3072xf32>
+      %179 = "stablehlo.multiply"(%170, %178) : (tensor<1x1x3072xf32>, tensor<1x1x3072xf32>) -> tensor<1x1x3072xf32>
+      %180 = "stablehlo.convert"(%179) : (tensor<1x1x3072xf32>) -> tensor<1x1x3072xbf16>
+      %181 = "stablehlo.convert"(%180) : (tensor<1x1x3072xbf16>) -> tensor<1x1x3072xf32>
+      %182 = "stablehlo.multiply"(%73, %181) : (tensor<1x1x3072xf32>, tensor<1x1x3072xf32>) -> tensor<1x1x3072xf32>
+      %183 = "stablehlo.convert"(%182) : (tensor<1x1x3072xf32>) -> tensor<1x1x3072xbf16>
+      %184 = "stablehlo.reshape"(%183) : (tensor<1x1x3072xbf16>) -> tensor<1x3072xbf16>
+      %185 = "stablehlo.transpose"(%arg26) <{permutation = array<i64: 1, 0>}> {result_layout = dense<[0, 1]> : tensor<2xindex>, xla_shape = "bf16[3072,128256]{0,1}"} : (tensor<64128x3072xbf16>) -> tensor<3072x64128xbf16>
+      %186 = "stablehlo.dot_general"(%184, %185) <{dot_dimension_numbers = #stablehlo.dot<lhs_contracting_dimensions = [1], rhs_contracting_dimensions = [0]>}> : (tensor<1x3072xbf16>, tensor<3072x64128xbf16>) -> tensor<1x64128xbf16>
+      %187 = "stablehlo.reshape"(%186) : (tensor<1x64128xbf16>) -> tensor<1x1x64128xbf16>
+      "sdy.return"(%65, %71, %186, %187) : (tensor<1x8x128x128xbf16>, tensor<1x8x128x128xbf16>, tensor<1x64128xbf16>, tensor<1x1x64128xbf16>) -> ()
+    }) : (tensor<1xi64>, tensor<64xf32>, tensor<1024x3072xbf16>, tensor<f32>, tensor<1x1xi64>, tensor<128256x3072xbf16>, tensor<3072xbf16>, tensor<i64>, tensor<1x8x128x128xbf16>, tensor<1024x3072xbf16>, tensor<1x8x128x128xbf16>, tensor<3072x8192xbf16>, tensor<8192x3072xbf16>, tensor<3072x3072xbf16>, tensor<128xi64>, tensor<1x128xbf16>, tensor<f32>, tensor<3072x3072xbf16>, tensor<3072xbf16>, tensor<8192x3072xbf16>, tensor<3072xbf16>) -> (tensor<1x8x128x128xbf16>, tensor<1x8x128x128xbf16>, tensor<1x128256xbf16>, tensor<1x1x128256xbf16>)
+    "func.return"(%0#0, %0#1, %0#2, %0#3) : (tensor<1x8x128x128xbf16>, tensor<1x8x128x128xbf16>, tensor<1x128256xbf16>, tensor<1x1x128256xbf16>) -> ()
+  }) : () -> ()
+}) {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} : () -> ()
