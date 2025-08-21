@@ -1,0 +1,369 @@
+WARNING:root:Defaulting to PJRT_DEVICE=CPU
+2025-08-21 16:06:47.822 (   0.000s) [        E25781C0]      dylib_platform.cc:47       1| DylibPlatform::SubclassInitialize
+2025-08-21 16:06:47.824 (   0.001s) [        E25781C0]     client_instance.cc:39       1| ClientInstance::ClientInstance
+2025-08-21 16:06:47.824 (   0.001s) [        E25781C0]              client.cc:18       1| TTClientInstance::TTClientInstance
+2025-08-21 16:06:47.824 (   0.001s) [        E25781C0]     client_instance.cc:60       1| ClientInstance::Initialize
+[32m                 Always[0m | [1m[38;5;240m   DEBUG[0m | Device grid size = { 8, 8 }
+2025-08-21 16:06:51.460 (   3.638s) [        E25781C0]              stubs.inc:112   WARN| STUB: PJRT_Client_TopologyDescription
+2025-08-21 16:06:51.460 (   3.638s) [        E25781C0]      error_instance.cc:49       1| ErrorInstance::PJRT_Error_Message
+2025-08-21 16:06:51.460 (   3.638s) [        E25781C0]      error_instance.cc:58       1| ErrorInstance::PJRT_Error_GetCode
+2025-08-21 16:06:51.460 (   3.638s) [        E25781C0]      error_instance.cc:43       1| ErrorInstance::PJRT_Error_Destroy
+2025-08-21 16:06:51.460 (   3.638s) [        E25781C0]     client_instance.cc:383      1| ClientInstance::PJRT_Client_PlatformVersion
+2025-08-21 16:06:51.460 (   3.638s) [        E25781C0]     client_instance.cc:363      1| ClientInstance::PJRT_Client_PlatformName
+2025-08-21 16:06:51.460 (   3.638s) [        E25781C0]     client_instance.cc:395      1| ClientInstance::PJRT_Client_Devices
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]     device_instance.cc:44       1| DeviceInstance::PJRT_Device_GetDescription
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]  device_description.cc:63       1| DeviceDescription::PJRT_DeviceDescription_Attributes
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]     device_instance.cc:44       1| DeviceInstance::PJRT_Device_GetDescription
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]  device_description.cc:63       1| DeviceDescription::PJRT_DeviceDescription_Attributes
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]     client_instance.cc:408      1| ClientInstance::PJRT_Client_AddressableDevices
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]     client_instance.cc:458      1| ClientInstance::PJRT_Client_AddressableMemories
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]     device_instance.cc:71       1| DeviceInstance::PJRT_Device_AddressableMemories
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]     device_instance.cc:71       1| DeviceInstance::PJRT_Device_AddressableMemories
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]        api_bindings.cc:76       1| PJRT_Plugin_Attributes
+2025-08-21 16:06:51.461167: W torch_xla/csrc/runtime/profiler.cpp:88] Profiler API not found for PJRT plugin
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]  device_description.cc:99       1| DeviceDescription::PJRT_DeviceDescription_ToString
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]  device_description.cc:99       1| DeviceDescription::PJRT_DeviceDescription_ToString
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.461 (   3.638s) [        E25781C0]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+Setting up XLA environment...
+XLA environment configured.
+Created device mesh: (1, 2) with 2 devices
+Note: Using experimental XLA backend.
+[XLA Debug] Processing 2 input specs:
+[XLA Debug] Input 0: kind=InputKind.USER_INPUT, arg=TensorArgument(name='args_0'), target=None
+[XLA Debug] Input 1: kind=InputKind.USER_INPUT, arg=TensorArgument(name='args_1'), target=None
+[XLA Debug] Initialization complete - total inputs: 2, user input indices: [0, 1]
+2025-08-21 16:06:51.884 (   4.061s) [        E25781C0]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.884 (   4.061s) [        E25781C0]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.884 (   4.061s) [        E25781C0]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-08-21 16:06:51.884 (   4.061s) [        E25781C0]     client_instance.cc:509      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-08-21 16:06:51.884 (   4.061s) [        E25781C0]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-08-21 16:06:51.884 (   4.062s) [        E25781C0]     buffer_instance.cc:228      1| [BUFFER] Creating BORROWED host tensor with shape [32, 8] (semantics: ZeroCopy/other)
+2025-08-21 16:06:51.885 (   4.062s) [        E25781C0]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-08-21 16:06:51.885 (   4.062s) [        E25781C0]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+2025-08-21 16:06:51.885 (   4.062s) [        E25781C0]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-08-21 16:06:51.885 (   4.062s) [        E25781C0]     client_instance.cc:509      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-08-21 16:06:51.885 (   4.062s) [        E25781C0]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-08-21 16:06:51.885 (   4.062s) [        E25781C0]     buffer_instance.cc:228      1| [BUFFER] Creating BORROWED host tensor with shape [32, 8] (semantics: ZeroCopy/other)
+2025-08-21 16:06:51.885 (   4.062s) [        E25781C0]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-08-21 16:06:51.885 (   4.062s) [        E25781C0]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+2025-08-21 16:06:51.885 (   4.063s) [        E25781C0]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.885 (   4.063s) [        E25781C0]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.885 (   4.063s) [        E25781C0]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-08-21 16:06:51.885 (   4.063s) [        E25781C0]     client_instance.cc:509      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-08-21 16:06:51.885 (   4.063s) [        E25781C0]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-08-21 16:06:51.885 (   4.063s) [        E25781C0]     buffer_instance.cc:228      1| [BUFFER] Creating BORROWED host tensor with shape [16, 32] (semantics: ZeroCopy/other)
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]     client_instance.cc:509      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]     buffer_instance.cc:228      1| [BUFFER] Creating BORROWED host tensor with shape [16, 32] (semantics: ZeroCopy/other)
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]     client_instance.cc:509      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]     buffer_instance.cc:228      1| [BUFFER] Creating BORROWED host tensor with shape [1] (semantics: ZeroCopy/other)
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]     client_instance.cc:509      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-08-21 16:06:51.886 (   4.063s) [        E25781C0]     buffer_instance.cc:228      1| [BUFFER] Creating BORROWED host tensor with shape [1] (semantics: ZeroCopy/other)
+2025-08-21 16:06:51.886 (   4.064s) [        E25781C0]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-08-21 16:06:51.886 (   4.064s) [        E25781C0]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+2025-08-21 16:06:51.887 (   4.064s) [        E25781C0]     buffer_instance.cc:526      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-08-21 16:06:51.887 (   4.064s) [        E25781C0]     buffer_instance.cc:526      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-08-21 16:06:51.887 (   4.064s) [        E25781C0]     buffer_instance.cc:526      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-08-21 16:06:51.887 (   4.064s) [        E25781C0]     buffer_instance.cc:526      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-08-21 16:06:51.887 (   4.064s) [        E25781C0]     buffer_instance.cc:526      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-08-21 16:06:51.887 (   4.064s) [        E25781C0]     buffer_instance.cc:526      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-08-21 16:06:51.887 (   4.064s) [        E25781C0]     buffer_instance.cc:526      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-08-21 16:06:51.887 (   4.064s) [        E25781C0]     buffer_instance.cc:526      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-08-21 16:06:51.887 (   4.064s) [        E25781C0]     buffer_instance.cc:526      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-08-21 16:06:51.887 (   4.064s) [        E25781C0]     buffer_instance.cc:526      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-08-21 16:06:51.887 (   4.064s) [        E25781C0]     buffer_instance.cc:526      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-08-21 16:06:51.887 (   4.064s) [        E25781C0]     buffer_instance.cc:526      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-08-21 16:06:51.893 (   4.070s) [        E25781C0]     client_instance.cc:471      1| ClientInstance::PJRT_Client_Compile
+2025-08-21 16:06:51.893 (   4.070s) [        E25781C0]      module_builder.cc:101      1| ModuleBuilder::buildModule
+2025-08-21 16:06:51.895 (   4.072s) [        E25781C0]      module_builder.cc:157      1| VHLO Module:
+module @SyncTensorsGraph.9 attributes {mhlo.cross_program_prefetches = [], mhlo.frontend_attributes = {xla.sdy.meshes = "{mesh = #sdy.mesh<[\22_axis_0\22=2]>}"}, mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  vhlo.func_v1 @main(%arg0: !vhlo.tensor_v1<!vhlo.f32_v1>, %arg1: !vhlo.tensor_v1<32x16x!vhlo.f32_v1>, %arg2: !vhlo.tensor_v1<32x32x!vhlo.f32_v1>) -> (!vhlo.tensor_v1<32x16x!vhlo.f32_v1>, !vhlo.tensor_v1<32x16x!vhlo.f32_v1>, !vhlo.tensor_v1<32x16x!vhlo.f32_v1>) {
+    %0 = "vhlo.broadcast_in_dim_v1"(%arg0) <{broadcast_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>}> : (!vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<32x16x!vhlo.f32_v1>
+    %1 = "vhlo.multiply_v1"(%arg1, %0) {mhlo.frontend_attributes = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding_per_value<[<@mesh, [{}, {\22_axis_0\22}]>]>">}>, mhlo.sharding = #vhlo.string_v1<"{devices=[1,2]<=[2]}">} : (!vhlo.tensor_v1<32x16x!vhlo.f32_v1>, !vhlo.tensor_v1<32x16x!vhlo.f32_v1>) -> !vhlo.tensor_v1<32x16x!vhlo.f32_v1>
+    %2 = "vhlo.custom_call_v1"(%1) <{api_version = #vhlo<api_version_v1 API_VERSION_ORIGINAL>, backend_config = #vhlo.string_v1<"">, call_target_name = #vhlo.string_v1<"Sharding">, called_computations = #vhlo.array_v1<[]>, has_side_effect = #vhlo.bool_v1<false>, operand_layouts = #vhlo.array_v1<[]>, output_operand_aliases = #vhlo.array_v1<[]>, result_layouts = #vhlo.array_v1<[]>}> {mhlo.frontend_attributes = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding_per_value<[<@mesh, [{}, {\22_axis_0\22}]>]>">}>, mhlo.sharding = #vhlo.string_v1<"{devices=[1,2]<=[2]}">} : (!vhlo.tensor_v1<32x16x!vhlo.f32_v1>) -> !vhlo.tensor_v1<32x16x!vhlo.f32_v1>
+    %3 = "vhlo.dot_general_v2"(%arg2, %1) <{accumulation_type = #vhlo.type_v1<!vhlo.none_v1>, allow_imprecise_accumulation = #vhlo.type_v1<!vhlo.none_v1>, lhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, lhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, lhs_contracting_dimensions = #vhlo.tensor_v1<dense<1> : tensor<1xi64>>, lhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>, num_primitive_operations = #vhlo.type_v1<!vhlo.none_v1>, precision_config = #vhlo.array_v1<[#vhlo<precision_v1 DEFAULT>, #vhlo<precision_v1 DEFAULT>]>, rhs_batching_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>, rhs_component_count = #vhlo.type_v1<!vhlo.none_v1>, rhs_contracting_dimensions = #vhlo.tensor_v1<dense<0> : tensor<1xi64>>, rhs_precision_type = #vhlo.type_v1<!vhlo.none_v1>}> : (!vhlo.tensor_v1<32x32x!vhlo.f32_v1>, !vhlo.tensor_v1<32x16x!vhlo.f32_v1>) -> !vhlo.tensor_v1<32x16x!vhlo.f32_v1>
+    "vhlo.return_v1"(%2, %1, %3) : (!vhlo.tensor_v1<32x16x!vhlo.f32_v1>, !vhlo.tensor_v1<32x16x!vhlo.f32_v1>, !vhlo.tensor_v1<32x16x!vhlo.f32_v1>) -> ()
+  } {arg_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, []>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{}, {\22_axis_0\22}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{devices=[1,2]<=[2]}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.frontend_attributes"> = #vhlo.dict_v1<{#vhlo.string_v1<"xla.sdy.sharding"> = #vhlo.string_v1<"#sdy.sharding<@mesh, [{\22_axis_0\22}, {}]>">}>, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{devices=[2,1]<=[2]}">}>]>, res_attrs = #vhlo.array_v1<[]>, sym_visibility = #vhlo.string_v1<"">}
+}
+2025-08-21 16:06:51.902 (   4.079s) [        E25781C0]      module_builder.cc:196      1| SHLO Module:
+module @SyncTensorsGraph.9 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  sdy.mesh @mesh = <["_axis_0"=2]>
+  func.func @main(%arg0: tensor<f32> {sdy.sharding = #sdy.sharding<@mesh, []>}, %arg1: tensor<32x16xf32> {sdy.sharding = #sdy.sharding<@mesh, [{}, {"_axis_0"}]>}, %arg2: tensor<32x32xf32> {sdy.sharding = #sdy.sharding<@mesh, [{"_axis_0"}, {}]>}) -> (tensor<32x16xf32>, tensor<32x16xf32>, tensor<32x16xf32>) {
+    %0 = stablehlo.broadcast_in_dim %arg0, dims = [] : (tensor<f32>) -> tensor<32x16xf32>
+    %1 = stablehlo.multiply %arg1, %0 : tensor<32x16xf32>
+    %2 = sdy.sharding_constraint %1 <@mesh, [{}, {"_axis_0"}]> : tensor<32x16xf32>
+    %3 = stablehlo.dot_general %arg2, %1, contracting_dims = [1] x [0] : (tensor<32x32xf32>, tensor<32x16xf32>) -> tensor<32x16xf32>
+    return %2, %1, %3 : tensor<32x16xf32>, tensor<32x16xf32>, tensor<32x16xf32>
+  }
+}
+2025-08-21 16:06:51.911 (   4.088s) [        E25781C0]      module_builder.cc:220      1| SHLO StableHLO Pipeline Module:
+module @SyncTensorsGraph.9 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  sdy.mesh @mesh = <["_axis_0_updated"=1, "_axis_0"=2]>
+  func.func @main(%arg0: tensor<f32> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg1: tensor<32x16xf32> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg2: tensor<32x32xf32> {ttcore.shard_status = #ttcore.shard_status<presharded>}) -> (tensor<32x16xf32> {ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<32x16xf32> {ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<32x16xf32> {ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+    %0:3 = sdy.manual_computation(%arg0, %arg1, %arg2) in_shardings=[<@mesh, []>, <@mesh, [{}, {"_axis_0"}]>, <@mesh, [{"_axis_0"}, {}]>] out_shardings=[<@mesh, [{}, {"_axis_0"}]>, <@mesh, [{}, {"_axis_0"}]>, <@mesh, [{"_axis_0"}, {}]>] manual_axes={"_axis_0_updated", "_axis_0"} (%arg3: tensor<f32>, %arg4: tensor<32x8xf32>, %arg5: tensor<16x32xf32>) {
+      %1 = stablehlo.broadcast_in_dim %arg3, dims = [] : (tensor<f32>) -> tensor<32x8xf32>
+      %2 = stablehlo.multiply %arg4, %1 : tensor<32x8xf32>
+      %3 = "stablehlo.all_gather"(%2) <{all_gather_dim = 1 : i64, channel_handle = #stablehlo.channel_handle<handle = 1, type = 1>, replica_groups = dense<[[0, 1]]> : tensor<1x2xi64>}> : (tensor<32x8xf32>) -> tensor<32x16xf32>
+      %4 = stablehlo.dot_general %arg5, %3, contracting_dims = [1] x [0] : (tensor<16x32xf32>, tensor<32x16xf32>) -> tensor<16x16xf32>
+      sdy.return %2, %2, %4 : tensor<32x8xf32>, tensor<32x8xf32>, tensor<16x16xf32>
+    } : (tensor<f32>, tensor<32x16xf32>, tensor<32x32xf32>) -> (tensor<32x16xf32>, tensor<32x16xf32>, tensor<32x16xf32>)
+    return %0#0, %0#1, %0#2 : tensor<32x16xf32>, tensor<32x16xf32>, tensor<32x16xf32>
+  }
+}
+2025-08-21 16:06:51.914 (   4.092s) [        E25781C0]      module_builder.cc:472      1| TTIR Module:
+module @SyncTensorsGraph.9 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x2>]>} {
+  func.func @main(%arg0: tensor<f32> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg1: tensor<32x16xf32> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg2: tensor<32x32xf32> {ttcore.shard_status = #ttcore.shard_status<presharded>}) -> (tensor<32x16xf32> {ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<32x16xf32> {ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<32x16xf32> {ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+    %0 = ttir.empty() : tensor<f32>
+    %1 = "ttir.mesh_shard"(%arg0, %0) <{shard_dims = array<i64: -1>, shard_direction = #ttcore.shard_direction<full_to_shard>, shard_shape = array<i64: 1>, shard_type = #ttcore.shard_type<identity>}> : (tensor<f32>, tensor<f32>) -> tensor<f32>
+    %2 = ttir.empty() : tensor<32x8xf32>
+    %3 = "ttir.mesh_shard"(%arg1, %2) <{shard_dims = array<i64: -1, 1>, shard_direction = #ttcore.shard_direction<full_to_shard>, shard_shape = array<i64: 1, 2>, shard_type = #ttcore.shard_type<identity>}> : (tensor<32x16xf32>, tensor<32x8xf32>) -> tensor<32x8xf32>
+    %4 = ttir.empty() : tensor<16x32xf32>
+    %5 = "ttir.mesh_shard"(%arg2, %4) <{shard_dims = array<i64: -1, 0>, shard_direction = #ttcore.shard_direction<full_to_shard>, shard_shape = array<i64: 2, 1>, shard_type = #ttcore.shard_type<identity>}> : (tensor<32x32xf32>, tensor<16x32xf32>) -> tensor<16x32xf32>
+    %6 = ttir.empty() : tensor<1x1xf32>
+    %7 = "ttir.reshape"(%1, %6) <{shape = [1 : i32, 1 : i32]}> : (tensor<f32>, tensor<1x1xf32>) -> tensor<1x1xf32>
+    %8 = ttir.empty() : tensor<32x8xf32>
+    %9 = "ttir.broadcast"(%7, %8) <{broadcast_dimensions = array<i64: 32, 8>}> : (tensor<1x1xf32>, tensor<32x8xf32>) -> tensor<32x8xf32>
+    %10 = ttir.empty() : tensor<32x8xf32>
+    %11 = "ttir.multiply"(%3, %9, %10) : (tensor<32x8xf32>, tensor<32x8xf32>, tensor<32x8xf32>) -> tensor<32x8xf32>
+    %12 = ttir.empty() : tensor<32x16xf32>
+    %13 = "ttir.all_gather"(%11, %12) <{all_gather_dim = 1 : si32, cluster_axis = 1 : ui32}> : (tensor<32x8xf32>, tensor<32x16xf32>) -> tensor<32x16xf32>
+    %14 = "ttir.dot_general"(%5, %13) <{batch_dims_lhs = array<i64>, batch_dims_rhs = array<i64>, contract_dims_lhs = array<i64: 1>, contract_dims_rhs = array<i64: 0>}> : (tensor<16x32xf32>, tensor<32x16xf32>) -> tensor<16x16xf32>
+    %15 = ttir.empty() : tensor<32x16xf32>
+    %16 = "ttir.mesh_shard"(%11, %15) <{shard_dims = array<i64: -1, 1>, shard_direction = #ttcore.shard_direction<shard_to_full>, shard_shape = array<i64: 1, 2>, shard_type = #ttcore.shard_type<devices>}> : (tensor<32x8xf32>, tensor<32x16xf32>) -> tensor<32x16xf32>
+    %17 = ttir.empty() : tensor<32x16xf32>
+    %18 = "ttir.mesh_shard"(%11, %17) <{shard_dims = array<i64: -1, 1>, shard_direction = #ttcore.shard_direction<shard_to_full>, shard_shape = array<i64: 1, 2>, shard_type = #ttcore.shard_type<devices>}> : (tensor<32x8xf32>, tensor<32x16xf32>) -> tensor<32x16xf32>
+    %19 = ttir.empty() : tensor<32x16xf32>
+    %20 = "ttir.mesh_shard"(%14, %19) <{shard_dims = array<i64: -1, 0>, shard_direction = #ttcore.shard_direction<shard_to_full>, shard_shape = array<i64: 2, 1>, shard_type = #ttcore.shard_type<devices>}> : (tensor<16x16xf32>, tensor<32x16xf32>) -> tensor<32x16xf32>
+    return %16, %18, %20 : tensor<32x16xf32>, tensor<32x16xf32>, tensor<32x16xf32>
+  }
+}
+2025-08-21 16:06:51.915 (   4.093s) [        E25781C0]      module_builder.cc:526   WARN| `mhlo.num_partitions` attribute not found, assuming default number of partitions: 1
+2025-08-21 16:06:51.915 (   4.093s) [        E25781C0]      module_builder.cc:540   WARN| `mhlo.num_replicas` attribute not found, assuming default number of replicas: 1
+2025-08-21 16:06:51.915 (   4.093s) [        E25781C0]      module_builder.cc:548   WARN| Num replicas and num partitions are not set, inferring the number of devices from mesh shape
+TTIRFusingPass: Starting pass on operation
+TTIRFusingPass: Successfully applied Conv2dTagWeights patterns
+TTIRFusingPass: Successfully applied all fusion patterns
+TTIRFusingPass: Completed pass on operation
+TTIRFusingPass: Starting pass on operation
+TTIRFusingPass: Successfully applied Conv2dTagWeights patterns
+TTIRFusingPass: Successfully applied all fusion patterns
+TTIRFusingPass: Completed pass on operation
+TTIRFusingPass: Starting pass on operation
+TTIRFusingPass: Successfully applied Conv2dTagWeights patterns
+TTIRFusingPass: Successfully applied all fusion patterns
+TTIRFusingPass: Completed pass on operation
+2025-08-21 16:06:51.934 (   4.111s) [        E25781C0]      module_builder.cc:615      1| TTNN Module:
+module @SyncTensorsGraph.9 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x2>]>} {
+  ttcore.device_module {
+    builtin.module @SyncTensorsGraph.9 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x2>]>, ttcore.system_desc = #ttcore.system_desc<[{role = host, target_triple = "x86_64-pc-linux"}], [{arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 99776, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073184736, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_register_size_tiles = 8, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 99776, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073193056, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_register_size_tiles = 8, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}], [0, 1], [1 : i32, 0 : i32], [ 0x0x0x0]>} {
+      ttcore.device @default_device = <workerGrid = #ttcore.grid<8x16, (d0, d1) -> (d1 floordiv 8, d0, d1 mod 2)>, l1Map = (d0, d1, d2)[s0] -> (d1 floordiv 8, d0, d1 mod 2, d2 + s0), dramMap = (d0, d1, d2)[s0, s1, s2, s3, s4, s5] -> (0, 0, (((d0 * s1) * (s2 * s3) + d1 * (s2 * s3) + d2) floordiv s4) mod 12, ((d0 * s1) * (s2 * s3) + d1 * (s2 * s3) + d2) floordiv (s4 * 12) + ((d0 * s1) * (s2 * s3) + d1 * (s2 * s3) + d2) mod s4 + s5), meshShape = 1x2, chipIds = [0, 1]>
+      func.func @main(%arg0: tensor<f32, #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg1: tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>> {ttcore.shard_status = #ttcore.shard_status<presharded>}, %arg2: tensor<32x32xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>> {ttcore.shard_status = #ttcore.shard_status<presharded>}) -> (tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x16xf32, #ttnn.buffer_type<system_memory>>>> {ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x16xf32, #ttnn.buffer_type<system_memory>>>> {ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x16xf32, #ttnn.buffer_type<system_memory>>>> {ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+        %0 = "ttnn.get_device"() <{mesh_offset = #ttnn<mesh_offset 0x0>, mesh_shape = #ttnn<mesh_shape 1x2>}> : () -> !ttnn.device
+        %1 = "ttnn.mesh_shard"(%arg0, %0) <{shard_dims = array<i64: -1>, shard_direction = #ttcore.shard_direction<full_to_shard>, shard_shape = array<i64: 1>, shard_type = #ttcore.shard_type<identity>}> : (tensor<f32, #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>, !ttnn.device) -> tensor<f32, #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>
+        "ttnn.deallocate"(%arg0) <{force = false}> : (tensor<f32, #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> ()
+        %2 = "ttnn.mesh_shard"(%arg1, %0) <{shard_dims = array<i64: -1, 1>, shard_direction = #ttcore.shard_direction<full_to_shard>, shard_shape = array<i64: 1, 2>, shard_type = #ttcore.shard_type<identity>}> : (tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>, !ttnn.device) -> tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>
+        "ttnn.deallocate"(%arg1) <{force = false}> : (tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> ()
+        %3 = "ttnn.mesh_shard"(%arg2, %0) <{shard_dims = array<i64: -1, 0>, shard_direction = #ttcore.shard_direction<full_to_shard>, shard_shape = array<i64: 2, 1>, shard_type = #ttcore.shard_type<identity>}> : (tensor<32x32xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>, !ttnn.device) -> tensor<16x32xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>
+        "ttnn.deallocate"(%arg2) <{force = false}> : (tensor<32x32xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> ()
+        %4 = "ttnn.reshape"(%1) <{shape = [1 : i32, 1 : i32]}> : (tensor<f32, #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<1x1xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>
+        "ttnn.deallocate"(%1) <{force = false}> : (tensor<f32, #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> ()
+        %5 = "ttnn.multiply"(%2, %4) <{output_dtype = #ttcore.supportedDataTypes<f32>}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>, tensor<1x1xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>
+        "ttnn.deallocate"(%4) <{force = false}> : (tensor<1x1xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> ()
+        "ttnn.deallocate"(%2) <{force = false}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> ()
+        %6 = "ttnn.reshape"(%5) <{shape = [32 : i32, 1 : i32, 8 : i32]}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<32x1x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<32x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>
+        %7 = "ttnn.permute"(%6) <{permutation = array<i64: 1, 0, 2>}> : (tensor<32x1x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<32x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<1x32x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>
+        "ttnn.deallocate"(%6) <{force = false}> : (tensor<32x1x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<32x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> ()
+        %8 = "ttnn.all_gather"(%7, %0) <{all_gather_dim = 0 : si32, cluster_axis = 1 : ui32, num_links = 1 : ui32}> : (tensor<1x32x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>, !ttnn.device) -> tensor<2x32x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<2x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>
+        "ttnn.deallocate"(%7) <{force = false}> : (tensor<1x32x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> ()
+        %9 = "ttnn.permute"(%8) <{permutation = array<i64: 1, 0, 2>}> : (tensor<2x32x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<2x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<32x2x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>
+        "ttnn.deallocate"(%8) <{force = false}> : (tensor<2x32x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<2x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> ()
+        %10 = "ttnn.reshape"(%9) <{shape = [32 : i32, 16 : i32]}> : (tensor<32x2x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>
+        "ttnn.deallocate"(%9) <{force = false}> : (tensor<32x2x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> ()
+        %11 = "ttnn.matmul"(%3, %10) <{transpose_a = false, transpose_b = false}> : (tensor<16x32xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>, tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>
+        "ttnn.deallocate"(%10) <{force = false}> : (tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> ()
+        "ttnn.deallocate"(%3) <{force = false}> : (tensor<16x32xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> ()
+        %12 = "ttnn.from_device"(%5) : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>>
+        %13 = "ttnn.to_layout"(%12) <{layout = #ttnn.layout<row_major>}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>>) -> tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x8xf32, #ttnn.buffer_type<system_memory>>>>
+        "ttnn.deallocate"(%12) <{force = false}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>>) -> ()
+        %14 = "ttnn.mesh_shard"(%13, %0) <{shard_dims = array<i64: -1, 1>, shard_direction = #ttcore.shard_direction<shard_to_full>, shard_shape = array<i64: 1, 2>, shard_type = #ttcore.shard_type<devices>}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x8xf32, #ttnn.buffer_type<system_memory>>>>, !ttnn.device) -> tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x16xf32, #ttnn.buffer_type<system_memory>>>>
+        "ttnn.deallocate"(%13) <{force = false}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x8xf32, #ttnn.buffer_type<system_memory>>>>) -> ()
+        %15 = "ttnn.from_device"(%5) : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>>
+        "ttnn.deallocate"(%5) <{force = false}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> ()
+        %16 = "ttnn.to_layout"(%15) <{layout = #ttnn.layout<row_major>}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>>) -> tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x8xf32, #ttnn.buffer_type<system_memory>>>>
+        "ttnn.deallocate"(%15) <{force = false}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>>) -> ()
+        %17 = "ttnn.mesh_shard"(%16, %0) <{shard_dims = array<i64: -1, 1>, shard_direction = #ttcore.shard_direction<shard_to_full>, shard_shape = array<i64: 1, 2>, shard_type = #ttcore.shard_type<devices>}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x8xf32, #ttnn.buffer_type<system_memory>>>>, !ttnn.device) -> tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x16xf32, #ttnn.buffer_type<system_memory>>>>
+        "ttnn.deallocate"(%16) <{force = false}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x8xf32, #ttnn.buffer_type<system_memory>>>>) -> ()
+        %18 = "ttnn.from_device"(%11) : (tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>>
+        "ttnn.deallocate"(%11) <{force = false}> : (tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> ()
+        %19 = "ttnn.to_layout"(%18) <{layout = #ttnn.layout<row_major>}> : (tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>>) -> tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<16x16xf32, #ttnn.buffer_type<system_memory>>>>
+        "ttnn.deallocate"(%18) <{force = false}> : (tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>>) -> ()
+        %20 = "ttnn.mesh_shard"(%19, %0) <{shard_dims = array<i64: -1, 0>, shard_direction = #ttcore.shard_direction<shard_to_full>, shard_shape = array<i64: 2, 1>, shard_type = #ttcore.shard_type<devices>}> : (tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<16x16xf32, #ttnn.buffer_type<system_memory>>>>, !ttnn.device) -> tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x16xf32, #ttnn.buffer_type<system_memory>>>>
+        "ttnn.deallocate"(%19) <{force = false}> : (tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<16x16xf32, #ttnn.buffer_type<system_memory>>>>) -> ()
+        return %14, %17, %20 : tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x16xf32, #ttnn.buffer_type<system_memory>>>>, tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x16xf32, #ttnn.buffer_type<system_memory>>>>, tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x16xf32, #ttnn.buffer_type<system_memory>>>>
+      }
+    }
+  }
+}
+2025-08-21 16:06:51.942 (   4.119s) [        E25781C0]loaded_executable_insta:98       1| [LIFECYCLE] LoadedExecutableInstance constructor - instance created: 0x55f4f512f1d0
+2025-08-21 16:06:51.942 (   4.119s) [        E25781C0]loaded_executable_insta:535      1| LoadedExecutableInstance::PJRT_LoadedExecutable_GetExecutable
+2025-08-21 16:06:51.942 (   4.119s) [        E25781C0]loaded_executable_insta:554      1| LoadedExecutableInstance::PJRT_LoadedExecutable_AddressableDevices
+2025-08-21 16:06:51.942 (   4.119s) [        E25781C0]              stubs.inc:76    WARN| STUB: PJRT_Executable_GetCompiledMemoryStats
+2025-08-21 16:06:51.942 (   4.119s) [        E25781C0]      error_instance.cc:49       1| ErrorInstance::PJRT_Error_Message
+2025-08-21 16:06:51.942 (   4.119s) [        E25781C0]      error_instance.cc:58       1| ErrorInstance::PJRT_Error_GetCode
+2025-08-21 16:06:51.942 (   4.119s) [        E25781C0]      error_instance.cc:43       1| ErrorInstance::PJRT_Error_Destroy
+2025-08-21 16:06:51.942 (   4.119s) [        E25781C0] executable_instance.cc:106      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-08-21 16:06:51.942 (   4.119s) [        E25781C0] executable_instance.cc:106      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-08-21 16:06:51.946 (   4.123s) [        E25781C0] executable_instance.cc:106      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-08-21 16:06:51.946 (   4.123s) [        E25781C0] executable_instance.cc:106      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-08-21 16:06:51.956 (   4.134s) [        6FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.956 (   4.134s) [        6FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]     buffer_instance.cc:578      1| BufferInstance::PJRT_Buffer_Device
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]     buffer_instance.cc:578      1| BufferInstance::PJRT_Buffer_Device
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]     buffer_instance.cc:578      1| BufferInstance::PJRT_Buffer_Device
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]     buffer_instance.cc:578      1| BufferInstance::PJRT_Buffer_Device
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]     buffer_instance.cc:578      1| BufferInstance::PJRT_Buffer_Device
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]     buffer_instance.cc:578      1| BufferInstance::PJRT_Buffer_Device
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640] executable_instance.cc:138      1| ExecutableInstance::PJRT_Executable_NumOutputs
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]loaded_executable_insta:590      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Execute
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]loaded_executable_insta:95       1| LoadedExecutableInstance::Execute
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]loaded_executable_insta:114      1| [DEVICE] Runtime device not opened, opening devices...
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]loaded_executable_insta:204      1| [DEVICE] Starting device opening process with 3 args on 2 devices
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]loaded_executable_insta:207      1| [DEVICE] Found 2 unique device IDs from arguments
+2025-08-21 16:06:51.957 (   4.134s) [        6FFFF640]loaded_executable_insta:249      1| [DEVICE] Opening mesh device with shape [1, 2]
+[32m                 Always[0m | [1m[38;5;240m   DEBUG[0m | Device grid size = { 8, 8 }
+2025-08-21 16:06:52.306 (   4.483s) [        6FFFF640]loaded_executable_insta:253      1| [DEVICE] Mesh device opened successfully
+2025-08-21 16:06:52.306 (   4.484s) [        6FFFF640]loaded_executable_insta:121      1| [DEVICE] Successfully opened runtime device
+2025-08-21 16:06:52.306 (   4.484s) [        6FFFF640]loaded_executable_insta:410      1| [STRATEGY] Found tensor with strategy replicate
+2025-08-21 16:06:52.307 (   4.484s) [        6FFFF640]loaded_executable_insta:340      1| [LAYOUT] Converting layout for tensor handle 0x55f4f4b66e50 (arg 0)
+2025-08-21 16:06:52.308 (   4.486s) [        6FFFF640]loaded_executable_insta:410      1| [STRATEGY] Found tensor with strategy shard
+2025-08-21 16:06:52.308 (   4.486s) [        6FFFF640]loaded_executable_insta:340      1| [LAYOUT] Converting layout for tensor handle 0x55f4f4b66e50 (arg 1)
+2025-08-21 16:06:52.309 (   4.486s) [        6FFFF640]loaded_executable_insta:410      1| [STRATEGY] Found tensor with strategy shard
+2025-08-21 16:06:52.309 (   4.486s) [        6FFFF640]loaded_executable_insta:340      1| [LAYOUT] Converting layout for tensor handle 0x55f4f4b66e50 (arg 2)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Starting execution of program: main
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %0 = "ttnn.get_device"() <{mesh_offset = #ttnn<mesh_offset 0x0>, mesh_shape = #ttnn<mesh_shape 1x2>}> : () -> !ttnn.device loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %1 = "ttnn.mesh_shard"(%arg0, %0) <{shard_dims = array<i64: -1>, shard_direction = #ttcore.shard_direction<full_to_shard>, shard_shape = array<i64: 1>, shard_type = #ttcore.shard_type<identity>}> : (tensor<f32, #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>, !ttnn.device) -> tensor<f32, #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>> loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%arg0) <{force = false}> : (tensor<f32, #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> () loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %2 = "ttnn.mesh_shard"(%arg1, %0) <{shard_dims = array<i64: -1, 1>, shard_direction = #ttcore.shard_direction<full_to_shard>, shard_shape = array<i64: 1, 2>, shard_type = #ttcore.shard_type<identity>}> : (tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>, !ttnn.device) -> tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>> loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%arg1) <{force = false}> : (tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> () loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %3 = "ttnn.mesh_shard"(%arg2, %0) <{shard_dims = array<i64: -1, 0>, shard_direction = #ttcore.shard_direction<full_to_shard>, shard_shape = array<i64: 2, 1>, shard_type = #ttcore.shard_type<identity>}> : (tensor<32x32xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>, !ttnn.device) -> tensor<16x32xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>> loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%arg2) <{force = false}> : (tensor<32x32xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> () loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %4 = "ttnn.reshape"(%1) <{shape = [1 : i32, 1 : i32]}> : (tensor<f32, #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<1x1xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>> loc("broadcast.3")
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%1) <{force = false}> : (tensor<f32, #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> () loc("broadcast.3")
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %5 = "ttnn.multiply"(%2, %4) <{output_dtype = #ttcore.supportedDataTypes<f32>}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>, tensor<1x1xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>> loc("multiply.4")
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%4) <{force = false}> : (tensor<1x1xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> () loc("multiply.4")
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%2) <{force = false}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> () loc("multiply.4")
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %6 = "ttnn.reshape"(%5) <{shape = [32 : i32, 1 : i32, 8 : i32]}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<32x1x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<32x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>> loc("multiply.4_reshape"("multiply.4"))
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %7 = "ttnn.permute"(%6) <{permutation = array<i64: 1, 0, 2>}> : (tensor<32x1x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<32x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<1x32x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>> loc("multiply.4_permuteInput"("multiply.4"))
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%6) <{force = false}> : (tensor<32x1x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<32x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> () loc("multiply.4_permuteInput"("multiply.4"))
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %8 = "ttnn.all_gather"(%7, %0) <{all_gather_dim = 0 : si32, cluster_axis = 1 : ui32, num_links = 1 : ui32}> : (tensor<1x32x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>, !ttnn.device) -> tensor<2x32x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<2x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>> loc("multiply.4")
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%7) <{force = false}> : (tensor<1x32x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> () loc("multiply.4")
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %9 = "ttnn.permute"(%8) <{permutation = array<i64: 1, 0, 2>}> : (tensor<2x32x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<2x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<32x2x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>> loc("multiply.4_permuteOutput"("multiply.4"))
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%8) <{force = false}> : (tensor<2x32x8xf32, #ttnn.ttnn_layout<(d0, d1, d2) -> (d0 * 32 + d1, d2), <1x1>, memref<2x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> () loc("multiply.4_permuteOutput"("multiply.4"))
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %10 = "ttnn.reshape"(%9) <{shape = [32 : i32, 16 : i32]}> : (tensor<32x2x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>> loc("multiply.4")
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%9) <{force = false}> : (tensor<32x2x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> () loc("multiply.4")
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %11 = "ttnn.matmul"(%3, %10) <{transpose_a = false, transpose_b = false}> : (tensor<16x32xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>, tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>> loc("dot.7")
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%10) <{force = false}> : (tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> () loc("dot.7")
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%3) <{force = false}> : (tensor<16x32xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> () loc("dot.7")
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %12 = "ttnn.from_device"(%5) : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>> loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %13 = "ttnn.to_layout"(%12) <{layout = #ttnn.layout<row_major>}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>>) -> tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x8xf32, #ttnn.buffer_type<system_memory>>>> loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%12) <{force = false}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>>) -> () loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %14 = "ttnn.mesh_shard"(%13, %0) <{shard_dims = array<i64: -1, 1>, shard_direction = #ttcore.shard_direction<shard_to_full>, shard_shape = array<i64: 1, 2>, shard_type = #ttcore.shard_type<devices>}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x8xf32, #ttnn.buffer_type<system_memory>>>>, !ttnn.device) -> tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x16xf32, #ttnn.buffer_type<system_memory>>>> loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%13) <{force = false}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x8xf32, #ttnn.buffer_type<system_memory>>>>) -> () loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %15 = "ttnn.from_device"(%5) : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>> loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%5) <{force = false}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> () loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %16 = "ttnn.to_layout"(%15) <{layout = #ttnn.layout<row_major>}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>>) -> tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x8xf32, #ttnn.buffer_type<system_memory>>>> loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%15) <{force = false}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>>) -> () loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %17 = "ttnn.mesh_shard"(%16, %0) <{shard_dims = array<i64: -1, 1>, shard_direction = #ttcore.shard_direction<shard_to_full>, shard_shape = array<i64: 1, 2>, shard_type = #ttcore.shard_type<devices>}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x8xf32, #ttnn.buffer_type<system_memory>>>>, !ttnn.device) -> tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x16xf32, #ttnn.buffer_type<system_memory>>>> loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%16) <{force = false}> : (tensor<32x8xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x8xf32, #ttnn.buffer_type<system_memory>>>>) -> () loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %18 = "ttnn.from_device"(%11) : (tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>> loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%11) <{force = false}> : (tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<dram>>, <interleaved>>>) -> () loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %19 = "ttnn.to_layout"(%18) <{layout = #ttnn.layout<row_major>}> : (tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>>) -> tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<16x16xf32, #ttnn.buffer_type<system_memory>>>> loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%18) <{force = false}> : (tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #ttnn.buffer_type<system_memory>>>>) -> () loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: %20 = "ttnn.mesh_shard"(%19, %0) <{shard_dims = array<i64: -1, 0>, shard_direction = #ttcore.shard_direction<shard_to_full>, shard_shape = array<i64: 2, 1>, shard_type = #ttcore.shard_type<devices>}> : (tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<16x16xf32, #ttnn.buffer_type<system_memory>>>>, !ttnn.device) -> tensor<32x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<32x16xf32, #ttnn.buffer_type<system_memory>>>> loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Executing operation: "ttnn.deallocate"(%19) <{force = false}> : (tensor<16x16xf32, #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<16x16xf32, #ttnn.buffer_type<system_memory>>>>) -> () loc(unknown)
+[32m            RuntimeTTNN[0m | [1m[38;5;240m   DEBUG[0m | Finished execution of program: main
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:443      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:466      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:443      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:435      1| BufferInstance::PJRT_Buffer_ElementType
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:443      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:466      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:443      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:435      1| BufferInstance::PJRT_Buffer_ElementType
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:443      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:466      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:443      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:435      1| BufferInstance::PJRT_Buffer_ElementType
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:443      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:466      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:443      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:435      1| BufferInstance::PJRT_Buffer_ElementType
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:443      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:466      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:443      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:435      1| BufferInstance::PJRT_Buffer_ElementType
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:443      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:466      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:443      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:435      1| BufferInstance::PJRT_Buffer_ElementType
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:427      1| BufferInstance::PJRT_Buffer_Destroy
+[32m                 Always[0m | [1m[38;5;240m   DEBUG[0m | Tensor is retained thus not deallocating. To deallocate, set retain to false first
+2025-08-21 16:06:56.132 (   8.309s) [        6FFFF640]     buffer_instance.cc:427      1| BufferInstance::PJRT_Buffer_Destroy
+[32m                 Always[0m | [1m[38;5;240m   DEBUG[0m | Tensor is retained thus not deallocating. To deallocate, set retain to false first
+2025-08-21 16:06:56.132 (   8.309s) [        E25781C0]     buffer_instance.cc:526      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-08-21 16:06:56.132 (   8.310s) [        E25781C0]     buffer_instance.cc:526      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-08-21 16:06:56.132 (   8.310s) [        E25781C0]     buffer_instance.cc:454      1| BufferInstance::PJRT_Buffer_UnpaddedDimensions
+2025-08-21 16:06:56.132 (   8.310s) [        E25781C0]     buffer_instance.cc:435      1| BufferInstance::PJRT_Buffer_ElementType
+2025-08-21 16:06:56.132 (   8.310s) [        E25781C0]     buffer_instance.cc:443      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-08-21 16:06:56.132 (   8.310s) [        E25781C0]     buffer_instance.cc:476      1| BufferInstance::PJRT_Buffer_ToHostBuffer
+2025-08-21 16:06:56.132 (   8.310s) [        E25781C0]     buffer_instance.cc:497      1| [BUFFER_TO_HOST] Source buffer shape: [32, 16], data_type: 11, required_size: 2048 bytes
+2025-08-21 16:06:56.132 (   8.310s) [        E25781C0]     buffer_instance.cc:508      1| [BUFFER_TO_HOST] Destination buffer: dst_size=2048 bytes, dst_ptr=0x55f4f5869140
+2025-08-21 16:06:56.133 (   8.310s) [        E25781C0]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-08-21 16:06:56.133 (   8.310s) [        F7FFF640]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+2025-08-21 16:06:56.133 (   8.310s) [        E25781C0]     buffer_instance.cc:526      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-08-21 16:06:56.133 (   8.310s) [        E25781C0]     buffer_instance.cc:526      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-08-21 16:06:56.133 (   8.310s) [        E25781C0]     buffer_instance.cc:454      1| BufferInstance::PJRT_Buffer_UnpaddedDimensions
+2025-08-21 16:06:56.133 (   8.310s) [        E25781C0]     buffer_instance.cc:435      1| BufferInstance::PJRT_Buffer_ElementType
+2025-08-21 16:06:56.133 (   8.310s) [        E25781C0]     buffer_instance.cc:443      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-08-21 16:06:56.133 (   8.310s) [        E25781C0]     buffer_instance.cc:476      1| BufferInstance::PJRT_Buffer_ToHostBuffer
+2025-08-21 16:06:56.133 (   8.310s) [        E25781C0]     buffer_instance.cc:497      1| [BUFFER_TO_HOST] Source buffer shape: [32, 16], data_type: 11, required_size: 2048 bytes
+2025-08-21 16:06:56.133 (   8.310s) [        E25781C0]     buffer_instance.cc:508      1| [BUFFER_TO_HOST] Destination buffer: dst_size=2048 bytes, dst_ptr=0x55f4f4b5cc00
+2025-08-21 16:06:56.133 (   8.311s) [        E25781C0]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-08-21 16:06:56.133 (   8.311s) [        F7FFF640]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+input 0: device = xla:0, shape torch.Size([32, 16]) and shard spec {replicated}
+input 1: device = xla:0, shape torch.Size([32, 32]) and shard spec {devices=[2,1]<=[2]}
