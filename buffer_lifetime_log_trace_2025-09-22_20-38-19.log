@@ -1,0 +1,87 @@
+@ prefill start, these buffers are being created. I am not 100% sure what induces these to be created, I believe it's the intial moving of these tensors .to() device in user code
+For 1 layer llama there are 2 1x8x16x128 tensors, but these are sharded between two devices along dim 1 (heads) so we see 4 tensors
+I suspect these are the same dataptr/handle because they are initialized to nil at creation time, so these are just generic NULL ttnn runtime tensors waiting to be "filled"
+
+2025-09-22 18:07:06.061 (   5.747s) [        A88F8000]     buffer_instance.cc:225   INFO| BUFFER_TRACE: BufferInstance=0x70ba04a0 copyFromHost BORROWED shape=[1,4,16,128] - NEW tensor.data=0x7ffc8de65170 tensor.handle=0x7ffc8de651c0
+2025-09-22 18:07:06.061 (   5.747s) [        A88F8000]     buffer_instance.cc:225   INFO| BUFFER_TRACE: BufferInstance=0x8380c550 copyFromHost BORROWED shape=[1,4,16,128] - NEW tensor.data=0x7ffc8de65170 tensor.handle=0x7ffc8de651c0
+2025-09-22 18:07:06.062 (   5.747s) [        A88F8000]     buffer_instance.cc:225   INFO| BUFFER_TRACE: BufferInstance=0x83a26480 copyFromHost BORROWED shape=[1,4,16,128] - NEW tensor.data=0x7ffc8de65170 tensor.handle=0x7ffc8de651c0
+2025-09-22 18:07:06.062 (   5.747s) [        A88F8000]     buffer_instance.cc:225   INFO| BUFFER_TRACE: BufferInstance=0x70c99d20 copyFromHost BORROWED shape=[1,4,16,128] - NEW tensor.data=0x7ffc8de65170 tensor.handle=0x7ffc8de651c0
+
+Then compliation logs are emitted until we get to TTNN.
+
+Once a valid FB is created, we prepare to execute. This is printed at the start of getInputRuntimeTensors.
+Here we see the buffer instance ptrs are the same, but the data pointers / tensor handles have changed. The tensor handles are all identical though, as is the data ptr. At this point I don't understand why they are still the same data ptrs and contents
+but maybe that is the print timing.
+
+2025-09-22 18:07:15.009 (  14.695s) [        EB7FE640]loaded_executable_insta:251   INFO| EXEC_TRACE: Input arg_index=8 device_index=0 BufferInstance=0x70ba04a0 shape=[1,4,16,128] m_runtime_tensor.data=0x7f5beb7fcd90 tensor.handle=0x7f5beb7fcde0
+2025-09-22 18:07:15.009 (  14.695s) [        EB7FE640]loaded_executable_insta:251   INFO| EXEC_TRACE: Input arg_index=8 device_index=1 BufferInstance=0x8380c550 shape=[1,4,16,128] m_runtime_tensor.data=0x7f5beb7fcd90 tensor.handle=0x7f5beb7fcde0
+2025-09-22 18:07:15.702 (  15.388s) [        EB7FE640]loaded_executable_insta:251   INFO| EXEC_TRACE: Input arg_index=10 device_index=0 BufferInstance=0x83a26480 shape=[1,4,16,128] m_runtime_tensor.data=0x7f5beb7fcd90 tensor.handle=0x7f5beb7fcde0
+2025-09-22 18:07:15.702 (  15.388s) [        EB7FE640]loaded_executable_insta:251   INFO| EXEC_TRACE: Input arg_index=10 device_index=1 BufferInstance=0x70c99d20 shape=[1,4,16,128] m_runtime_tensor.data=0x7f5beb7fcd90 tensor.handle=0x7f5beb7fcde0
+
+After execution ~50s later:
+All the tensor handles are the same (idk what this represents). All the data ptrs are also the same...
+Totally new buffer instances are allocated
+
+2025-09-22 18:08:05.114 (  64.799s) [        EB7FE640]     buffer_instance.cc:84    INFO| BUFFER_TRACE: Output BufferInstance=0x7f5860035cc0 constructor with tensor.data=0x7f5beb7fcbe0 tensor.handle=0x7f5beb7fcbf0
+2025-09-22 18:08:05.114 (  64.799s) [        EB7FE640]loaded_executable_insta:397   INFO| EXEC_TRACE: Output device_index=0 output_index=0 NEW BufferInstance=0x7f5860035cc0 m_runtime_tensor.data=0x7f5beb7fcde0 tensor.handle=0x7f5beb7fcdf0
+2025-09-22 18:08:05.114 (  64.799s) [        EB7FE640]     buffer_instance.cc:84    INFO| BUFFER_TRACE: Output BufferInstance=0x7f5860cbfb10 constructor with tensor.data=0x7f5beb7fcbe0 tensor.handle=0x7f5beb7fcbf0
+2025-09-22 18:08:05.114 (  64.799s) [        EB7FE640]loaded_executable_insta:397   INFO| EXEC_TRACE: Output device_index=0 output_index=1 NEW BufferInstance=0x7f5860cbfb10 m_runtime_tensor.data=0x7f5beb7fcde0 tensor.handle=0x7f5beb7fcdf0
+2025-09-22 18:08:05.114 (  64.799s) [        EB7FE640]     buffer_instance.cc:84    INFO| BUFFER_TRACE: Output BufferInstance=0x7f5860cbfc40 constructor with tensor.data=0x7f5beb7fcbe0 tensor.handle=0x7f5beb7fcbf0
+2025-09-22 18:08:05.114 (  64.799s) [        EB7FE640]loaded_executable_insta:397   INFO| EXEC_TRACE: Output device_index=0 output_index=2 NEW BufferInstance=0x7f5860cbfc40 m_runtime_tensor.data=0x7f5beb7fcde0 tensor.handle=0x7f5beb7fcdf0
+2025-09-22 18:08:05.114 (  64.799s) [        EB7FE640]     buffer_instance.cc:84    INFO| BUFFER_TRACE: Output BufferInstance=0x7f5860d54010 constructor with tensor.data=0x7f5beb7fcbe0 tensor.handle=0x7f5beb7fcbf0
+2025-09-22 18:08:05.114 (  64.799s) [        EB7FE640]loaded_executable_insta:397   INFO| EXEC_TRACE: Output device_index=0 output_index=3 NEW BufferInstance=0x7f5860d54010 m_runtime_tensor.data=0x7f5beb7fcde0 tensor.handle=0x7f5beb7fcdf0
+2025-09-22 18:08:05.114 (  64.799s) [        EB7FE640]     buffer_instance.cc:84    INFO| BUFFER_TRACE: Output BufferInstance=0x7f5860d348c0 constructor with tensor.data=0x7f5beb7fcbe0 tensor.handle=0x7f5beb7fcbf0
+2025-09-22 18:08:05.114 (  64.799s) [        EB7FE640]loaded_executable_insta:397   INFO| EXEC_TRACE: Output device_index=1 output_index=0 NEW BufferInstance=0x7f5860d348c0 m_runtime_tensor.data=0x7f5beb7fcde0 tensor.handle=0x7f5beb7fcdf0
+2025-09-22 18:08:05.114 (  64.799s) [        EB7FE640]     buffer_instance.cc:84    INFO| BUFFER_TRACE: Output BufferInstance=0x7f5860d029c0 constructor with tensor.data=0x7f5beb7fcbe0 tensor.handle=0x7f5beb7fcbf0
+2025-09-22 18:08:05.114 (  64.799s) [        EB7FE640]loaded_executable_insta:397   INFO| EXEC_TRACE: Output device_index=1 output_index=1 NEW BufferInstance=0x7f5860d029c0 m_runtime_tensor.data=0x7f5beb7fcde0 tensor.handle=0x7f5beb7fcdf0
+2025-09-22 18:08:05.114 (  64.799s) [        EB7FE640]     buffer_instance.cc:84    INFO| BUFFER_TRACE: Output BufferInstance=0x7f5860d3e060 constructor with tensor.data=0x7f5beb7fcbe0 tensor.handle=0x7f5beb7fcbf0
+2025-09-22 18:08:05.114 (  64.799s) [        EB7FE640]loaded_executable_insta:397   INFO| EXEC_TRACE: Output device_index=1 output_index=2 NEW BufferInstance=0x7f5860d3e060 m_runtime_tensor.data=0x7f5beb7fcde0 tensor.handle=0x7f5beb7fcdf0
+2025-09-22 18:08:05.114 (  64.799s) [        EB7FE640]     buffer_instance.cc:84    INFO| BUFFER_TRACE: Output BufferInstance=0x7f5860d088d0 constructor with tensor.data=0x7f5beb7fcbe0 tensor.handle=0x7f5beb7fcbf0
+2025-09-22 18:08:05.114 (  64.799s) [        EB7FE640]loaded_executable_insta:397   INFO| EXEC_TRACE: Output device_index=1 output_index=3 NEW BufferInstance=0x7f5860d088d0 m_runtime_tensor.data=0x7f5beb7fcde0 tensor.handle=0x7f5beb7fcdf0
+
+
+@ second token / decode:
+Tensor data /handles are same as in first decode
+Somehow, the first two buffer instances are unique (and have short memory addresses?) while the latter two have longer addresses and are seen before, and got aliased to the buffer instances produced in prefill output
+2025-09-22 18:08:05.194 (  64.880s) [        A88F8000]     buffer_instance.cc:225   INFO| BUFFER_TRACE: BufferInstance=0x70b83860 copyFromHost BORROWED shape=[1,4,16,128] - NEW tensor.data=0x7ffc8de65170 tensor.handle=0x7ffc8de651c0
+2025-09-22 18:08:05.195 (  64.880s) [        A88F8000]     buffer_instance.cc:225   INFO| BUFFER_TRACE: BufferInstance=0x70c4afc0 copyFromHost BORROWED shape=[1,4,16,128] - NEW tensor.data=0x7ffc8de65170 tensor.handle=0x7ffc8de651c0
+2025-09-22 18:08:05.195 (  64.881s) [        A88F8000]     buffer_instance.cc:225   INFO| BUFFER_TRACE: BufferInstance=0x7f5860d348c0 copyFromHost BORROWED shape=[1,4,16,128] - NEW tensor.data=0x7ffc8de65170 tensor.handle=0x7ffc8de651c0
+2025-09-22 18:08:05.195 (  64.881s) [        A88F8000]     buffer_instance.cc:225   INFO| BUFFER_TRACE: BufferInstance=0x7f5860035cc0 copyFromHost BORROWED shape=[1,4,16,128] - NEW tensor.data=0x7ffc8de65170 tensor.handle=0x7ffc8de651c0
+
+Then GM compilation occurs as usual.
+
+Pre-execute, at getInputRuntimeTensors:
+Tensor data and handles match previous tensor data from prefill at this point
+Buffer instance ptrs map to the same as previous step, which is expected
+2025-09-22 18:08:06.933 (  66.618s) [        EB7FE640]loaded_executable_insta:251   INFO| EXEC_TRACE: Input arg_index=8 device_index=0 BufferInstance=0x70b83860 shape=[1,4,16,128] m_runtime_tensor.data=0x7f5beb7fcd90 tensor.handle=0x7f5beb7fcde0
+2025-09-22 18:08:06.933 (  66.618s) [        EB7FE640]loaded_executable_insta:251   INFO| EXEC_TRACE: Input arg_index=8 device_index=1 BufferInstance=0x70c4afc0 shape=[1,4,16,128] m_runtime_tensor.data=0x7f5beb7fcd90 tensor.handle=0x7f5beb7fcde0
+2025-09-22 18:08:06.935 (  66.620s) [        EB7FE640]loaded_executable_insta:251   INFO| EXEC_TRACE: Input arg_index=10 device_index=0 BufferInstance=0x7f5860d348c0 shape=[1,4,16,128] m_runtime_tensor.data=0x7f5beb7fcd90 tensor.handle=0x7f5beb7fcde0
+2025-09-22 18:08:06.935 (  66.620s) [        EB7FE640]loaded_executable_insta:251   INFO| EXEC_TRACE: Input arg_index=10 device_index=1 BufferInstance=0x7f5860035cc0 shape=[1,4,16,128] m_runtime_tensor.data=0x7f5beb7fcd90 tensor.handle=0x7f5beb7fcde0
+
+
+AFter execution, some new output buffer instances are created, but seem to be recycled from pointers in the previous step (eg 0x8380c550), eg updating the same input bufferinstance from prefill.
+    This "aliasing" only occurs for two of the tensors here though.
+
+2025-09-22 18:08:11.568 (  71.254s) [        EB7FE640]     buffer_instance.cc:84    INFO| BUFFER_TRACE: Output BufferInstance=0x7f5860d03c20 constructor with tensor.data=0x7f5beb7fcbe0 tensor.handle=0x7f5beb7fcbf0
+2025-09-22 18:08:11.568 (  71.254s) [        EB7FE640]loaded_executable_insta:397   INFO| EXEC_TRACE: Output device_index=0 output_index=0 NEW BufferInstance=0x7f5860d03c20 m_runtime_tensor.data=0x7f5beb7fcde0 tensor.handle=0x7f5beb7fcdf0
+2025-09-22 18:08:11.568 (  71.254s) [        EB7FE640]     buffer_instance.cc:84    INFO| BUFFER_TRACE: Output BufferInstance=0x8380c550 constructor with tensor.data=0x7f5beb7fcbe0 tensor.handle=0x7f5beb7fcbf0
+2025-09-22 18:08:11.568 (  71.254s) [        EB7FE640]loaded_executable_insta:397   INFO| EXEC_TRACE: Output device_index=0 output_index=1 NEW BufferInstance=0x8380c550 m_runtime_tensor.data=0x7f5beb7fcde0 tensor.handle=0x7f5beb7fcdf0
+2025-09-22 18:08:11.568 (  71.254s) [        EB7FE640]     buffer_instance.cc:84    INFO| BUFFER_TRACE: Output BufferInstance=0x70ba04a0 constructor with tensor.data=0x7f5beb7fcbe0 tensor.handle=0x7f5beb7fcbf0
+2025-09-22 18:08:11.568 (  71.254s) [        EB7FE640]loaded_executable_insta:397   INFO| EXEC_TRACE: Output device_index=0 output_index=2 NEW BufferInstance=0x70ba04a0 m_runtime_tensor.data=0x7f5beb7fcde0 tensor.handle=0x7f5beb7fcdf0
+2025-09-22 18:08:11.568 (  71.254s) [        EB7FE640]     buffer_instance.cc:84    INFO| BUFFER_TRACE: Output BufferInstance=0x7f5860c9bb60 constructor with tensor.data=0x7f5beb7fcbe0 tensor.handle=0x7f5beb7fcbf0
+2025-09-22 18:08:11.568 (  71.254s) [        EB7FE640]loaded_executable_insta:397   INFO| EXEC_TRACE: Output device_index=0 output_index=3 NEW BufferInstance=0x7f5860c9bb60 m_runtime_tensor.data=0x7f5beb7fcde0 tensor.handle=0x7f5beb7fcdf0
+2025-09-22 18:08:11.568 (  71.254s) [        EB7FE640]     buffer_instance.cc:84    INFO| BUFFER_TRACE: Output BufferInstance=0x7f5860cc5c90 constructor with tensor.data=0x7f5beb7fcbe0 tensor.handle=0x7f5beb7fcbf0
+2025-09-22 18:08:11.568 (  71.254s) [        EB7FE640]loaded_executable_insta:397   INFO| EXEC_TRACE: Output device_index=1 output_index=0 NEW BufferInstance=0x7f5860cc5c90 m_runtime_tensor.data=0x7f5beb7fcde0 tensor.handle=0x7f5beb7fcdf0
+2025-09-22 18:08:11.568 (  71.254s) [        EB7FE640]     buffer_instance.cc:84    INFO| BUFFER_TRACE: Output BufferInstance=0x44841fd0 constructor with tensor.data=0x7f5beb7fcbe0 tensor.handle=0x7f5beb7fcbf0
+2025-09-22 18:08:11.568 (  71.254s) [        EB7FE640]loaded_executable_insta:397   INFO| EXEC_TRACE: Output device_index=1 output_index=1 NEW BufferInstance=0x44841fd0 m_runtime_tensor.data=0x7f5beb7fcde0 tensor.handle=0x7f5beb7fcdf0
+2025-09-22 18:08:11.568 (  71.254s) [        EB7FE640]     buffer_instance.cc:84    INFO| BUFFER_TRACE: Output BufferInstance=0x7f5860ac6dd0 constructor with tensor.data=0x7f5beb7fcbe0 tensor.handle=0x7f5beb7fcbf0
+2025-09-22 18:08:11.568 (  71.254s) [        EB7FE640]loaded_executable_insta:397   INFO| EXEC_TRACE: Output device_index=1 output_index=2 NEW BufferInstance=0x7f5860ac6dd0 m_runtime_tensor.data=0x7f5beb7fcde0 tensor.handle=0x7f5beb7fcdf0
+2025-09-22 18:08:11.568 (  71.254s) [        EB7FE640]     buffer_instance.cc:84    INFO| BUFFER_TRACE: Output BufferInstance=0x7f586016a550 constructor with tensor.data=0x7f5beb7fcbe0 tensor.handle=0x7f5beb7fcbf0
+2025-09-22 18:08:11.568 (  71.254s) [        EB7FE640]loaded_executable_insta:397   INFO| EXEC_TRACE: Output device_index=1 output_index=3 NEW BufferInstance=0x7f586016a550 m_runtime_tensor.data=0x7f5beb7fcde0 tensor.handle=0x7f5beb7fcdf0
+
+AFter this some more new tensors are created? possibly the reannotation of sharding on these, otherwise I am not sure why this would get called.
+
+2025-09-22 18:08:11.581 (  71.266s) [        A88F8000]     buffer_instance.cc:225   INFO| BUFFER_TRACE: BufferInstance=0x44887f60 copyFromHost BORROWED shape=[1,4,16,128] - NEW tensor.data=0x7ffc8de65170 tensor.handle=0x7ffc8de651c0
+2025-09-22 18:08:11.581 (  71.267s) [        A88F8000]     buffer_instance.cc:225   INFO| BUFFER_TRACE: BufferInstance=0x560e8e70 copyFromHost BORROWED shape=[1,4,16,128] - NEW tensor.data=0x7ffc8de65170 tensor.handle=0x7ffc8de651c0
+2025-09-22 18:08:11.582 (  71.267s) [        A88F8000]     buffer_instance.cc:225   INFO| BUFFER_TRACE: BufferInstance=0x7f5860cc5c90 copyFromHost BORROWED shape=[1,4,16,128] - NEW tensor.data=0x7ffc8de65170 tensor.handle=0x7ffc8de651c0
+2025-09-22 18:08:11.582 (  71.268s) [        A88F8000]     buffer_instance.cc:225   INFO| BUFFER_TRACE: BufferInstance=0x7f5860d03c20 copyFromHost BORROWED shape=[1,4,16,128] - NEW tensor.data=0x7ffc8de65170 tensor.handle=0x7ffc8de651c0
