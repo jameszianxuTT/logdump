@@ -1,0 +1,256 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.13, pytest-8.4.2, pluggy-1.6.0 -- /localdev/jameszianxu/test/tt-xla/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /localdev/jameszianxu/test/tt-xla
+configfile: pytest.ini
+plugins: jaxtyping-0.3.2, forked-1.6.0, split-0.10.0
+collecting ... Using TT-Metal from the source tree: /localdev/jameszianxu/test/tt-xla/third_party/tt-mlir/src/tt-mlir/third_party/tt-metal/src/tt-metal
+WARNING: TT plugin is setting XLA_STABLEHLO_COMPILE to 1. This is required for TT PJRT plugin to work correctly.
+collected 1 item
+
+examples/pytorch/test_tensor_persistence.py::test_inplace_add_multiloop 2025-09-26 18:53:41.672 (   0.000s) [        6A0E6000]      dylib_platform.cc:47       1| DylibPlatform::SubclassInitialize
+2025-09-26 18:53:41.674 (   0.002s) [        6A0E6000]     client_instance.cc:44       1| ClientInstance::ClientInstance
+2025-09-26 18:53:41.674 (   0.002s) [        6A0E6000]              client.cc:18       1| TTClientInstance::TTClientInstance
+2025-09-26 18:53:41.674 (   0.002s) [        6A0E6000]     client_instance.cc:70       1| ClientInstance::Initialize
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]              stubs.inc:106   WARN| STUB: PJRT_Client_TopologyDescription
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]      error_instance.cc:49       1| ErrorInstance::PJRT_Error_Message
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]      error_instance.cc:58       1| ErrorInstance::PJRT_Error_GetCode
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]      error_instance.cc:43       1| ErrorInstance::PJRT_Error_Destroy
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]     client_instance.cc:527      1| ClientInstance::PJRT_Client_PlatformVersion
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]     client_instance.cc:507      1| ClientInstance::PJRT_Client_PlatformName
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]     client_instance.cc:539      1| ClientInstance::PJRT_Client_Devices
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]     device_instance.cc:44       1| DeviceInstance::PJRT_Device_GetDescription
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]  device_description.cc:63       1| DeviceDescription::PJRT_DeviceDescription_Attributes
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]     client_instance.cc:552      1| ClientInstance::PJRT_Client_AddressableDevices
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]     client_instance.cc:602      1| ClientInstance::PJRT_Client_AddressableMemories
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]     device_instance.cc:71       1| DeviceInstance::PJRT_Device_AddressableMemories
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]        api_bindings.cc:76       1| PJRT_Plugin_Attributes
+2025-09-26 18:53:44.977536: W torch_xla/csrc/runtime/profiler.cpp:88] Profiler API not found for PJRT plugin
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]  device_description.cc:99       1| DeviceDescription::PJRT_DeviceDescription_ToString
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-09-26 18:53:44.977 (   3.305s) [        6A0E6000]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-09-26 18:53:44.978 (   3.306s) [        6A0E6000]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-09-26 18:53:44.978 (   3.306s) [        6A0E6000]     client_instance.cc:658      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-09-26 18:53:44.978 (   3.306s) [        6A0E6000]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-09-26 18:53:44.979 (   3.307s) [        6A0E6000]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-09-26 18:53:44.979 (   3.307s) [        6A0E6000]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+2025-09-26 18:53:45.170 (   3.498s) [        6A0E6000]     buffer_instance.cc:502      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-09-26 18:53:45.170 (   3.498s) [        6A0E6000]     buffer_instance.cc:502      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-09-26 18:53:45.170 (   3.498s) [        6A0E6000]     buffer_instance.cc:502      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-09-26 18:53:45.176 (   3.504s) [        6A0E6000]     client_instance.cc:615      1| ClientInstance::PJRT_Client_Compile
+2025-09-26 18:53:45.176 (   3.504s) [        6A0E6000]      module_builder.cc:101      1| ModuleBuilder::buildModule
+2025-09-26 18:53:45.178 (   3.505s) [        6A0E6000]      module_builder.cc:164      1| VHLO Module:
+#loc1 = loc("xla__device_data")
+module @SyncTensorsGraph.11 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  vhlo.func_v1 @main(%arg0: !vhlo.tensor_v1<3x3x!vhlo.bf16_v1> loc("xla__device_data")) -> (!vhlo.tensor_v1<3x3x!vhlo.bf16_v1>) {
+    %0 = "vhlo.constant_v1"() <{value = #vhlo.tensor_v1<dense<1.000000e+00> : tensor<3x3xbf16>>}> : () -> !vhlo.tensor_v1<3x3x!vhlo.bf16_v1> loc(#loc)
+    %1 = "vhlo.reshape_v1"(%arg0) : (!vhlo.tensor_v1<3x3x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x3x3x!vhlo.bf16_v1> loc(#loc2)
+    %2 = "vhlo.custom_call_v1"(%1) <{api_version = #vhlo<api_version_v1 API_VERSION_UNSPECIFIED>, backend_config = #vhlo.string_v1<"">, call_target_name = #vhlo.string_v1<"tt.mark_argument">, called_computations = #vhlo.array_v1<[]>, has_side_effect = #vhlo.bool_v1<false>, operand_layouts = #vhlo.array_v1<[]>, output_operand_aliases = #vhlo.array_v1<[]>, result_layouts = #vhlo.array_v1<[]>}> {mhlo.frontend_attributes = #vhlo.dict_v1<{#vhlo.string_v1<"ttcore.argument_type"> = #vhlo.string_v1<"input">, #vhlo.string_v1<"ttir.name"> = #vhlo.string_v1<"args_0">}>} : (!vhlo.tensor_v1<1x3x3x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x3x3x!vhlo.bf16_v1> loc(#loc3)
+    %3 = "vhlo.reshape_v1"(%2) : (!vhlo.tensor_v1<1x3x3x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<3x3x!vhlo.bf16_v1> loc(#loc2)
+    %4 = "vhlo.add_v1"(%3, %0) : (!vhlo.tensor_v1<3x3x!vhlo.bf16_v1>, !vhlo.tensor_v1<3x3x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<3x3x!vhlo.bf16_v1> loc(#loc4)
+    "vhlo.return_v1"(%4) : (!vhlo.tensor_v1<3x3x!vhlo.bf16_v1>) -> () loc(#loc)
+  } {arg_attrs = #vhlo.array_v1<[]>, res_attrs = #vhlo.array_v1<[]>, sym_visibility = #vhlo.string_v1<"">} loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("aten__view")
+#loc3 = loc("xla__custom_call")
+#loc4 = loc("aten__add")
+2025-09-26 18:53:45.182 (   3.510s) [        6A0E6000]      module_builder.cc:184      1| SHLO Module:
+#loc1 = loc("xla__device_data")
+module @SyncTensorsGraph.11 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  func.func @main(%arg0: tensor<3x3xbf16> loc("xla__device_data")) -> tensor<3x3xbf16> {
+    %cst = stablehlo.constant dense<1.000000e+00> : tensor<3x3xbf16> loc(#loc)
+    %0 = stablehlo.reshape %arg0 : (tensor<3x3xbf16>) -> tensor<1x3x3xbf16> loc(#loc2)
+    %1 = stablehlo.custom_call @tt.mark_argument(%0) {api_version = 0 : i32, mhlo.frontend_attributes = {ttcore.argument_type = "input", ttir.name = "args_0"}} : (tensor<1x3x3xbf16>) -> tensor<1x3x3xbf16> loc(#loc3)
+    %2 = stablehlo.reshape %1 : (tensor<1x3x3xbf16>) -> tensor<3x3xbf16> loc(#loc2)
+    %3 = stablehlo.add %2, %cst : tensor<3x3xbf16> loc(#loc4)
+    return %3 : tensor<3x3xbf16> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("aten__view")
+#loc3 = loc("xla__custom_call")
+#loc4 = loc("aten__add")
+2025-09-26 18:53:45.183 (   3.511s) [        6A0E6000]      module_builder.cc:193      1| SHLO Module after frontend StableHLO pipeline:
+#loc1 = loc("xla__device_data")
+module @SyncTensorsGraph.11 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  func.func @main(%arg0: tensor<3x3xbf16> {ttcore.argument_type = #ttcore.argument_type<input>, ttir.name = "args_0"} loc("xla__device_data")) -> tensor<3x3xbf16> {
+    %cst = stablehlo.constant dense<1.000000e+00> : tensor<3x3xbf16> loc(#loc)
+    %0 = stablehlo.reshape %arg0 : (tensor<3x3xbf16>) -> tensor<1x3x3xbf16> loc(#loc2)
+    %1 = stablehlo.reshape %0 : (tensor<1x3x3xbf16>) -> tensor<3x3xbf16> loc(#loc2)
+    %2 = stablehlo.add %1, %cst : tensor<3x3xbf16> loc(#loc3)
+    return %2 : tensor<3x3xbf16> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("aten__view")
+#loc3 = loc("aten__add")
+2025-09-26 18:53:45.187 (   3.515s) [        6A0E6000]      module_builder.cc:476      1| SHLO Module after compiler StableHLO pipeline:
+#loc1 = loc("xla__device_data")
+module @SyncTensorsGraph.11 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  sdy.mesh @mesh = <["x"=1, "y"=1]> loc(#loc)
+  func.func @main(%arg0: tensor<3x3xbf16> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>, ttir.name = "args_0"} loc("xla__device_data")) -> (tensor<3x3xbf16> {ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+    %cst = stablehlo.constant dense<1.000000e+00> : tensor<3x3xbf16> loc(#loc)
+    %0 = stablehlo.reshape %arg0 : (tensor<3x3xbf16>) -> tensor<1x3x3xbf16> loc(#loc2)
+    %1 = stablehlo.reshape %0 : (tensor<1x3x3xbf16>) -> tensor<3x3xbf16> loc(#loc2)
+    %2 = stablehlo.add %1, %cst : tensor<3x3xbf16> loc(#loc3)
+    return %2 : tensor<3x3xbf16> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("aten__view")
+#loc3 = loc("aten__add")
+2025-09-26 18:53:45.189 (   3.517s) [        6A0E6000]      module_builder.cc:502      1| TTIR Module:
+#loc1 = loc("xla__device_data")
+module @SyncTensorsGraph.11 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+  func.func @main(%arg0: tensor<3x3xbf16> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>, ttir.name = "args_0"} loc("xla__device_data")) -> (tensor<3x3xbf16> {ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+    %0 = "ttir.constant"() <{value = dense<1.000000e+00> : tensor<3x3xbf16>}> : () -> tensor<3x3xbf16> loc(#loc)
+    %1 = ttir.empty() : tensor<1x3x3xbf16> loc(#loc2)
+    %2 = "ttir.reshape"(%arg0, %1) <{shape = [1 : i32, 3 : i32, 3 : i32]}> : (tensor<3x3xbf16>, tensor<1x3x3xbf16>) -> tensor<1x3x3xbf16> loc(#loc2)
+    %3 = ttir.empty() : tensor<3x3xbf16> loc(#loc2)
+    %4 = "ttir.reshape"(%2, %3) <{shape = [3 : i32, 3 : i32]}> : (tensor<1x3x3xbf16>, tensor<3x3xbf16>) -> tensor<3x3xbf16> loc(#loc2)
+    %5 = ttir.empty() : tensor<3x3xbf16> loc(#loc3)
+    %6 = "ttir.add"(%4, %0, %5) : (tensor<3x3xbf16>, tensor<3x3xbf16>, tensor<3x3xbf16>) -> tensor<3x3xbf16> loc(#loc3)
+    return %6 : tensor<3x3xbf16> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("aten__view")
+#loc3 = loc("aten__add")
+2025-09-26 18:53:45.190 (   3.518s) [        6A0E6000]      module_builder.cc:553   WARN| `mhlo.num_partitions` attribute not found, assuming default number of partitions: 1
+2025-09-26 18:53:45.190 (   3.518s) [        6A0E6000]      module_builder.cc:567   WARN| `mhlo.num_replicas` attribute not found, assuming default number of replicas: 1
+2025-09-26 18:53:45.190 (   3.518s) [        6A0E6000]      module_builder.cc:577   WARN| Num replicas and num partitions are not set, inferring the number of devices from mesh shape
+2025-09-26 18:53:45.191 (   3.519s) [        6A0E6000]     client_instance.cc:443      1| ClientInstance::getOrCreateMeshDevice - reusing already opened mesh device [1, 1]
+2025-09-26 18:53:45.202 (   3.530s) [        6A0E6000]      module_builder.cc:632      1| TTNN Module:
+#dram = #ttnn.buffer_type<dram>
+#loc1 = loc("xla__device_data")
+#system_desc = #ttcore.system_desc<[{role = host, target_triple = "x86_64-pc-linux"}], [{arch = <wormhole_b0>, grid = 9x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 100352, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073072800, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_register_size_tiles = 8, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}], [0], [1 : i32], [ 0x0x0x0]>
+#ttnn_layout = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, bf16>, #dram>, <interleaved>>
+module @SyncTensorsGraph.11 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+  ttcore.device_module {
+    builtin.module @SyncTensorsGraph.11 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>, ttcore.system_desc = #system_desc} {
+      ttcore.device @default_device = <workerGrid = #ttcore.grid<9x8, (d0, d1) -> (0, d0, d1)>, l1Map = (d0, d1, d2)[s0] -> (0, d0, d1, d2 + s0), dramMap = (d0, d1, d2)[s0, s1, s2, s3, s4, s5, s6] -> (0, 0, (((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) mod 12, ((((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) floordiv 12) * s4 + ((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) mod s4 + s5), meshShape = 1x1, chipIds = [0]> loc(#loc)
+      func.func @main(%arg0: tensor<3x3xbf16, #ttnn_layout> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>, ttir.name = "args_0"} loc("xla__device_data")) -> (tensor<3x3xbf16, #ttnn_layout> {ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+        %0 = "ttnn.get_device"() <{mesh_offset = #ttnn<mesh_offset 0x0>, mesh_shape = #ttnn<mesh_shape 1x1>}> : () -> !ttnn.device loc(#loc)
+        %1 = "ttnn.full"(%0) <{dtype = #ttcore.supportedDataTypes<bf16>, fill_value = 1.000000e+00 : f32, layout = #ttnn.layout<tile>, shape = #ttnn.shape<3x3>}> : (!ttnn.device) -> tensor<3x3xbf16, #ttnn_layout> loc(#loc)
+        %2 = "ttnn.add"(%arg0, %1) <{dtype = #ttcore.supportedDataTypes<bf16>}> : (tensor<3x3xbf16, #ttnn_layout>, tensor<3x3xbf16, #ttnn_layout>) -> tensor<3x3xbf16, #ttnn_layout> loc(#loc2)
+        "ttnn.deallocate"(%1) <{force = false}> : (tensor<3x3xbf16, #ttnn_layout>) -> () loc(#loc2)
+        "ttnn.deallocate"(%arg0) <{force = false}> : (tensor<3x3xbf16, #ttnn_layout>) -> () loc(#loc2)
+        return %2 : tensor<3x3xbf16, #ttnn_layout> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("aten__add")
+2025-09-26 18:53:45.204 (   3.532s) [        6A0E6000]loaded_executable_insta:462      1| LoadedExecutableInstance::PJRT_LoadedExecutable_GetExecutable
+2025-09-26 18:53:45.204 (   3.532s) [        6A0E6000]loaded_executable_insta:481      1| LoadedExecutableInstance::PJRT_LoadedExecutable_AddressableDevices
+2025-09-26 18:53:45.205 (   3.533s) [        6A0E6000]              stubs.inc:70    WARN| STUB: PJRT_Executable_GetCompiledMemoryStats
+2025-09-26 18:53:45.205 (   3.533s) [        6A0E6000]      error_instance.cc:49       1| ErrorInstance::PJRT_Error_Message
+2025-09-26 18:53:45.205 (   3.533s) [        6A0E6000]      error_instance.cc:58       1| ErrorInstance::PJRT_Error_GetCode
+2025-09-26 18:53:45.205 (   3.533s) [        6A0E6000]      error_instance.cc:43       1| ErrorInstance::PJRT_Error_Destroy
+2025-09-26 18:53:45.205 (   3.533s) [        6A0E6000] executable_instance.cc:107      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-09-26 18:53:45.205 (   3.533s) [        6A0E6000] executable_instance.cc:107      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-09-26 18:53:45.208 (   3.536s) [        6A0E6000] executable_instance.cc:107      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-09-26 18:53:45.208 (   3.536s) [        6A0E6000] executable_instance.cc:107      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-09-26 18:53:45.222 (   3.550s) [        1D000640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-09-26 18:53:45.222 (   3.550s) [        1D000640]     buffer_instance.cc:554      1| BufferInstance::PJRT_Buffer_Device
+2025-09-26 18:53:45.222 (   3.550s) [        1D000640] executable_instance.cc:139      1| ExecutableInstance::PJRT_Executable_NumOutputs
+2025-09-26 18:53:45.222 (   3.550s) [        1D000640]loaded_executable_insta:518      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Execute
+2025-09-26 18:53:45.222 (   3.550s) [        1D000640]loaded_executable_insta:88       1| LoadedExecutableInstance::Execute
+2025-09-26 18:53:45.222 (   3.550s) [        1D000640]     client_instance.cc:443      1| ClientInstance::getOrCreateMeshDevice - reusing already opened mesh device [1, 1]
+2025-09-26 18:53:45.223 (   3.550s) [        1D000640]     client_instance.cc:399      1| Tensor cache MISS for 1 buffer instances (0x432ec570[shape=[3, 3]])
+2025-09-26 18:53:45.908 (   4.235s) [        1D000640]loaded_executable_insta:278      1| Input tensor 0x7c531cfff080 #0 was laid out @ address 0x7c531cfff0d0 and has global id 2
+2025-09-26 18:53:45.908 (   4.236s) [        1D000640]     client_instance.cc:420      1| Cached tensor for 1 buffer instances (0x432ec570[shape=[3, 3]]) (cache size now: 1)
+2025-09-26 18:53:47.293 (   5.621s) [        1D000640]     buffer_instance.cc:64       1| Created output BufferInstance at 0x7c542c00beb0 with shape [3, 3]
+2025-09-26 18:53:47.293 (   5.621s) [        1D000640]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-09-26 18:53:47.293 (   5.621s) [        1D000640]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+2025-09-26 18:53:47.293 (   5.621s) [        1D000640]     buffer_instance.cc:436      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-09-26 18:53:47.293 (   5.621s) [        1D000640]     buffer_instance.cc:459      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-09-26 18:53:47.293 (   5.621s) [        1D000640]     buffer_instance.cc:436      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-09-26 18:53:47.293 (   5.621s) [        1D000640]     buffer_instance.cc:428      1| BufferInstance::PJRT_Buffer_ElementType
+2025-09-26 18:53:47.293 (   5.621s) [        1D000640]     buffer_instance.cc:420      1| BufferInstance::PJRT_Buffer_Destroy
+2025-09-26 18:53:47.294 (   5.621s) [        6A0E6000]     buffer_instance.cc:502      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-09-26 18:53:47.294 (   5.621s) [        6A0E6000]     buffer_instance.cc:447      1| BufferInstance::PJRT_Buffer_UnpaddedDimensions
+2025-09-26 18:53:47.294 (   5.621s) [        6A0E6000]     buffer_instance.cc:428      1| BufferInstance::PJRT_Buffer_ElementType
+2025-09-26 18:53:47.294 (   5.621s) [        6A0E6000]     buffer_instance.cc:436      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-09-26 18:53:47.294 (   5.622s) [        6A0E6000]     buffer_instance.cc:469      1| BufferInstance::PJRT_Buffer_ToHostBuffer
+2025-09-26 18:53:47.294 (   5.622s) [        6A0E6000]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-09-26 18:53:47.297 (   5.625s) [         CC00640]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+2025-09-26 18:53:47.299 (   5.626s) [        6A0E6000]     buffer_instance.cc:502      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-09-26 18:53:47.299 (   5.626s) [        6A0E6000]     buffer_instance.cc:502      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-09-26 18:53:47.299 (   5.627s) [        1D000640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-09-26 18:53:47.299 (   5.627s) [        1D000640]     buffer_instance.cc:554      1| BufferInstance::PJRT_Buffer_Device
+2025-09-26 18:53:47.299 (   5.627s) [        1D000640] executable_instance.cc:139      1| ExecutableInstance::PJRT_Executable_NumOutputs
+2025-09-26 18:53:47.299 (   5.627s) [        1D000640]loaded_executable_insta:518      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Execute
+2025-09-26 18:53:47.299 (   5.627s) [        1D000640]loaded_executable_insta:88       1| LoadedExecutableInstance::Execute
+2025-09-26 18:53:47.299 (   5.627s) [        1D000640]     client_instance.cc:443      1| ClientInstance::getOrCreateMeshDevice - reusing already opened mesh device [1, 1]
+2025-09-26 18:53:47.299 (   5.627s) [        1D000640]     client_instance.cc:399      1| Tensor cache MISS for 1 buffer instances (0x7c542c00beb0[shape=[3, 3]])
+2025-09-26 18:53:47.300 (   5.628s) [        1D000640]loaded_executable_insta:278      1| Input tensor 0x7c531cfff080 #0 was laid out @ address 0x7c531cfff0d0 and has global id 8
+2025-09-26 18:53:47.300 (   5.628s) [        1D000640]     client_instance.cc:420      1| Cached tensor for 1 buffer instances (0x7c542c00beb0[shape=[3, 3]]) (cache size now: 2)
+2025-09-26 18:53:47.302 (   5.630s) [        1D000640]     buffer_instance.cc:64       1| Created output BufferInstance at 0x432ec570 with shape [3, 3]
+2025-09-26 18:53:47.302 (   5.630s) [        1D000640]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-09-26 18:53:47.302 (   5.630s) [        1D000640]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+2025-09-26 18:53:47.302 (   5.630s) [        1D000640]     buffer_instance.cc:436      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-09-26 18:53:47.302 (   5.630s) [        1D000640]     buffer_instance.cc:459      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-09-26 18:53:47.302 (   5.630s) [        1D000640]     buffer_instance.cc:436      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-09-26 18:53:47.302 (   5.630s) [        1D000640]     buffer_instance.cc:428      1| BufferInstance::PJRT_Buffer_ElementType
+2025-09-26 18:53:47.302 (   5.630s) [        1D000640]     buffer_instance.cc:420      1| BufferInstance::PJRT_Buffer_Destroy
+2025-09-26 18:53:47.302 (   5.630s) [        6A0E6000]     buffer_instance.cc:502      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-09-26 18:53:47.302 (   5.630s) [        6A0E6000]     buffer_instance.cc:447      1| BufferInstance::PJRT_Buffer_UnpaddedDimensions
+2025-09-26 18:53:47.302 (   5.630s) [        6A0E6000]     buffer_instance.cc:428      1| BufferInstance::PJRT_Buffer_ElementType
+2025-09-26 18:53:47.302 (   5.630s) [        6A0E6000]     buffer_instance.cc:436      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-09-26 18:53:47.302 (   5.630s) [        6A0E6000]     buffer_instance.cc:469      1| BufferInstance::PJRT_Buffer_ToHostBuffer
+2025-09-26 18:53:47.302 (   5.630s) [        6A0E6000]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-09-26 18:53:47.302 (   5.630s) [        12600640]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+2025-09-26 18:53:47.303 (   5.631s) [        6A0E6000]     buffer_instance.cc:502      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-09-26 18:53:47.303 (   5.631s) [        6A0E6000]     buffer_instance.cc:502      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-09-26 18:53:47.303 (   5.631s) [        1D000640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-09-26 18:53:47.303 (   5.631s) [        1D000640]     buffer_instance.cc:554      1| BufferInstance::PJRT_Buffer_Device
+2025-09-26 18:53:47.303 (   5.631s) [        1D000640] executable_instance.cc:139      1| ExecutableInstance::PJRT_Executable_NumOutputs
+2025-09-26 18:53:47.303 (   5.631s) [        1D000640]loaded_executable_insta:518      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Execute
+2025-09-26 18:53:47.303 (   5.631s) [        1D000640]loaded_executable_insta:88       1| LoadedExecutableInstance::Execute
+2025-09-26 18:53:47.303 (   5.631s) [        1D000640]     client_instance.cc:443      1| ClientInstance::getOrCreateMeshDevice - reusing already opened mesh device [1, 1]
+2025-09-26 18:53:47.303 (   5.631s) [        1D000640]     client_instance.cc:395      1| Tensor cache HIT for 1 buffer instances (0x432ec570[shape=[3, 3]])
+2025-09-26 18:53:47.303 (   5.631s) [        1D000640]loaded_executable_insta:258      1| Using cached tensor for arg 0
+2025-09-26 18:53:47.305 (   5.633s) [        1D000640]     buffer_instance.cc:64       1| Created output BufferInstance at 0x7c542c00c4a0 with shape [3, 3]
+2025-09-26 18:53:47.305 (   5.633s) [        1D000640]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-09-26 18:53:47.305 (   5.633s) [        1D000640]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+2025-09-26 18:53:47.305 (   5.633s) [        1D000640]     buffer_instance.cc:436      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-09-26 18:53:47.305 (   5.633s) [        1D000640]     buffer_instance.cc:459      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-09-26 18:53:47.305 (   5.633s) [        1D000640]     buffer_instance.cc:436      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-09-26 18:53:47.305 (   5.633s) [        1D000640]     buffer_instance.cc:428      1| BufferInstance::PJRT_Buffer_ElementType
+2025-09-26 18:53:47.305 (   5.633s) [        1D000640]     buffer_instance.cc:420      1| BufferInstance::PJRT_Buffer_Destroy
+2025-09-26 18:53:47.305 (   5.633s) [        6A0E6000]     buffer_instance.cc:502      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-09-26 18:53:47.305 (   5.633s) [        6A0E6000]     buffer_instance.cc:447      1| BufferInstance::PJRT_Buffer_UnpaddedDimensions
+2025-09-26 18:53:47.305 (   5.633s) [        6A0E6000]     buffer_instance.cc:428      1| BufferInstance::PJRT_Buffer_ElementType
+2025-09-26 18:53:47.305 (   5.633s) [        6A0E6000]     buffer_instance.cc:436      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-09-26 18:53:47.305 (   5.633s) [        6A0E6000]     buffer_instance.cc:469      1| BufferInstance::PJRT_Buffer_ToHostBuffer
+2025-09-26 18:53:47.305 (   5.633s) [        6A0E6000]      event_instance.cc:222      1| EventInstance::PJRT_Event_OnReady
+2025-09-26 18:53:47.305 (   5.633s) [         CC00640]      event_instance.cc:171      1| EventInstance::PJRT_Event_Destroy
+2025-09-26 18:53:47.305 (   5.633s) [        6A0E6000]     buffer_instance.cc:420      1| BufferInstance::PJRT_Buffer_Destroy
+tensor([[1., 1., 1.],
+        [1., 1., 1.],
+        [1., 1., 1.]], device='xla:0', dtype=torch.bfloat16)
+tensor([[2., 2., 2.],
+        [2., 2., 2.],
+        [2., 2., 2.]], device='xla:0', dtype=torch.bfloat16)
+tensor([[1., 1., 1.],
+        [1., 1., 1.],
+        [1., 1., 1.]], device='xla:0', dtype=torch.bfloat16)
+PASSED
+
+=============================== warnings summary ===============================
+examples/pytorch/test_tensor_persistence.py::test_inplace_add_multiloop
+  /localdev/jameszianxu/test/tt-xla/examples/pytorch/test_tensor_persistence.py:28: DeprecationWarning: Use torch_xla.device instead
+    device = xm.xla_device()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+========================= 1 passed, 1 warning in 9.40s =========================
+2025-09-26 18:53:48.531 (   6.859s) [        6A0E6000]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-09-26 18:53:48.531 (   6.859s) [        6A0E6000]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
