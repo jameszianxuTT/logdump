@@ -1,0 +1,29 @@
+# from branch jzx/buffer_instance_uids
+import re
+
+stack = []
+matches = []
+with open("test.log", "r") as f:
+    lines = f.readlines()
+    for line in lines:
+        if "constructor" in line:
+            match = re.search(r'UID=(\S+), shape=(\S+)', line)
+            if match:
+                uid = match.group(1)
+                shape = match.group(2)
+                stack.append((uid, shape))
+        elif "destructor" in line:
+            match=re.search(r'UID=(\S+), shape=(\S+)', line)
+            if match:
+                uid = match.group(1)
+                shape = match.group(2)
+                if len(stack) == 0:
+                    print(f"Error: Destructor for UID={uid}, shape={shape} found with no matching constructor.")
+                else:
+                    stack.remove((uid, shape))
+                    matches.append((uid, shape))        
+            
+print("Leaked objects:")
+print(stack)
+print("Matches:")
+print(matches)
