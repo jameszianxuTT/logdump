@@ -1,0 +1,940 @@
+WARNING:root:Defaulting to PJRT_DEVICE=CPU
+2025-11-26 17:30:24.217 (   0.000s) [         CA41480]   plugin_attributes.cc:58       1| PluginAttributes::PJRT_Plugin_Initialize
+2025-11-26 17:30:24.217 (   0.000s) [         CA41480]     client_instance.cc:613      1| ClientInstance::PJRT_Client_Create
+2025-11-26 17:30:24.224 (   0.008s) [         CA41480]     client_instance.cc:152      1| ClientInstance::ClientInstance
+2025-11-26 17:30:24.225 (   0.008s) [         CA41480]     client_instance.cc:173      1| ClientInstance::Initialize
+2025-11-26 17:30:26.270 (   2.053s) [         CA41480]              stubs.inc:103   WARN| STUB: PJRT_Client_TopologyDescription
+2025-11-26 17:30:26.270 (   2.054s) [         CA41480]      error_instance.cc:52       1| ErrorInstance::PJRT_Error_Message
+2025-11-26 17:30:26.270 (   2.054s) [         CA41480]      error_instance.cc:61       1| ErrorInstance::PJRT_Error_GetCode
+2025-11-26 17:30:26.270 (   2.054s) [         CA41480]      error_instance.cc:46       1| ErrorInstance::PJRT_Error_Destroy
+2025-11-26 17:30:26.270 (   2.054s) [         CA41480]     client_instance.cc:667      1| ClientInstance::PJRT_Client_PlatformVersion
+2025-11-26 17:30:26.270 (   2.054s) [         CA41480]     client_instance.cc:648      1| ClientInstance::PJRT_Client_PlatformName
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     client_instance.cc:678      1| ClientInstance::PJRT_Client_Devices
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     device_instance.cc:44       1| DeviceInstance::PJRT_Device_GetDescription
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:63       1| DeviceDescription::PJRT_DeviceDescription_Attributes
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     device_instance.cc:44       1| DeviceInstance::PJRT_Device_GetDescription
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:63       1| DeviceDescription::PJRT_DeviceDescription_Attributes
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     device_instance.cc:44       1| DeviceInstance::PJRT_Device_GetDescription
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:63       1| DeviceDescription::PJRT_DeviceDescription_Attributes
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     device_instance.cc:44       1| DeviceInstance::PJRT_Device_GetDescription
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:63       1| DeviceDescription::PJRT_DeviceDescription_Attributes
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     device_instance.cc:44       1| DeviceInstance::PJRT_Device_GetDescription
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:63       1| DeviceDescription::PJRT_DeviceDescription_Attributes
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     device_instance.cc:44       1| DeviceInstance::PJRT_Device_GetDescription
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:63       1| DeviceDescription::PJRT_DeviceDescription_Attributes
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     device_instance.cc:44       1| DeviceInstance::PJRT_Device_GetDescription
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:63       1| DeviceDescription::PJRT_DeviceDescription_Attributes
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     device_instance.cc:44       1| DeviceInstance::PJRT_Device_GetDescription
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:63       1| DeviceDescription::PJRT_DeviceDescription_Attributes
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     client_instance.cc:691      1| ClientInstance::PJRT_Client_AddressableDevices
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     client_instance.cc:741      1| ClientInstance::PJRT_Client_AddressableMemories
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     device_instance.cc:71       1| DeviceInstance::PJRT_Device_AddressableMemories
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     device_instance.cc:71       1| DeviceInstance::PJRT_Device_AddressableMemories
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     device_instance.cc:71       1| DeviceInstance::PJRT_Device_AddressableMemories
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     device_instance.cc:71       1| DeviceInstance::PJRT_Device_AddressableMemories
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     device_instance.cc:71       1| DeviceInstance::PJRT_Device_AddressableMemories
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     device_instance.cc:71       1| DeviceInstance::PJRT_Device_AddressableMemories
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     device_instance.cc:71       1| DeviceInstance::PJRT_Device_AddressableMemories
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     device_instance.cc:71       1| DeviceInstance::PJRT_Device_AddressableMemories
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]   plugin_attributes.cc:64       1| PluginAttributes::PJRT_Plugin_Attributes
+2025-11-26 17:30:26.271220: W torch_xla/csrc/runtime/profiler.cpp:88] Profiler API not found for PJRT plugin
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:99       1| DeviceDescription::PJRT_DeviceDescription_ToString
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:99       1| DeviceDescription::PJRT_DeviceDescription_ToString
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:99       1| DeviceDescription::PJRT_DeviceDescription_ToString
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:99       1| DeviceDescription::PJRT_DeviceDescription_ToString
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:99       1| DeviceDescription::PJRT_DeviceDescription_ToString
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:99       1| DeviceDescription::PJRT_DeviceDescription_ToString
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:99       1| DeviceDescription::PJRT_DeviceDescription_ToString
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:99       1| DeviceDescription::PJRT_DeviceDescription_ToString
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.271 (   2.054s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+Using PJRT plugin directory: /localdev/jameszianxu/tt-xla/python_package/pjrt_plugin_tt
+Using TT-Metal from the source tree: /localdev/jameszianxu/tt-xla/third_party/tt-mlir/src/tt-mlir/third_party/tt-metal/src/tt-metal
+WARNING: TT plugin is setting XLA_STABLEHLO_COMPILE to 1. This is required for TT PJRT plugin to work correctly.
+Setting up XLA environment...
+XLA environment configured.
+detected 8 devices
+Created device mesh: (2, 4) with 8 devices
+Running 2x4
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.456 (   2.239s) [         CA41480]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.456 (   2.240s) [         CA41480]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-11-26 17:30:26.456 (   2.240s) [         CA41480]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-11-26 17:30:26.456 (   2.240s) [         CA41480]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-11-26 17:30:26.456 (   2.240s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-11-26 17:30:26.457 (   2.240s) [         CA41480]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-11-26 17:30:26.457 (   2.241s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.457 (   2.241s) [         CA41480]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.457 (   2.241s) [         CA41480]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-11-26 17:30:26.457 (   2.241s) [         CA41480]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-11-26 17:30:26.457 (   2.241s) [         CA41480]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.458 (   2.241s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.464 (   2.247s) [         CA41480]     client_instance.cc:754      1| ClientInstance::PJRT_Client_Compile
+2025-11-26 17:30:26.464 (   2.247s) [         CA41480]      module_builder.cc:229      1| ModuleBuilder::buildModule
+2025-11-26 17:30:26.465 (   2.248s) [         CA41480]      module_builder.cc:983      1| MLIR Module vhlo:
+#loc1 = loc("p0.3")
+#loc2 = loc("p1.12")
+module @SyncTensorsGraph.20 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  vhlo.func_v1 @main(%arg0: !vhlo.tensor_v1<32x32x!vhlo.f32_v1> loc("p0.3"), %arg1: !vhlo.tensor_v1<32x32x!vhlo.f32_v1> loc("p1.12")) -> (!vhlo.tensor_v1<32x32x!vhlo.f32_v1>, !vhlo.tensor_v1<32x32x!vhlo.f32_v1>) {
+    %0 = "vhlo.constant_v1"() <{value = #vhlo.tensor_v1<dense<1.000000e+00> : tensor<f32>>}> : () -> !vhlo.tensor_v1<!vhlo.f32_v1> loc(#loc)
+    %1 = "vhlo.broadcast_in_dim_v1"(%0) <{broadcast_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>}> : (!vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<32x32x!vhlo.f32_v1> loc(#loc)
+    %2 = "vhlo.reshape_v1"(%arg0) : (!vhlo.tensor_v1<32x32x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x32x32x!vhlo.f32_v1> loc(#loc3)
+    %3 = "vhlo.custom_call_v1"(%2) <{api_version = #vhlo<api_version_v1 API_VERSION_UNSPECIFIED>, backend_config = #vhlo.string_v1<"">, call_target_name = #vhlo.string_v1<"tt.mark_argument">, called_computations = #vhlo.array_v1<[]>, has_side_effect = #vhlo.bool_v1<false>, operand_layouts = #vhlo.array_v1<[]>, output_operand_aliases = #vhlo.array_v1<[]>, result_layouts = #vhlo.array_v1<[]>}> {mhlo.frontend_attributes = #vhlo.dict_v1<{#vhlo.string_v1<"ttcore.argument_type"> = #vhlo.string_v1<"input">, #vhlo.string_v1<"ttir.name"> = #vhlo.string_v1<"args_0">}>} : (!vhlo.tensor_v1<1x32x32x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x32x32x!vhlo.f32_v1> loc(#loc4)
+    %4 = "vhlo.reshape_v1"(%3) : (!vhlo.tensor_v1<1x32x32x!vhlo.f32_v1>) -> !vhlo.tensor_v1<32x32x!vhlo.f32_v1> loc(#loc5)
+    %5 = "vhlo.add_v1"(%4, %1) : (!vhlo.tensor_v1<32x32x!vhlo.f32_v1>, !vhlo.tensor_v1<32x32x!vhlo.f32_v1>) -> !vhlo.tensor_v1<32x32x!vhlo.f32_v1> loc(#loc6)
+    %6 = "vhlo.reshape_v1"(%arg1) : (!vhlo.tensor_v1<32x32x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x32x32x!vhlo.f32_v1> loc(#loc7)
+    %7 = "vhlo.custom_call_v1"(%6) <{api_version = #vhlo<api_version_v1 API_VERSION_UNSPECIFIED>, backend_config = #vhlo.string_v1<"">, call_target_name = #vhlo.string_v1<"tt.mark_argument">, called_computations = #vhlo.array_v1<[]>, has_side_effect = #vhlo.bool_v1<false>, operand_layouts = #vhlo.array_v1<[]>, output_operand_aliases = #vhlo.array_v1<[]>, result_layouts = #vhlo.array_v1<[]>}> {mhlo.frontend_attributes = #vhlo.dict_v1<{#vhlo.string_v1<"ttcore.argument_type"> = #vhlo.string_v1<"input">, #vhlo.string_v1<"ttir.name"> = #vhlo.string_v1<"args_1">}>} : (!vhlo.tensor_v1<1x32x32x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x32x32x!vhlo.f32_v1> loc(#loc8)
+    %8 = "vhlo.reshape_v1"(%7) : (!vhlo.tensor_v1<1x32x32x!vhlo.f32_v1>) -> !vhlo.tensor_v1<32x32x!vhlo.f32_v1> loc(#loc9)
+    %9 = "vhlo.add_v1"(%8, %1) : (!vhlo.tensor_v1<32x32x!vhlo.f32_v1>, !vhlo.tensor_v1<32x32x!vhlo.f32_v1>) -> !vhlo.tensor_v1<32x32x!vhlo.f32_v1> loc(#loc10)
+    "vhlo.return_v1"(%5, %9) : (!vhlo.tensor_v1<32x32x!vhlo.f32_v1>, !vhlo.tensor_v1<32x32x!vhlo.f32_v1>) -> () loc(#loc)
+  } {arg_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{#vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>, #vhlo.dict_v1<{#vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>]>, res_attrs = #vhlo.array_v1<[]>, sym_visibility = #vhlo.string_v1<"">} loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("reshape.4")
+#loc4 = loc("custom-call.5")
+#loc5 = loc("reshape.6")
+#loc6 = loc("add.9")
+#loc7 = loc("reshape.13")
+#loc8 = loc("custom-call.14")
+#loc9 = loc("reshape.15")
+#loc10 = loc("add.18")
+------------------ END OF MLIR MODULE ------------------
+2025-11-26 17:30:26.469 (   2.252s) [         CA41480]      module_builder.cc:983      1| MLIR Module shlo:
+#loc1 = loc("p0.3")
+#loc2 = loc("p1.12")
+module @SyncTensorsGraph.20 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  func.func @main(%arg0: tensor<32x32xf32> {mhlo.sharding = "{replicated}"} loc("p0.3"), %arg1: tensor<32x32xf32> {mhlo.sharding = "{replicated}"} loc("p1.12")) -> (tensor<32x32xf32>, tensor<32x32xf32>) {
+    %cst = stablehlo.constant dense<1.000000e+00> : tensor<f32> loc(#loc)
+    %0 = stablehlo.broadcast_in_dim %cst, dims = [] : (tensor<f32>) -> tensor<32x32xf32> loc(#loc)
+    %1 = stablehlo.reshape %arg0 : (tensor<32x32xf32>) -> tensor<1x32x32xf32> loc(#loc3)
+    %2 = stablehlo.custom_call @tt.mark_argument(%1) {api_version = 0 : i32, mhlo.frontend_attributes = {ttcore.argument_type = "input", ttir.name = "args_0"}} : (tensor<1x32x32xf32>) -> tensor<1x32x32xf32> loc(#loc4)
+    %3 = stablehlo.reshape %2 : (tensor<1x32x32xf32>) -> tensor<32x32xf32> loc(#loc5)
+    %4 = stablehlo.add %3, %0 : tensor<32x32xf32> loc(#loc6)
+    %5 = stablehlo.reshape %arg1 : (tensor<32x32xf32>) -> tensor<1x32x32xf32> loc(#loc7)
+    %6 = stablehlo.custom_call @tt.mark_argument(%5) {api_version = 0 : i32, mhlo.frontend_attributes = {ttcore.argument_type = "input", ttir.name = "args_1"}} : (tensor<1x32x32xf32>) -> tensor<1x32x32xf32> loc(#loc8)
+    %7 = stablehlo.reshape %6 : (tensor<1x32x32xf32>) -> tensor<32x32xf32> loc(#loc9)
+    %8 = stablehlo.add %7, %0 : tensor<32x32xf32> loc(#loc10)
+    return %4, %8 : tensor<32x32xf32>, tensor<32x32xf32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("reshape.4")
+#loc4 = loc("custom-call.5")
+#loc5 = loc("reshape.6")
+#loc6 = loc("add.9")
+#loc7 = loc("reshape.13")
+#loc8 = loc("custom-call.14")
+#loc9 = loc("reshape.15")
+#loc10 = loc("add.18")
+------------------ END OF MLIR MODULE ------------------
+2025-11-26 17:30:26.470 (   2.253s) [         CA41480]      module_builder.cc:983      1| MLIR Module shlo_frontend:
+#loc1 = loc("p0.3")
+#loc2 = loc("p1.12")
+module @SyncTensorsGraph.20 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  func.func @main(%arg0: tensor<32x32xf32> {mhlo.sharding = "{replicated}", ttcore.argument_type = #ttcore.argument_type<input>, ttir.name = "args_0"} loc("p0.3"), %arg1: tensor<32x32xf32> {mhlo.sharding = "{replicated}", ttcore.argument_type = #ttcore.argument_type<input>, ttir.name = "args_1"} loc("p1.12")) -> (tensor<32x32xf32>, tensor<32x32xf32>) {
+    %cst = stablehlo.constant dense<1.000000e+00> : tensor<f32> loc(#loc)
+    %0 = stablehlo.broadcast_in_dim %cst, dims = [] : (tensor<f32>) -> tensor<32x32xf32> loc(#loc)
+    %1 = stablehlo.reshape %arg0 : (tensor<32x32xf32>) -> tensor<1x32x32xf32> loc(#loc3)
+    %2 = stablehlo.reshape %1 : (tensor<1x32x32xf32>) -> tensor<32x32xf32> loc(#loc4)
+    %3 = stablehlo.add %2, %0 : tensor<32x32xf32> loc(#loc5)
+    %4 = stablehlo.reshape %arg1 : (tensor<32x32xf32>) -> tensor<1x32x32xf32> loc(#loc6)
+    %5 = stablehlo.reshape %4 : (tensor<1x32x32xf32>) -> tensor<32x32xf32> loc(#loc7)
+    %6 = stablehlo.add %5, %0 : tensor<32x32xf32> loc(#loc8)
+    return %3, %6 : tensor<32x32xf32>, tensor<32x32xf32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("reshape.4")
+#loc4 = loc("reshape.6")
+#loc5 = loc("add.9")
+#loc6 = loc("reshape.13")
+#loc7 = loc("reshape.15")
+#loc8 = loc("add.18")
+------------------ END OF MLIR MODULE ------------------
+2025-11-26 17:30:26.473 (   2.256s) [         CA41480]      module_builder.cc:983      1| MLIR Module shlo_compiler:
+#loc1 = loc("p0.3")
+#loc2 = loc("p1.12")
+module @SyncTensorsGraph.20 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  sdy.mesh @mesh = <["x"=1, "y"=1]> loc(#loc)
+  func.func @main(%arg0: tensor<32x32xf32> {mhlo.sharding = "{replicated}", ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<presharded>, ttir.name = "args_0"} loc("p0.3"), %arg1: tensor<32x32xf32> {mhlo.sharding = "{replicated}", ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<presharded>, ttir.name = "args_1"} loc("p1.12")) -> (tensor<32x32xf32> {ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<32x32xf32> {ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+    %cst = stablehlo.constant dense<1.000000e+00> : tensor<f32> loc(#loc)
+    %0 = stablehlo.broadcast_in_dim %cst, dims = [] : (tensor<f32>) -> tensor<32x32xf32> loc(#loc)
+    %1 = stablehlo.reshape %arg0 : (tensor<32x32xf32>) -> tensor<1x32x32xf32> loc(#loc3)
+    %2 = stablehlo.reshape %1 : (tensor<1x32x32xf32>) -> tensor<32x32xf32> loc(#loc4)
+    %3 = stablehlo.add %2, %0 : tensor<32x32xf32> loc(#loc5)
+    %4 = stablehlo.reshape %arg1 : (tensor<32x32xf32>) -> tensor<1x32x32xf32> loc(#loc6)
+    %5 = stablehlo.reshape %4 : (tensor<1x32x32xf32>) -> tensor<32x32xf32> loc(#loc7)
+    %6 = stablehlo.add %5, %0 : tensor<32x32xf32> loc(#loc8)
+    return %3, %6 : tensor<32x32xf32>, tensor<32x32xf32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("reshape.4")
+#loc4 = loc("reshape.6")
+#loc5 = loc("add.9")
+#loc6 = loc("reshape.13")
+#loc7 = loc("reshape.15")
+#loc8 = loc("add.18")
+------------------ END OF MLIR MODULE ------------------
+2025-11-26 17:30:26.474 (   2.257s) [         CA41480]shlo_set_proper_sdy_mes:49       1| SPMD-enabled mesh has trivial size [1, 1], reshaping to [1, 8]
+2025-11-26 17:30:26.475 (   2.258s) [         CA41480]      module_builder.cc:983      1| MLIR Module ttir:
+#loc1 = loc("p0.3")
+#loc2 = loc("p1.12")
+module @SyncTensorsGraph.20 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x8>]>} {
+  ttcore.device_module {
+    builtin.module @SyncTensorsGraph.20 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x8>]>} {
+      func.func @main(%arg0: tensor<32x32xf32> {mhlo.sharding = "{replicated}", ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<presharded>, ttir.name = "args_0"} loc("p0.3"), %arg1: tensor<32x32xf32> {mhlo.sharding = "{replicated}", ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<presharded>, ttir.name = "args_1"} loc("p1.12")) -> (tensor<32x32xf32> {ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<32x32xf32> {ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+        %0 = "ttir.constant"() <{value = dense<1.000000e+00> : tensor<f32>}> : () -> tensor<f32> loc(#loc)
+        %1 = ttir.empty() : tensor<1x1xf32> loc(#loc)
+        %2 = "ttir.reshape"(%0, %1) <{shape = [1 : i32, 1 : i32]}> : (tensor<f32>, tensor<1x1xf32>) -> tensor<1x1xf32> loc(#loc)
+        %3 = ttir.empty() : tensor<32x32xf32> loc(#loc)
+        %4 = "ttir.broadcast"(%2, %3) <{broadcast_dimensions = array<i64: 32, 32>}> : (tensor<1x1xf32>, tensor<32x32xf32>) -> tensor<32x32xf32> loc(#loc)
+        %5 = ttir.empty() : tensor<1x32x32xf32> loc(#loc3)
+        %6 = "ttir.reshape"(%arg0, %5) <{shape = [1 : i32, 32 : i32, 32 : i32]}> : (tensor<32x32xf32>, tensor<1x32x32xf32>) -> tensor<1x32x32xf32> loc(#loc3)
+        %7 = ttir.empty() : tensor<32x32xf32> loc(#loc4)
+        %8 = "ttir.reshape"(%6, %7) <{shape = [32 : i32, 32 : i32]}> : (tensor<1x32x32xf32>, tensor<32x32xf32>) -> tensor<32x32xf32> loc(#loc4)
+        %9 = ttir.empty() : tensor<32x32xf32> loc(#loc5)
+        %10 = "ttir.add"(%8, %4, %9) : (tensor<32x32xf32>, tensor<32x32xf32>, tensor<32x32xf32>) -> tensor<32x32xf32> loc(#loc5)
+        %11 = ttir.empty() : tensor<1x32x32xf32> loc(#loc6)
+        %12 = "ttir.reshape"(%arg1, %11) <{shape = [1 : i32, 32 : i32, 32 : i32]}> : (tensor<32x32xf32>, tensor<1x32x32xf32>) -> tensor<1x32x32xf32> loc(#loc6)
+        %13 = ttir.empty() : tensor<32x32xf32> loc(#loc7)
+        %14 = "ttir.reshape"(%12, %13) <{shape = [32 : i32, 32 : i32]}> : (tensor<1x32x32xf32>, tensor<32x32xf32>) -> tensor<32x32xf32> loc(#loc7)
+        %15 = ttir.empty() : tensor<32x32xf32> loc(#loc8)
+        %16 = "ttir.add"(%14, %4, %15) : (tensor<32x32xf32>, tensor<32x32xf32>, tensor<32x32xf32>) -> tensor<32x32xf32> loc(#loc8)
+        return %10, %16 : tensor<32x32xf32>, tensor<32x32xf32> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("reshape.4")
+#loc4 = loc("reshape.6")
+#loc5 = loc("add.9")
+#loc6 = loc("reshape.13")
+#loc7 = loc("reshape.15")
+#loc8 = loc("add.18")
+------------------ END OF MLIR MODULE ------------------
+2025-11-26 17:30:26.476 (   2.259s) [         CA41480]      module_builder.cc:784   WARN| `mhlo.num_partitions` attribute not found, assuming default number of partitions: 1
+2025-11-26 17:30:26.476 (   2.259s) [         CA41480]      module_builder.cc:798   WARN| `mhlo.num_replicas` attribute not found, assuming default number of replicas: 1
+2025-11-26 17:30:26.476 (   2.259s) [         CA41480]      module_builder.cc:808   WARN| Num replicas and num partitions are not set, inferring the number of devices from mesh shape
+2025-11-26 17:30:26.488 (   2.271s) [         CA41480]      module_builder.cc:983      1| MLIR Module ttnn:
+#dram = #ttnn.buffer_type<dram>
+#loc1 = loc("p0.3")
+#loc2 = loc("p1.12")
+#system_desc = #ttcore.system_desc<[{role = host, target_triple = "x86_64-pc-linux"}], [{arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073145600, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073145600, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073145600, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073145600, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073162624, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073162624, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073162624, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073162624, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}], [0, 1, 2, 3, 4, 5, 6, 7], [1 : i32, 1 : i32, 1 : i32, 1 : i32, 0 : i32, 0 : i32, 0 : i32, 0 : i32], [ 0x0x0x0]>
+#ttnn_layout = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+#ttnn_layout1 = #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+module @SyncTensorsGraph.20 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x8>]>} {
+  ttcore.device_module {
+    builtin.module @SyncTensorsGraph.20 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x8>]>, ttcore.system_desc = #system_desc} {
+      ttcore.device @default_device = <workerGrid = #ttcore.grid<8x8, (d0, d1) -> (0, d0, d1)>, l1Map = (d0, d1, d2)[s0] -> (0, d0, d1, d2 + s0), dramMap = (d0, d1, d2)[s0, s1, s2, s3, s4, s5, s6] -> (0, 0, (((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) mod 12, ((((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) floordiv 12) * s4 + ((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) mod s4 + s5), meshShape = 1x8, chipIds = [0, 1, 2, 3, 4, 5, 6, 7]> loc(#loc)
+      func.func @main_const_eval_0() -> tensor<1x1xf32, #ttnn_layout> attributes {const_eval} {
+        %0 = "ttnn.get_device"() <{mesh_offset = #ttnn<mesh_offset 0x0>, mesh_shape = #ttnn<mesh_shape 1x8>}> : () -> !ttnn.device loc(#loc)
+        %1 = "ttnn.full"(%0) <{dtype = #ttcore.supportedDataTypes<f32>, fill_value = 1.000000e+00 : f32, layout = #ttnn.layout<tile>, shape = #ttnn.shape<>}> : (!ttnn.device) -> tensor<f32, #ttnn_layout1> loc(#loc)
+        %2 = "ttnn.reshape"(%1) <{shape = [1 : i32, 1 : i32]}> : (tensor<f32, #ttnn_layout1>) -> tensor<1x1xf32, #ttnn_layout> loc(#loc)
+        "ttnn.deallocate"(%1) <{force = false}> : (tensor<f32, #ttnn_layout1>) -> () loc(#loc)
+        return %2 : tensor<1x1xf32, #ttnn_layout> loc(#loc)
+      } loc(#loc)
+      func.func @main(%arg0: tensor<32x32xf32, #ttnn_layout> {mhlo.sharding = "{replicated}", ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<presharded>, ttir.name = "args_0"} loc("p0.3"), %arg1: tensor<32x32xf32, #ttnn_layout> {mhlo.sharding = "{replicated}", ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<presharded>, ttir.name = "args_1"} loc("p1.12")) -> (tensor<32x32xf32, #ttnn_layout> {ttcore.shard_status = #ttcore.shard_status<unsharded>}, tensor<32x32xf32, #ttnn_layout> {ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+        %0 = ttcore.load_cached(@main_const_eval_0, []) : () -> tensor<1x1xf32, #ttnn_layout> loc(#loc)
+        %1 = "ttnn.add"(%arg0, %0) <{dtype = #ttcore.supportedDataTypes<f32>}> : (tensor<32x32xf32, #ttnn_layout>, tensor<1x1xf32, #ttnn_layout>) -> tensor<32x32xf32, #ttnn_layout> loc(#loc3)
+        "ttnn.deallocate"(%arg0) <{force = false}> : (tensor<32x32xf32, #ttnn_layout>) -> () loc(#loc3)
+        %2 = "ttnn.add"(%arg1, %0) <{dtype = #ttcore.supportedDataTypes<f32>}> : (tensor<32x32xf32, #ttnn_layout>, tensor<1x1xf32, #ttnn_layout>) -> tensor<32x32xf32, #ttnn_layout> loc(#loc4)
+        "ttnn.deallocate"(%0) <{force = false}> : (tensor<1x1xf32, #ttnn_layout>) -> () loc(#loc4)
+        "ttnn.deallocate"(%arg1) <{force = false}> : (tensor<32x32xf32, #ttnn_layout>) -> () loc(#loc4)
+        return %1, %2 : tensor<32x32xf32, #ttnn_layout>, tensor<32x32xf32, #ttnn_layout> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("add.9")
+#loc4 = loc("add.18")
+------------------ END OF MLIR MODULE ------------------
+2025-11-26 17:30:26.491 (   2.274s) [         CA41480]loaded_executable_insta:276      1| LoadedExecutableInstance::PJRT_LoadedExecutable_GetExecutable
+2025-11-26 17:30:26.491 (   2.274s) [         CA41480]loaded_executable_insta:295      1| LoadedExecutableInstance::PJRT_LoadedExecutable_AddressableDevices
+2025-11-26 17:30:26.491 (   2.274s) [         CA41480]              stubs.inc:70    WARN| STUB: PJRT_Executable_GetCompiledMemoryStats
+2025-11-26 17:30:26.491 (   2.274s) [         CA41480]      error_instance.cc:52       1| ErrorInstance::PJRT_Error_Message
+2025-11-26 17:30:26.491 (   2.274s) [         CA41480]      error_instance.cc:61       1| ErrorInstance::PJRT_Error_GetCode
+2025-11-26 17:30:26.491 (   2.274s) [         CA41480]      error_instance.cc:46       1| ErrorInstance::PJRT_Error_Destroy
+2025-11-26 17:30:26.491 (   2.274s) [         CA41480] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-11-26 17:30:26.491 (   2.274s) [         CA41480] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-11-26 17:30:26.495 (   2.278s) [         CA41480] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-11-26 17:30:26.495 (   2.278s) [         CA41480] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640] executable_instance.cc:140      1| ExecutableInstance::PJRT_Executable_NumOutputs
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]loaded_executable_insta:331      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Execute
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]flatbuffer_loaded_execu:270      1| FlatbufferLoadedExecutableInstance::Execute
+2025-11-26 17:30:26.499 (   2.282s) [        7FFFF640]     client_instance.cc:489      1| ClientInstance::getOrCreateMeshDevice - reusing already opened mesh device [1, 8]
+2025-11-26 17:30:26.512 (   2.295s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 0 with shape [32, 32] and UID 16
+2025-11-26 17:30:26.512 (   2.295s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 1 with shape [32, 32] and UID 17
+2025-11-26 17:30:26.512 (   2.295s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 2 with shape [32, 32] and UID 18
+2025-11-26 17:30:26.512 (   2.295s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 3 with shape [32, 32] and UID 19
+2025-11-26 17:30:26.512 (   2.296s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 4 with shape [32, 32] and UID 20
+2025-11-26 17:30:26.512 (   2.296s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 5 with shape [32, 32] and UID 21
+2025-11-26 17:30:26.512 (   2.296s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 6 with shape [32, 32] and UID 22
+2025-11-26 17:30:26.512 (   2.296s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 7 with shape [32, 32] and UID 23
+2025-11-26 17:30:26.512 (   2.296s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 1 device_index 0 with shape [32, 32] and UID 24
+2025-11-26 17:30:26.512 (   2.296s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 1 device_index 1 with shape [32, 32] and UID 25
+2025-11-26 17:30:26.512 (   2.296s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 1 device_index 2 with shape [32, 32] and UID 26
+2025-11-26 17:30:26.512 (   2.296s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 1 device_index 3 with shape [32, 32] and UID 27
+2025-11-26 17:30:26.512 (   2.296s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 1 device_index 4 with shape [32, 32] and UID 28
+2025-11-26 17:30:26.512 (   2.296s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 1 device_index 5 with shape [32, 32] and UID 29
+2025-11-26 17:30:26.512 (   2.296s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 1 device_index 6 with shape [32, 32] and UID 30
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 1 device_index 7 with shape [32, 32] and UID 31
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.513 (   2.296s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.513 (   2.296s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.513 (   2.296s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.513 (   2.296s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.513 (   2.296s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.513 (   2.296s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.513 (   2.296s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.513 (   2.296s) [         CA41480]     buffer_instance.cc:536      1| BufferInstance::PJRT_Buffer_UnpaddedDimensions
+2025-11-26 17:30:26.513 (   2.296s) [         CA41480]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.513 (   2.296s) [         CA41480]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.513 (   2.296s) [         CA41480]     buffer_instance.cc:558      1| BufferInstance::PJRT_Buffer_ToHostBuffer
+2025-11-26 17:30:26.513 (   2.296s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.515 (   2.298s) [        7D7FA640]     buffer_instance.cc:402      1| Returning tensor to host with host_runtime_tensors ct = 8 from device 0 with buffer UID 16
+2025-11-26 17:30:26.517 (   2.300s) [        7CFF9640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.518 (   2.301s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.518 (   2.301s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.518 (   2.301s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.518 (   2.301s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.518 (   2.301s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.518 (   2.301s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.518 (   2.301s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.518 (   2.301s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.518 (   2.301s) [         CA41480]     buffer_instance.cc:536      1| BufferInstance::PJRT_Buffer_UnpaddedDimensions
+2025-11-26 17:30:26.518 (   2.301s) [         CA41480]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.518 (   2.301s) [         CA41480]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.518 (   2.301s) [         CA41480]     buffer_instance.cc:558      1| BufferInstance::PJRT_Buffer_ToHostBuffer
+2025-11-26 17:30:26.518 (   2.301s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.519 (   2.302s) [        7DFFB640]     buffer_instance.cc:402      1| Returning tensor to host with host_runtime_tensors ct = 8 from device 0 with buffer UID 24
+2025-11-26 17:30:26.519 (   2.302s) [        7CFF9640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+(tensor([[1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        ...,
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.]], device='xla:0'), tensor([[1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        ...,
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.]], device='xla:0'))
+Running 1x8
+2025-11-26 17:30:26.780 (   2.563s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.780 (   2.563s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.780 (   2.563s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.780 (   2.563s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.780 (   2.563s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.780 (   2.563s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.780 (   2.563s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.780 (   2.563s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.780 (   2.563s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.780 (   2.563s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.784 (   2.567s) [         CA41480]     client_instance.cc:754      1| ClientInstance::PJRT_Client_Compile
+2025-11-26 17:30:26.784 (   2.567s) [         CA41480]      module_builder.cc:229      1| ModuleBuilder::buildModule
+2025-11-26 17:30:26.784 (   2.568s) [         CA41480]      module_builder.cc:983      1| MLIR Module vhlo:
+#loc1 = loc("p0.3")
+module @SyncTensorsGraph.11 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  vhlo.func_v1 @main(%arg0: !vhlo.tensor_v1<32x32x!vhlo.f32_v1> loc("p0.3")) -> (!vhlo.tensor_v1<32x32x!vhlo.f32_v1>) {
+    %0 = "vhlo.constant_v1"() <{value = #vhlo.tensor_v1<dense<1.000000e+00> : tensor<f32>>}> : () -> !vhlo.tensor_v1<!vhlo.f32_v1> loc(#loc)
+    %1 = "vhlo.broadcast_in_dim_v1"(%0) <{broadcast_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>}> : (!vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<32x32x!vhlo.f32_v1> loc(#loc)
+    %2 = "vhlo.reshape_v1"(%arg0) : (!vhlo.tensor_v1<32x32x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x32x32x!vhlo.f32_v1> loc(#loc2)
+    %3 = "vhlo.custom_call_v1"(%2) <{api_version = #vhlo<api_version_v1 API_VERSION_UNSPECIFIED>, backend_config = #vhlo.string_v1<"">, call_target_name = #vhlo.string_v1<"tt.mark_argument">, called_computations = #vhlo.array_v1<[]>, has_side_effect = #vhlo.bool_v1<false>, operand_layouts = #vhlo.array_v1<[]>, output_operand_aliases = #vhlo.array_v1<[]>, result_layouts = #vhlo.array_v1<[]>}> {mhlo.frontend_attributes = #vhlo.dict_v1<{#vhlo.string_v1<"ttcore.argument_type"> = #vhlo.string_v1<"input">, #vhlo.string_v1<"ttir.name"> = #vhlo.string_v1<"args_0">}>} : (!vhlo.tensor_v1<1x32x32x!vhlo.f32_v1>) -> !vhlo.tensor_v1<1x32x32x!vhlo.f32_v1> loc(#loc3)
+    %4 = "vhlo.reshape_v1"(%3) : (!vhlo.tensor_v1<1x32x32x!vhlo.f32_v1>) -> !vhlo.tensor_v1<32x32x!vhlo.f32_v1> loc(#loc4)
+    %5 = "vhlo.add_v1"(%4, %1) : (!vhlo.tensor_v1<32x32x!vhlo.f32_v1>, !vhlo.tensor_v1<32x32x!vhlo.f32_v1>) -> !vhlo.tensor_v1<32x32x!vhlo.f32_v1> loc(#loc5)
+    "vhlo.return_v1"(%5) : (!vhlo.tensor_v1<32x32x!vhlo.f32_v1>) -> () loc(#loc)
+  } {arg_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{#vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{replicated}">}>]>, res_attrs = #vhlo.array_v1<[]>, sym_visibility = #vhlo.string_v1<"">} loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("reshape.4")
+#loc3 = loc("custom-call.5")
+#loc4 = loc("reshape.6")
+#loc5 = loc("add.9")
+------------------ END OF MLIR MODULE ------------------
+2025-11-26 17:30:26.785 (   2.568s) [         CA41480]      module_builder.cc:983      1| MLIR Module shlo:
+#loc1 = loc("p0.3")
+module @SyncTensorsGraph.11 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  func.func @main(%arg0: tensor<32x32xf32> {mhlo.sharding = "{replicated}"} loc("p0.3")) -> tensor<32x32xf32> {
+    %cst = stablehlo.constant dense<1.000000e+00> : tensor<f32> loc(#loc)
+    %0 = stablehlo.broadcast_in_dim %cst, dims = [] : (tensor<f32>) -> tensor<32x32xf32> loc(#loc)
+    %1 = stablehlo.reshape %arg0 : (tensor<32x32xf32>) -> tensor<1x32x32xf32> loc(#loc2)
+    %2 = stablehlo.custom_call @tt.mark_argument(%1) {api_version = 0 : i32, mhlo.frontend_attributes = {ttcore.argument_type = "input", ttir.name = "args_0"}} : (tensor<1x32x32xf32>) -> tensor<1x32x32xf32> loc(#loc3)
+    %3 = stablehlo.reshape %2 : (tensor<1x32x32xf32>) -> tensor<32x32xf32> loc(#loc4)
+    %4 = stablehlo.add %3, %0 : tensor<32x32xf32> loc(#loc5)
+    return %4 : tensor<32x32xf32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("reshape.4")
+#loc3 = loc("custom-call.5")
+#loc4 = loc("reshape.6")
+#loc5 = loc("add.9")
+------------------ END OF MLIR MODULE ------------------
+2025-11-26 17:30:26.786 (   2.569s) [         CA41480]      module_builder.cc:983      1| MLIR Module shlo_frontend:
+#loc1 = loc("p0.3")
+module @SyncTensorsGraph.11 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  func.func @main(%arg0: tensor<32x32xf32> {mhlo.sharding = "{replicated}", ttcore.argument_type = #ttcore.argument_type<input>, ttir.name = "args_0"} loc("p0.3")) -> tensor<32x32xf32> {
+    %cst = stablehlo.constant dense<1.000000e+00> : tensor<f32> loc(#loc)
+    %0 = stablehlo.broadcast_in_dim %cst, dims = [] : (tensor<f32>) -> tensor<32x32xf32> loc(#loc)
+    %1 = stablehlo.reshape %arg0 : (tensor<32x32xf32>) -> tensor<1x32x32xf32> loc(#loc2)
+    %2 = stablehlo.reshape %1 : (tensor<1x32x32xf32>) -> tensor<32x32xf32> loc(#loc3)
+    %3 = stablehlo.add %2, %0 : tensor<32x32xf32> loc(#loc4)
+    return %3 : tensor<32x32xf32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("reshape.4")
+#loc3 = loc("reshape.6")
+#loc4 = loc("add.9")
+------------------ END OF MLIR MODULE ------------------
+2025-11-26 17:30:26.788 (   2.571s) [         CA41480]      module_builder.cc:983      1| MLIR Module shlo_compiler:
+#loc1 = loc("p0.3")
+module @SyncTensorsGraph.11 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  sdy.mesh @mesh = <["x"=1, "y"=1]> loc(#loc)
+  func.func @main(%arg0: tensor<32x32xf32> {mhlo.sharding = "{replicated}", ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<presharded>, ttir.name = "args_0"} loc("p0.3")) -> (tensor<32x32xf32> {ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+    %cst = stablehlo.constant dense<1.000000e+00> : tensor<f32> loc(#loc)
+    %0 = stablehlo.broadcast_in_dim %cst, dims = [] : (tensor<f32>) -> tensor<32x32xf32> loc(#loc)
+    %1 = stablehlo.reshape %arg0 : (tensor<32x32xf32>) -> tensor<1x32x32xf32> loc(#loc2)
+    %2 = stablehlo.reshape %1 : (tensor<1x32x32xf32>) -> tensor<32x32xf32> loc(#loc3)
+    %3 = stablehlo.add %2, %0 : tensor<32x32xf32> loc(#loc4)
+    return %3 : tensor<32x32xf32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("reshape.4")
+#loc3 = loc("reshape.6")
+#loc4 = loc("add.9")
+------------------ END OF MLIR MODULE ------------------
+2025-11-26 17:30:26.788 (   2.571s) [         CA41480]shlo_set_proper_sdy_mes:49       1| SPMD-enabled mesh has trivial size [1, 1], reshaping to [1, 8]
+2025-11-26 17:30:26.789 (   2.572s) [         CA41480]      module_builder.cc:983      1| MLIR Module ttir:
+#loc1 = loc("p0.3")
+module @SyncTensorsGraph.11 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x8>]>} {
+  ttcore.device_module {
+    builtin.module @SyncTensorsGraph.11 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x8>]>} {
+      func.func @main(%arg0: tensor<32x32xf32> {mhlo.sharding = "{replicated}", ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<presharded>, ttir.name = "args_0"} loc("p0.3")) -> (tensor<32x32xf32> {ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+        %0 = "ttir.constant"() <{value = dense<1.000000e+00> : tensor<f32>}> : () -> tensor<f32> loc(#loc)
+        %1 = ttir.empty() : tensor<1x1xf32> loc(#loc)
+        %2 = "ttir.reshape"(%0, %1) <{shape = [1 : i32, 1 : i32]}> : (tensor<f32>, tensor<1x1xf32>) -> tensor<1x1xf32> loc(#loc)
+        %3 = ttir.empty() : tensor<32x32xf32> loc(#loc)
+        %4 = "ttir.broadcast"(%2, %3) <{broadcast_dimensions = array<i64: 32, 32>}> : (tensor<1x1xf32>, tensor<32x32xf32>) -> tensor<32x32xf32> loc(#loc)
+        %5 = ttir.empty() : tensor<1x32x32xf32> loc(#loc2)
+        %6 = "ttir.reshape"(%arg0, %5) <{shape = [1 : i32, 32 : i32, 32 : i32]}> : (tensor<32x32xf32>, tensor<1x32x32xf32>) -> tensor<1x32x32xf32> loc(#loc2)
+        %7 = ttir.empty() : tensor<32x32xf32> loc(#loc3)
+        %8 = "ttir.reshape"(%6, %7) <{shape = [32 : i32, 32 : i32]}> : (tensor<1x32x32xf32>, tensor<32x32xf32>) -> tensor<32x32xf32> loc(#loc3)
+        %9 = ttir.empty() : tensor<32x32xf32> loc(#loc4)
+        %10 = "ttir.add"(%8, %4, %9) : (tensor<32x32xf32>, tensor<32x32xf32>, tensor<32x32xf32>) -> tensor<32x32xf32> loc(#loc4)
+        return %10 : tensor<32x32xf32> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("reshape.4")
+#loc3 = loc("reshape.6")
+#loc4 = loc("add.9")
+------------------ END OF MLIR MODULE ------------------
+2025-11-26 17:30:26.790 (   2.573s) [         CA41480]      module_builder.cc:784   WARN| `mhlo.num_partitions` attribute not found, assuming default number of partitions: 1
+2025-11-26 17:30:26.790 (   2.573s) [         CA41480]      module_builder.cc:798   WARN| `mhlo.num_replicas` attribute not found, assuming default number of replicas: 1
+2025-11-26 17:30:26.790 (   2.573s) [         CA41480]      module_builder.cc:808   WARN| Num replicas and num partitions are not set, inferring the number of devices from mesh shape
+2025-11-26 17:30:26.797 (   2.580s) [         CA41480]      module_builder.cc:983      1| MLIR Module ttnn:
+#dram = #ttnn.buffer_type<dram>
+#loc1 = loc("p0.3")
+#system_desc = #ttcore.system_desc<[{role = host, target_triple = "x86_64-pc-linux"}], [{arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073145600, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073145600, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073145600, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073145600, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073162624, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073162624, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073162624, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073162624, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}], [0, 1, 2, 3, 4, 5, 6, 7], [1 : i32, 1 : i32, 1 : i32, 1 : i32, 0 : i32, 0 : i32, 0 : i32, 0 : i32], [ 0x0x0x0]>
+#ttnn_layout = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+#ttnn_layout1 = #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+module @SyncTensorsGraph.11 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x8>]>} {
+  ttcore.device_module {
+    builtin.module @SyncTensorsGraph.11 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x8>]>, ttcore.system_desc = #system_desc} {
+      ttcore.device @default_device = <workerGrid = #ttcore.grid<8x8, (d0, d1) -> (0, d0, d1)>, l1Map = (d0, d1, d2)[s0] -> (0, d0, d1, d2 + s0), dramMap = (d0, d1, d2)[s0, s1, s2, s3, s4, s5, s6] -> (0, 0, (((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) mod 12, ((((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) floordiv 12) * s4 + ((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) mod s4 + s5), meshShape = 1x8, chipIds = [0, 1, 2, 3, 4, 5, 6, 7]> loc(#loc)
+      func.func @main_const_eval_0() -> tensor<1x1xf32, #ttnn_layout> attributes {const_eval} {
+        %0 = "ttnn.get_device"() <{mesh_offset = #ttnn<mesh_offset 0x0>, mesh_shape = #ttnn<mesh_shape 1x8>}> : () -> !ttnn.device loc(#loc)
+        %1 = "ttnn.full"(%0) <{dtype = #ttcore.supportedDataTypes<f32>, fill_value = 1.000000e+00 : f32, layout = #ttnn.layout<tile>, shape = #ttnn.shape<>}> : (!ttnn.device) -> tensor<f32, #ttnn_layout1> loc(#loc)
+        %2 = "ttnn.reshape"(%1) <{shape = [1 : i32, 1 : i32]}> : (tensor<f32, #ttnn_layout1>) -> tensor<1x1xf32, #ttnn_layout> loc(#loc)
+        "ttnn.deallocate"(%1) <{force = false}> : (tensor<f32, #ttnn_layout1>) -> () loc(#loc)
+        return %2 : tensor<1x1xf32, #ttnn_layout> loc(#loc)
+      } loc(#loc)
+      func.func @main(%arg0: tensor<32x32xf32, #ttnn_layout> {mhlo.sharding = "{replicated}", ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<presharded>, ttir.name = "args_0"} loc("p0.3")) -> (tensor<32x32xf32, #ttnn_layout> {ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+        %0 = ttcore.load_cached(@main_const_eval_0, []) : () -> tensor<1x1xf32, #ttnn_layout> loc(#loc)
+        %1 = "ttnn.add"(%arg0, %0) <{dtype = #ttcore.supportedDataTypes<f32>}> : (tensor<32x32xf32, #ttnn_layout>, tensor<1x1xf32, #ttnn_layout>) -> tensor<32x32xf32, #ttnn_layout> loc(#loc2)
+        "ttnn.deallocate"(%0) <{force = false}> : (tensor<1x1xf32, #ttnn_layout>) -> () loc(#loc2)
+        "ttnn.deallocate"(%arg0) <{force = false}> : (tensor<32x32xf32, #ttnn_layout>) -> () loc(#loc2)
+        return %1 : tensor<32x32xf32, #ttnn_layout> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("add.9")
+------------------ END OF MLIR MODULE ------------------
+2025-11-26 17:30:26.800 (   2.583s) [         CA41480]loaded_executable_insta:276      1| LoadedExecutableInstance::PJRT_LoadedExecutable_GetExecutable
+2025-11-26 17:30:26.800 (   2.583s) [         CA41480]loaded_executable_insta:295      1| LoadedExecutableInstance::PJRT_LoadedExecutable_AddressableDevices
+2025-11-26 17:30:26.800 (   2.583s) [         CA41480]              stubs.inc:70    WARN| STUB: PJRT_Executable_GetCompiledMemoryStats
+2025-11-26 17:30:26.800 (   2.583s) [         CA41480]      error_instance.cc:52       1| ErrorInstance::PJRT_Error_Message
+2025-11-26 17:30:26.800 (   2.583s) [         CA41480]      error_instance.cc:61       1| ErrorInstance::PJRT_Error_GetCode
+2025-11-26 17:30:26.800 (   2.583s) [         CA41480]      error_instance.cc:46       1| ErrorInstance::PJRT_Error_Destroy
+2025-11-26 17:30:26.800 (   2.583s) [         CA41480] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-11-26 17:30:26.800 (   2.583s) [         CA41480] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-11-26 17:30:26.803 (   2.586s) [         CA41480] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-11-26 17:30:26.803 (   2.586s) [         CA41480] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.805 (   2.588s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.805 (   2.588s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.805 (   2.588s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.805 (   2.588s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]     buffer_instance.cc:662      1| BufferInstance::PJRT_Buffer_Device
+2025-11-26 17:30:26.805 (   2.588s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-11-26 17:30:26.805 (   2.588s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640] executable_instance.cc:140      1| ExecutableInstance::PJRT_Executable_NumOutputs
+2025-11-26 17:30:26.805 (   2.588s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.805 (   2.588s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]loaded_executable_insta:331      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Execute
+2025-11-26 17:30:26.805 (   2.588s) [        7FFFF640]flatbuffer_loaded_execu:270      1| FlatbufferLoadedExecutableInstance::Execute
+2025-11-26 17:30:26.805 (   2.588s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.805 (   2.589s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.805 (   2.589s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.805 (   2.589s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.805 (   2.589s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.805 (   2.589s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.805 (   2.589s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.805 (   2.589s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.805 (   2.589s) [        7FFFF640]     client_instance.cc:489      1| ClientInstance::getOrCreateMeshDevice - reusing already opened mesh device [1, 8]
+2025-11-26 17:30:26.806 (   2.589s) [        7FFFF640]flatbuffer_loaded_execu:92       1| Reusing already prepared input tensor for argument index 0 with shape [32, 32]
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 0 with shape [32, 32] and UID 32
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 1 with shape [32, 32] and UID 33
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 2 with shape [32, 32] and UID 34
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 3 with shape [32, 32] and UID 35
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 4 with shape [32, 32] and UID 36
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 5 with shape [32, 32] and UID 37
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 6 with shape [32, 32] and UID 38
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 7 with shape [32, 32] and UID 39
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.807 (   2.590s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.807 (   2.591s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.807 (   2.591s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.807 (   2.591s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.807 (   2.591s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.807 (   2.591s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.807 (   2.591s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.807 (   2.591s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.807 (   2.591s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.807 (   2.591s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.807 (   2.591s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.807 (   2.591s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.807 (   2.591s) [        7FFFF640]     buffer_instance.cc:548      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2025-11-26 17:30:26.808 (   2.591s) [        7FFFF640]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.808 (   2.591s) [        7FFFF640]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.808 (   2.591s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.808 (   2.591s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.808 (   2.591s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.808 (   2.591s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.808 (   2.591s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.808 (   2.591s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.808 (   2.591s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.808 (   2.591s) [         CA41480]     buffer_instance.cc:610      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-11-26 17:30:26.808 (   2.591s) [         CA41480]     buffer_instance.cc:536      1| BufferInstance::PJRT_Buffer_UnpaddedDimensions
+2025-11-26 17:30:26.808 (   2.591s) [         CA41480]     buffer_instance.cc:517      1| BufferInstance::PJRT_Buffer_ElementType
+2025-11-26 17:30:26.808 (   2.591s) [         CA41480]     buffer_instance.cc:525      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-11-26 17:30:26.808 (   2.591s) [         CA41480]     buffer_instance.cc:558      1| BufferInstance::PJRT_Buffer_ToHostBuffer
+2025-11-26 17:30:26.808 (   2.591s) [         CA41480]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-11-26 17:30:26.809 (   2.592s) [        1B7FE640]     buffer_instance.cc:402      1| Returning tensor to host with host_runtime_tensors ct = 8 from device 0 with buffer UID 32
+2025-11-26 17:30:26.809 (   2.592s) [        1AFFD640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-11-26 17:30:26.810 (   2.593s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.810 (   2.593s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.810 (   2.593s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.810 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+2025-11-26 17:30:26.811 (   2.594s) [         CA41480]     buffer_instance.cc:509      1| BufferInstance::PJRT_Buffer_Destroy
+detected 8 devices
+Created device mesh: (1, 8) with 8 devices
+tensor([[1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        ...,
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.]], device='xla:0')
+2025-11-26 17:30:27.842 (   3.625s) [         CA41480]     client_instance.cc:167      1| ClientInstance::~ClientInstance
+2025-11-26 17:30:27.842 (   3.625s) [         CA41480]     client_instance.cc:566      1| Closing parent mesh.
