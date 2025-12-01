@@ -1,0 +1,682 @@
+WARNING:2025-12-01 15:23:30,826:jax._src.xla_bridge:893: Platform 'tt' is experimental and not all JAX functionality may be correctly supported!
+2025-12-01 15:23:30.826 (   0.017s) [        5EBEE000]   plugin_attributes.cc:58       1| PluginAttributes::PJRT_Plugin_Initialize
+2025-12-01 15:23:30.826 (   0.017s) [        5EBEE000]     client_instance.cc:613      1| ClientInstance::PJRT_Client_Create
+2025-12-01 15:23:30.834 (   0.025s) [        5EBEE000]     client_instance.cc:152      1| ClientInstance::ClientInstance
+2025-12-01 15:23:30.834 (   0.025s) [        5EBEE000]     client_instance.cc:173      1| ClientInstance::Initialize
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]              stubs.inc:103   WARN| STUB: PJRT_Client_TopologyDescription
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]      error_instance.cc:61       1| ErrorInstance::PJRT_Error_GetCode
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]      error_instance.cc:52       1| ErrorInstance::PJRT_Error_Message
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]      error_instance.cc:46       1| ErrorInstance::PJRT_Error_Destroy
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     client_instance.cc:667      1| ClientInstance::PJRT_Client_PlatformVersion
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     client_instance.cc:648      1| ClientInstance::PJRT_Client_PlatformName
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     client_instance.cc:678      1| ClientInstance::PJRT_Client_Devices
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     device_instance.cc:44       1| DeviceInstance::PJRT_Device_GetDescription
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]  device_description.cc:63       1| DeviceDescription::PJRT_DeviceDescription_Attributes
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     device_instance.cc:44       1| DeviceInstance::PJRT_Device_GetDescription
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]  device_description.cc:63       1| DeviceDescription::PJRT_DeviceDescription_Attributes
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     client_instance.cc:691      1| ClientInstance::PJRT_Client_AddressableDevices
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     client_instance.cc:741      1| ClientInstance::PJRT_Client_AddressableMemories
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     device_instance.cc:71       1| DeviceInstance::PJRT_Device_AddressableMemories
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     device_instance.cc:71       1| DeviceInstance::PJRT_Device_AddressableMemories
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]   plugin_attributes.cc:64       1| PluginAttributes::PJRT_Plugin_Attributes
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]  device_description.cc:53       1| DeviceDescription::PJRT_DeviceDescription_ProcessIndex
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]  device_description.cc:53       1| DeviceDescription::PJRT_DeviceDescription_ProcessIndex
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]  device_description.cc:53       1| DeviceDescription::PJRT_DeviceDescription_ProcessIndex
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]  device_description.cc:53       1| DeviceDescription::PJRT_DeviceDescription_ProcessIndex
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]  device_description.cc:53       1| DeviceDescription::PJRT_DeviceDescription_ProcessIndex
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]  device_description.cc:53       1| DeviceDescription::PJRT_DeviceDescription_ProcessIndex
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     client_instance.cc:704      1| ClientInstance::PJRT_Client_LookupDevice
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     device_instance.cc:61       1| DeviceInstance::PJRT_Device_LocalHardwareId
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]  device_description.cc:73       1| DeviceDescription::PJRT_DeviceDescription_Kind
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]  device_description.cc:99       1| DeviceDescription::PJRT_DeviceDescription_ToString
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]  device_description.cc:86       1| DeviceDescription::PJRT_DeviceDescription_DebugString
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     client_instance.cc:704      1| ClientInstance::PJRT_Client_LookupDevice
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     device_instance.cc:61       1| DeviceInstance::PJRT_Device_LocalHardwareId
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]  device_description.cc:73       1| DeviceDescription::PJRT_DeviceDescription_Kind
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]  device_description.cc:99       1| DeviceDescription::PJRT_DeviceDescription_ToString
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]  device_description.cc:86       1| DeviceDescription::PJRT_DeviceDescription_DebugString
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     client_instance.cc:704      1| ClientInstance::PJRT_Client_LookupDevice
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     client_instance.cc:704      1| ClientInstance::PJRT_Client_LookupDevice
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-12-01 15:23:31.487 (   0.678s) [        5EBEE000]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2025-12-01 15:23:31.505 (   0.696s) [        5EBEE000]              stubs.inc:22    WARN| STUB: PJRT_Device_MemoryStats
+2025-12-01 15:23:31.505 (   0.696s) [        5EBEE000]      error_instance.cc:61       1| ErrorInstance::PJRT_Error_GetCode
+2025-12-01 15:23:31.505 (   0.696s) [        5EBEE000]      error_instance.cc:52       1| ErrorInstance::PJRT_Error_Message
+2025-12-01 15:23:31.505 (   0.696s) [        5EBEE000]      error_instance.cc:46       1| ErrorInstance::PJRT_Error_Destroy
+2025-12-01 15:23:31.507 (   0.698s) [        5EBEE000]     client_instance.cc:754      1| ClientInstance::PJRT_Client_Compile
+2025-12-01 15:23:31.507 (   0.698s) [        5EBEE000]      module_builder.cc:229      1| ModuleBuilder::buildModule
+2025-12-01 15:23:31.509 (   0.700s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module vhlo:
+#loc1 = loc("args[0]")
+module @jit_convert_element_type attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32} {
+  vhlo.func_v1 @main(%arg0: !vhlo.tensor_v1<!vhlo.f32_v1> loc("args[0]")) -> (!vhlo.tensor_v1<!vhlo.f32_v1>) {
+    "vhlo.return_v1"(%arg0) : (!vhlo.tensor_v1<!vhlo.f32_v1>) -> () loc(#loc)
+  } {arg_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{}>]>, res_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{#vhlo.string_v1<"jax.result_info"> = #vhlo.string_v1<"result">}>]>, sym_visibility = #vhlo.string_v1<"public">} loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.512 (   0.703s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module shlo:
+#loc1 = loc("args[0]")
+module @jit_convert_element_type attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32} {
+  func.func public @main(%arg0: tensor<f32> loc("args[0]")) -> (tensor<f32> {jax.result_info = "result"}) {
+    return %arg0 : tensor<f32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.513 (   0.704s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module shlo_frontend:
+#loc1 = loc("args[0]")
+module @jit_convert_element_type attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32} {
+  func.func public @main(%arg0: tensor<f32> {ttcore.argument_type = #ttcore.argument_type<input>} loc("args[0]")) -> (tensor<f32> {jax.result_info = "result"}) {
+    return %arg0 : tensor<f32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.517 (   0.708s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module shlo_compiler:
+#loc1 = loc("args[0]")
+module @jit_convert_element_type attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32} {
+  sdy.mesh @mesh = <["x"=1, "y"=1]> loc(#loc)
+  func.func public @main(%arg0: tensor<f32> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("args[0]")) -> (tensor<f32> {jax.result_info = "result", ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+    return %arg0 : tensor<f32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.519 (   0.710s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module ttir:
+#loc1 = loc("args[0]")
+module @jit_convert_element_type attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+  ttcore.device_module {
+    builtin.module @jit_convert_element_type attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+      func.func public @main(%arg0: tensor<f32> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("args[0]")) -> (tensor<f32> {jax.result_info = "result", ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+        return %arg0 : tensor<f32> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.546 (   0.737s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module ttnn:
+#dram = #ttnn.buffer_type<dram>
+#loc1 = loc("args[0]")
+#system_desc = #ttcore.system_desc<[{role = host, target_triple = "x86_64-pc-linux"}], [{arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073103008, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073111520, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}], [0, 1], [1 : i32, 0 : i32], [ 0x0x0x0]>
+#ttnn_layout = #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+module @jit_convert_element_type attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+  ttcore.device_module {
+    builtin.module @jit_convert_element_type attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>, ttcore.system_desc = #system_desc} {
+      ttcore.device @default_device = <workerGrid = #ttcore.grid<8x8, (d0, d1) -> (0, d0, d1)>, l1Map = (d0, d1, d2)[s0] -> (0, d0, d1, d2 + s0), dramMap = (d0, d1, d2)[s0, s1, s2, s3, s4, s5, s6] -> (0, 0, (((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) mod 12, ((((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) floordiv 12) * s4 + ((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) mod s4 + s5), meshShape = 1x1, chipIds = [0]> loc(#loc)
+      func.func public @main(%arg0: tensor<f32, #ttnn_layout> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("args[0]")) -> (tensor<f32, #ttnn_layout> {jax.result_info = "result", ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+        return %arg0 : tensor<f32, #ttnn_layout> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.552 (   0.743s) [        5EBEE000]loaded_executable_insta:276      1| LoadedExecutableInstance::PJRT_LoadedExecutable_GetExecutable
+2025-12-01 15:23:31.552 (   0.743s) [        5EBEE000]loaded_executable_insta:295      1| LoadedExecutableInstance::PJRT_LoadedExecutable_AddressableDevices
+2025-12-01 15:23:31.552 (   0.743s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.552 (   0.743s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.555 (   0.746s) [        5EBEE000] executable_instance.cc:218      1| ExecutableImage::PJRT_Executable_OutputMemoryKinds
+2025-12-01 15:23:31.555 (   0.746s) [        5EBEE000] executable_instance.cc:82       1| ExecutableInstance::PJRT_Executable_NumReplicas
+2025-12-01 15:23:31.555 (   0.746s) [        5EBEE000] executable_instance.cc:166      1| ExecutableInstance::PJRT_Executable_Fingerprint
+2025-12-01 15:23:31.556 (   0.747s) [        5EBEE000] executable_instance.cc:218      1| ExecutableImage::PJRT_Executable_OutputMemoryKinds
+2025-12-01 15:23:31.556 (   0.747s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.556 (   0.747s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.557 (   0.748s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.558 (   0.748s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.560 (   0.750s) [        5EBEE000]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-12-01 15:23:31.560 (   0.751s) [        5EBEE000]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-12-01 15:23:31.560 (   0.751s) [        5EBEE000]     buffer_instance.cc:82       1| BufferInstance (input) created: UID=0, shape=[]
+2025-12-01 15:23:31.560 (   0.751s) [        5EBEE000]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-12-01 15:23:31.560 (   0.751s) [        5EBEE000]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-12-01 15:23:31.560 (   0.751s) [        5EBEE000]     buffer_instance.cc:534      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-12-01 15:23:31.560 (   0.751s) [        5EBEE000]     buffer_instance.cc:671      1| BufferInstance::PJRT_Buffer_Device
+2025-12-01 15:23:31.560 (   0.751s) [        5EBEE000]     buffer_instance.cc:679      1| BufferInstance::PJRT_Buffer_Memory
+2025-12-01 15:23:31.560 (   0.751s) [        5EBEE000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2025-12-01 15:23:31.560 (   0.751s) [        5EBEE000] executable_instance.cc:140      1| ExecutableInstance::PJRT_Executable_NumOutputs
+2025-12-01 15:23:31.560 (   0.751s) [        5EBEE000]loaded_executable_insta:331      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Execute
+2025-12-01 15:23:31.560 (   0.751s) [        5EBEE000]flatbuffer_loaded_execu:270      1| FlatbufferLoadedExecutableInstance::Execute
+2025-12-01 15:23:31.560 (   0.751s) [        5EBEE000]     client_instance.cc:497      1| ClientInstance::getOrCreateMeshDevice - reshaping mesh device - [1, 2] -> [1, 1]
+2025-12-01 15:23:31.560 (   0.751s) [        5EBEE000]     client_instance.cc:566      1| Closing parent mesh.
+2025-12-01 15:23:31.777 (   0.967s) [        5EBEE000]     buffer_instance.cc:103      1| BufferInstance (output) created: UID=1, shape=[]
+2025-12-01 15:23:31.777 (   0.968s) [        5EBEE000]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 0 with shape [] and UID 1
+2025-12-01 15:23:31.777 (   0.968s) [        5EBEE000]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-12-01 15:23:31.777 (   0.968s) [        5EBEE000]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-12-01 15:23:31.777 (   0.968s) [        5EBEE000]     buffer_instance.cc:534      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-12-01 15:23:31.777 (   0.968s) [        5EBEE000]     buffer_instance.cc:671      1| BufferInstance::PJRT_Buffer_Device
+2025-12-01 15:23:31.777 (   0.968s) [        5EBEE000]     buffer_instance.cc:679      1| BufferInstance::PJRT_Buffer_Memory
+2025-12-01 15:23:31.777 (   0.968s) [        5EBEE000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2025-12-01 15:23:31.777 (   0.968s) [        5EBEE000]     buffer_instance.cc:518      1| BufferInstance::PJRT_Buffer_Destroy
+2025-12-01 15:23:31.777 (   0.968s) [        5EBEE000]     buffer_instance.cc:108      1| BufferInstance destroyed: UID=0, shape=[]
+2025-12-01 15:23:31.779 (   0.969s) [        5EBEE000]     buffer_instance.cc:619      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-12-01 15:23:31.779 (   0.970s) [        5EBEE000]     buffer_instance.cc:619      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-12-01 15:23:31.784 (   0.975s) [        5EBEE000]              stubs.inc:22    WARN| STUB: PJRT_Device_MemoryStats
+2025-12-01 15:23:31.784 (   0.975s) [        5EBEE000]      error_instance.cc:61       1| ErrorInstance::PJRT_Error_GetCode
+2025-12-01 15:23:31.784 (   0.975s) [        5EBEE000]      error_instance.cc:52       1| ErrorInstance::PJRT_Error_Message
+2025-12-01 15:23:31.784 (   0.975s) [        5EBEE000]      error_instance.cc:46       1| ErrorInstance::PJRT_Error_Destroy
+2025-12-01 15:23:31.785 (   0.976s) [        5EBEE000]     client_instance.cc:754      1| ClientInstance::PJRT_Client_Compile
+2025-12-01 15:23:31.786 (   0.976s) [        5EBEE000]      module_builder.cc:229      1| ModuleBuilder::buildModule
+2025-12-01 15:23:31.786 (   0.977s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module vhlo:
+#loc1 = loc("args[0]")
+module @jit_broadcast_in_dim attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32} {
+  vhlo.func_v1 @main(%arg0: !vhlo.tensor_v1<!vhlo.f32_v1> loc("args[0]")) -> (!vhlo.tensor_v1<4x4x!vhlo.f32_v1>) {
+    %0 = "vhlo.broadcast_in_dim_v1"(%arg0) <{broadcast_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>}> : (!vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<4x4x!vhlo.f32_v1> loc(#loc4)
+    "vhlo.return_v1"(%0) : (!vhlo.tensor_v1<4x4x!vhlo.f32_v1>) -> () loc(#loc)
+  } {arg_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{}>]>, res_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{#vhlo.string_v1<"jax.result_info"> = #vhlo.string_v1<"result">}>]>, sym_visibility = #vhlo.string_v1<"public">} loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/test.py":8:4 to :20)
+#loc3 = loc("<module>"(#loc2))
+#loc4 = loc("jit(broadcast_in_dim)/broadcast_in_dim"(#loc3))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.787 (   0.978s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module shlo:
+#loc1 = loc("args[0]")
+module @jit_broadcast_in_dim attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32} {
+  func.func public @main(%arg0: tensor<f32> loc("args[0]")) -> (tensor<4x4xf32> {jax.result_info = "result"}) {
+    %0 = stablehlo.broadcast_in_dim %arg0, dims = [] : (tensor<f32>) -> tensor<4x4xf32> loc(#loc4)
+    return %0 : tensor<4x4xf32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/test.py":8:4 to :20)
+#loc3 = loc("<module>"(#loc2))
+#loc4 = loc("jit(broadcast_in_dim)/broadcast_in_dim"(#loc3))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.787 (   0.978s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module shlo_frontend:
+#loc1 = loc("args[0]")
+module @jit_broadcast_in_dim attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32} {
+  func.func public @main(%arg0: tensor<f32> {ttcore.argument_type = #ttcore.argument_type<input>} loc("args[0]")) -> (tensor<4x4xf32> {jax.result_info = "result"}) {
+    %0 = stablehlo.broadcast_in_dim %arg0, dims = [] : (tensor<f32>) -> tensor<4x4xf32> loc(#loc4)
+    return %0 : tensor<4x4xf32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/test.py":8:4 to :20)
+#loc3 = loc("<module>"(#loc2))
+#loc4 = loc("jit(broadcast_in_dim)/broadcast_in_dim"(#loc3))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.790 (   0.981s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module shlo_compiler:
+#loc1 = loc("args[0]")
+module @jit_broadcast_in_dim attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32} {
+  sdy.mesh @mesh = <["x"=1, "y"=1]> loc(#loc)
+  func.func public @main(%arg0: tensor<f32> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("args[0]")) -> (tensor<4x4xf32> {jax.result_info = "result", ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+    %0 = stablehlo.broadcast_in_dim %arg0, dims = [] : (tensor<f32>) -> tensor<4x4xf32> loc(#loc4)
+    return %0 : tensor<4x4xf32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/test.py":8:4 to :20)
+#loc3 = loc("<module>"(#loc2))
+#loc4 = loc("jit(broadcast_in_dim)/broadcast_in_dim"(#loc3))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.792 (   0.983s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module ttir:
+#loc1 = loc("args[0]")
+module @jit_broadcast_in_dim attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+  ttcore.device_module {
+    builtin.module @jit_broadcast_in_dim attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+      func.func public @main(%arg0: tensor<f32> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("args[0]")) -> (tensor<4x4xf32> {jax.result_info = "result", ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+        %0 = "ttir.reshape"(%arg0) <{shape = [1 : i32, 1 : i32]}> : (tensor<f32>) -> tensor<1x1xf32> loc(#loc4)
+        %1 = "ttir.broadcast"(%0) <{broadcast_dimensions = array<i64: 4, 4>}> : (tensor<1x1xf32>) -> tensor<4x4xf32> loc(#loc4)
+        return %1 : tensor<4x4xf32> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/test.py":8:4 to :20)
+#loc3 = loc("<module>"(#loc2))
+#loc4 = loc("jit(broadcast_in_dim)/broadcast_in_dim"(#loc3))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.811 (   1.002s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module ttnn:
+#dram = #ttnn.buffer_type<dram>
+#loc1 = loc("args[0]")
+#system_desc = #ttcore.system_desc<[{role = host, target_triple = "x86_64-pc-linux"}], [{arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073103008, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073111520, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}], [0, 1], [1 : i32, 0 : i32], [ 0x0x0x0]>
+#ttnn_layout = #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+#ttnn_layout1 = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+module @jit_broadcast_in_dim attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+  ttcore.device_module {
+    builtin.module @jit_broadcast_in_dim attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>, ttcore.system_desc = #system_desc} {
+      ttcore.device @default_device = <workerGrid = #ttcore.grid<8x8, (d0, d1) -> (0, d0, d1)>, l1Map = (d0, d1, d2)[s0] -> (0, d0, d1, d2 + s0), dramMap = (d0, d1, d2)[s0, s1, s2, s3, s4, s5, s6] -> (0, 0, (((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) mod 12, ((((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) floordiv 12) * s4 + ((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) mod s4 + s5), meshShape = 1x1, chipIds = [0]> loc(#loc)
+      func.func public @main(%arg0: tensor<f32, #ttnn_layout> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("args[0]")) -> (tensor<4x4xf32, #ttnn_layout1> {jax.result_info = "result", ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+        %0 = "ttnn.reshape"(%arg0) <{shape = [1 : i32, 1 : i32]}> : (tensor<f32, #ttnn_layout>) -> tensor<1x1xf32, #ttnn_layout1> loc(#loc4)
+        "ttnn.deallocate"(%arg0) <{force = false}> : (tensor<f32, #ttnn_layout>) -> () loc(#loc4)
+        %1 = "ttnn.repeat"(%0) <{repeat_dims = #ttnn.shape<4x4>}> : (tensor<1x1xf32, #ttnn_layout1>) -> tensor<4x4xf32, #ttnn_layout1> loc(#loc4)
+        "ttnn.deallocate"(%0) <{force = false}> : (tensor<1x1xf32, #ttnn_layout1>) -> () loc(#loc4)
+        return %1 : tensor<4x4xf32, #ttnn_layout1> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/test.py":8:4 to :20)
+#loc3 = loc("<module>"(#loc2))
+#loc4 = loc("jit(broadcast_in_dim)/broadcast_in_dim"(#loc3))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.817 (   1.008s) [        5EBEE000]loaded_executable_insta:276      1| LoadedExecutableInstance::PJRT_LoadedExecutable_GetExecutable
+2025-12-01 15:23:31.817 (   1.008s) [        5EBEE000]loaded_executable_insta:295      1| LoadedExecutableInstance::PJRT_LoadedExecutable_AddressableDevices
+2025-12-01 15:23:31.817 (   1.008s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.817 (   1.008s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.819 (   1.010s) [        5EBEE000] executable_instance.cc:218      1| ExecutableImage::PJRT_Executable_OutputMemoryKinds
+2025-12-01 15:23:31.819 (   1.010s) [        5EBEE000] executable_instance.cc:82       1| ExecutableInstance::PJRT_Executable_NumReplicas
+2025-12-01 15:23:31.819 (   1.010s) [        5EBEE000] executable_instance.cc:166      1| ExecutableInstance::PJRT_Executable_Fingerprint
+2025-12-01 15:23:31.820 (   1.011s) [        5EBEE000] executable_instance.cc:218      1| ExecutableImage::PJRT_Executable_OutputMemoryKinds
+2025-12-01 15:23:31.820 (   1.011s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.820 (   1.011s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.821 (   1.012s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.821 (   1.012s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.823 (   1.014s) [        5EBEE000]     buffer_instance.cc:619      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-12-01 15:23:31.823 (   1.014s) [        5EBEE000] executable_instance.cc:140      1| ExecutableInstance::PJRT_Executable_NumOutputs
+2025-12-01 15:23:31.823 (   1.014s) [        5EBEE000]loaded_executable_insta:331      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Execute
+2025-12-01 15:23:31.823 (   1.014s) [        5EBEE000]flatbuffer_loaded_execu:270      1| FlatbufferLoadedExecutableInstance::Execute
+2025-12-01 15:23:31.823 (   1.014s) [        5EBEE000]     client_instance.cc:489      1| ClientInstance::getOrCreateMeshDevice - reusing already opened mesh device [1, 1]
+2025-12-01 15:23:31.823 (   1.014s) [        5EBEE000]flatbuffer_loaded_execu:92       1| Reusing already prepared input tensor for argument index 0 with shape []
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]     buffer_instance.cc:103      1| BufferInstance (output) created: UID=2, shape=[4, 4]
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 0 with shape [4, 4] and UID 2
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]     buffer_instance.cc:534      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]     buffer_instance.cc:671      1| BufferInstance::PJRT_Buffer_Device
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]     buffer_instance.cc:679      1| BufferInstance::PJRT_Buffer_Memory
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]     buffer_instance.cc:518      1| BufferInstance::PJRT_Buffer_Destroy
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]     buffer_instance.cc:108      1| BufferInstance destroyed: UID=1, shape=[]
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000] executable_instance.cc:82       1| ExecutableInstance::PJRT_Executable_NumReplicas
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000] executable_instance.cc:95       1| ExecutableInstance::PJRT_Executable_NumPartitions
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000] executable_instance.cc:82       1| ExecutableInstance::PJRT_Executable_NumReplicas
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000] executable_instance.cc:95       1| ExecutableInstance::PJRT_Executable_NumPartitions
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]     buffer_instance.cc:82       1| BufferInstance (input) created: UID=3, shape=[]
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]     buffer_instance.cc:534      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]     buffer_instance.cc:671      1| BufferInstance::PJRT_Buffer_Device
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]     buffer_instance.cc:679      1| BufferInstance::PJRT_Buffer_Memory
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000] executable_instance.cc:140      1| ExecutableInstance::PJRT_Executable_NumOutputs
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]loaded_executable_insta:331      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Execute
+2025-12-01 15:23:31.846 (   1.037s) [        5EBEE000]flatbuffer_loaded_execu:270      1| FlatbufferLoadedExecutableInstance::Execute
+2025-12-01 15:23:31.847 (   1.037s) [        5EBEE000]     client_instance.cc:489      1| ClientInstance::getOrCreateMeshDevice - reusing already opened mesh device [1, 1]
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]     buffer_instance.cc:103      1| BufferInstance (output) created: UID=4, shape=[]
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 0 with shape [] and UID 4
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]     buffer_instance.cc:534      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]     buffer_instance.cc:671      1| BufferInstance::PJRT_Buffer_Device
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]     buffer_instance.cc:679      1| BufferInstance::PJRT_Buffer_Memory
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]     buffer_instance.cc:518      1| BufferInstance::PJRT_Buffer_Destroy
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]     buffer_instance.cc:108      1| BufferInstance destroyed: UID=3, shape=[]
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000] executable_instance.cc:82       1| ExecutableInstance::PJRT_Executable_NumReplicas
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000] executable_instance.cc:95       1| ExecutableInstance::PJRT_Executable_NumPartitions
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000] executable_instance.cc:82       1| ExecutableInstance::PJRT_Executable_NumReplicas
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000] executable_instance.cc:95       1| ExecutableInstance::PJRT_Executable_NumPartitions
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000] executable_instance.cc:140      1| ExecutableInstance::PJRT_Executable_NumOutputs
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]loaded_executable_insta:331      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Execute
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]flatbuffer_loaded_execu:270      1| FlatbufferLoadedExecutableInstance::Execute
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]     client_instance.cc:489      1| ClientInstance::getOrCreateMeshDevice - reusing already opened mesh device [1, 1]
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]flatbuffer_loaded_execu:92       1| Reusing already prepared input tensor for argument index 0 with shape []
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]     buffer_instance.cc:103      1| BufferInstance (output) created: UID=5, shape=[4, 4]
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 0 with shape [4, 4] and UID 5
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]     buffer_instance.cc:534      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]     buffer_instance.cc:671      1| BufferInstance::PJRT_Buffer_Device
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]     buffer_instance.cc:679      1| BufferInstance::PJRT_Buffer_Memory
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]     buffer_instance.cc:518      1| BufferInstance::PJRT_Buffer_Destroy
+2025-12-01 15:23:31.847 (   1.038s) [        5EBEE000]     buffer_instance.cc:108      1| BufferInstance destroyed: UID=4, shape=[]
+2025-12-01 15:23:31.848 (   1.039s) [        5EBEE000]     buffer_instance.cc:619      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-12-01 15:23:31.848 (   1.039s) [        5EBEE000]     buffer_instance.cc:619      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-12-01 15:23:31.853 (   1.044s) [        5EBEE000]              stubs.inc:22    WARN| STUB: PJRT_Device_MemoryStats
+2025-12-01 15:23:31.854 (   1.044s) [        5EBEE000]      error_instance.cc:61       1| ErrorInstance::PJRT_Error_GetCode
+2025-12-01 15:23:31.854 (   1.044s) [        5EBEE000]      error_instance.cc:52       1| ErrorInstance::PJRT_Error_Message
+2025-12-01 15:23:31.854 (   1.044s) [        5EBEE000]      error_instance.cc:46       1| ErrorInstance::PJRT_Error_Destroy
+2025-12-01 15:23:31.855 (   1.046s) [        5EBEE000]     client_instance.cc:754      1| ClientInstance::PJRT_Client_Compile
+2025-12-01 15:23:31.855 (   1.046s) [        5EBEE000]      module_builder.cc:229      1| ModuleBuilder::buildModule
+2025-12-01 15:23:31.855 (   1.046s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module vhlo:
+#loc1 = loc("x")
+#loc2 = loc("y")
+module @jit_multiply attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32} {
+  vhlo.func_v1 @main(%arg0: !vhlo.tensor_v1<4x4x!vhlo.f32_v1> loc("x"), %arg1: !vhlo.tensor_v1<!vhlo.i32_v1> loc("y")) -> (!vhlo.tensor_v1<4x4x!vhlo.f32_v1>) {
+    %0 = "vhlo.convert_v1"(%arg1) : (!vhlo.tensor_v1<!vhlo.i32_v1>) -> !vhlo.tensor_v1<!vhlo.f32_v1> loc(#loc5)
+    %1 = "vhlo.broadcast_in_dim_v1"(%0) <{broadcast_dimensions = #vhlo.tensor_v1<dense<> : tensor<0xi64>>}> : (!vhlo.tensor_v1<!vhlo.f32_v1>) -> !vhlo.tensor_v1<4x4x!vhlo.f32_v1> loc(#loc6)
+    %2 = "vhlo.multiply_v1"(%arg0, %1) : (!vhlo.tensor_v1<4x4x!vhlo.f32_v1>, !vhlo.tensor_v1<4x4x!vhlo.f32_v1>) -> !vhlo.tensor_v1<4x4x!vhlo.f32_v1> loc(#loc6)
+    "vhlo.return_v1"(%2) : (!vhlo.tensor_v1<4x4x!vhlo.f32_v1>) -> () loc(#loc)
+  } {arg_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{}>, #vhlo.dict_v1<{}>]>, res_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{#vhlo.string_v1<"jax.result_info"> = #vhlo.string_v1<"result">}>]>, sym_visibility = #vhlo.string_v1<"public">} loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/test.py":9:4 to :24)
+#loc4 = loc("<module>"(#loc3))
+#loc5 = loc("jit(multiply)/convert_element_type"(#loc4))
+#loc6 = loc("jit(multiply)/mul"(#loc4))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.856 (   1.047s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module shlo:
+#loc1 = loc("x")
+#loc2 = loc("y")
+module @jit_multiply attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32} {
+  func.func public @main(%arg0: tensor<4x4xf32> loc("x"), %arg1: tensor<i32> loc("y")) -> (tensor<4x4xf32> {jax.result_info = "result"}) {
+    %0 = stablehlo.convert %arg1 : (tensor<i32>) -> tensor<f32> loc(#loc5)
+    %1 = stablehlo.broadcast_in_dim %0, dims = [] : (tensor<f32>) -> tensor<4x4xf32> loc(#loc6)
+    %2 = stablehlo.multiply %arg0, %1 : tensor<4x4xf32> loc(#loc6)
+    return %2 : tensor<4x4xf32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/test.py":9:4 to :24)
+#loc4 = loc("<module>"(#loc3))
+#loc5 = loc("jit(multiply)/convert_element_type"(#loc4))
+#loc6 = loc("jit(multiply)/mul"(#loc4))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.857 (   1.048s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module shlo_frontend:
+#loc1 = loc("x")
+#loc2 = loc("y")
+module @jit_multiply attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32} {
+  func.func public @main(%arg0: tensor<4x4xf32> {ttcore.argument_type = #ttcore.argument_type<input>} loc("x"), %arg1: tensor<i32> {ttcore.argument_type = #ttcore.argument_type<input>} loc("y")) -> (tensor<4x4xf32> {jax.result_info = "result"}) {
+    %0 = stablehlo.convert %arg1 : (tensor<i32>) -> tensor<f32> loc(#loc5)
+    %1 = stablehlo.broadcast_in_dim %0, dims = [] : (tensor<f32>) -> tensor<4x4xf32> loc(#loc6)
+    %2 = stablehlo.multiply %arg0, %1 : tensor<4x4xf32> loc(#loc6)
+    return %2 : tensor<4x4xf32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/test.py":9:4 to :24)
+#loc4 = loc("<module>"(#loc3))
+#loc5 = loc("jit(multiply)/convert_element_type"(#loc4))
+#loc6 = loc("jit(multiply)/mul"(#loc4))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.860 (   1.051s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module shlo_compiler:
+#loc1 = loc("x")
+#loc2 = loc("y")
+module @jit_multiply attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32} {
+  sdy.mesh @mesh = <["x"=1, "y"=1]> loc(#loc)
+  func.func public @main(%arg0: tensor<4x4xf32> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("x"), %arg1: tensor<i32> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("y")) -> (tensor<4x4xf32> {jax.result_info = "result", ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+    %0 = stablehlo.convert %arg1 : (tensor<i32>) -> tensor<f32> loc(#loc5)
+    %1 = stablehlo.broadcast_in_dim %0, dims = [] : (tensor<f32>) -> tensor<4x4xf32> loc(#loc6)
+    %2 = stablehlo.multiply %arg0, %1 : tensor<4x4xf32> loc(#loc6)
+    return %2 : tensor<4x4xf32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/test.py":9:4 to :24)
+#loc4 = loc("<module>"(#loc3))
+#loc5 = loc("jit(multiply)/convert_element_type"(#loc4))
+#loc6 = loc("jit(multiply)/mul"(#loc4))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.862 (   1.053s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module ttir:
+#loc1 = loc("x")
+#loc2 = loc("y")
+module @jit_multiply attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+  ttcore.device_module {
+    builtin.module @jit_multiply attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+      func.func public @main(%arg0: tensor<4x4xf32> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("x"), %arg1: tensor<i32> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("y")) -> (tensor<4x4xf32> {jax.result_info = "result", ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+        %0 = "ttir.typecast"(%arg1) <{conservative_folding = false}> : (tensor<i32>) -> tensor<f32> loc(#loc5)
+        %1 = "ttir.reshape"(%0) <{shape = [1 : i32, 1 : i32]}> : (tensor<f32>) -> tensor<1x1xf32> loc(#loc6)
+        %2 = "ttir.broadcast"(%1) <{broadcast_dimensions = array<i64: 4, 4>}> : (tensor<1x1xf32>) -> tensor<4x4xf32> loc(#loc6)
+        %3 = "ttir.multiply"(%arg0, %2) : (tensor<4x4xf32>, tensor<4x4xf32>) -> tensor<4x4xf32> loc(#loc6)
+        return %3 : tensor<4x4xf32> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/test.py":9:4 to :24)
+#loc4 = loc("<module>"(#loc3))
+#loc5 = loc("jit(multiply)/convert_element_type"(#loc4))
+#loc6 = loc("jit(multiply)/mul"(#loc4))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.882 (   1.073s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module ttnn:
+#dram = #ttnn.buffer_type<dram>
+#loc1 = loc("x")
+#loc2 = loc("y")
+#system_desc = #ttcore.system_desc<[{role = host, target_triple = "x86_64-pc-linux"}], [{arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073103008, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073111520, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}], [0, 1], [1 : i32, 0 : i32], [ 0x0x0x0]>
+#ttnn_layout = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+#ttnn_layout1 = #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, si32>, #dram>, <interleaved>>
+#ttnn_layout2 = #ttnn.ttnn_layout<() -> (0, 0), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+module @jit_multiply attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+  ttcore.device_module {
+    builtin.module @jit_multiply attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>, ttcore.system_desc = #system_desc} {
+      ttcore.device @default_device = <workerGrid = #ttcore.grid<8x8, (d0, d1) -> (0, d0, d1)>, l1Map = (d0, d1, d2)[s0] -> (0, d0, d1, d2 + s0), dramMap = (d0, d1, d2)[s0, s1, s2, s3, s4, s5, s6] -> (0, 0, (((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) mod 12, ((((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) floordiv 12) * s4 + ((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) mod s4 + s5), meshShape = 1x1, chipIds = [0]> loc(#loc)
+      func.func public @main(%arg0: tensor<4x4xf32, #ttnn_layout> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("x"), %arg1: tensor<si32, #ttnn_layout1> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("y")) -> (tensor<4x4xf32, #ttnn_layout> {jax.result_info = "result", ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+        %0 = "ttnn.typecast"(%arg1) <{dtype = #ttcore.supportedDataTypes<f32>}> : (tensor<si32, #ttnn_layout1>) -> tensor<f32, #ttnn_layout2> loc(#loc5)
+        "ttnn.deallocate"(%arg1) <{force = false}> : (tensor<si32, #ttnn_layout1>) -> () loc(#loc5)
+        %1 = "ttnn.reshape"(%0) <{shape = [1 : i32, 1 : i32]}> : (tensor<f32, #ttnn_layout2>) -> tensor<1x1xf32, #ttnn_layout> loc(#loc6)
+        "ttnn.deallocate"(%0) <{force = false}> : (tensor<f32, #ttnn_layout2>) -> () loc(#loc6)
+        %2 = "ttnn.multiply"(%arg0, %1) <{dtype = #ttcore.supportedDataTypes<f32>}> : (tensor<4x4xf32, #ttnn_layout>, tensor<1x1xf32, #ttnn_layout>) -> tensor<4x4xf32, #ttnn_layout> loc(#loc6)
+        "ttnn.deallocate"(%1) <{force = false}> : (tensor<1x1xf32, #ttnn_layout>) -> () loc(#loc6)
+        "ttnn.deallocate"(%arg0) <{force = false}> : (tensor<4x4xf32, #ttnn_layout>) -> () loc(#loc6)
+        return %2 : tensor<4x4xf32, #ttnn_layout> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/test.py":9:4 to :24)
+#loc4 = loc("<module>"(#loc3))
+#loc5 = loc("jit(multiply)/convert_element_type"(#loc4))
+#loc6 = loc("jit(multiply)/mul"(#loc4))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.888 (   1.078s) [        5EBEE000]loaded_executable_insta:276      1| LoadedExecutableInstance::PJRT_LoadedExecutable_GetExecutable
+2025-12-01 15:23:31.888 (   1.079s) [        5EBEE000]loaded_executable_insta:295      1| LoadedExecutableInstance::PJRT_LoadedExecutable_AddressableDevices
+2025-12-01 15:23:31.888 (   1.079s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.888 (   1.079s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.890 (   1.081s) [        5EBEE000] executable_instance.cc:218      1| ExecutableImage::PJRT_Executable_OutputMemoryKinds
+2025-12-01 15:23:31.890 (   1.081s) [        5EBEE000] executable_instance.cc:82       1| ExecutableInstance::PJRT_Executable_NumReplicas
+2025-12-01 15:23:31.890 (   1.081s) [        5EBEE000] executable_instance.cc:166      1| ExecutableInstance::PJRT_Executable_Fingerprint
+2025-12-01 15:23:31.891 (   1.082s) [        5EBEE000] executable_instance.cc:218      1| ExecutableImage::PJRT_Executable_OutputMemoryKinds
+2025-12-01 15:23:31.891 (   1.082s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.891 (   1.082s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.893 (   1.084s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.893 (   1.084s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:31.895 (   1.086s) [        5EBEE000]     buffer_instance.cc:619      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-12-01 15:23:31.895 (   1.086s) [        5EBEE000]     client_instance.cc:797      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2025-12-01 15:23:31.895 (   1.086s) [        5EBEE000]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2025-12-01 15:23:31.895 (   1.086s) [        5EBEE000]     buffer_instance.cc:82       1| BufferInstance (input) created: UID=6, shape=[]
+2025-12-01 15:23:31.895 (   1.086s) [        5EBEE000]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-12-01 15:23:31.895 (   1.086s) [        5EBEE000]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-12-01 15:23:31.895 (   1.086s) [        5EBEE000]     buffer_instance.cc:534      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-12-01 15:23:31.895 (   1.086s) [        5EBEE000]     buffer_instance.cc:671      1| BufferInstance::PJRT_Buffer_Device
+2025-12-01 15:23:31.895 (   1.086s) [        5EBEE000]     buffer_instance.cc:679      1| BufferInstance::PJRT_Buffer_Memory
+2025-12-01 15:23:31.895 (   1.086s) [        5EBEE000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2025-12-01 15:23:31.895 (   1.086s) [        5EBEE000] executable_instance.cc:140      1| ExecutableInstance::PJRT_Executable_NumOutputs
+2025-12-01 15:23:31.895 (   1.086s) [        5EBEE000]loaded_executable_insta:331      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Execute
+2025-12-01 15:23:31.895 (   1.086s) [        5EBEE000]flatbuffer_loaded_execu:270      1| FlatbufferLoadedExecutableInstance::Execute
+2025-12-01 15:23:31.895 (   1.086s) [        5EBEE000]     client_instance.cc:489      1| ClientInstance::getOrCreateMeshDevice - reusing already opened mesh device [1, 1]
+2025-12-01 15:23:31.895 (   1.086s) [        5EBEE000]flatbuffer_loaded_execu:92       1| Reusing already prepared input tensor for argument index 0 with shape [4, 4]
+2025-12-01 15:23:31.895 (   1.086s) [        5EBEE000]flatbuffer_loaded_execu:102      1| Prepared tensor for argument index 0 with shape [4, 4] had retain=false; setting to true to avoid deallocation during execution.
+2025-12-01 15:23:31.911 (   1.102s) [        5EBEE000]     buffer_instance.cc:103      1| BufferInstance (output) created: UID=7, shape=[4, 4]
+2025-12-01 15:23:31.911 (   1.102s) [        5EBEE000]flatbuffer_loaded_execu:205      1| Filled output at output_index 0 device_index 0 with shape [4, 4] and UID 7
+2025-12-01 15:23:31.911 (   1.102s) [        5EBEE000]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2025-12-01 15:23:31.911 (   1.102s) [        5EBEE000]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2025-12-01 15:23:31.911 (   1.102s) [        5EBEE000]     buffer_instance.cc:534      1| BufferInstance::PJRT_Buffer_Dimensions
+2025-12-01 15:23:31.911 (   1.102s) [        5EBEE000]     buffer_instance.cc:671      1| BufferInstance::PJRT_Buffer_Device
+2025-12-01 15:23:31.911 (   1.102s) [        5EBEE000]     buffer_instance.cc:679      1| BufferInstance::PJRT_Buffer_Memory
+2025-12-01 15:23:31.911 (   1.102s) [        5EBEE000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2025-12-01 15:23:31.911 (   1.102s) [        5EBEE000]     buffer_instance.cc:518      1| BufferInstance::PJRT_Buffer_Destroy
+2025-12-01 15:23:31.911 (   1.102s) [        5EBEE000]     buffer_instance.cc:108      1| BufferInstance destroyed: UID=6, shape=[]
+2025-12-01 15:23:31.911 (   1.102s) [        5EBEE000]     buffer_instance.cc:518      1| BufferInstance::PJRT_Buffer_Destroy
+2025-12-01 15:23:31.911 (   1.102s) [        5EBEE000]     buffer_instance.cc:108      1| BufferInstance destroyed: UID=5, shape=[4, 4]
+2025-12-01 15:23:31.913 (   1.103s) [        5EBEE000]     buffer_instance.cc:619      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-12-01 15:23:31.913 (   1.103s) [        5EBEE000]     buffer_instance.cc:619      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-12-01 15:23:31.913 (   1.103s) [        5EBEE000]     buffer_instance.cc:619      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-12-01 15:23:31.913 (   1.104s) [        5EBEE000]     buffer_instance.cc:619      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-12-01 15:23:31.918 (   1.109s) [        5EBEE000]              stubs.inc:22    WARN| STUB: PJRT_Device_MemoryStats
+2025-12-01 15:23:31.918 (   1.109s) [        5EBEE000]      error_instance.cc:61       1| ErrorInstance::PJRT_Error_GetCode
+2025-12-01 15:23:31.918 (   1.109s) [        5EBEE000]      error_instance.cc:52       1| ErrorInstance::PJRT_Error_Message
+2025-12-01 15:23:31.918 (   1.109s) [        5EBEE000]      error_instance.cc:46       1| ErrorInstance::PJRT_Error_Destroy
+2025-12-01 15:23:31.919 (   1.110s) [        5EBEE000]     client_instance.cc:754      1| ClientInstance::PJRT_Client_Compile
+2025-12-01 15:23:31.919 (   1.110s) [        5EBEE000]      module_builder.cc:229      1| ModuleBuilder::buildModule
+2025-12-01 15:23:31.920 (   1.111s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module vhlo:
+#loc1 = loc("x")
+#loc2 = loc("y")
+module @jit_add_numbers attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32} {
+  vhlo.func_v1 @main(%arg0: !vhlo.tensor_v1<4x4x!vhlo.f32_v1> loc("x"), %arg1: !vhlo.tensor_v1<4x4x!vhlo.f32_v1> loc("y")) -> (!vhlo.tensor_v1<4x4x!vhlo.f32_v1>) {
+    %0 = "vhlo.add_v1"(%arg0, %arg1) : (!vhlo.tensor_v1<4x4x!vhlo.f32_v1>, !vhlo.tensor_v1<4x4x!vhlo.f32_v1>) -> !vhlo.tensor_v1<4x4x!vhlo.f32_v1> loc(#loc8)
+    "vhlo.return_v1"(%0) : (!vhlo.tensor_v1<4x4x!vhlo.f32_v1>) -> () loc(#loc)
+  } {arg_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{}>, #vhlo.dict_v1<{}>]>, res_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{#vhlo.string_v1<"jax.result_info"> = #vhlo.string_v1<"result">}>]>, sym_visibility = #vhlo.string_v1<"public">} loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/test.py":5:11 to :16)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/test.py":19:9 to :30)
+#loc5 = loc("add_numbers"(#loc3))
+#loc6 = loc("<module>"(#loc4))
+#loc7 = loc(callsite(#loc5 at #loc6))
+#loc8 = loc("jit(add_numbers)/add"(#loc7))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.921 (   1.112s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module shlo:
+#loc1 = loc("x")
+#loc2 = loc("y")
+module @jit_add_numbers attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32} {
+  func.func public @main(%arg0: tensor<4x4xf32> loc("x"), %arg1: tensor<4x4xf32> loc("y")) -> (tensor<4x4xf32> {jax.result_info = "result"}) {
+    %0 = stablehlo.add %arg0, %arg1 : tensor<4x4xf32> loc(#loc8)
+    return %0 : tensor<4x4xf32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/test.py":5:11 to :16)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/test.py":19:9 to :30)
+#loc5 = loc("add_numbers"(#loc3))
+#loc6 = loc("<module>"(#loc4))
+#loc7 = loc(callsite(#loc5 at #loc6))
+#loc8 = loc("jit(add_numbers)/add"(#loc7))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.921 (   1.112s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module shlo_frontend:
+#loc1 = loc("x")
+#loc2 = loc("y")
+module @jit_add_numbers attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32} {
+  func.func public @main(%arg0: tensor<4x4xf32> {ttcore.argument_type = #ttcore.argument_type<input>} loc("x"), %arg1: tensor<4x4xf32> {ttcore.argument_type = #ttcore.argument_type<input>} loc("y")) -> (tensor<4x4xf32> {jax.result_info = "result"}) {
+    %0 = stablehlo.add %arg0, %arg1 : tensor<4x4xf32> loc(#loc8)
+    return %0 : tensor<4x4xf32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/test.py":5:11 to :16)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/test.py":19:9 to :30)
+#loc5 = loc("add_numbers"(#loc3))
+#loc6 = loc("<module>"(#loc4))
+#loc7 = loc(callsite(#loc5 at #loc6))
+#loc8 = loc("jit(add_numbers)/add"(#loc7))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.924 (   1.115s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module shlo_compiler:
+#loc1 = loc("x")
+#loc2 = loc("y")
+module @jit_add_numbers attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32} {
+  sdy.mesh @mesh = <["x"=1, "y"=1]> loc(#loc)
+  func.func public @main(%arg0: tensor<4x4xf32> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("x"), %arg1: tensor<4x4xf32> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("y")) -> (tensor<4x4xf32> {jax.result_info = "result", ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+    %0 = stablehlo.add %arg0, %arg1 : tensor<4x4xf32> loc(#loc8)
+    return %0 : tensor<4x4xf32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/test.py":5:11 to :16)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/test.py":19:9 to :30)
+#loc5 = loc("add_numbers"(#loc3))
+#loc6 = loc("<module>"(#loc4))
+#loc7 = loc(callsite(#loc5 at #loc6))
+#loc8 = loc("jit(add_numbers)/add"(#loc7))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.926 (   1.117s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module ttir:
+#loc1 = loc("x")
+#loc2 = loc("y")
+module @jit_add_numbers attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+  ttcore.device_module {
+    builtin.module @jit_add_numbers attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+      func.func public @main(%arg0: tensor<4x4xf32> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("x"), %arg1: tensor<4x4xf32> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("y")) -> (tensor<4x4xf32> {jax.result_info = "result", ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+        %0 = "ttir.add"(%arg0, %arg1) : (tensor<4x4xf32>, tensor<4x4xf32>) -> tensor<4x4xf32> loc(#loc8)
+        return %0 : tensor<4x4xf32> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/test.py":5:11 to :16)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/test.py":19:9 to :30)
+#loc5 = loc("add_numbers"(#loc3))
+#loc6 = loc("<module>"(#loc4))
+#loc7 = loc(callsite(#loc5 at #loc6))
+#loc8 = loc("jit(add_numbers)/add"(#loc7))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:31.946 (   1.137s) [        5EBEE000]      module_builder.cc:990      1| MLIR Module ttnn:
+#dram = #ttnn.buffer_type<dram>
+#loc1 = loc("x")
+#loc2 = loc("y")
+#system_desc = #ttcore.system_desc<[{role = host, target_triple = "x86_64-pc-linux"}], [{arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073103008, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102208, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073111520, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}], [0, 1], [1 : i32, 0 : i32], [ 0x0x0x0]>
+#ttnn_layout = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x1x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+module @jit_add_numbers attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+  ttcore.device_module {
+    builtin.module @jit_add_numbers attributes {mhlo.num_partitions = 1 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>, ttcore.system_desc = #system_desc} {
+      ttcore.device @default_device = <workerGrid = #ttcore.grid<8x8, (d0, d1) -> (0, d0, d1)>, l1Map = (d0, d1, d2)[s0] -> (0, d0, d1, d2 + s0), dramMap = (d0, d1, d2)[s0, s1, s2, s3, s4, s5, s6] -> (0, 0, (((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) mod 12, ((((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) floordiv 12) * s4 + ((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) mod s4 + s5), meshShape = 1x1, chipIds = [0]> loc(#loc)
+      func.func public @main(%arg0: tensor<4x4xf32, #ttnn_layout> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("x"), %arg1: tensor<4x4xf32, #ttnn_layout> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<unsharded>} loc("y")) -> (tensor<4x4xf32, #ttnn_layout> {jax.result_info = "result", ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+        %0 = "ttnn.add"(%arg0, %arg1) <{dtype = #ttcore.supportedDataTypes<f32>}> : (tensor<4x4xf32, #ttnn_layout>, tensor<4x4xf32, #ttnn_layout>) -> tensor<4x4xf32, #ttnn_layout> loc(#loc8)
+        "ttnn.deallocate"(%arg1) <{force = false}> : (tensor<4x4xf32, #ttnn_layout>) -> () loc(#loc8)
+        "ttnn.deallocate"(%arg0) <{force = false}> : (tensor<4x4xf32, #ttnn_layout>) -> () loc(#loc8)
+        return %0 : tensor<4x4xf32, #ttnn_layout> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/test.py":5:11 to :16)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/test.py":19:9 to :30)
+#loc5 = loc("add_numbers"(#loc3))
+#loc6 = loc("<module>"(#loc4))
+#loc7 = loc(callsite(#loc5 at #loc6))
+#loc8 = loc("jit(add_numbers)/add"(#loc7))
+------------------ END OF MLIR MODULE ------------------
+2025-12-01 15:23:32.084 (   1.275s) [        5EBEE000]loaded_executable_insta:276      1| LoadedExecutableInstance::PJRT_LoadedExecutable_GetExecutable
+2025-12-01 15:23:32.084 (   1.275s) [        5EBEE000]loaded_executable_insta:295      1| LoadedExecutableInstance::PJRT_LoadedExecutable_AddressableDevices
+2025-12-01 15:23:32.084 (   1.275s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:32.084 (   1.275s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:32.086 (   1.277s) [        5EBEE000] executable_instance.cc:218      1| ExecutableImage::PJRT_Executable_OutputMemoryKinds
+2025-12-01 15:23:32.086 (   1.277s) [        5EBEE000] executable_instance.cc:82       1| ExecutableInstance::PJRT_Executable_NumReplicas
+2025-12-01 15:23:32.086 (   1.277s) [        5EBEE000] executable_instance.cc:166      1| ExecutableInstance::PJRT_Executable_Fingerprint
+2025-12-01 15:23:32.087 (   1.278s) [        5EBEE000] executable_instance.cc:218      1| ExecutableImage::PJRT_Executable_OutputMemoryKinds
+2025-12-01 15:23:32.087 (   1.278s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:32.087 (   1.278s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:32.089 (   1.280s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:32.089 (   1.280s) [        5EBEE000] executable_instance.cc:108      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2025-12-01 15:23:32.091 (   1.281s) [        5EBEE000]     buffer_instance.cc:619      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-12-01 15:23:32.091 (   1.281s) [        5EBEE000]     buffer_instance.cc:619      1| BufferInstance::PJRT_Buffer_IsDeleted
+2025-12-01 15:23:32.091 (   1.282s) [        5EBEE000] executable_instance.cc:140      1| ExecutableInstance::PJRT_Executable_NumOutputs
+2025-12-01 15:23:32.091 (   1.282s) [        5EBEE000]loaded_executable_insta:331      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Execute
+2025-12-01 15:23:32.091 (   1.282s) [        5EBEE000]so_loaded_executable_in:78       1| SOLoadedExecutableInstance::Execute
+2025-12-01 15:23:32.091 (   1.282s) [        5EBEE000]     client_instance.cc:489      1| ClientInstance::getOrCreateMeshDevice - reusing already opened mesh device [1, 1]
+2025-12-01 15:23:32.091 (   1.282s) [        5EBEE000]so_loaded_executable_in:209      1| Reusing already prepared input tensor for argument index 0 with shape [4, 4] and buffer UID 2
+2025-12-01 15:23:32.091 (   1.282s) [        5EBEE000]loaded_executable_insta:181    ERR| Prepared input tensor should have retain=true or it may be deallocated during execution.
+2025-12-01 15:23:32.091 (   1.282s) [        5EBEE000]      error_instance.cc:61       1| ErrorInstance::PJRT_Error_GetCode
+2025-12-01 15:23:32.091 (   1.282s) [        5EBEE000]      error_instance.cc:52       1| ErrorInstance::PJRT_Error_Message
+2025-12-01 15:23:32.091 (   1.282s) [        5EBEE000]      error_instance.cc:46       1| ErrorInstance::PJRT_Error_Destroy
+Using PJRT plugin directory: /localdev/jameszianxu/tt-xla/python_package/pjrt_plugin_tt
+Using TT-Metal from the source tree: /localdev/jameszianxu/tt-xla/third_party/tt-mlir/src/tt-mlir/third_party/tt-metal/src/tt-metal
+Traceback (most recent call last):
+  File "/localdev/jameszianxu/tt-xla/test.py", line 19, in <module>
+    result = add_numbers_jit(a, b)
+             ^^^^^^^^^^^^^^^^^^^^^
+jaxlib._jax.XlaRuntimeError: INTERNAL: Error code: 13
+--------------------
+For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
+2025-12-01 15:23:32.095 (   1.285s) [        5EBEE000] executable_instance.cc:60       1| ExecutableInstance::PJRT_Executable_Destroy
+2025-12-01 15:23:32.095 (   1.285s) [        5EBEE000]loaded_executable_insta:266      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Destroy
+2025-12-01 15:23:32.095 (   1.286s) [        5EBEE000] executable_instance.cc:60       1| ExecutableInstance::PJRT_Executable_Destroy
+2025-12-01 15:23:32.095 (   1.286s) [        5EBEE000]loaded_executable_insta:266      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Destroy
+2025-12-01 15:23:32.095 (   1.286s) [        5EBEE000] executable_instance.cc:60       1| ExecutableInstance::PJRT_Executable_Destroy
+2025-12-01 15:23:32.095 (   1.286s) [        5EBEE000]loaded_executable_insta:266      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Destroy
+2025-12-01 15:23:32.116 (   1.307s) [        5EBEE000] executable_instance.cc:60       1| ExecutableInstance::PJRT_Executable_Destroy
+2025-12-01 15:23:32.116 (   1.307s) [        5EBEE000]loaded_executable_insta:266      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Destroy
+2025-12-01 15:23:32.168 (   1.359s) [        5EBEE000]     buffer_instance.cc:518      1| BufferInstance::PJRT_Buffer_Destroy
+2025-12-01 15:23:32.168 (   1.359s) [        5EBEE000]     buffer_instance.cc:108      1| BufferInstance destroyed: UID=2, shape=[4, 4]
+2025-12-01 15:23:32.168 (   1.359s) [        5EBEE000]     buffer_instance.cc:518      1| BufferInstance::PJRT_Buffer_Destroy
+2025-12-01 15:23:32.168 (   1.359s) [        5EBEE000]     buffer_instance.cc:108      1| BufferInstance destroyed: UID=7, shape=[4, 4]
+2025-12-01 15:23:32.186 (   1.377s) [        5EBEE000]     client_instance.cc:637      1| ClientInstance::PJRT_Client_Destroy
+2025-12-01 15:23:32.186 (   1.377s) [        5EBEE000]     client_instance.cc:167      1| ClientInstance::~ClientInstance
+2025-12-01 15:23:32.186 (   1.377s) [        5EBEE000]     client_instance.cc:566      1| Closing parent mesh.
