@@ -1,0 +1,1058 @@
+Using PJRT plugin directory: /localdev/jameszianxu/tt-xla/python_package/pjrt_plugin_tt
+Using TT-Metal from the source tree: /localdev/jameszianxu/tt-xla/third_party/tt-mlir/src/tt-mlir/third_party/tt-metal/src/tt-metal
+WARNING: TT plugin is setting XLA_STABLEHLO_COMPILE to 1. This is required for TT PJRT plugin to work correctly.
+============================= test session starts ==============================
+platform linux -- Python 3.11.14, pytest-8.4.2, pluggy-1.6.0 -- /localdev/jameszianxu/tt-xla/venv/bin/python
+cachedir: .pytest_cache
+metadata: {'Python': '3.11.14', 'Platform': 'Linux-5.4.0-212-generic-x86_64-with-glibc2.35', 'Packages': {'pytest': '8.4.2', 'pluggy': '1.6.0'}, 'Plugins': {'forked': '1.6.0', 'metadata': '3.1.1', 'json-report': '1.5.0', 'jaxtyping': '0.3.4', 'split': '0.10.0', 'anyio': '4.12.0'}}
+rootdir: /localdev/jameszianxu/tt-xla
+configfile: pytest.ini
+plugins: forked-1.6.0, metadata-3.1.1, json-report-1.5.0, jaxtyping-0.3.4, split-0.10.0, anyio-4.12.0
+collecting ... collected 1 item
+
+tests/jax/multi_chip/n300/ops/data_parallel/batch_sharded/test_all_gather.py::test_all_gather[ShardingMode.INPUTS_AND_MODULE-x_shape0-mesh_shape0-axis_names0-False] WARNING:2026-01-05 16:55:42,788:jax._src.xla_bridge:893: Platform 'tt' is experimental and not all JAX functionality may be correctly supported!
+WARNING:jax._src.xla_bridge:Platform 'tt' is experimental and not all JAX functionality may be correctly supported!
+2026-01-05 16:55:42.789 (   0.014s) [        71CD6000]   plugin_attributes.cc:60       1| PluginAttributes::PJRT_Plugin_Initialize
+2026-01-05 16:55:42.789 (   0.014s) [        71CD6000]     client_instance.cc:553      1| ClientInstance::PJRT_Client_Create
+2026-01-05 16:55:42.792 (   0.017s) [        71CD6000]     client_instance.cc:177      1| ClientInstance::ClientInstance
+2026-01-05 16:55:42.792 (   0.017s) [        71CD6000]     client_instance.cc:198      1| ClientInstance::Initialize
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]              stubs.inc:103   WARN| STUB: PJRT_Client_TopologyDescription
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]      error_instance.cc:61       1| ErrorInstance::PJRT_Error_GetCode
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]      error_instance.cc:52       1| ErrorInstance::PJRT_Error_Message
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]      error_instance.cc:46       1| ErrorInstance::PJRT_Error_Destroy
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     client_instance.cc:607      1| ClientInstance::PJRT_Client_PlatformVersion
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     client_instance.cc:588      1| ClientInstance::PJRT_Client_PlatformName
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     client_instance.cc:618      1| ClientInstance::PJRT_Client_Devices
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     device_instance.cc:44       1| DeviceInstance::PJRT_Device_GetDescription
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]  device_description.cc:63       1| DeviceDescription::PJRT_DeviceDescription_Attributes
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     device_instance.cc:44       1| DeviceInstance::PJRT_Device_GetDescription
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]  device_description.cc:63       1| DeviceDescription::PJRT_DeviceDescription_Attributes
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     client_instance.cc:631      1| ClientInstance::PJRT_Client_AddressableDevices
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     client_instance.cc:681      1| ClientInstance::PJRT_Client_AddressableMemories
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     device_instance.cc:71       1| DeviceInstance::PJRT_Device_AddressableMemories
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     device_instance.cc:71       1| DeviceInstance::PJRT_Device_AddressableMemories
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     memory_instance.cc:124      1| MemoryInstance::PJRT_Memory_AddressableByDevices
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]   plugin_attributes.cc:66       1| PluginAttributes::PJRT_Plugin_Attributes
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]  device_description.cc:53       1| DeviceDescription::PJRT_DeviceDescription_ProcessIndex
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]  device_description.cc:53       1| DeviceDescription::PJRT_DeviceDescription_ProcessIndex
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     device_instance.cc:53       1| DeviceInstance::PJRT_Device_IsAddressable
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]  device_description.cc:53       1| DeviceDescription::PJRT_DeviceDescription_ProcessIndex
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]  device_description.cc:53       1| DeviceDescription::PJRT_DeviceDescription_ProcessIndex
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]  device_description.cc:53       1| DeviceDescription::PJRT_DeviceDescription_ProcessIndex
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]  device_description.cc:44       1| DeviceDescription::PJRT_DeviceDescription_Id
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]  device_description.cc:53       1| DeviceDescription::PJRT_DeviceDescription_ProcessIndex
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     client_instance.cc:644      1| ClientInstance::PJRT_Client_LookupDevice
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     device_instance.cc:61       1| DeviceInstance::PJRT_Device_LocalHardwareId
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]  device_description.cc:73       1| DeviceDescription::PJRT_DeviceDescription_Kind
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]  device_description.cc:99       1| DeviceDescription::PJRT_DeviceDescription_ToString
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]  device_description.cc:86       1| DeviceDescription::PJRT_DeviceDescription_DebugString
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     client_instance.cc:644      1| ClientInstance::PJRT_Client_LookupDevice
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     device_instance.cc:61       1| DeviceInstance::PJRT_Device_LocalHardwareId
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]  device_description.cc:73       1| DeviceDescription::PJRT_DeviceDescription_Kind
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]  device_description.cc:99       1| DeviceDescription::PJRT_DeviceDescription_ToString
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]  device_description.cc:86       1| DeviceDescription::PJRT_DeviceDescription_DebugString
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     client_instance.cc:644      1| ClientInstance::PJRT_Client_LookupDevice
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     client_instance.cc:644      1| ClientInstance::PJRT_Client_LookupDevice
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2026-01-05 16:55:44.124 (   1.349s) [        71CD6000]     device_instance.cc:82       1| DeviceInstance::PJRT_Device_DefaultMemory
+2026-01-05 16:55:45.693 (   2.918s) [        71CD6000]     client_instance.cc:742      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2026-01-05 16:55:45.693 (   2.918s) [        71CD6000]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]     buffer_instance.cc:553      1| BufferInstance::PJRT_Buffer_Dimensions
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]     buffer_instance.cc:690      1| BufferInstance::PJRT_Buffer_Device
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]     buffer_instance.cc:698      1| BufferInstance::PJRT_Buffer_Memory
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]     client_instance.cc:742      1| ClientInstance::PJRT_Client_BufferFromHostBuffer
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]     memory_instance.cc:57       1| MemoryInstance::getDevice
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]     buffer_instance.cc:553      1| BufferInstance::PJRT_Buffer_Dimensions
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]     buffer_instance.cc:690      1| BufferInstance::PJRT_Buffer_Device
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]     buffer_instance.cc:698      1| BufferInstance::PJRT_Buffer_Memory
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]     buffer_instance.cc:690      1| BufferInstance::PJRT_Buffer_Device
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]     buffer_instance.cc:698      1| BufferInstance::PJRT_Buffer_Memory
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]     buffer_instance.cc:690      1| BufferInstance::PJRT_Buffer_Device
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]     buffer_instance.cc:698      1| BufferInstance::PJRT_Buffer_Memory
+2026-01-05 16:55:45.695 (   2.920s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:45.697 (   2.922s) [        71CD6000]     buffer_instance.cc:638      1| BufferInstance::PJRT_Buffer_IsDeleted
+2026-01-05 16:55:45.697 (   2.922s) [        71CD6000]     buffer_instance.cc:638      1| BufferInstance::PJRT_Buffer_IsDeleted
+2026-01-05 16:55:45.704 (   2.929s) [        71CD6000]              stubs.inc:22    WARN| STUB: PJRT_Device_MemoryStats
+2026-01-05 16:55:45.704 (   2.929s) [        71CD6000]      error_instance.cc:61       1| ErrorInstance::PJRT_Error_GetCode
+2026-01-05 16:55:45.704 (   2.929s) [        71CD6000]      error_instance.cc:52       1| ErrorInstance::PJRT_Error_Message
+2026-01-05 16:55:45.704 (   2.929s) [        71CD6000]      error_instance.cc:46       1| ErrorInstance::PJRT_Error_Destroy
+2026-01-05 16:55:45.706 (   2.931s) [        71CD6000]     client_instance.cc:694      1| ClientInstance::PJRT_Client_Compile
+2026-01-05 16:55:45.706 (   2.932s) [        71CD6000]     client_instance.cc:327      1| MLIR code size: 1957 bytes
+=== MLIR Code (size=1957) ===
+MLÔRStableHLO_v1.13.0
+=== End MLIR Code ===
+2026-01-05 16:55:45.707 (   2.932s) [        71CD6000]      module_builder.cc:213      1| ModuleBuilder::buildModule
+2026-01-05 16:55:45.710 (   2.935s) [        71CD6000]      module_builder.cc:1063     1| MLIR Module vhlo:
+#loc1 = loc("batch")
+#loc13 = loc("[('batch',), ('model',)]")
+module @jit_fwd attributes {mhlo.num_partitions = 2 : i32, mhlo.num_replicas = 1 : i32} {
+  vhlo.func_v1 @main(%arg0: !vhlo.tensor_v1<8192x784x!vhlo.f32_v1> loc("batch")) -> (!vhlo.tensor_v1<16384x784x!vhlo.f32_v1>) {
+    %0 = "vhlo.custom_call_v1"(%arg0) <{api_version = #vhlo<api_version_v1 API_VERSION_ORIGINAL>, backend_config = #vhlo.string_v1<"">, call_target_name = #vhlo.string_v1<"Sharding">, called_computations = #vhlo.array_v1<[]>, has_side_effect = #vhlo.bool_v1<false>, operand_layouts = #vhlo.array_v1<[]>, output_operand_aliases = #vhlo.array_v1<[]>, result_layouts = #vhlo.array_v1<[]>}> {mhlo.sharding = #vhlo.string_v1<"{devices=[1,2]<=[2]}">} : (!vhlo.tensor_v1<8192x784x!vhlo.f32_v1>) -> !vhlo.tensor_v1<8192x784x!vhlo.f32_v1> loc(#loc44)
+    %1 = "vhlo.custom_call_v1"(%0) <{api_version = #vhlo<api_version_v1 API_VERSION_ORIGINAL>, backend_config = #vhlo.string_v1<"">, call_target_name = #vhlo.string_v1<"SPMDFullToShardShape">, called_computations = #vhlo.array_v1<[]>, has_side_effect = #vhlo.bool_v1<false>, operand_layouts = #vhlo.array_v1<[]>, output_operand_aliases = #vhlo.array_v1<[]>, result_layouts = #vhlo.array_v1<[]>}> {mhlo.sharding = #vhlo.string_v1<"{manual}">} : (!vhlo.tensor_v1<8192x784x!vhlo.f32_v1>) -> !vhlo.tensor_v1<8192x392x!vhlo.f32_v1> loc(#loc44)
+    %2 = "vhlo.call_v1"(%1) <{callee = #vhlo.string_v1<"shmap_body">}> : (!vhlo.tensor_v1<8192x392x!vhlo.f32_v1>) -> !vhlo.tensor_v1<16384x392x!vhlo.f32_v1> loc(#loc44)
+    %3 = "vhlo.custom_call_v1"(%2) <{api_version = #vhlo<api_version_v1 API_VERSION_ORIGINAL>, backend_config = #vhlo.string_v1<"">, call_target_name = #vhlo.string_v1<"Sharding">, called_computations = #vhlo.array_v1<[]>, has_side_effect = #vhlo.bool_v1<false>, operand_layouts = #vhlo.array_v1<[]>, output_operand_aliases = #vhlo.array_v1<[]>, result_layouts = #vhlo.array_v1<[]>}> {mhlo.sharding = #vhlo.string_v1<"{manual}">} : (!vhlo.tensor_v1<16384x392x!vhlo.f32_v1>) -> !vhlo.tensor_v1<16384x392x!vhlo.f32_v1> loc(#loc44)
+    %4 = "vhlo.custom_call_v1"(%3) <{api_version = #vhlo<api_version_v1 API_VERSION_ORIGINAL>, backend_config = #vhlo.string_v1<"">, call_target_name = #vhlo.string_v1<"SPMDShardToFullShape">, called_computations = #vhlo.array_v1<[]>, has_side_effect = #vhlo.bool_v1<false>, operand_layouts = #vhlo.array_v1<[]>, output_operand_aliases = #vhlo.array_v1<[]>, result_layouts = #vhlo.array_v1<[]>}> {mhlo.sharding = #vhlo.string_v1<"{devices=[1,2]<=[2]}">} : (!vhlo.tensor_v1<16384x392x!vhlo.f32_v1>) -> !vhlo.tensor_v1<16384x784x!vhlo.f32_v1> loc(#loc44)
+    "vhlo.return_v1"(%4) : (!vhlo.tensor_v1<16384x784x!vhlo.f32_v1>) -> () loc(#loc)
+  } {arg_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{#vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{devices=[1,2]<=[2]}">}>]>, res_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{#vhlo.string_v1<"jax.result_info"> = #vhlo.string_v1<"result">, #vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{devices=[1,2]<=[2]}">}>]>, sym_visibility = #vhlo.string_v1<"public">} loc(#loc)
+  vhlo.func_v1 @shmap_body(%arg0: !vhlo.tensor_v1<8192x392x!vhlo.f32_v1> loc("[('batch',), ('model',)]")) -> (!vhlo.tensor_v1<16384x392x!vhlo.f32_v1>) {
+    %0 = "vhlo.all_gather_v2"(%arg0) <{all_gather_dim = #vhlo.integer_v1<0 : i64>, channel_id = #vhlo.integer_v1<1 : i64>, replica_groups = #vhlo.tensor_v1<dense<[[0, 1]]> : tensor<1x2xi64>>, use_global_device_ids = #vhlo.bool_v1<true>}> : (!vhlo.tensor_v1<8192x392x!vhlo.f32_v1>) -> !vhlo.tensor_v1<16384x392x!vhlo.f32_v1> loc(#loc45)
+    "vhlo.return_v1"(%0) : (!vhlo.tensor_v1<16384x392x!vhlo.f32_v1>) -> () loc(#loc12)
+  } {arg_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{}>]>, res_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{#vhlo.string_v1<"jax.result_info"> = #vhlo.string_v1<"[('batch',), ('model',)]">}>]>, sym_visibility = #vhlo.string_v1<"private">} loc(#loc12)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/workload.py":71:19 to :70)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/jax_workload.py":81:19 to :36)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/jax_device_runner.py":96:19 to :45)
+#loc5 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":176:15 to :77)
+#loc6 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":123:25 to :71)
+#loc7 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":112:8 to :48)
+#loc8 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":247:8 to 249:9)
+#loc9 = loc("/localdev/jameszianxu/tt-xla/tests/jax/multi_chip/n300/ops/data_parallel/batch_sharded/test_all_gather.py":57:4 to 66:5)
+#loc10 = loc("/usr/local/lib/python3.11/dist-packages/_pytest/python.py":157:13 to :37)
+#loc11 = loc("/usr/local/lib/python3.11/dist-packages/pluggy/_callers.py":121:26 to :51)
+#loc12 = loc("shard_map")
+#loc14 = loc("/localdev/jameszianxu/tt-xla/tests/jax/multi_chip/n300/ops/data_parallel/batch_sharded/test_all_gather.py":51:14 to :74)
+#loc15 = loc("Workload.execute"(#loc2))
+#loc16 = loc("JaxMultichipWorkload.execute"(#loc3))
+#loc17 = loc("JaxDeviceRunner.run_on_multichip_device"(#loc4))
+#loc18 = loc("JaxMultichipOpTester._run_on_multichip_device"(#loc5))
+#loc19 = loc("JaxMultichipOpTester.test"(#loc6))
+#loc20 = loc("JaxMultichipOpTester.test_with_random_inputs"(#loc7))
+#loc21 = loc("run_jax_multichip_op_test_with_random_inputs"(#loc8))
+#loc22 = loc("test_all_gather"(#loc9))
+#loc23 = loc("pytest_pyfunc_call"(#loc10))
+#loc24 = loc("_multicall"(#loc11))
+#loc25 = loc("test_all_gather.<locals>.fwd"(#loc14))
+#loc26 = loc(callsite(#loc23 at #loc24))
+#loc27 = loc(callsite(#loc22 at #loc23))
+#loc28 = loc(callsite(#loc22 at #loc26))
+#loc29 = loc(callsite(#loc21 at #loc27))
+#loc30 = loc(callsite(#loc21 at #loc28))
+#loc31 = loc(callsite(#loc20 at #loc29))
+#loc32 = loc(callsite(#loc20 at #loc30))
+#loc33 = loc(callsite(#loc19 at #loc31))
+#loc34 = loc(callsite(#loc19 at #loc32))
+#loc35 = loc(callsite(#loc18 at #loc33))
+#loc36 = loc(callsite(#loc18 at #loc34))
+#loc37 = loc(callsite(#loc17 at #loc35))
+#loc38 = loc(callsite(#loc17 at #loc36))
+#loc39 = loc(callsite(#loc16 at #loc37))
+#loc40 = loc(callsite(#loc16 at #loc38))
+#loc41 = loc(callsite(#loc15 at #loc39))
+#loc42 = loc(callsite(#loc15 at #loc40))
+#loc43 = loc(callsite(#loc25 at #loc41))
+#loc44 = loc("jit(fwd)/shard_map"(#loc42))
+#loc45 = loc("all_gather"(#loc43))
+------------------ END OF MLIR MODULE ------------------
+2026-01-05 16:55:45.712 (   2.937s) [        71CD6000]      module_builder.cc:231      1| Extracting checkpointed MLIR code after VHLO Compiler pass
+2026-01-05 16:55:45.719 (   2.944s) [        71CD6000]      module_builder.cc:1063     1| MLIR Module shlo:
+#loc1 = loc("batch")
+#loc13 = loc("[('batch',), ('model',)]")
+module @jit_fwd attributes {mhlo.num_partitions = 2 : i32, mhlo.num_replicas = 1 : i32} {
+  func.func public @main(%arg0: tensor<8192x784xf32> {mhlo.sharding = "{devices=[1,2]<=[2]}"} loc("batch")) -> (tensor<16384x784xf32> {jax.result_info = "result", mhlo.sharding = "{devices=[1,2]<=[2]}"}) {
+    %0 = stablehlo.custom_call @Sharding(%arg0) {mhlo.sharding = "{devices=[1,2]<=[2]}"} : (tensor<8192x784xf32>) -> tensor<8192x784xf32> loc(#loc44)
+    %1 = stablehlo.custom_call @SPMDFullToShardShape(%0) {mhlo.sharding = "{manual}"} : (tensor<8192x784xf32>) -> tensor<8192x392xf32> loc(#loc44)
+    %2 = call @shmap_body(%1) : (tensor<8192x392xf32>) -> tensor<16384x392xf32> loc(#loc44)
+    %3 = stablehlo.custom_call @Sharding(%2) {mhlo.sharding = "{manual}"} : (tensor<16384x392xf32>) -> tensor<16384x392xf32> loc(#loc44)
+    %4 = stablehlo.custom_call @SPMDShardToFullShape(%3) {mhlo.sharding = "{devices=[1,2]<=[2]}"} : (tensor<16384x392xf32>) -> tensor<16384x784xf32> loc(#loc44)
+    return %4 : tensor<16384x784xf32> loc(#loc)
+  } loc(#loc)
+  func.func private @shmap_body(%arg0: tensor<8192x392xf32> loc("[('batch',), ('model',)]")) -> (tensor<16384x392xf32> {jax.result_info = "[('batch',), ('model',)]"}) {
+    %0 = "stablehlo.all_gather"(%arg0) <{all_gather_dim = 0 : i64, channel_handle = #stablehlo.channel_handle<handle = 1, type = 0>, replica_groups = dense<[[0, 1]]> : tensor<1x2xi64>, use_global_device_ids}> : (tensor<8192x392xf32>) -> tensor<16384x392xf32> loc(#loc45)
+    return %0 : tensor<16384x392xf32> loc(#loc12)
+  } loc(#loc12)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/workload.py":71:19 to :70)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/jax_workload.py":81:19 to :36)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/jax_device_runner.py":96:19 to :45)
+#loc5 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":176:15 to :77)
+#loc6 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":123:25 to :71)
+#loc7 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":112:8 to :48)
+#loc8 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":247:8 to 249:9)
+#loc9 = loc("/localdev/jameszianxu/tt-xla/tests/jax/multi_chip/n300/ops/data_parallel/batch_sharded/test_all_gather.py":57:4 to 66:5)
+#loc10 = loc("/usr/local/lib/python3.11/dist-packages/_pytest/python.py":157:13 to :37)
+#loc11 = loc("/usr/local/lib/python3.11/dist-packages/pluggy/_callers.py":121:26 to :51)
+#loc12 = loc("shard_map")
+#loc14 = loc("/localdev/jameszianxu/tt-xla/tests/jax/multi_chip/n300/ops/data_parallel/batch_sharded/test_all_gather.py":51:14 to :74)
+#loc15 = loc("Workload.execute"(#loc2))
+#loc16 = loc("JaxMultichipWorkload.execute"(#loc3))
+#loc17 = loc("JaxDeviceRunner.run_on_multichip_device"(#loc4))
+#loc18 = loc("JaxMultichipOpTester._run_on_multichip_device"(#loc5))
+#loc19 = loc("JaxMultichipOpTester.test"(#loc6))
+#loc20 = loc("JaxMultichipOpTester.test_with_random_inputs"(#loc7))
+#loc21 = loc("run_jax_multichip_op_test_with_random_inputs"(#loc8))
+#loc22 = loc("test_all_gather"(#loc9))
+#loc23 = loc("pytest_pyfunc_call"(#loc10))
+#loc24 = loc("_multicall"(#loc11))
+#loc25 = loc("test_all_gather.<locals>.fwd"(#loc14))
+#loc26 = loc(callsite(#loc23 at #loc24))
+#loc27 = loc(callsite(#loc22 at #loc23))
+#loc28 = loc(callsite(#loc22 at #loc26))
+#loc29 = loc(callsite(#loc21 at #loc27))
+#loc30 = loc(callsite(#loc21 at #loc28))
+#loc31 = loc(callsite(#loc20 at #loc29))
+#loc32 = loc(callsite(#loc20 at #loc30))
+#loc33 = loc(callsite(#loc19 at #loc31))
+#loc34 = loc(callsite(#loc19 at #loc32))
+#loc35 = loc(callsite(#loc18 at #loc33))
+#loc36 = loc(callsite(#loc18 at #loc34))
+#loc37 = loc(callsite(#loc17 at #loc35))
+#loc38 = loc(callsite(#loc17 at #loc36))
+#loc39 = loc(callsite(#loc16 at #loc37))
+#loc40 = loc(callsite(#loc16 at #loc38))
+#loc41 = loc(callsite(#loc15 at #loc39))
+#loc42 = loc(callsite(#loc15 at #loc40))
+#loc43 = loc(callsite(#loc25 at #loc41))
+#loc44 = loc("jit(fwd)/shard_map"(#loc42))
+#loc45 = loc("all_gather"(#loc43))
+------------------ END OF MLIR MODULE ------------------
+2026-01-05 16:55:45.721 (   2.946s) [        71CD6000]      module_builder.cc:1063     1| MLIR Module shlo_frontend:
+#loc1 = loc("batch")
+#loc13 = loc("[('batch',), ('model',)]")
+module @jit_fwd attributes {mhlo.num_partitions = 2 : i32, mhlo.num_replicas = 1 : i32} {
+  func.func public @main(%arg0: tensor<8192x784xf32> {mhlo.sharding = "{devices=[1,2]<=[2]}", ttcore.argument_type = #ttcore.argument_type<input>} loc("batch")) -> (tensor<16384x784xf32> {jax.result_info = "result", mhlo.sharding = "{devices=[1,2]<=[2]}"}) {
+    %0 = stablehlo.custom_call @Sharding(%arg0) {mhlo.sharding = "{devices=[1,2]<=[2]}"} : (tensor<8192x784xf32>) -> tensor<8192x784xf32> loc(#loc44)
+    %1 = stablehlo.custom_call @SPMDFullToShardShape(%0) {mhlo.sharding = "{manual}"} : (tensor<8192x784xf32>) -> tensor<8192x392xf32> loc(#loc44)
+    %2 = call @shmap_body(%1) : (tensor<8192x392xf32>) -> tensor<16384x392xf32> loc(#loc44)
+    %3 = stablehlo.custom_call @Sharding(%2) {mhlo.sharding = "{manual}"} : (tensor<16384x392xf32>) -> tensor<16384x392xf32> loc(#loc44)
+    %4 = stablehlo.custom_call @SPMDShardToFullShape(%3) {mhlo.sharding = "{devices=[1,2]<=[2]}"} : (tensor<16384x392xf32>) -> tensor<16384x784xf32> loc(#loc44)
+    return %4 : tensor<16384x784xf32> loc(#loc)
+  } loc(#loc)
+  func.func private @shmap_body(%arg0: tensor<8192x392xf32> {ttcore.argument_type = #ttcore.argument_type<input>} loc("[('batch',), ('model',)]")) -> (tensor<16384x392xf32> {jax.result_info = "[('batch',), ('model',)]"}) {
+    %0 = "stablehlo.all_gather"(%arg0) <{all_gather_dim = 0 : i64, channel_handle = #stablehlo.channel_handle<handle = 1, type = 0>, replica_groups = dense<[[0, 1]]> : tensor<1x2xi64>, use_global_device_ids}> : (tensor<8192x392xf32>) -> tensor<16384x392xf32> loc(#loc45)
+    return %0 : tensor<16384x392xf32> loc(#loc12)
+  } loc(#loc12)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/workload.py":71:19 to :70)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/jax_workload.py":81:19 to :36)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/jax_device_runner.py":96:19 to :45)
+#loc5 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":176:15 to :77)
+#loc6 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":123:25 to :71)
+#loc7 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":112:8 to :48)
+#loc8 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":247:8 to 249:9)
+#loc9 = loc("/localdev/jameszianxu/tt-xla/tests/jax/multi_chip/n300/ops/data_parallel/batch_sharded/test_all_gather.py":57:4 to 66:5)
+#loc10 = loc("/usr/local/lib/python3.11/dist-packages/_pytest/python.py":157:13 to :37)
+#loc11 = loc("/usr/local/lib/python3.11/dist-packages/pluggy/_callers.py":121:26 to :51)
+#loc12 = loc("shard_map")
+#loc14 = loc("/localdev/jameszianxu/tt-xla/tests/jax/multi_chip/n300/ops/data_parallel/batch_sharded/test_all_gather.py":51:14 to :74)
+#loc15 = loc("Workload.execute"(#loc2))
+#loc16 = loc("JaxMultichipWorkload.execute"(#loc3))
+#loc17 = loc("JaxDeviceRunner.run_on_multichip_device"(#loc4))
+#loc18 = loc("JaxMultichipOpTester._run_on_multichip_device"(#loc5))
+#loc19 = loc("JaxMultichipOpTester.test"(#loc6))
+#loc20 = loc("JaxMultichipOpTester.test_with_random_inputs"(#loc7))
+#loc21 = loc("run_jax_multichip_op_test_with_random_inputs"(#loc8))
+#loc22 = loc("test_all_gather"(#loc9))
+#loc23 = loc("pytest_pyfunc_call"(#loc10))
+#loc24 = loc("_multicall"(#loc11))
+#loc25 = loc("test_all_gather.<locals>.fwd"(#loc14))
+#loc26 = loc(callsite(#loc23 at #loc24))
+#loc27 = loc(callsite(#loc22 at #loc23))
+#loc28 = loc(callsite(#loc22 at #loc26))
+#loc29 = loc(callsite(#loc21 at #loc27))
+#loc30 = loc(callsite(#loc21 at #loc28))
+#loc31 = loc(callsite(#loc20 at #loc29))
+#loc32 = loc(callsite(#loc20 at #loc30))
+#loc33 = loc(callsite(#loc19 at #loc31))
+#loc34 = loc(callsite(#loc19 at #loc32))
+#loc35 = loc(callsite(#loc18 at #loc33))
+#loc36 = loc(callsite(#loc18 at #loc34))
+#loc37 = loc(callsite(#loc17 at #loc35))
+#loc38 = loc(callsite(#loc17 at #loc36))
+#loc39 = loc(callsite(#loc16 at #loc37))
+#loc40 = loc(callsite(#loc16 at #loc38))
+#loc41 = loc(callsite(#loc15 at #loc39))
+#loc42 = loc(callsite(#loc15 at #loc40))
+#loc43 = loc(callsite(#loc25 at #loc41))
+#loc44 = loc("jit(fwd)/shard_map"(#loc42))
+#loc45 = loc("all_gather"(#loc43))
+------------------ END OF MLIR MODULE ------------------
+2026-01-05 16:55:45.735 (   2.960s) [        71CD6000]      module_builder.cc:1063     1| MLIR Module shlo_compiler:
+#loc1 = loc("batch")
+module @jit_fwd attributes {mhlo.num_partitions = 2 : i32, mhlo.num_replicas = 1 : i32} {
+  sdy.mesh @mesh = <["x"=1, "y"=2]> loc(#loc)
+  func.func public @main(%arg0: tensor<8192x784xf32> {mhlo.sharding = "{devices=[1,2]<=[2]}", ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<presharded>} loc("batch")) -> (tensor<16384x784xf32> {jax.result_info = "result", mhlo.sharding = "{devices=[1,2]<=[2]}", ttcore.shard_status = #ttcore.shard_status<presharded>}) {
+    %0 = stablehlo.custom_call @Sharding(%arg0) {mhlo.sharding = "{devices=[1,2]<=[2]}", ttcore.shard_status = #ttcore.shard_status<presharded>} : (tensor<8192x784xf32>) -> tensor<8192x784xf32> loc(#loc42)
+    %1 = stablehlo.custom_call @SPMDFullToShardShape(%0) {mhlo.sharding = "{manual}"} : (tensor<8192x784xf32>) -> tensor<8192x392xf32> loc(#loc42)
+    %2 = "stablehlo.all_gather"(%1) <{all_gather_dim = 0 : i64, channel_handle = #stablehlo.channel_handle<handle = 1, type = 0>, replica_groups = dense<[[0, 1]]> : tensor<1x2xi64>, use_global_device_ids}> : (tensor<8192x392xf32>) -> tensor<16384x392xf32> loc(#loc44)
+    %3 = stablehlo.custom_call @Sharding(%2) {mhlo.sharding = "{manual}", ttcore.shard_status = #ttcore.shard_status<presharded>} : (tensor<16384x392xf32>) -> tensor<16384x392xf32> loc(#loc42)
+    %4 = stablehlo.custom_call @SPMDShardToFullShape(%3) {mhlo.sharding = "{devices=[1,2]<=[2]}"} : (tensor<16384x392xf32>) -> tensor<16384x784xf32> loc(#loc42)
+    return %4 : tensor<16384x784xf32> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/workload.py":71:19 to :70)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/jax_workload.py":81:19 to :36)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/jax_device_runner.py":96:19 to :45)
+#loc5 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":176:15 to :77)
+#loc6 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":123:25 to :71)
+#loc7 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":112:8 to :48)
+#loc8 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":247:8 to 249:9)
+#loc9 = loc("/localdev/jameszianxu/tt-xla/tests/jax/multi_chip/n300/ops/data_parallel/batch_sharded/test_all_gather.py":57:4 to 66:5)
+#loc10 = loc("/usr/local/lib/python3.11/dist-packages/_pytest/python.py":157:13 to :37)
+#loc11 = loc("/usr/local/lib/python3.11/dist-packages/pluggy/_callers.py":121:26 to :51)
+#loc12 = loc("/localdev/jameszianxu/tt-xla/tests/jax/multi_chip/n300/ops/data_parallel/batch_sharded/test_all_gather.py":51:14 to :74)
+#loc13 = loc("Workload.execute"(#loc2))
+#loc14 = loc("JaxMultichipWorkload.execute"(#loc3))
+#loc15 = loc("JaxDeviceRunner.run_on_multichip_device"(#loc4))
+#loc16 = loc("JaxMultichipOpTester._run_on_multichip_device"(#loc5))
+#loc17 = loc("JaxMultichipOpTester.test"(#loc6))
+#loc18 = loc("JaxMultichipOpTester.test_with_random_inputs"(#loc7))
+#loc19 = loc("run_jax_multichip_op_test_with_random_inputs"(#loc8))
+#loc20 = loc("test_all_gather"(#loc9))
+#loc21 = loc("pytest_pyfunc_call"(#loc10))
+#loc22 = loc("_multicall"(#loc11))
+#loc23 = loc("test_all_gather.<locals>.fwd"(#loc12))
+#loc24 = loc(callsite(#loc21 at #loc22))
+#loc25 = loc(callsite(#loc20 at #loc21))
+#loc26 = loc(callsite(#loc20 at #loc24))
+#loc27 = loc(callsite(#loc19 at #loc25))
+#loc28 = loc(callsite(#loc19 at #loc26))
+#loc29 = loc(callsite(#loc18 at #loc27))
+#loc30 = loc(callsite(#loc18 at #loc28))
+#loc31 = loc(callsite(#loc17 at #loc29))
+#loc32 = loc(callsite(#loc17 at #loc30))
+#loc33 = loc(callsite(#loc16 at #loc31))
+#loc34 = loc(callsite(#loc16 at #loc32))
+#loc35 = loc(callsite(#loc15 at #loc33))
+#loc36 = loc(callsite(#loc15 at #loc34))
+#loc37 = loc(callsite(#loc14 at #loc35))
+#loc38 = loc(callsite(#loc14 at #loc36))
+#loc39 = loc(callsite(#loc13 at #loc37))
+#loc40 = loc(callsite(#loc13 at #loc38))
+#loc41 = loc(callsite(#loc23 at #loc39))
+#loc42 = loc("jit(fwd)/shard_map"(#loc40))
+#loc43 = loc("all_gather"(#loc41))
+#loc44 = loc(callsite(#loc43 at #loc42))
+------------------ END OF MLIR MODULE ------------------
+2026-01-05 16:55:45.736 (   2.961s) [        71CD6000]      module_builder.cc:273      1| Cleaning for XLA ingestion
+2026-01-05 16:55:45.739 (   2.965s) [        71CD6000]      module_builder.cc:1063     1| MLIR Module ttir:
+#loc1 = loc("batch")
+module @jit_fwd attributes {mhlo.num_partitions = 2 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x2>]>} {
+  ttcore.device_module {
+    builtin.module @jit_fwd attributes {mhlo.num_partitions = 2 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x2>]>} {
+      func.func public @main(%arg0: tensor<8192x784xf32> {mhlo.sharding = "{devices=[1,2]<=[2]}", ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<presharded>} loc("batch")) -> (tensor<16384x784xf32> {jax.result_info = "result", mhlo.sharding = "{devices=[1,2]<=[2]}", ttcore.shard_status = #ttcore.shard_status<presharded>}) {
+        %0 = "ttir.mesh_shard"(%arg0) <{shard_dims = array<i64: -1, 1>, shard_direction = #ttcore.shard_direction<full_to_shard>, shard_shape = array<i64: 1, 2>, shard_type = #ttcore.shard_type<identity>}> : (tensor<8192x784xf32>) -> tensor<8192x392xf32> loc(#loc42)
+        %1 = "ttir.all_gather"(%0) <{all_gather_dim = 0 : si32, cluster_axis = 1 : ui32}> : (tensor<8192x392xf32>) -> tensor<16384x392xf32> loc(#loc44)
+        %2 = "ttir.mesh_shard"(%1) <{shard_dims = array<i64: -1, 1>, shard_direction = #ttcore.shard_direction<shard_to_full>, shard_shape = array<i64: 1, 2>, shard_type = #ttcore.shard_type<identity>}> : (tensor<16384x392xf32>) -> tensor<16384x784xf32> loc(#loc42)
+        return %2 : tensor<16384x784xf32> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/workload.py":71:19 to :70)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/jax_workload.py":81:19 to :36)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/jax_device_runner.py":96:19 to :45)
+#loc5 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":176:15 to :77)
+#loc6 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":123:25 to :71)
+#loc7 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":112:8 to :48)
+#loc8 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":247:8 to 249:9)
+#loc9 = loc("/localdev/jameszianxu/tt-xla/tests/jax/multi_chip/n300/ops/data_parallel/batch_sharded/test_all_gather.py":57:4 to 66:5)
+#loc10 = loc("/usr/local/lib/python3.11/dist-packages/_pytest/python.py":157:13 to :37)
+#loc11 = loc("/usr/local/lib/python3.11/dist-packages/pluggy/_callers.py":121:26 to :51)
+#loc12 = loc("/localdev/jameszianxu/tt-xla/tests/jax/multi_chip/n300/ops/data_parallel/batch_sharded/test_all_gather.py":51:14 to :74)
+#loc13 = loc("Workload.execute"(#loc2))
+#loc14 = loc("JaxMultichipWorkload.execute"(#loc3))
+#loc15 = loc("JaxDeviceRunner.run_on_multichip_device"(#loc4))
+#loc16 = loc("JaxMultichipOpTester._run_on_multichip_device"(#loc5))
+#loc17 = loc("JaxMultichipOpTester.test"(#loc6))
+#loc18 = loc("JaxMultichipOpTester.test_with_random_inputs"(#loc7))
+#loc19 = loc("run_jax_multichip_op_test_with_random_inputs"(#loc8))
+#loc20 = loc("test_all_gather"(#loc9))
+#loc21 = loc("pytest_pyfunc_call"(#loc10))
+#loc22 = loc("_multicall"(#loc11))
+#loc23 = loc("test_all_gather.<locals>.fwd"(#loc12))
+#loc24 = loc(callsite(#loc21 at #loc22))
+#loc25 = loc(callsite(#loc20 at #loc21))
+#loc26 = loc(callsite(#loc20 at #loc24))
+#loc27 = loc(callsite(#loc19 at #loc25))
+#loc28 = loc(callsite(#loc19 at #loc26))
+#loc29 = loc(callsite(#loc18 at #loc27))
+#loc30 = loc(callsite(#loc18 at #loc28))
+#loc31 = loc(callsite(#loc17 at #loc29))
+#loc32 = loc(callsite(#loc17 at #loc30))
+#loc33 = loc(callsite(#loc16 at #loc31))
+#loc34 = loc(callsite(#loc16 at #loc32))
+#loc35 = loc(callsite(#loc15 at #loc33))
+#loc36 = loc(callsite(#loc15 at #loc34))
+#loc37 = loc(callsite(#loc14 at #loc35))
+#loc38 = loc(callsite(#loc14 at #loc36))
+#loc39 = loc(callsite(#loc13 at #loc37))
+#loc40 = loc(callsite(#loc13 at #loc38))
+#loc41 = loc(callsite(#loc23 at #loc39))
+#loc42 = loc("jit(fwd)/shard_map"(#loc40))
+#loc43 = loc("all_gather"(#loc41))
+#loc44 = loc(callsite(#loc43 at #loc42))
+------------------ END OF MLIR MODULE ------------------
+2026-01-05 16:55:45.778 (   3.003s) [        71CD6000]      module_builder.cc:1063     1| MLIR Module ttnn:
+#dram = #ttnn.buffer_type<dram>
+#loc1 = loc("batch")
+#system_desc = #ttcore.system_desc<[{role = host, target_triple = "x86_64-pc-linux"}], [{arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102656, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073168640, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102656, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073177216, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}], [0, 1], [1 : i32, 0 : i32], [ 0x0x0x0]>
+#ttnn_layout = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<256x25x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+#ttnn_layout1 = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<512x25x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+#ttnn_layout2 = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<256x13x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+#ttnn_layout3 = #ttnn.ttnn_layout<(d0, d1, d2, d3) -> (d0 * 8192 + d1 * 8192 + d2, d3), <1x1>, memref<256x13x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+#ttnn_layout4 = #ttnn.ttnn_layout<(d0, d1, d2, d3) -> (d0 * 16384 + d1 * 16384 + d2, d3), <1x1>, memref<512x13x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+#ttnn_layout5 = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<512x13x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+module @jit_fwd attributes {mhlo.num_partitions = 2 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x2>]>} {
+  ttcore.device_module {
+    builtin.module @jit_fwd attributes {mhlo.num_partitions = 2 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x2>]>, ttcore.system_desc = #system_desc} {
+      ttcore.device @default_device = <workerGrid = #ttcore.grid<8x8, (d0, d1) -> (0, d0, d1)>, l1Map = (d0, d1, d2)[s0] -> (0, d0, d1, d2 + s0), dramMap = (d0, d1, d2)[s0, s1, s2, s3, s4, s5, s6] -> (0, 0, (((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) mod 12, ((((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) floordiv 12) * s4 + ((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) mod s4 + s5), meshShape = 1x2, chipIds = [0, 1]> loc(#loc)
+      func.func public @main(%arg0: tensor<8192x784xf32, #ttnn_layout> {mhlo.sharding = "{devices=[1,2]<=[2]}", ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<presharded>} loc("batch")) -> (tensor<16384x784xf32, #ttnn_layout1> {jax.result_info = "result", mhlo.sharding = "{devices=[1,2]<=[2]}", ttcore.shard_status = #ttcore.shard_status<presharded>}) {
+        %0 = "ttnn.get_device"() <{mesh_offset = #ttnn<mesh_offset 0x0>, mesh_shape = #ttnn<mesh_shape 1x2>}> : () -> !ttnn.device loc(#loc42)
+        %1 = "ttnn.mesh_shard"(%arg0, %0) <{shard_dims = array<i64: -1, 1>, shard_direction = #ttcore.shard_direction<full_to_shard>, shard_shape = array<i64: 1, 2>, shard_type = #ttcore.shard_type<identity>}> : (tensor<8192x784xf32, #ttnn_layout>, !ttnn.device) -> tensor<8192x392xf32, #ttnn_layout2> loc(#loc42)
+        "ttnn.deallocate"(%arg0) <{force = false}> : (tensor<8192x784xf32, #ttnn_layout>) -> () loc(#loc42)
+        %2 = "ttnn.reshape"(%1) <{shape = [1 : i32, 1 : i32, 8192 : i32, 392 : i32]}> : (tensor<8192x392xf32, #ttnn_layout2>) -> tensor<1x1x8192x392xf32, #ttnn_layout3> loc(#loc44)
+        "ttnn.deallocate"(%1) <{force = false}> : (tensor<8192x392xf32, #ttnn_layout2>) -> () loc(#loc44)
+        %3 = "ttnn.all_gather"(%2) <{all_gather_dim = 2 : si32, cluster_axis = 1 : ui32}> : (tensor<1x1x8192x392xf32, #ttnn_layout3>) -> tensor<1x1x16384x392xf32, #ttnn_layout4> loc(#loc44)
+        "ttnn.deallocate"(%2) <{force = false}> : (tensor<1x1x8192x392xf32, #ttnn_layout3>) -> () loc(#loc44)
+        %4 = "ttnn.reshape"(%3) <{shape = [16384 : i32, 392 : i32]}> : (tensor<1x1x16384x392xf32, #ttnn_layout4>) -> tensor<16384x392xf32, #ttnn_layout5> loc(#loc44)
+        "ttnn.deallocate"(%3) <{force = false}> : (tensor<1x1x16384x392xf32, #ttnn_layout4>) -> () loc(#loc44)
+        %5 = "ttnn.mesh_shard"(%4, %0) <{shard_dims = array<i64: -1, 1>, shard_direction = #ttcore.shard_direction<shard_to_full>, shard_shape = array<i64: 1, 2>, shard_type = #ttcore.shard_type<identity>}> : (tensor<16384x392xf32, #ttnn_layout5>, !ttnn.device) -> tensor<16384x784xf32, #ttnn_layout1> loc(#loc42)
+        "ttnn.deallocate"(%4) <{force = false}> : (tensor<16384x392xf32, #ttnn_layout5>) -> () loc(#loc42)
+        return %5 : tensor<16384x784xf32, #ttnn_layout1> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/workload.py":71:19 to :70)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/jax_workload.py":81:19 to :36)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/jax_device_runner.py":96:19 to :45)
+#loc5 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":176:15 to :77)
+#loc6 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":123:25 to :71)
+#loc7 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":112:8 to :48)
+#loc8 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":247:8 to 249:9)
+#loc9 = loc("/localdev/jameszianxu/tt-xla/tests/jax/multi_chip/n300/ops/data_parallel/batch_sharded/test_all_gather.py":57:4 to 66:5)
+#loc10 = loc("/usr/local/lib/python3.11/dist-packages/_pytest/python.py":157:13 to :37)
+#loc11 = loc("/usr/local/lib/python3.11/dist-packages/pluggy/_callers.py":121:26 to :51)
+#loc12 = loc("/localdev/jameszianxu/tt-xla/tests/jax/multi_chip/n300/ops/data_parallel/batch_sharded/test_all_gather.py":51:14 to :74)
+#loc13 = loc("Workload.execute"(#loc2))
+#loc14 = loc("JaxMultichipWorkload.execute"(#loc3))
+#loc15 = loc("JaxDeviceRunner.run_on_multichip_device"(#loc4))
+#loc16 = loc("JaxMultichipOpTester._run_on_multichip_device"(#loc5))
+#loc17 = loc("JaxMultichipOpTester.test"(#loc6))
+#loc18 = loc("JaxMultichipOpTester.test_with_random_inputs"(#loc7))
+#loc19 = loc("run_jax_multichip_op_test_with_random_inputs"(#loc8))
+#loc20 = loc("test_all_gather"(#loc9))
+#loc21 = loc("pytest_pyfunc_call"(#loc10))
+#loc22 = loc("_multicall"(#loc11))
+#loc23 = loc("test_all_gather.<locals>.fwd"(#loc12))
+#loc24 = loc(callsite(#loc21 at #loc22))
+#loc25 = loc(callsite(#loc20 at #loc21))
+#loc26 = loc(callsite(#loc20 at #loc24))
+#loc27 = loc(callsite(#loc19 at #loc25))
+#loc28 = loc(callsite(#loc19 at #loc26))
+#loc29 = loc(callsite(#loc18 at #loc27))
+#loc30 = loc(callsite(#loc18 at #loc28))
+#loc31 = loc(callsite(#loc17 at #loc29))
+#loc32 = loc(callsite(#loc17 at #loc30))
+#loc33 = loc(callsite(#loc16 at #loc31))
+#loc34 = loc(callsite(#loc16 at #loc32))
+#loc35 = loc(callsite(#loc15 at #loc33))
+#loc36 = loc(callsite(#loc15 at #loc34))
+#loc37 = loc(callsite(#loc14 at #loc35))
+#loc38 = loc(callsite(#loc14 at #loc36))
+#loc39 = loc(callsite(#loc13 at #loc37))
+#loc40 = loc(callsite(#loc13 at #loc38))
+#loc41 = loc(callsite(#loc23 at #loc39))
+#loc42 = loc("jit(fwd)/shard_map"(#loc40))
+#loc43 = loc("all_gather"(#loc41))
+#loc44 = loc(callsite(#loc43 at #loc42))
+------------------ END OF MLIR MODULE ------------------
+2026-01-05 16:55:45.788 (   3.013s) [        71CD6000]loaded_executable_insta:290      1| LoadedExecutableInstance::PJRT_LoadedExecutable_GetExecutable
+2026-01-05 16:55:45.788 (   3.013s) [        71CD6000]loaded_executable_insta:309      1| LoadedExecutableInstance::PJRT_LoadedExecutable_AddressableDevices
+2026-01-05 16:55:45.788 (   3.013s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:45.788 (   3.013s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:45.788 (   3.013s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1957):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:45.788 (   3.013s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:45.788 (   3.013s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:45.788 (   3.013s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1957):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:45.792 (   3.017s) [        71CD6000] executable_instance.cc:297      1| ExecutableImage::PJRT_Executable_OutputMemoryKinds
+2026-01-05 16:55:45.792 (   3.017s) [        71CD6000] executable_instance.cc:84       1| ExecutableInstance::PJRT_Executable_NumReplicas
+2026-01-05 16:55:45.792 (   3.017s) [        71CD6000] executable_instance.cc:245      1| ExecutableInstance::PJRT_Executable_Fingerprint
+2026-01-05 16:55:45.793 (   3.018s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:45.793 (   3.018s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:45.793 (   3.018s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1957):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:45.793 (   3.018s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:45.793 (   3.018s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:45.793 (   3.018s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1957):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:45.796 (   3.021s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:45.796 (   3.021s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:45.796 (   3.021s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1957):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:45.796 (   3.021s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:45.796 (   3.021s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:45.796 (   3.021s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1957):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:45.798 (   3.023s) [        71CD6000] executable_instance.cc:297      1| ExecutableImage::PJRT_Executable_OutputMemoryKinds
+2026-01-05 16:55:45.798 (   3.023s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:45.798 (   3.023s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:45.798 (   3.023s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1957):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:45.798 (   3.023s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:45.798 (   3.023s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:45.798 (   3.023s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1957):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:45.800 (   3.025s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:45.800 (   3.025s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:45.800 (   3.025s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1957):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:45.801 (   3.026s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:45.801 (   3.026s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:45.801 (   3.026s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1957):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:45.803 (   3.028s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:45.803 (   3.028s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:45.803 (   3.028s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1957):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:45.803 (   3.028s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:45.803 (   3.028s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:45.803 (   3.028s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1957):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:45.805 (   3.030s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:45.805 (   3.030s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:45.805 (   3.030s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1957):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:45.805 (   3.031s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:45.805 (   3.031s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:45.806 (   3.031s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1957):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:45.808 (   3.033s) [        71CD6000]     buffer_instance.cc:638      1| BufferInstance::PJRT_Buffer_IsDeleted
+2026-01-05 16:55:45.808 (   3.033s) [        71CD6000] executable_instance.cc:219      1| ExecutableInstance::PJRT_Executable_NumOutputs
+2026-01-05 16:55:45.808 (   3.033s) [        71CD6000]loaded_executable_insta:345      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Execute
+2026-01-05 16:55:45.808 (   3.033s) [        71CD6000]flatbuffer_loaded_execu:260      1| FlatbufferLoadedExecutableInstance::Execute
+2026-01-05 16:55:45.808 (   3.033s) [        71CD6000]     client_instance.cc:423      1| ClientInstance::getOrCreateMeshDevice - reusing already opened mesh device [1, 2]
+2026-01-05 16:55:45.990 (   3.216s) [        71CD6000]flatbuffer_loaded_execu:195      1| Filled output at output_index 0 device_index 0 with shape [16384, 784] and UID 2
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]flatbuffer_loaded_execu:195      1| Filled output at output_index 0 device_index 1 with shape [16384, 784] and UID 3
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]     buffer_instance.cc:553      1| BufferInstance::PJRT_Buffer_Dimensions
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]     buffer_instance.cc:698      1| BufferInstance::PJRT_Buffer_Memory
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]     buffer_instance.cc:690      1| BufferInstance::PJRT_Buffer_Device
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]     buffer_instance.cc:690      1| BufferInstance::PJRT_Buffer_Device
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]     buffer_instance.cc:698      1| BufferInstance::PJRT_Buffer_Memory
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]     buffer_instance.cc:690      1| BufferInstance::PJRT_Buffer_Device
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]     buffer_instance.cc:698      1| BufferInstance::PJRT_Buffer_Memory
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]     buffer_instance.cc:537      1| BufferInstance::PJRT_Buffer_Destroy
+2026-01-05 16:55:45.991 (   3.216s) [        71CD6000]     buffer_instance.cc:537      1| BufferInstance::PJRT_Buffer_Destroy
+2026-01-05 16:55:46.042323: W external/xla/xla/service/sharding_propagation.cc:3120] GSPMD sharding propagation is going to be deprecated and not supported in the future. Please consider migrating to Shardy (https://openxla.org/shardy). For reference, Shardy is already the default partitioner in JAX.
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:638      1| BufferInstance::PJRT_Buffer_IsDeleted
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:638      1| BufferInstance::PJRT_Buffer_IsDeleted
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:638      1| BufferInstance::PJRT_Buffer_IsDeleted
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:690      1| BufferInstance::PJRT_Buffer_Device
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:698      1| BufferInstance::PJRT_Buffer_Memory
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:690      1| BufferInstance::PJRT_Buffer_Device
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:698      1| BufferInstance::PJRT_Buffer_Memory
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:638      1| BufferInstance::PJRT_Buffer_IsDeleted
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:638      1| BufferInstance::PJRT_Buffer_IsDeleted
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:545      1| BufferInstance::PJRT_Buffer_ElementType
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:553      1| BufferInstance::PJRT_Buffer_Dimensions
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:690      1| BufferInstance::PJRT_Buffer_Device
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:698      1| BufferInstance::PJRT_Buffer_Memory
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:681      1| BufferInstance::PJRT_Buffer_IsOnCpu
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:576      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:553      1| BufferInstance::PJRT_Buffer_Dimensions
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:545      1| BufferInstance::PJRT_Buffer_ElementType
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:576      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2026-01-05 16:55:46.046 (   3.271s) [        71CD6000]     buffer_instance.cc:586      1| BufferInstance::PJRT_Buffer_ToHostBuffer
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]     buffer_instance.cc:638      1| BufferInstance::PJRT_Buffer_IsDeleted
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]     buffer_instance.cc:545      1| BufferInstance::PJRT_Buffer_ElementType
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]     buffer_instance.cc:553      1| BufferInstance::PJRT_Buffer_Dimensions
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]     buffer_instance.cc:690      1| BufferInstance::PJRT_Buffer_Device
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]     buffer_instance.cc:698      1| BufferInstance::PJRT_Buffer_Memory
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]     buffer_instance.cc:553      1| BufferInstance::PJRT_Buffer_Dimensions
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]     buffer_instance.cc:681      1| BufferInstance::PJRT_Buffer_IsOnCpu
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]     buffer_instance.cc:576      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]     buffer_instance.cc:553      1| BufferInstance::PJRT_Buffer_Dimensions
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]     buffer_instance.cc:545      1| BufferInstance::PJRT_Buffer_ElementType
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]     buffer_instance.cc:576      1| BufferInstance::PJRT_Buffer_DynamicDimensionIndices
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]     buffer_instance.cc:586      1| BufferInstance::PJRT_Buffer_ToHostBuffer
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]     buffer_instance.cc:638      1| BufferInstance::PJRT_Buffer_IsDeleted
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]     buffer_instance.cc:638      1| BufferInstance::PJRT_Buffer_IsDeleted
+2026-01-05 16:55:46.047 (   3.272s) [        71CD6000]     buffer_instance.cc:681      1| BufferInstance::PJRT_Buffer_IsOnCpu
+2026-01-05 16:55:46.140 (   3.366s) [        5CFF9640]     buffer_instance.cc:425      1| Returning tensor to host with host_runtime_tensors ct = 2 from device 0 with buffer UID 2 and shape [16384, 784]
+2026-01-05 16:55:46.149 (   3.374s) [        5DFFB640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2026-01-05 16:55:46.150 (   3.375s) [        71CD6000]     buffer_instance.cc:638      1| BufferInstance::PJRT_Buffer_IsDeleted
+2026-01-05 16:55:46.150 (   3.375s) [        71CD6000]     buffer_instance.cc:638      1| BufferInstance::PJRT_Buffer_IsDeleted
+2026-01-05 16:55:46.156 (   3.381s) [        71CD6000]              stubs.inc:22    WARN| STUB: PJRT_Device_MemoryStats
+2026-01-05 16:55:46.156 (   3.381s) [        71CD6000]      error_instance.cc:61       1| ErrorInstance::PJRT_Error_GetCode
+2026-01-05 16:55:46.156 (   3.381s) [        71CD6000]      error_instance.cc:52       1| ErrorInstance::PJRT_Error_Message
+2026-01-05 16:55:46.156 (   3.381s) [        71CD6000]      error_instance.cc:46       1| ErrorInstance::PJRT_Error_Destroy
+2026-01-05 16:55:46.157 (   3.382s) [        71CD6000]     client_instance.cc:694      1| ClientInstance::PJRT_Client_Compile
+2026-01-05 16:55:46.157 (   3.382s) [        71CD6000]     client_instance.cc:327      1| MLIR code size: 1496 bytes
+=== MLIR Code (size=1496) ===
+MLÔRStableHLO_v1.13.0
+=== End MLIR Code ===
+2026-01-05 16:55:46.157 (   3.382s) [        71CD6000]      module_builder.cc:213      1| ModuleBuilder::buildModule
+2026-01-05 16:55:46.157 (   3.382s) [        71CD6000]      module_builder.cc:1063     1| MLIR Module vhlo:
+#loc1 = loc("args[0]")
+module @jit_convert_element_type attributes {mhlo.num_partitions = 2 : i32, mhlo.num_replicas = 1 : i32} {
+  vhlo.func_v1 @main(%arg0: !vhlo.tensor_v1<16384x784x!vhlo.f32_v1> loc("args[0]")) -> (!vhlo.tensor_v1<16384x784x!vhlo.f64_v1>) {
+    %0 = "vhlo.convert_v1"(%arg0) : (!vhlo.tensor_v1<16384x784x!vhlo.f32_v1>) -> !vhlo.tensor_v1<16384x784x!vhlo.f64_v1> loc(#loc31)
+    "vhlo.return_v1"(%0) : (!vhlo.tensor_v1<16384x784x!vhlo.f64_v1>) -> () loc(#loc)
+  } {arg_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{#vhlo.string_v1<"mhlo.sharding"> = #vhlo.string_v1<"{devices=[1,2]<=[2]}">}>]>, res_attrs = #vhlo.array_v1<[#vhlo.dict_v1<{#vhlo.string_v1<"jax.result_info"> = #vhlo.string_v1<"result">}>]>, sym_visibility = #vhlo.string_v1<"public">} loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/tests/infra/comparators/jax_comparator.py":24:16 to :40)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/tests/infra/comparators/jax_comparator.py":22:15 to 29:9)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/workload.py":75:19 to :61)
+#loc5 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/jax_device_runner.py":31:19 to :37)
+#loc6 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/device_runner.py":40:15 to :59)
+#loc7 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/device_runner.py":26:15 to :59)
+#loc8 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/utils.py":41:19 to :46)
+#loc9 = loc("/localdev/jameszianxu/tt-xla/tests/infra/comparators/comparator.py":51:39 to :87)
+#loc10 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":129:8 to :53)
+#loc11 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":112:8 to :48)
+#loc12 = loc("JaxComparator._match_data_types.<locals>.<lambda>"(#loc2))
+#loc13 = loc("JaxComparator._match_data_types"(#loc3))
+#loc14 = loc("Workload.execute"(#loc4))
+#loc15 = loc("JaxDeviceRunner._run_on_device"(#loc5))
+#loc16 = loc("DeviceRunner.run_on_device"(#loc6))
+#loc17 = loc("DeviceRunner.run_on_cpu"(#loc7))
+#loc18 = loc("run_on_cpu.<locals>.decorator.<locals>.wrapper"(#loc8))
+#loc19 = loc("Comparator.compare"(#loc9))
+#loc20 = loc("JaxMultichipOpTester.test"(#loc10))
+#loc21 = loc("JaxMultichipOpTester.test_with_random_inputs"(#loc11))
+#loc22 = loc(callsite(#loc20 at #loc21))
+#loc23 = loc(callsite(#loc19 at #loc22))
+#loc24 = loc(callsite(#loc18 at #loc23))
+#loc25 = loc(callsite(#loc17 at #loc24))
+#loc26 = loc(callsite(#loc16 at #loc25))
+#loc27 = loc(callsite(#loc15 at #loc26))
+#loc28 = loc(callsite(#loc14 at #loc27))
+#loc29 = loc(callsite(#loc13 at #loc28))
+#loc30 = loc(callsite(#loc12 at #loc29))
+#loc31 = loc("jit(convert_element_type)/convert_element_type"(#loc30))
+------------------ END OF MLIR MODULE ------------------
+2026-01-05 16:55:46.158 (   3.383s) [        71CD6000]      module_builder.cc:231      1| Extracting checkpointed MLIR code after VHLO Compiler pass
+2026-01-05 16:55:46.160 (   3.385s) [        71CD6000]      module_builder.cc:1063     1| MLIR Module shlo:
+#loc1 = loc("args[0]")
+module @jit_convert_element_type attributes {mhlo.num_partitions = 2 : i32, mhlo.num_replicas = 1 : i32} {
+  func.func public @main(%arg0: tensor<16384x784xf32> {mhlo.sharding = "{devices=[1,2]<=[2]}"} loc("args[0]")) -> (tensor<16384x784xf64> {jax.result_info = "result"}) {
+    %0 = stablehlo.convert %arg0 : (tensor<16384x784xf32>) -> tensor<16384x784xf64> loc(#loc31)
+    return %0 : tensor<16384x784xf64> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/tests/infra/comparators/jax_comparator.py":24:16 to :40)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/tests/infra/comparators/jax_comparator.py":22:15 to 29:9)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/workload.py":75:19 to :61)
+#loc5 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/jax_device_runner.py":31:19 to :37)
+#loc6 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/device_runner.py":40:15 to :59)
+#loc7 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/device_runner.py":26:15 to :59)
+#loc8 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/utils.py":41:19 to :46)
+#loc9 = loc("/localdev/jameszianxu/tt-xla/tests/infra/comparators/comparator.py":51:39 to :87)
+#loc10 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":129:8 to :53)
+#loc11 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":112:8 to :48)
+#loc12 = loc("JaxComparator._match_data_types.<locals>.<lambda>"(#loc2))
+#loc13 = loc("JaxComparator._match_data_types"(#loc3))
+#loc14 = loc("Workload.execute"(#loc4))
+#loc15 = loc("JaxDeviceRunner._run_on_device"(#loc5))
+#loc16 = loc("DeviceRunner.run_on_device"(#loc6))
+#loc17 = loc("DeviceRunner.run_on_cpu"(#loc7))
+#loc18 = loc("run_on_cpu.<locals>.decorator.<locals>.wrapper"(#loc8))
+#loc19 = loc("Comparator.compare"(#loc9))
+#loc20 = loc("JaxMultichipOpTester.test"(#loc10))
+#loc21 = loc("JaxMultichipOpTester.test_with_random_inputs"(#loc11))
+#loc22 = loc(callsite(#loc20 at #loc21))
+#loc23 = loc(callsite(#loc19 at #loc22))
+#loc24 = loc(callsite(#loc18 at #loc23))
+#loc25 = loc(callsite(#loc17 at #loc24))
+#loc26 = loc(callsite(#loc16 at #loc25))
+#loc27 = loc(callsite(#loc15 at #loc26))
+#loc28 = loc(callsite(#loc14 at #loc27))
+#loc29 = loc(callsite(#loc13 at #loc28))
+#loc30 = loc(callsite(#loc12 at #loc29))
+#loc31 = loc("jit(convert_element_type)/convert_element_type"(#loc30))
+------------------ END OF MLIR MODULE ------------------
+2026-01-05 16:55:46.160 (   3.386s) [        71CD6000]      module_builder.cc:1063     1| MLIR Module shlo_frontend:
+#loc1 = loc("args[0]")
+module @jit_convert_element_type attributes {mhlo.num_partitions = 2 : i32, mhlo.num_replicas = 1 : i32} {
+  func.func public @main(%arg0: tensor<16384x784xf32> {mhlo.sharding = "{devices=[1,2]<=[2]}", ttcore.argument_type = #ttcore.argument_type<input>} loc("args[0]")) -> (tensor<16384x784xf64> {jax.result_info = "result"}) {
+    %0 = stablehlo.convert %arg0 : (tensor<16384x784xf32>) -> tensor<16384x784xf64> loc(#loc31)
+    return %0 : tensor<16384x784xf64> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/tests/infra/comparators/jax_comparator.py":24:16 to :40)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/tests/infra/comparators/jax_comparator.py":22:15 to 29:9)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/workload.py":75:19 to :61)
+#loc5 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/jax_device_runner.py":31:19 to :37)
+#loc6 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/device_runner.py":40:15 to :59)
+#loc7 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/device_runner.py":26:15 to :59)
+#loc8 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/utils.py":41:19 to :46)
+#loc9 = loc("/localdev/jameszianxu/tt-xla/tests/infra/comparators/comparator.py":51:39 to :87)
+#loc10 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":129:8 to :53)
+#loc11 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":112:8 to :48)
+#loc12 = loc("JaxComparator._match_data_types.<locals>.<lambda>"(#loc2))
+#loc13 = loc("JaxComparator._match_data_types"(#loc3))
+#loc14 = loc("Workload.execute"(#loc4))
+#loc15 = loc("JaxDeviceRunner._run_on_device"(#loc5))
+#loc16 = loc("DeviceRunner.run_on_device"(#loc6))
+#loc17 = loc("DeviceRunner.run_on_cpu"(#loc7))
+#loc18 = loc("run_on_cpu.<locals>.decorator.<locals>.wrapper"(#loc8))
+#loc19 = loc("Comparator.compare"(#loc9))
+#loc20 = loc("JaxMultichipOpTester.test"(#loc10))
+#loc21 = loc("JaxMultichipOpTester.test_with_random_inputs"(#loc11))
+#loc22 = loc(callsite(#loc20 at #loc21))
+#loc23 = loc(callsite(#loc19 at #loc22))
+#loc24 = loc(callsite(#loc18 at #loc23))
+#loc25 = loc(callsite(#loc17 at #loc24))
+#loc26 = loc(callsite(#loc16 at #loc25))
+#loc27 = loc(callsite(#loc15 at #loc26))
+#loc28 = loc(callsite(#loc14 at #loc27))
+#loc29 = loc(callsite(#loc13 at #loc28))
+#loc30 = loc(callsite(#loc12 at #loc29))
+#loc31 = loc("jit(convert_element_type)/convert_element_type"(#loc30))
+------------------ END OF MLIR MODULE ------------------
+2026-01-05 16:55:46.165 (   3.390s) [        71CD6000]      module_builder.cc:1063     1| MLIR Module shlo_compiler:
+#loc1 = loc("args[0]")
+module @jit_convert_element_type attributes {mhlo.num_partitions = 2 : i32, mhlo.num_replicas = 1 : i32} {
+  sdy.mesh @mesh = <["x"=1, "y"=2]> loc(#loc)
+  func.func public @main(%arg0: tensor<16384x784xf32> {mhlo.sharding = "{devices=[1,2]<=[2]}", ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<presharded>} loc("args[0]")) -> (tensor<16384x784xf64> {jax.result_info = "result", ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+    %0 = stablehlo.convert %arg0 : (tensor<16384x784xf32>) -> tensor<16384x784xf64> loc(#loc31)
+    return %0 : tensor<16384x784xf64> loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/tests/infra/comparators/jax_comparator.py":24:16 to :40)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/tests/infra/comparators/jax_comparator.py":22:15 to 29:9)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/workload.py":75:19 to :61)
+#loc5 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/jax_device_runner.py":31:19 to :37)
+#loc6 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/device_runner.py":40:15 to :59)
+#loc7 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/device_runner.py":26:15 to :59)
+#loc8 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/utils.py":41:19 to :46)
+#loc9 = loc("/localdev/jameszianxu/tt-xla/tests/infra/comparators/comparator.py":51:39 to :87)
+#loc10 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":129:8 to :53)
+#loc11 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":112:8 to :48)
+#loc12 = loc("JaxComparator._match_data_types.<locals>.<lambda>"(#loc2))
+#loc13 = loc("JaxComparator._match_data_types"(#loc3))
+#loc14 = loc("Workload.execute"(#loc4))
+#loc15 = loc("JaxDeviceRunner._run_on_device"(#loc5))
+#loc16 = loc("DeviceRunner.run_on_device"(#loc6))
+#loc17 = loc("DeviceRunner.run_on_cpu"(#loc7))
+#loc18 = loc("run_on_cpu.<locals>.decorator.<locals>.wrapper"(#loc8))
+#loc19 = loc("Comparator.compare"(#loc9))
+#loc20 = loc("JaxMultichipOpTester.test"(#loc10))
+#loc21 = loc("JaxMultichipOpTester.test_with_random_inputs"(#loc11))
+#loc22 = loc(callsite(#loc20 at #loc21))
+#loc23 = loc(callsite(#loc19 at #loc22))
+#loc24 = loc(callsite(#loc18 at #loc23))
+#loc25 = loc(callsite(#loc17 at #loc24))
+#loc26 = loc(callsite(#loc16 at #loc25))
+#loc27 = loc(callsite(#loc15 at #loc26))
+#loc28 = loc(callsite(#loc14 at #loc27))
+#loc29 = loc(callsite(#loc13 at #loc28))
+#loc30 = loc(callsite(#loc12 at #loc29))
+#loc31 = loc("jit(convert_element_type)/convert_element_type"(#loc30))
+------------------ END OF MLIR MODULE ------------------
+2026-01-05 16:55:46.166 (   3.391s) [        71CD6000]      module_builder.cc:273      1| Cleaning for XLA ingestion
+2026-01-05 16:55:46.169 (   3.394s) [        71CD6000]      module_builder.cc:1063     1| MLIR Module ttir:
+#loc1 = loc("args[0]")
+module @jit_convert_element_type attributes {mhlo.num_partitions = 2 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x2>]>} {
+  ttcore.device_module {
+    builtin.module @jit_convert_element_type attributes {mhlo.num_partitions = 2 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x2>]>} {
+      func.func public @main(%arg0: tensor<16384x784xf32> {mhlo.sharding = "{devices=[1,2]<=[2]}", ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<presharded>} loc("args[0]")) -> (tensor<16384x784xf64> {jax.result_info = "result", ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+        %0 = "ttir.typecast"(%arg0) <{conservative_folding = false}> : (tensor<16384x784xf32>) -> tensor<16384x784xf64> loc(#loc31)
+        return %0 : tensor<16384x784xf64> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+#loc2 = loc("/localdev/jameszianxu/tt-xla/tests/infra/comparators/jax_comparator.py":24:16 to :40)
+#loc3 = loc("/localdev/jameszianxu/tt-xla/tests/infra/comparators/jax_comparator.py":22:15 to 29:9)
+#loc4 = loc("/localdev/jameszianxu/tt-xla/tests/infra/workloads/workload.py":75:19 to :61)
+#loc5 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/jax_device_runner.py":31:19 to :37)
+#loc6 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/device_runner.py":40:15 to :59)
+#loc7 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/device_runner.py":26:15 to :59)
+#loc8 = loc("/localdev/jameszianxu/tt-xla/tests/infra/runners/utils.py":41:19 to :46)
+#loc9 = loc("/localdev/jameszianxu/tt-xla/tests/infra/comparators/comparator.py":51:39 to :87)
+#loc10 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":129:8 to :53)
+#loc11 = loc("/localdev/jameszianxu/tt-xla/tests/infra/testers/multichip/op/jax_multichip_op_tester.py":112:8 to :48)
+#loc12 = loc("JaxComparator._match_data_types.<locals>.<lambda>"(#loc2))
+#loc13 = loc("JaxComparator._match_data_types"(#loc3))
+#loc14 = loc("Workload.execute"(#loc4))
+#loc15 = loc("JaxDeviceRunner._run_on_device"(#loc5))
+#loc16 = loc("DeviceRunner.run_on_device"(#loc6))
+#loc17 = loc("DeviceRunner.run_on_cpu"(#loc7))
+#loc18 = loc("run_on_cpu.<locals>.decorator.<locals>.wrapper"(#loc8))
+#loc19 = loc("Comparator.compare"(#loc9))
+#loc20 = loc("JaxMultichipOpTester.test"(#loc10))
+#loc21 = loc("JaxMultichipOpTester.test_with_random_inputs"(#loc11))
+#loc22 = loc(callsite(#loc20 at #loc21))
+#loc23 = loc(callsite(#loc19 at #loc22))
+#loc24 = loc(callsite(#loc18 at #loc23))
+#loc25 = loc(callsite(#loc17 at #loc24))
+#loc26 = loc(callsite(#loc16 at #loc25))
+#loc27 = loc(callsite(#loc15 at #loc26))
+#loc28 = loc(callsite(#loc14 at #loc27))
+#loc29 = loc(callsite(#loc13 at #loc28))
+#loc30 = loc(callsite(#loc12 at #loc29))
+#loc31 = loc("jit(convert_element_type)/convert_element_type"(#loc30))
+------------------ END OF MLIR MODULE ------------------
+2026-01-05 16:55:46.171 (   3.396s) [        17FFF640]     buffer_instance.cc:425      1| Returning tensor to host with host_runtime_tensors ct = 2 from device 1 with buffer UID 3 and shape [16384, 784]
+2026-01-05 16:55:46.176 (   3.401s) [        4EFFD640]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2026-01-05 16:55:46.195 (   3.421s) [        71CD6000]      module_builder.cc:1063     1| MLIR Module ttnn:
+#dram = #ttnn.buffer_type<dram>
+#loc1 = loc("args[0]")
+#system_desc = #ttcore.system_desc<[{role = host, target_triple = "x86_64-pc-linux"}], [{arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102656, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073168640, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}, {arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 102656, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 32, dram_unreserved_end = 1073177216, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 32, num_compute_threads = 1, num_datamovement_threads = 2}], [0, 1], [1 : i32, 0 : i32], [ 0x0x0x0]>
+#ttnn_layout = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<16384x784xf32, #dram>, <interleaved>>
+#ttnn_layout1 = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<512x25x!ttcore.tile<32x32, f32>, #dram>, <interleaved>>
+module @jit_convert_element_type attributes {mhlo.num_partitions = 2 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x2>]>} {
+  ttcore.device_module {
+    builtin.module @jit_convert_element_type attributes {mhlo.num_partitions = 2 : i32, mhlo.num_replicas = 1 : i32, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x2>]>, ttcore.system_desc = #system_desc} {
+      ttcore.device @default_device = <workerGrid = #ttcore.grid<8x8, (d0, d1) -> (0, d0, d1)>, l1Map = (d0, d1, d2)[s0] -> (0, d0, d1, d2 + s0), dramMap = (d0, d1, d2)[s0, s1, s2, s3, s4, s5, s6] -> (0, 0, (((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) mod 12, ((((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) floordiv 12) * s4 + ((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) mod s4 + s5), meshShape = 1x2, chipIds = [0, 1]> loc(#loc)
+      func.func public @main(%arg0: tensor<16384x784xf32, #ttnn_layout> {mhlo.sharding = "{devices=[1,2]<=[2]}", ttcore.argument_type = #ttcore.argument_type<input>, ttcore.shard_status = #ttcore.shard_status<presharded>} loc("args[0]")) -> (tensor<16384x784xf32, #ttnn_layout1> {jax.result_info = "result", ttcore.shard_status = #ttcore.shard_status<unsharded>}) {
+        %0 = "ttnn.to_layout"(%arg0) <{layout = #ttnn.layout<tile>}> : (tensor<16384x784xf32, #ttnn_layout>) -> tensor<16384x784xf32, #ttnn_layout1> loc(#loc)
+        "ttnn.deallocate"(%arg0) <{force = false}> : (tensor<16384x784xf32, #ttnn_layout>) -> () loc(#loc)
+        return %0 : tensor<16384x784xf32, #ttnn_layout1> loc(#loc)
+      } loc(#loc)
+    } loc(#loc)
+  } loc(#loc)
+} loc(#loc)
+#loc = loc(unknown)
+------------------ END OF MLIR MODULE ------------------
+2026-01-05 16:55:46.202 (   3.427s) [        71CD6000]loaded_executable_insta:290      1| LoadedExecutableInstance::PJRT_LoadedExecutable_GetExecutable
+2026-01-05 16:55:46.202 (   3.427s) [        71CD6000]loaded_executable_insta:309      1| LoadedExecutableInstance::PJRT_LoadedExecutable_AddressableDevices
+2026-01-05 16:55:46.202 (   3.427s) [        71CD6000] executable_instance.cc:261      1| ExecutableInstance::PJRT_Executable_OutputElementTypes
+2026-01-05 16:55:46.202 (   3.427s) [        71CD6000] executable_instance.cc:276      1| ExecutableInstance::PJRT_Executable_OutputDimensions
+2026-01-05 16:55:46.202 (   3.427s) [        71CD6000] executable_instance.cc:297      1| ExecutableImage::PJRT_Executable_OutputMemoryKinds
+2026-01-05 16:55:46.202 (   3.427s) [        71CD6000] executable_instance.cc:84       1| ExecutableInstance::PJRT_Executable_NumReplicas
+2026-01-05 16:55:46.202 (   3.427s) [        71CD6000] executable_instance.cc:245      1| ExecutableInstance::PJRT_Executable_Fingerprint
+2026-01-05 16:55:46.202 (   3.427s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:46.202 (   3.427s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:46.202 (   3.427s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1496):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:46.202 (   3.427s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:46.202 (   3.427s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:46.202 (   3.427s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1496):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:46.205 (   3.430s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:46.205 (   3.430s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:46.205 (   3.430s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1496):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:46.205 (   3.430s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:46.205 (   3.430s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:46.205 (   3.430s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1496):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:46.207 (   3.432s) [        71CD6000] executable_instance.cc:297      1| ExecutableImage::PJRT_Executable_OutputMemoryKinds
+2026-01-05 16:55:46.207 (   3.432s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:46.207 (   3.432s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:46.207 (   3.432s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1496):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:46.207 (   3.432s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:46.207 (   3.432s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:46.207 (   3.432s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1496):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:46.209 (   3.434s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:46.209 (   3.434s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:46.209 (   3.434s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1496):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:46.209 (   3.434s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:46.209 (   3.434s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:46.209 (   3.434s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1496):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:46.210 (   3.435s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:46.210 (   3.435s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:46.210 (   3.435s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1496):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:46.210 (   3.435s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:46.210 (   3.435s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:46.210 (   3.435s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1496):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:46.212 (   3.437s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:46.212 (   3.437s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:46.212 (   3.437s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1496):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:46.212 (   3.437s) [        71CD6000] executable_instance.cc:110      1| ExecutableInstance::PJRT_Executable_OptimizedProgram
+2026-01-05 16:55:46.212 (   3.437s) [        71CD6000] executable_instance.cc:147      1| USE_SANITIZED_EMITHLO_IR=1, using sanitized MLIR code
+2026-01-05 16:55:46.212 (   3.437s) [        71CD6000] executable_instance.cc:196      1| Literal MLIR code (size=1496):
+MLÔRStableHLO_v1.13.0
+2026-01-05 16:55:46.214 (   3.439s) [        71CD6000]     buffer_instance.cc:638      1| BufferInstance::PJRT_Buffer_IsDeleted
+2026-01-05 16:55:46.214 (   3.439s) [        71CD6000] executable_instance.cc:219      1| ExecutableInstance::PJRT_Executable_NumOutputs
+2026-01-05 16:55:46.214 (   3.439s) [        71CD6000]loaded_executable_insta:345      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Execute
+2026-01-05 16:55:46.214 (   3.439s) [        71CD6000]flatbuffer_loaded_execu:260      1| FlatbufferLoadedExecutableInstance::Execute
+2026-01-05 16:55:46.214 (   3.439s) [        71CD6000]     client_instance.cc:423      1| ClientInstance::getOrCreateMeshDevice - reusing already opened mesh device [1, 2]
+2026-01-05 16:55:46.214 (   3.439s) [        71CD6000]flatbuffer_loaded_execu:108      1| Re-laying out already prepared input tensor for argument index 0 with shape [16384, 784].
+2026-01-05 16:55:46.288 (   3.513s) [        71CD6000]flatbuffer_loaded_execu:195      1| Filled output at output_index 0 device_index 0 with shape [16384, 784] and UID 4
+2026-01-05 16:55:46.288 (   3.513s) [        71CD6000]flatbuffer_loaded_execu:195      1| Filled output at output_index 0 device_index 1 with shape [16384, 784] and UID 5
+2026-01-05 16:55:46.288 (   3.513s) [        71CD6000]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2026-01-05 16:55:46.288 (   3.513s) [        71CD6000]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2026-01-05 16:55:46.288 (   3.513s) [        71CD6000]      event_instance.cc:223      1| EventInstance::PJRT_Event_OnReady
+2026-01-05 16:55:46.288 (   3.513s) [        71CD6000]      event_instance.cc:172      1| EventInstance::PJRT_Event_Destroy
+2026-01-05 16:55:46.288 (   3.513s) [        71CD6000]     buffer_instance.cc:553      1| BufferInstance::PJRT_Buffer_Dimensions
+2026-01-05 16:55:46.288 (   3.513s) [        71CD6000]     buffer_instance.cc:698      1| BufferInstance::PJRT_Buffer_Memory
+2026-01-05 16:55:46.288 (   3.513s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:46.288 (   3.513s) [        71CD6000]     buffer_instance.cc:690      1| BufferInstance::PJRT_Buffer_Device
+2026-01-05 16:55:46.288 (   3.513s) [        71CD6000]     buffer_instance.cc:690      1| BufferInstance::PJRT_Buffer_Device
+2026-01-05 16:55:46.288 (   3.513s) [        71CD6000]     buffer_instance.cc:698      1| BufferInstance::PJRT_Buffer_Memory
+2026-01-05 16:55:46.288 (   3.513s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:46.288 (   3.513s) [        71CD6000]     buffer_instance.cc:690      1| BufferInstance::PJRT_Buffer_Device
+2026-01-05 16:55:46.288 (   3.513s) [        71CD6000]     buffer_instance.cc:698      1| BufferInstance::PJRT_Buffer_Memory
+2026-01-05 16:55:46.288 (   3.513s) [        71CD6000]     memory_instance.cc:84       1| MemoryInstance::PJRT_Memory_Kind
+2026-01-05 16:55:46.297193: W external/xla/xla/service/sharding_propagation.cc:3120] GSPMD sharding propagation is going to be deprecated and not supported in the future. Please consider migrating to Shardy (https://openxla.org/shardy). For reference, Shardy is already the default partitioner in JAX.
+2026-01-05 16:55:46.349 (   3.574s) [        71CD6000]     buffer_instance.cc:638      1| BufferInstance::PJRT_Buffer_IsDeleted
+Using PJRT plugin directory from environment variable: /localdev/jameszianxu/tt-xla/python_package/pjrt_plugin_tt
+Using TT-Metal path from environment variable: /localdev/jameszianxu/tt-xla/third_party/tt-mlir/src/tt-mlir/third_party/tt-metal/src/tt-metal
+Device output: FAILED
+
+=================================== FAILURES ===================================
+_ test_all_gather[ShardingMode.INPUTS_AND_MODULE-x_shape0-mesh_shape0-axis_names0-False] _
+
+use_shardy = False, x_shape = (8192, 784), mesh_shape = (1, 2)
+axis_names = ('batch', 'model')
+sharding_mode = <ShardingMode.INPUTS_AND_MODULE: 1>
+
+    @pytest.mark.nightly
+    @pytest.mark.push
+    @pytest.mark.parametrize(
+        "use_shardy",
+        [
+            True,
+            False,
+        ],
+    )
+    @pytest.mark.parametrize(
+        ("x_shape", "mesh_shape", "axis_names"), [((8192, 784), (1, 2), ("batch", "model"))]
+    )
+    # Cannot use ShardingMode.INPUTS because it does not define axis names and we are using jax.lax.all_gather
+    @pytest.mark.parametrize(
+        "sharding_mode",
+        [
+            ShardingMode.INPUTS_AND_MODULE,
+            pytest.param(
+                ShardingMode.MODULE,
+                marks=pytest.mark.xfail(
+                    reason=failed_fe_compilation(
+                        "Cannot get sharding information through the protobuf "
+                        "(https://github.com/tenstorrent/tt-xla/issues/277)"
+                    )
+                ),
+            ),
+        ],
+    )
+    def test_all_gather(
+        use_shardy: bool,
+        x_shape: tuple,
+        mesh_shape: tuple,
+        axis_names: tuple,
+        sharding_mode: ShardingMode,
+    ):
+        def fwd(batch):
+            act = jax.lax.all_gather(batch, axis_names[1], axis=0, tiled=True)
+            return act
+    
+        in_specs = (make_partition_spec(axis_names),)
+        out_specs = make_partition_spec(axis_names)
+    
+>       run_jax_multichip_op_test_with_random_inputs(
+            fwd,
+            [x_shape],
+            mesh_shape,
+            axis_names,
+            in_specs,
+            out_specs,
+            use_shardy,
+            sharding_mode,
+        )
+
+tests/jax/multi_chip/n300/ops/data_parallel/batch_sharded/test_all_gather.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/infra/testers/multichip/op/jax_multichip_op_tester.py:247: in run_jax_multichip_op_test_with_random_inputs
+    tester.test_with_random_inputs(
+tests/infra/testers/multichip/op/jax_multichip_op_tester.py:112: in test_with_random_inputs
+    self.test(device_workload, cpu_workload)
+tests/infra/testers/multichip/op/jax_multichip_op_tester.py:129: in test
+    self._comparator.compare(device_res, cpu_res)
+tests/infra/comparators/comparator.py:61: in compare
+    _comparison_result.equal = self._compare_equal(device_output, golden_output)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/infra/runners/utils.py:41: in wrapper
+    return runner.run_on_cpu(workload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/infra/runners/device_runner.py:26: in run_on_cpu
+    return self.run_on_device(workload, DeviceType.CPU)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/infra/runners/device_runner.py:40: in run_on_device
+    return self._run_on_device(device_workload, device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/infra/runners/jax_device_runner.py:31: in _run_on_device
+    return workload.execute()
+           ^^^^^^^^^^^^^^^^^^
+tests/infra/workloads/workload.py:75: in execute
+    return self.executable(*self.args, **self.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/infra/comparators/jax_comparator.py:35: in _compare_equal
+    print("Device output:", device_output)
+/usr/local/lib/python3.11/dist-packages/jax/_src/array.py:298: in __str__
+    return str(self._value)
+               ^^^^^^^^^^^
+/usr/local/lib/python3.11/dist-packages/jax/_src/profiler.py:364: in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.11/dist-packages/jax/_src/array.py:642: in _value
+    if (self.is_fully_replicated and
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <[AttributeError("'UnspecifiedValue' object has no attribute 'is_fully_addressable'") raised in repr()] ArrayImpl object at 0x29aded70>
+
+    @property
+    def is_fully_replicated(self) -> bool:
+>     return self.sharding.is_fully_replicated
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E     AttributeError: 'UnspecifiedValue' object has no attribute 'is_fully_replicated'
+
+/usr/local/lib/python3.11/dist-packages/jax/_src/array.py:402: AttributeError
+------------------------------ Captured log call -------------------------------
+WARNING  jax._src.xla_bridge:xla_bridge.py:893 Platform 'tt' is experimental and not all JAX functionality may be correctly supported!
+=========================== short test summary info ============================
+FAILED tests/jax/multi_chip/n300/ops/data_parallel/batch_sharded/test_all_gather.py::test_all_gather[ShardingMode.INPUTS_AND_MODULE-x_shape0-mesh_shape0-axis_names0-False] - AttributeError: 'UnspecifiedValue' object has no attribute 'is_fully_replicated'
+============================== 1 failed in 4.04s ===============================
+2026-01-05 16:55:47.820 (   5.045s) [        71CD6000] executable_instance.cc:62       1| ExecutableInstance::PJRT_Executable_Destroy
+2026-01-05 16:55:47.820 (   5.045s) [        71CD6000]loaded_executable_insta:280      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Destroy
+2026-01-05 16:55:47.820 (   5.045s) [        71CD6000]loaded_executable_insta:46       1| Clearing program cache.
+2026-01-05 16:55:47.822 (   5.047s) [        71CD6000] executable_instance.cc:62       1| ExecutableInstance::PJRT_Executable_Destroy
+2026-01-05 16:55:47.822 (   5.047s) [        71CD6000]loaded_executable_insta:280      1| LoadedExecutableInstance::PJRT_LoadedExecutable_Destroy
+2026-01-05 16:55:47.822 (   5.047s) [        71CD6000]loaded_executable_insta:46       1| Clearing program cache.
+2026-01-05 16:55:48.359 (   5.584s) [        71CD6000]     buffer_instance.cc:537      1| BufferInstance::PJRT_Buffer_Destroy
+2026-01-05 16:55:48.359 (   5.584s) [        71CD6000]     buffer_instance.cc:537      1| BufferInstance::PJRT_Buffer_Destroy
+2026-01-05 16:55:48.369 (   5.594s) [        71CD6000]     buffer_instance.cc:537      1| BufferInstance::PJRT_Buffer_Destroy
+2026-01-05 16:55:48.369 (   5.594s) [        71CD6000]     buffer_instance.cc:537      1| BufferInstance::PJRT_Buffer_Destroy
+2026-01-05 16:55:48.775 (   6.000s) [        71CD6000]     client_instance.cc:577      1| ClientInstance::PJRT_Client_Destroy
+2026-01-05 16:55:48.775 (   6.000s) [        71CD6000]     client_instance.cc:192      1| ClientInstance::~ClientInstance
+2026-01-05 16:55:48.775 (   6.000s) [        71CD6000]     client_instance.cc:506      1| Closing parent mesh.
