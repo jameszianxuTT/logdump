@@ -1,0 +1,109 @@
+ tt-run --mpi-args "--allow-run-as-root --tag-output --host 10.250.36.201,10.250.36.212 --map-by rankfile:file=tests/scale_out/4x_bh_quietbox/rankfile/2x4.txt --mca btl self,tcp --mca btl_tcp_if_include enp10s0f1np1" --rank-binding tests/scale_out/4x_bh_quietbox/rank_bindings/2x4.yaml bash -c "./build/tools/scaleout/run_cluster_validation --hard-fail --cabling-descriptor-path tests/scale_out/4x_bh_quietbox/cabling_descriptors/2x_bh_quietbox.textproto --deployment-descriptor-path tests/scale_out/4x_bh_quietbox/deployment_descriptors/2x_bh_qb_p150_deployment.textproto"
+2026-01-12 20:56:56.131 | DEBUG    | ttnn:<module>:77 - Initial ttnn.CONFIG:
+Config{cache_path=/home/ttuser/.cache/ttnn,model_cache_path=/home/ttuser/.cache/ttnn/models,tmp_dir=/tmp/ttnn,enable_model_cache=false,enable_fast_runtime_mode=true,throw_exception_on_fallback=false,enable_logging=false,enable_graph_report=false,enable_detailed_buffer_report=false,enable_detailed_tensor_report=false,enable_comparison_mode=false,comparison_mode_should_raise_exception=false,comparison_mode_pcc=0.9999,root_report_path=generated/ttnn/reports,report_name=std::nullopt,std::nullopt}
+[1,0]<stdout>: 2026-01-12 20:56:59.694 | info     |     Distributed | Generating System Validation Logs in /home/ttuser/tt-metal/cluster_validation_logs/20260112_205658 (cluster_validation_utils.cpp:80)
+[1,0]<stdout>: 2026-01-12 20:56:59.694 | info     |     Distributed | Running Physical Discovery (cluster_validation_utils.cpp:80)
+[1,0]<stdout>: 2026-01-12 20:56:59.695 | info     |     Distributed | Physical Discovery Complete (cluster_validation_utils.cpp:80)
+[1,0]<stdout>: 2026-01-12 20:56:59.695 | info     |     Distributed | Detected Hosts: forge-qbae-01, forge-qbae-02,  (cluster_validation_utils.cpp:80)
+[1,0]<stdout>: 2026-01-12 20:56:59.695 | info     |     Distributed | Creating Factory System Descriptor (Golden Representation) (cluster_validation_utils.cpp:80)
+[1,0]<stdout>: 2026-01-12 20:56:59.697 | info     |     Distributed | Validating Factory System Descriptor (Golden Representation) against Global System Descriptor (in-memory) (cluster_validation_utils.cpp:80)
+[1,1]<stderr>: terminate called after throwing an instance of 'std::runtime_error'
+[1,1]<stderr>:   what():  Connection mismatch detected. Check console output for details.
+[1,1]<stderr>: [forge-qbae-01:02772] *** Process received signal ***
+[1,1]<stderr>: [forge-qbae-01:02772] Signal: Aborted (6)
+[1,1]<stderr>: [forge-qbae-01:02772] Signal code:  (-6)
+[1,1]<stderr>: [forge-qbae-01:02772] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x763244a42520]
+[1,1]<stderr>: [forge-qbae-01:02772] [ 1] /lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x763244a969fc]
+[1,0]<stdout>: Physical Discovery found 32 missing channel connections:
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=1, asic_channel=AsicChannel{asic_location=0, channel_id=4}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=1, asic_channel=AsicChannel{asic_location=0, channel_id=4}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=1, asic_channel=AsicChannel{asic_location=0, channel_id=5}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=2, asic_channel=AsicChannel{asic_location=0, channel_id=5}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=1, asic_channel=AsicChannel{asic_location=0, channel_id=6}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=1, asic_channel=AsicChannel{asic_location=0, channel_id=6}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=1, asic_channel=AsicChannel{asic_location=0, channel_id=7}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=2, asic_channel=AsicChannel{asic_location=0, channel_id=7}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=1, asic_channel=AsicChannel{asic_location=0, channel_id=8}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=4, asic_channel=AsicChannel{asic_location=0, channel_id=8}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=1, asic_channel=AsicChannel{asic_location=0, channel_id=9}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=1, asic_channel=AsicChannel{asic_location=0, channel_id=9}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=1, asic_channel=AsicChannel{asic_location=0, channel_id=10}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=4, asic_channel=AsicChannel{asic_location=0, channel_id=10}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=1, asic_channel=AsicChannel{asic_location=0, channel_id=11}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=1, asic_channel=AsicChannel{asic_location=0, channel_id=11}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=2, asic_channel=AsicChannel{asic_location=0, channel_id=4}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=2, asic_channel=AsicChannel{asic_location=0, channel_id=4}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=2, asic_channel=AsicChannel{asic_location=0, channel_id=6}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=2, asic_channel=AsicChannel{asic_location=0, channel_id=6}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=2, asic_channel=AsicChannel{asic_location=0, channel_id=8}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=3, asic_channel=AsicChannel{asic_location=0, channel_id=8}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=2, asic_channel=AsicChannel{asic_location=0, channel_id=9}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=2, asic_channel=AsicChannel{asic_location=0, channel_id=9}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=2, asic_channel=AsicChannel{asic_location=0, channel_id=10}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=3, asic_channel=AsicChannel{asic_location=0, channel_id=10}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=2, asic_channel=AsicChannel{asic_location=0, channel_id=11}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=2, asic_channel=AsicChannel{asic_location=0, channel_id=11}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=3, asic_channel=AsicChannel{asic_location=0, channel_id=4}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=3, asic_channel=AsicChannel{asic_location=0, channel_id=4}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=3, asic_channel=AsicChannel{asic_location=0, channel_id=5}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=4, asic_channel=AsicChannel{asic_location=0, channel_id=5}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=3, asic_channel=AsicChannel{asic_location=0, channel_id=6}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=3, asic_channel=AsicChannel{asic_location=0, channel_id=6}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=3, asic_channel=AsicChannel{asic_location=0, channel_id=7}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=4, asic_channel=AsicChannel{asic_location=0, channel_id=7}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=3, asic_channel=AsicChannel{asic_location=0, channel_id=9}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=3, asic_channel=AsicChannel{asic_location=0, channel_id=9}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=3, asic_channel=AsicChannel{asic_location=0, channel_id=11}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=3, asic_channel=AsicChannel{asic_location=0, channel_id=11}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=4, asic_channel=AsicChannel{asic_location=0, channel_id=4}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=4, asic_channel=AsicChannel{asic_location=0, channel_id=4}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=4, asic_channel=AsicChannel{asic_location=0, channel_id=6}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=4, asic_channel=AsicChannel{asic_location=0, channel_id=6}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=4, asic_channel=AsicChannel{asic_location=0, channel_id=9}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=4, asic_channel=AsicChannel{asic_location=0, channel_id=9}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-01', tray_id=4, asic_channel=AsicChannel{asic_location=0, channel_id=11}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=4, asic_channel=AsicChannel{asic_location=0, channel_id=11}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=1, asic_channel=AsicChannel{asic_location=0, channel_id=5}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=2, asic_channel=AsicChannel{asic_location=0, channel_id=5}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=1, asic_channel=AsicChannel{asic_location=0, channel_id=7}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=2, asic_channel=AsicChannel{asic_location=0, channel_id=7}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=1, asic_channel=AsicChannel{asic_location=0, channel_id=8}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=4, asic_channel=AsicChannel{asic_location=0, channel_id=8}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=1, asic_channel=AsicChannel{asic_location=0, channel_id=10}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=4, asic_channel=AsicChannel{asic_location=0, channel_id=10}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=2, asic_channel=AsicChannel{asic_location=0, channel_id=8}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=3, asic_channel=AsicChannel{asic_location=0, channel_id=8}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=2, asic_channel=AsicChannel{asic_location=0, channel_id=10}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=3, asic_channel=AsicChannel{asic_location=0, channel_id=10}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=3, asic_channel=AsicChannel{asic_location=0, channel_id=5}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=4, asic_channel=AsicChannel{asic_location=0, channel_id=5}}
+[1,0]<stdout>:   - PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=3, asic_channel=AsicChannel{asic_location=0, channel_id=7}} <-> PhysicalChannelEndpoint{hostname='forge-qbae-02', tray_id=4, asic_channel=AsicChannel{asic_location=0, channel_id=7}}
+[1,0]<stdout>:
+[1,0]<stdout>: Physical Discovery found 16 missing port/cable connections:
+[1,0]<stdout>:   - PhysicalPortEndpoint{hostname='forge-qbae-01', aisle='A', rack=1, shelf_u=30, tray_id=1, port_type=QSFP_DD, port_id=1} <-> PhysicalPortEndpoint{hostname='forge-qbae-02', aisle='A', rack=1, shelf_u=40, tray_id=1, port_type=QSFP_DD, port_id=1}
+[1,0]<stdout>:   - PhysicalPortEndpoint{hostname='forge-qbae-01', aisle='A', rack=1, shelf_u=30, tray_id=1, port_type=QSFP_DD, port_id=2} <-> PhysicalPortEndpoint{hostname='forge-qbae-01', aisle='A', rack=1, shelf_u=30, tray_id=4, port_type=QSFP_DD, port_id=2}
+[1,0]<stdout>:   - PhysicalPortEndpoint{hostname='forge-qbae-01', aisle='A', rack=1, shelf_u=30, tray_id=1, port_type=QSFP_DD, port_id=3} <-> PhysicalPortEndpoint{hostname='forge-qbae-01', aisle='A', rack=1, shelf_u=30, tray_id=2, port_type=QSFP_DD, port_id=3}
+[1,0]<stdout>:   - PhysicalPortEndpoint{hostname='forge-qbae-01', aisle='A', rack=1, shelf_u=30, tray_id=1, port_type=QSFP_DD, port_id=4} <-> PhysicalPortEndpoint{hostname='forge-qbae-02', aisle='A', rack=1, shelf_u=40, tray_id=1, port_type=QSFP_DD, port_id=4}
+[1,0]<stdout>:   - PhysicalPortEndpoint{hostname='forge-qbae-01', aisle='A', rack=1, shelf_u=30, tray_id=2, port_type=QSFP_DD, port_id=1} <-> PhysicalPortEndpoint{hostname='forge-qbae-02', aisle='A', rack=1, shelf_u=40, tray_id=2, port_type=QSFP_DD, port_id=1}
+[1,0]<stdout>:   - PhysicalPortEndpoint{hostname='forge-qbae-01', aisle='A', rack=1, shelf_u=30, tray_id=2, port_type=QSFP_DD, port_id=2} <-> PhysicalPortEndpoint{hostname='forge-qbae-01', aisle='A', rack=1, shelf_u=30, tray_id=3, port_type=QSFP_DD, port_id=2}
+[1,0]<stdout>:   - PhysicalPortEndpoint{hostname='forge-qbae-01', aisle='A', rack=1, shelf_u=30, tray_id=2, port_type=QSFP_DD, port_id=4} <-> PhysicalPortEndpoint{hostname='forge-qbae-02', aisle='A', rack=1, shelf_u=40, tray_id=2, port_type=QSFP_DD, port_id=4}
+[1,0]<stdout>:   - PhysicalPortEndpoint{hostname='forge-qbae-01', aisle='A', rack=1, shelf_u=30, tray_id=3, port_type=QSFP_DD, port_id=1} <-> PhysicalPortEndpoint{hostname='forge-qbae-02', aisle='A', rack=1, shelf_u=40, tray_id=3, port_type=QSFP_DD, port_id=1}
+[1,0]<stdout>:   - PhysicalPortEndpoint{hostname='forge-qbae-01', aisle='A', rack=1, shelf_u=30, tray_id=3, port_type=QSFP_DD, port_id=3} <-> PhysicalPortEndpoint{hostname='forge-qbae-01', aisle='A', rack=1, shelf_u=30, tray_id=4, port_type=QSFP_DD, port_id=3}
+[1,0]<stdout>:   - PhysicalPortEndpoint{hostname='forge-qbae-01', aisle='A', rack=1, shelf_u=30, tray_id=3, port_type=QSFP_DD, port_id=4} <-> PhysicalPortEndpoint{hostname='forge-qbae-02', aisle='A', rack=1, shelf_u=40, tray_id=3, port_type=QSFP_DD, port_id=4}
+[1,0]<stdout>:   - PhysicalPortEndpoint{hostname='forge-qbae-01', aisle='A', rack=1, shelf_u=30, tray_id=4, port_type=QSFP_DD, port_id=1} <-> PhysicalPortEndpoint{hostname='forge-qbae-02', aisle='A', rack=1, shelf_u=40, tray_id=4, port_type=QSFP_DD, port_id=1}
+[1,0]<stdout>:   - PhysicalPortEndpoint{hostname='forge-qbae-01', aisle='A', rack=1, shelf_u=30, tray_id=4, port_type=QSFP_DD, port_id=4} <-> PhysicalPortEndpoint{hostname='forge-qbae-02', aisle='A', rack=1, shelf_u=40, tray_id=4, port_type=QSFP_DD, port_id=4}
+[1,0]<stdout>:   - PhysicalPortEndpoint{hostname='forge-qbae-02', aisle='A', rack=1, shelf_u=40, tray_id=1, port_type=QSFP_DD, port_id=2} <-> PhysicalPortEndpoint{hostname='forge-qbae-02', aisle='A', rack=1, shelf_u=40, tray_id=4, port_type=QSFP_DD, port_id=2}
+[1,0]<stdout>:   - PhysicalPortEndpoint{hostname='forge-qbae-02', aisle='A', rack=1, shelf_u=40, tray_id=1, port_type=QSFP_DD, port_id=3} <-> PhysicalPortEndpoint{hostname='forge-qbae-02', aisle='A', rack=1, shelf_u=40, tray_id=2, port_type=QSFP_DD, port_id=3}
+[1,0]<stdout>:   - PhysicalPortEndpoint{hostname='forge-qbae-02', aisle='A', rack=1, shelf_u=40, tray_id=2, port_type=QSFP_DD, port_id=2} <-> PhysicalPortEndpoint{hostname='forge-qbae-02', aisle='A', rack=1, shelf_u=40, tray_id=3, port_type=QSFP_DD, port_id=2}
+[1,0]<stdout>:   - PhysicalPortEndpoint{hostname='forge-qbae-02', aisle='A', rack=1, shelf_u=40, tray_id=3, port_type=QSFP_DD, port_id=3} <-> PhysicalPortEndpoint{hostname='forge-qbae-02', aisle='A', rack=1, shelf_u=40, tray_id=4, port_type=QSFP_DD, port_id=3}
+[1,0]<stdout>:
+[1,1]<stderr>: [forge-qbae-01:02772] [ 2] /lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x763244a42476]
+[1,1]<stderr>: [forge-qbae-01:02772] [ 3] /lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x763244a287f3]
+[1,1]<stderr>: [forge-qbae-01:02772] [ 4] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xa2b9e)[0x763244ea2b9e]
+[1,1]<stderr>: [forge-qbae-01:02772] [ 5] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xae20c)[0x763244eae20c]
+[1,1]<stderr>: [forge-qbae-01:02772] [ 6] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xae277)[0x763244eae277]
+[1,0]<stderr>: [forge-qbae-01:02772] [ 7] terminate called after throwing an instance of 'std::runtime_error'
+[1,1]<stderr>: /lib/x86_64-linux-gnu/libstdc++.so.6(+0xae4d8)[0x763244eae4d8]
+[1,0]<stderr>: [forge-qbae-01:02772] [ 8]   what():  Connection mismatch detected. Check console output for details.
+[1,0]<stderr>: [forge-qbae-02:02814] *** Process received signal ***
+[1,0]<stderr>: [forge-qbae-02:02814] Signal: Aborted (6)
+[1,0]<stderr>: [forge-qbae-02:02814] Signal code:  (-6)
+[1,1]<stderr>: /home/ttuser/tt-metal/build_Release/tt_metal/libtt_metal.so(_ZN2tt14scaleout_tools29validate_fsd_against_gsd_implERKNS0_3fsd5proto23FactorySystemDescriptorERKN4YAML4NodeEbbbSt8optionalIjE+0xb022)[0x763246191442]
+[1,0]<stderr>: [forge-qbae-01:02772] [ 9] [forge-qbae-02:02814] [ 0] /lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x7c12a2c42520]
+[1,1]<stderr>: [forge-qbae-02:02814] [ 1] /home/ttuser/tt-metal/build_Release/tt_metal/libtt_metal.so(_ZN2tt14scaleout_tools24validate_fsd_against_gsdERKNS0_3fsd5proto23FactorySystemDescriptorERKN4YAML4NodeEbbbSt8optionalIjE+0x16)[0x763246194576]
+[1,0]<stderr>: [forge-qbae-01:02772] [10] /lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7c12a2c969fc]
+[1,1]<stderr>: [forge-qbae-02:02814] [ 2] ./build/tools/scaleout/run_cluster_validation(_ZN2tt14scaleout_tools21validate_connectivityERKNS0_3fsd5proto23FactorySystemDescriptorERKN4YAML4NodeEbRNS_8tt_metal24PhysicalSystemDescriptorESt8optionalIjE+0xdc)[0x63083bee436c]
+[1,1]<stderr>: [forge-qbae-01:02772] [11] ./build/tools/scaleout/run_cluster_validation(_ZN2tt14scaleout_tools27run_connectivity_validationERKNS0_9InputArgsERNS_8tt_metal24PhysicalSystemDescriptorE+0xe6)[0x63083be72c06]
+[1,0]<stderr>: [forge-qbae-01:02772] [12] /lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x7c12a2c42476]
+[1,1]<stderr>: [forge-qbae-02:02814] [ 3] ./build/tools/scaleout/run_cluster_validation(main+0xee)[0x63083be7328e]
+[1,1]<stderr>: [forge-qbae-01:02772] [13] /lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x763244a29d90]
+[1,1]<stderr>: [forge-qbae-01:02772] [14] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x763244a29e40]
+[1,0]<stderr>: [forge-qbae-01:02772] /lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7c12a2c287f3]
+[1,1]<stderr>: [forge-qbae-02:02814] [ 4] [15] ./build/tools/scaleout/run_cluster_validation(_start+0x25)[0x63083be69f45]
+[1,1]<stderr>: [forge-qbae-01:02772] *** End of error message ***
+[1,0]<stderr>: /lib/x86_64-linux-gnu/libstdc++.so.6(+0xa2b9e)[0x7c12a30a2b9e]
+[1,0]<stderr>: [forge-qbae-02:02814] [ 5] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xae20c)[0x7c12a30ae20c]
+[1,0]<stderr>: [forge-qbae-02:02814] [ 6] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xae277)[0x7c12a30ae277]
+[1,0]<stderr>: [forge-qbae-02:02814] [ 7] /lib/x86_64-linux-gnu/libstdc++.so.6(+0xae4d8)[0x7c12a30ae4d8]
+[1,0]<stderr>: [forge-qbae-02:02814] [ 8] /home/ttuser/tt-metal/build_Release/tt_metal/libtt_metal.so(_ZN2tt14scaleout_tools29validate_fsd_against_gsd_implERKNS0_3fsd5proto23FactorySystemDescriptorERKN4YAML4NodeEbbbSt8optionalIjE+0xb022)[0x7c12a4391442]
+[1,0]<stderr>: [forge-qbae-02:02814] [ 9] /home/ttuser/tt-metal/build_Release/tt_metal/libtt_metal.so(_ZN2tt14scaleout_tools24validate_fsd_against_gsdERKNS0_3fsd5proto23FactorySystemDescriptorERKN4YAML4NodeEbbbSt8optionalIjE+0x16)[0x7c12a4394576]
+[1,0]<stderr>: [forge-qbae-02:02814] [10] ./build/tools/scaleout/run_cluster_validation(_ZN2tt14scaleout_tools21validate_connectivityERKNS0_3fsd5proto23FactorySystemDescriptorERKN4YAML4NodeEbRNS_8tt_metal24PhysicalSystemDescriptorESt8optionalIjE+0xdc)[0x5e094e81636c]
+[1,0]<stderr>: [forge-qbae-02:02814] [11] ./build/tools/scaleout/run_cluster_validation(_ZN2tt14scaleout_tools27run_connectivity_validationERKNS0_9InputArgsERNS_8tt_metal24PhysicalSystemDescriptorE+0xe6)[0x5e094e7a4c06]
+[1,0]<stderr>: [forge-qbae-02:02814] [12] ./build/tools/scaleout/run_cluster_validation(main+0xee)[0x5e094e7a528e]
+[1,0]<stderr>: [forge-qbae-02:02814] [13] /lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x7c12a2c29d90]
+[1,0]<stderr>: [forge-qbae-02:02814] [14] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x7c12a2c29e40]
+[1,0]<stderr>: [forge-qbae-02:02814] [15] ./build/tools/scaleout/run_cluster_validation(_start+0x25)[0x5e094e79bf45]
+[1,0]<stderr>: [forge-qbae-02:02814] *** End of error message ***
+--------------------------------------------------------------------------
+prterun noticed that process rank 1 with PID 2772 on node forge-qbae-01 exited on
+signal 6 (Aborted).
+--------------------------------------------------------------------------
