@@ -1,0 +1,464 @@
+# Disk-Offloaded Tensor Transfer to XLA Devices
+
+## Problem Statement
+
+**Question:** If a PyTorch tensor is backed by disk storage (e.g., via `torch.from_file()` with memory mapping), will TorchXLA force a copy into RAM before transferring to the XLA device?
+
+**Use Case:** Host memory constrained systems that want to stream data directly from disk to device memory without intermediate RAM buffering.
+
+---
+
+## Current Implementation Analysis
+
+### The Bad News: YES, TorchXLA Currently Forces RAM Copy
+
+**File:** `torch_xla/csrc/runtime/tensor_source.h:63-67`
+
+```cpp
+tensor_ = std::move(
+    tensor.to(at::TensorOptions().device(at::kCPU).dtype(target_torch_type),
+              /*non_blocking=*/false,
+              /*copy=*/false, at::MemoryFormat::Contiguous));
+```
+
+**Critical Issue:** Line 69 calls `tensor_.const_data_ptr()`
+
+```cpp
+const void* data() const override { return tensor_.const_data_ptr(); }
+```
+
+### Why This Forces RAM Copy for Disk-Backed Tensors
+
+1. **PyTorch's `.to()` Call (line 64):**
+   - Even with `copy=false`, PyTorch may need to create a contiguous CPU tensor
+   - If the original tensor is memory-mapped from disk, `.to(..., at::MemoryFormat::Contiguous)` will:
+     - **Page in the entire tensor from disk to RAM** (via mmap page faults)
+     - May create a new contiguous buffer if the original has non-standard strides
+
+2. **Calling `.const_data_ptr()` (line 69):**
+   - This returns a `const void*` pointer to the tensor's backing storage
+   - For memory-mapped tensors, accessing this pointer triggers **full materialization** in RAM
+   - The OS will page in all memory-mapped pages when PJRT reads from this pointer
+
+3. **PJRT's `BufferFromHostBuffer` (pjrt_computation_client.cpp:280-288):**
+   - Expects a `const void*` pointer to contiguous host memory
+   - Reads the entire buffer during async transfer
+   - **No streaming or chunked transfer support in current TorchXLA implementation**
+
+### The Transfer Path
+
+```
+Disk-Backed Tensor (mmap)
+    ↓
+.to(CPU, Contiguous) → Pages faulted into RAM
+    ↓
+tensor_.const_data_ptr() → Full RAM materialization
+    ↓
+AtenSource::data() → Returns RAM pointer
+    ↓
+BufferFromHostBuffer() → Reads from RAM, copies to device
+    ↓
+Device Memory
+```
+
+**Result:** The entire tensor must be resident in RAM during the transfer, defeating the purpose of disk offloading.
+
+---
+
+## Root Causes
+
+### 1. AtenSource Design Assumes RAM-Resident Tensors
+
+**File:** `torch_xla/csrc/runtime/tensor_source.h:52-89`
+
+The `AtenSource` class:
+- Stores an `at::Tensor` member that must be contiguous
+- Returns a raw pointer via `data()` method
+- No support for streaming or chunked transfers
+
+### 2. PJRT BufferFromHostBuffer API Limitation
+
+**File:** `xla/xla/pjrt/pjrt_client.h:954-961`
+
+```cpp
+virtual absl::StatusOr<std::unique_ptr<PjRtBuffer>> BufferFromHostBuffer(
+    const void* data, PrimitiveType type, absl::Span<int64_t const> dims,
+    std::optional<absl::Span<int64_t const>> byte_strides,
+    HostBufferSemantics host_buffer_semantics,
+    absl::AnyInvocable<void() &&> on_done_with_host_buffer,
+    PjRtMemorySpace* memory_space, const Layout* device_layout)
+```
+
+This API:
+- Requires a single contiguous `const void* data` pointer
+- Reads the entire buffer (potentially triggering all page faults at once)
+- No built-in streaming or chunked transfer mechanism in the signature
+
+### 3. No TensorSource Subclass for Streaming
+
+Current `TensorSource` subclasses:
+- `AtenSource`: Wraps `at::Tensor`, assumes RAM-resident
+- `LiteralSource`: Wraps `xla::Literal`, also RAM-resident
+
+**No streaming source exists** that could read chunks from disk incrementally.
+
+---
+
+## Potential Solutions
+
+### Solution 1: Implement Custom StreamingTensorSource (Medium Effort)
+
+Create a new `TensorSource` subclass that streams data from disk:
+
+**Conceptual Implementation:**
+
+```cpp
+class StreamingTensorSource : public TensorSource {
+ public:
+  StreamingTensorSource(int fd, size_t offset, size_t size,
+                        xla::Shape shape, std::string device)
+      : TensorSource(std::move(device)),
+        fd_(fd), offset_(offset), size_(size),
+        shape_(std::move(shape)) {
+    // Memory-map the file
+    buffer_ = mmap(nullptr, size_, PROT_READ, MAP_PRIVATE, fd_, offset_);
+  }
+
+  ~StreamingTensorSource() {
+    if (buffer_ != MAP_FAILED) {
+      munmap(buffer_, size_);
+    }
+  }
+
+  const void* data() const override { return buffer_; }
+
+  // Use madvise to control paging behavior
+  void PrepareForTransfer() {
+    madvise(buffer_, size_, MADV_SEQUENTIAL | MADV_WILLNEED);
+  }
+
+ private:
+  int fd_;
+  size_t offset_;
+  size_t size_;
+  void* buffer_;
+  xla::Shape shape_;
+};
+```
+
+**Pros:**
+- Relatively simple to implement
+- Uses OS-level memory mapping
+- Can use `madvise()` to hint sequential access patterns
+
+**Cons:**
+- Still pages data into RAM (just more controlled)
+- No true zero-copy disk-to-device transfer
+- Limited by OS page cache size
+
+### Solution 2: Use PJRT's CopyToDeviceStream (High Effort, Best Performance)
+
+PJRT provides a streaming API for chunked transfers:
+
+**File:** `xla/xla/pjrt/pjrt_client.h:373-422`
+
+```cpp
+class CopyToDeviceStream {
+ public:
+  // Emplaces a new Chunk of data to copy to the device.
+  virtual Future<> AddChunk(PjRtChunk chunk) = 0;
+
+  int64_t total_bytes() const;
+  int64_t granule_size_in_bytes() const;
+};
+```
+
+**Implementation Strategy:**
+
+1. **Create Custom TensorSource with Chunking:**
+   ```cpp
+   class ChunkedDiskTensorSource : public TensorSource {
+    public:
+     // Returns chunk at given index
+     virtual PjRtChunk GetChunk(size_t chunk_index) = 0;
+     virtual size_t GetChunkCount() const = 0;
+   };
+   ```
+
+2. **Modify TransferToDevice to Support Streaming:**
+   ```cpp
+   // New method in PjRtComputationClient
+   ComputationClient::DataPtr TransferToDeviceStreaming(
+       std::shared_ptr<ChunkedDiskTensorSource> source) {
+     // Create uninitialized buffer
+     auto buffer = client_->CreateUninitializedBuffer(
+         source->shape(), pjrt_device->default_memory_space());
+
+     // Get streaming interface
+     auto stream = buffer->GetCopyToDeviceStream();
+
+     // Stream chunks from disk
+     for (size_t i = 0; i < source->GetChunkCount(); ++i) {
+       PjRtChunk chunk = source->GetChunk(i);  // Read from disk
+       stream->AddChunk(std::move(chunk)).Await();  // Transfer to device
+       // Chunk can be freed from RAM here
+     }
+
+     return std::make_shared<PjRtData>(device, shape, std::move(buffer));
+   }
+   ```
+
+**Pros:**
+- True chunked transfer - only one chunk in RAM at a time
+- Minimal memory footprint
+- Supported by PJRT API
+
+**Cons:**
+- Requires significant refactoring of TorchXLA's transfer pipeline
+- Need to check if your custom PJRT backend supports `CopyToDeviceStream`
+- More complex implementation
+
+### Solution 3: Use CreateBuffersForAsyncHostToDevice (High Effort)
+
+**File:** `xla/xla/pjrt/pjrt_client.h:778-887`
+
+```cpp
+virtual absl::StatusOr<std::unique_ptr<AsyncHostToDeviceTransferManager>>
+CreateBuffersForAsyncHostToDevice(
+    absl::Span<const ShapeSpec> shape_specs,
+    std::optional<absl::Span<const std::optional<Layout>>> device_layouts,
+    PjRtMemorySpace* memory_space)
+```
+
+This API allows:
+1. Creating uninitialized device buffers
+2. Asynchronously filling them with data
+3. Better overlap between disk I/O and device transfer
+
+**Implementation:**
+```cpp
+// Create uninitialized buffer
+auto transfer_mgr = client_->CreateBuffersForAsyncHostToDevice(
+    {ShapeSpec{...}}, std::nullopt, memory_space);
+
+auto buffers = transfer_mgr->RetrieveBuffers();
+
+// Stream data from disk into buffer
+for (size_t i = 0; i < num_chunks; ++i) {
+  void* chunk_data = ReadChunkFromDisk(fd, i);
+  transfer_mgr->TransferLiteralToBuffer(
+      i, LiteralSlice::Create(chunk_data, chunk_shape),
+      /*on_done=*/[chunk_data]() { free(chunk_data); });
+}
+```
+
+**Pros:**
+- Designed for async transfers
+- Can overlap disk I/O with device transfer
+- Officially supported PJRT API
+
+**Cons:**
+- Complex API
+- Still requires temporary RAM for staging chunks
+- Your custom PJRT backend must implement this interface
+
+### Solution 4: Direct DMA from Disk (Device-Specific, Very High Effort)
+
+For NVMe SSDs connected via PCIe, some GPUs support **GPUDirect Storage** (NVIDIA) or similar technologies that allow DMA directly from storage to GPU memory, bypassing host RAM entirely.
+
+**Requirements:**
+- NVIDIA GPU with GPUDirect Storage support
+- NVMe SSD with compatible driver
+- Custom PJRT backend implementing direct storage DMA
+- Kernel-level integration
+
+**File System Support:**
+- Linux: io_uring with O_DIRECT
+- NVIDIA: cuFile API
+
+**Pros:**
+- True zero-copy transfer
+- Maximum bandwidth utilization
+- No host RAM required
+
+**Cons:**
+- Extremely device-specific
+- Requires custom PJRT backend implementation
+- Complex kernel integration
+- Not portable across hardware
+
+---
+
+## Recommended Approach
+
+### For Immediate Use (Workaround)
+
+**Use PyTorch's DataLoader with Pinned Memory:**
+
+```python
+import torch
+import torch_xla.core.xla_model as xm
+
+# Use pinned memory for faster transfers
+loader = torch.utils.data.DataLoader(
+    dataset,
+    batch_size=batch_size,
+    pin_memory=True,  # Stage in pinned RAM
+    num_workers=4     # Overlap disk I/O with transfer
+)
+
+device = xm.xla_device()
+for batch in loader:
+    # This will still copy to RAM, but:
+    # - Pinned memory enables faster DMA
+    # - DataLoader prefetching overlaps disk I/O
+    batch = batch.to(device)
+```
+
+**Pros:**
+- No code changes to TorchXLA
+- Overlaps disk I/O with computation
+- Production-ready
+
+**Cons:**
+- Still requires full RAM staging
+- Limited by RAM size
+
+### For Long-Term Solution
+
+**Implement Solution 2 (CopyToDeviceStream):**
+
+1. **Check if your PJRT backend supports streaming:**
+   ```cpp
+   // Check if CopyToDeviceStream is available
+   auto buffer = client_->CreateUninitializedBuffer(shape, memory_space);
+   if (buffer->GetCopyToDeviceStream() != nullptr) {
+     // Streaming is supported
+   }
+   ```
+
+2. **Implement ChunkedDiskTensorSource:**
+   - Subclass `TensorSource`
+   - Implement chunked disk reading (use `pread()` or `io_uring`)
+   - Return chunks on demand
+
+3. **Add TransferToDeviceStreaming method:**
+   - Extend `PjRtComputationClient`
+   - Implement chunked transfer loop
+   - Expose via Python bindings
+
+4. **Python API:**
+   ```python
+   import torch_xla.core.xla_model as xm
+
+   # New API for streaming transfer
+   tensor = xm.transfer_from_disk_streaming(
+       file_path="tensor.bin",
+       shape=(1024, 1024),
+       dtype=torch.float32,
+       chunk_size_mb=64  # Only 64MB in RAM at a time
+   )
+   ```
+
+---
+
+## Backend Support Requirements
+
+### What Your Custom PJRT Backend Needs to Implement
+
+For **Solution 2 (Streaming)**, your backend must implement:
+
+1. **`CreateUninitializedBuffer`:**
+   ```cpp
+   absl::StatusOr<std::unique_ptr<PjRtBuffer>> CreateUninitializedBuffer(
+       const Shape& shape, PjRtMemorySpace* memory_space)
+   ```
+
+2. **`PjRtBuffer::GetCopyToDeviceStream` (if available):**
+   ```cpp
+   virtual std::unique_ptr<CopyToDeviceStream> GetCopyToDeviceStream()
+   ```
+
+3. **Streaming DMA Support:**
+   - Backend should support incremental buffer filling
+   - May require custom device driver support
+
+### Checking Backend Capabilities
+
+```cpp
+// Check if streaming is supported
+xla::PjRtClient* client = /* your client */;
+auto device = client->addressable_devices()[0];
+auto memory_space = device->default_memory_space();
+
+auto buffer_status = client->CreateUninitializedBuffer(
+    shape, memory_space);
+
+if (buffer_status.ok()) {
+  auto buffer = std::move(buffer_status.value());
+  auto stream = buffer->GetCopyToDeviceStream();
+
+  if (stream != nullptr) {
+    LOG(INFO) << "Backend supports streaming transfers!";
+    LOG(INFO) << "Chunk granularity: " << stream->granule_size_in_bytes();
+  } else {
+    LOG(WARNING) << "Backend does not support streaming.";
+  }
+}
+```
+
+---
+
+## Summary
+
+**Current Behavior:**
+- ✗ TorchXLA forces full RAM copy for disk-backed tensors
+- ✗ `.to(device)` materializes entire tensor in RAM before transfer
+- ✗ No streaming or chunked transfer support
+
+**Root Causes:**
+1. `AtenSource` assumes RAM-resident tensors
+2. `BufferFromHostBuffer` API uses single pointer (no streaming)
+3. No `TensorSource` subclass for disk streaming
+
+**Best Solution for Memory-Constrained Systems:**
+- Implement `CopyToDeviceStream` support (Solution 2)
+- Allows true chunked transfers with minimal RAM footprint
+- Requires backend support for streaming DMA
+
+**Immediate Workaround:**
+- Use `DataLoader` with `pin_memory=True` and prefetching
+- Overlap disk I/O with computation
+- Still requires full RAM staging per batch
+
+---
+
+## Code Locations
+
+### Files to Modify for Streaming Support
+
+1. **`torch_xla/csrc/runtime/tensor_source.h`**
+   - Add `ChunkedDiskTensorSource` class
+   - Implement chunked reading interface
+
+2. **`torch_xla/csrc/runtime/pjrt_computation_client.cpp`**
+   - Add `TransferToDeviceStreaming()` method
+   - Implement streaming transfer loop
+
+3. **`torch_xla/csrc/init_python_bindings.cpp`**
+   - Add Python bindings for streaming API
+
+4. **Custom PJRT Backend**
+   - Implement `CreateUninitializedBuffer()`
+   - Implement `PjRtBuffer::GetCopyToDeviceStream()`
+   - Support incremental buffer filling
+
+---
+
+## References
+
+- **PJRT CopyToDeviceStream:** `xla/xla/pjrt/pjrt_client.h:373-422`
+- **PJRT AsyncHostToDevice:** `xla/xla/pjrt/pjrt_client.h:778-887`
+- **BufferFromHostBuffer:** `xla/xla/pjrt/pjrt_client.h:954-961`
+- **AtenSource:** `torch_xla/csrc/runtime/tensor_source.h:52-89`
+- **TransferToDevice:** `torch_xla/csrc/runtime/pjrt_computation_client.cpp:265-298`
