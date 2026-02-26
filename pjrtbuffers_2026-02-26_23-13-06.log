@@ -1,0 +1,693 @@
+# PyTorch XLA PJRT Buffer Creation Investigation
+
+## Overview
+
+This document investigates how PyTorch XLA intercepts `.to(device)` operations and triggers PJRT buffer creation, with specific focus on:
+1. SPMD mode with virtual devices and `mark_sharding()` buffer creation
+2. Placeholder tensors and why they don't create buffer instances
+3. Memory ownership semantics for PJRT buffers
+
+---
+
+## Question 1: SPMD Mode and mark_sharding() Buffer Creation
+
+### Summary
+In SPMD mode, PyTorch XLA uses a **virtual device** (`SPMD:0`). Calling `.to(device)` with SPMD enabled does NOT immediately create buffer instances. However, calling `mark_sharding()` on a tensor DOES trigger immediate creation of buffer instances.
+
+### Virtual Device Architecture
+
+**File:** `torch_xla/csrc/device.cpp:76-94`
+
+```cpp
+// Virtual device is always SPMD:0
+torch::lazy::BackendDevice GetVirtualDevice() {
+  return ParseDeviceString("SPMD:0");
+}
+
+// SPMD enabled via environment variables
+bool ShouldUseVirtualDevice() {
+  bool use_virtual_device =
+      runtime::sys_util::GetEnvBool("XLA_USE_SPMD", false) ||
+      runtime::sys_util::GetEnvBool("XLA_AUTO_SPMD", false);
+  return use_virtual_device;
+}
+```
+
+**Key Points:**
+- Virtual device is hardcoded as `SPMD:0`
+- Enabled via `XLA_USE_SPMD` or `XLA_AUTO_SPMD` environment variables
+- No physical device mapping until sharding is applied
+
+### mark_sharding() Implementation
+
+#### Python API
+**File:** `torch_xla/distributed/spmd/xla_sharding.py:681-738`
+
+```python
+def mark_sharding(t: Union[torch.Tensor, XLAShardedTensor], mesh: Mesh,
+                  partition_spec: PartitionSpec) -> XLAShardedTensor:
+  """
+  Annotates the tensor provided with XLA partition spec. Internally,
+  it annotates the corresponding XLATensor as sharded for the XLA SpmdPartitioner pass.
+  """
+  # Choose OpSharding format based on SHLO_TO_SHARDY environment variable
+  if _use_shlo_to_shardy():
+    op_sharding = mesh.get_op_sharding_v2(partition_spec)
+  else:
+    op_sharding = mesh.get_op_sharding(partition_spec)
+
+  # Call C++ binding to apply sharding
+  annotate_func = torch_xla._XLAC._xla_mark_sharding
+  annotate_func(unwrap_sharded_tensor(t), op_sharding)
+  return wrap_as_sharded_tensor(t)
+```
+
+#### C++ Python Bindings
+**File:** `torch_xla/csrc/init_python_bindings.cpp:2536-2539`
+
+```cpp
+.def("_xla_mark_sharding",
+     [](const at::Tensor& input, xla::OpSharding sharding) {
+      ShardingUtil::XlaMarkSharding(input, sharding);
+     })
+```
+
+#### Core C++ Implementation
+**File:** `torch_xla/csrc/xla_sharding_util.cpp:783-859`
+
+This is where buffer instance creation is triggered:
+
+```cpp
+void ShardingUtil::XlaMarkSharding(const at::Tensor& input,
+                                   xla::OpSharding sharding) {
+  TORCH_LAZY_COUNTER("XlaMarkSharding", 1);
+
+  // Line 786-787: REQUIRES SPMD to be enabled
+  XLA_CHECK(UseVirtualDevice())
+      << "Please enable SPMD via `torch_xla.runtime.use_spmd()`";
+
+  XLATensorPtr xtensor = bridge::GetXlaTensor(input);
+
+  // Lines 794-801: For Non-DeviceData IR values, attach sharding directly
+  const DeviceData* device_data_node = nullptr;
+  if (xtensor->CurrentIrValue()) {
+    device_data_node = DeviceData::Cast(xtensor->CurrentIrValue().node.get());
+    if (!device_data_node) {
+      XlaAnnotateCustomSharding(xtensor, sharding);
+      return;
+    }
+  }
+
+  // Lines 803-807: Create new sharding spec with device layout
+  XLATensor::ShardingSpecPtr new_sharding_spec =
+      std::make_shared<XLATensor::ShardingSpec>(
+          sharding, MakeShapeWithDeviceLayout(
+                        xtensor->shape(), static_cast<XlaDeviceType>(
+                                              xtensor->GetDevice().type())));
+
+  // Lines 811-849: Get tensor data (either cached or from backend)
+  at::Tensor cpu_tensor;
+  if (xtensor->CurrentTensorData().has_value()) {
+    TORCH_LAZY_COUNTER("VirtualDeviceUsage", 1);
+    cpu_tensor = xtensor->CurrentTensorData().value();
+  } else {
+    // Re-download from physical device if not cached on host
+    std::vector<XLATensorPtr> xla_tensors{xtensor};
+    auto tensors = XLAGraphExecutor::Get()->GetTensors(&xla_tensors);
+    cpu_tensor = tensors[0];
+  }
+
+  // Lines 850-858: **TRIGGER PJRT BUFFER INSTANCE CREATION**
+  auto xla_data = CreateTensorsData(
+      std::vector<at::Tensor>{cpu_tensor},
+      std::vector<XLATensor::ShardingSpecPtr>{new_sharding_spec},
+      std::vector<std::string>{GetVirtualDevice().toString()})[0];
+  xtensor->SetXlaData(xla_data);
+  xtensor->SetShardingSpec(*new_sharding_spec);
+
+  // Line 858: Register sharded tensor data
+  XLAGraphExecutor::Get()->RegisterTensor(xtensor->data());
+}
+```
+
+#### Buffer Creation Path
+**File:** `torch_xla/csrc/tensor_util.cpp:840-879`
+
+```cpp
+std::vector<torch::lazy::BackendDataPtr> CreateTensorsData(
+    const std::vector<at::Tensor>& tensors,
+    const std::vector<XLATensor::ShardingSpecPtr>& shardings,
+    const std::vector<std::string>& devices) {
+
+  for (size_t i = 0; i < tensors.size(); ++i) {
+    torch::lazy::BackendDevice device = ParseDeviceString(devices[i]);
+
+    // Lines 856-869: SPMD-specific path
+    if (static_cast<XlaDeviceType>(device.type()) == XlaDeviceType::SPMD) {
+      // Get local physical devices
+      std::vector<std::string> local_devices =
+          runtime::GetComputationClientOrDie()->GetLocalDevices();
+
+      // Shard tensor with padding
+      std::vector<at::Tensor> local_shards =
+          ShardingUtil::ShardTensor(tensors[i], shardings[i], local_devices,
+                                    /*padded=*/true);
+
+      // Create PjRtShardedData with individual PJRT buffers
+      new_handles.push_back(ShardingUtil::CreateShardedData(
+          local_shards, local_devices, shardings[i]));
+    }
+  }
+  return WrapXlaData(handles);
+}
+```
+
+#### PJRT Sharded Data Creation
+**File:** `torch_xla/csrc/xla_sharding_util.cpp:600-634`
+
+```cpp
+runtime::ComputationClient::DataPtr ShardingUtil::CreateShardedData(
+    const std::vector<at::Tensor>& local_shards,
+    const std::vector<std::string>& devices,
+    const XLATensor::ShardingSpecPtr& sharding_spec) {
+
+  std::vector<std::shared_ptr<const runtime::TensorSource>> source_tensors;
+
+  // Lines 625-631: Transfer each shard to its device
+  for (int64_t j = 0; j < devices.size(); ++j) {
+    auto shard_device = ParseDeviceString(devices[j]);
+    auto shard_shape =
+        CreateComputationShapeFromTensor(local_shards[j], &shard_device);
+    source_tensors.push_back(std::make_shared<runtime::AtenSource>(
+        local_shards[j], shard_shape, devices[j]));
+  }
+
+  // Lines 632-633: **CREATE PJRT BUFFER INSTANCES**
+  return runtime::GetComputationClientOrDie()->TransferShardsToDevice(
+      source_tensors, GetVirtualDevice().toString(), global_shape, sharding);
+}
+```
+
+#### Final PJRT Buffer Transfer
+**File:** `torch_xla/csrc/runtime/pjrt_computation_client.cpp:300-320`
+
+```cpp
+ComputationClient::DataPtr PjRtComputationClient::TransferShardsToDevice(
+    absl::Span<const std::shared_ptr<const TensorSource>> tensor_shards,
+    std::string device, xla::Shape shape, xla::OpSharding sharding) {
+
+  // Line 311: Transfer shards to devices using PJRT
+  auto data_shards = TransferToDevice(tensor_shards);
+
+  // Lines 313-319: Wrap shards in PjRtShardedData
+  std::vector<std::shared_ptr<PjRtData>> pjrt_data_shards;
+  for (auto& shard : data_shards) {
+    auto pjrt_shard = dynamic_cast<PjRtData*>(shard.get());
+    pjrt_data_shards.push_back(std::make_shared<PjRtData>(
+        pjrt_shard->device(), pjrt_shard->shape(), pjrt_shard->buffer));
+  }
+
+  // Line 318-319: CREATE PjRtShardedData INSTANCE (wraps PJRT buffers)
+  return std::make_shared<PjRtShardedData>(device, shape, pjrt_data_shards,
+                                           sharding);
+}
+```
+
+#### PjRtShardedData Structure
+**File:** `torch_xla/csrc/runtime/pjrt_computation_client.h:270-319`
+
+```cpp
+struct PjRtShardedData : public Data {
+  PjRtShardedData(std::string device, xla::Shape shape,
+                  std::vector<std::shared_ptr<PjRtData>> shards,
+                  xla::OpSharding sharding)
+      : Data(std::move(device), std::move(shape)),
+        shards(shards),
+        sharding(sharding) {}
+
+  // Contains individual PJRT buffers for each shard
+  std::vector<std::shared_ptr<PjRtData>> shards;
+  xla::OpSharding sharding;
+};
+```
+
+### Key Findings for Question 1
+
+1. **Virtual Device:** `SPMD:0` is used (device.cpp:77)
+2. **mark_sharding() Location:** `xla_sharding_util.cpp:783-859`
+3. **Buffer Creation Trigger:** Line 850-853 calls `CreateTensorsData()` which:
+   - Detects SPMD device type (tensor_util.cpp:856)
+   - Shards tensor locally (line 866)
+   - Calls `CreateShardedData()` (line 868)
+   - Eventually calls PJRT `BufferFromHostBuffer` for each shard
+4. **Why Immediate?** Unlike `.to(device)` which may defer execution, `mark_sharding()` explicitly retrieves tensor data from CPU cache or backend and immediately transfers to device shards
+
+---
+
+## Question 2: Placeholder Tensors and Buffer Creation
+
+### Summary
+Placeholder tensors created with `create_placeholder_tensor()` do NOT create PJRT buffer instances because they are designed for **HLO graph tracing only**, not for actual computation. They contain metadata (shape, dtype, device) but no actual data buffer.
+
+### Python API
+**File:** `torch_xla/core/xla_builder.py:1111-1119`
+
+```python
+def create_placeholder_tensor(shape, dtype):
+  """
+  Creates a placeholder tensor that does not hold any device buffer.
+  This is primarily useful for staging out the HLO of a user computation.
+  Accessing the value of the tensor will panic.
+  """
+  dtype = Op.from_torch_type(dtype)
+  shape = mkshape(dtype, shape)
+  return torch_xla._XLAC._xla_create_placeholder_tensor(shape.shape)
+```
+
+### C++ Python Bindings
+**File:** `torch_xla/csrc/init_python_bindings.cpp:2153-2165`
+
+```cpp
+.def(
+    // Creates a placeholder tensor that does not hold any device buffer.
+    // This is primarily useful for staging out the HLO of a user
+    // computation. Accessing the value of the tensor will panic.
+    "_xla_create_placeholder_tensor",
+    [](py::object py_shape) {
+      xla::Shape shape = op_builder::PyShapeToShape(py_shape);
+      auto xla_tensor =
+          XLATensor::Create(torch_xla::runtime::GetComputationClientOrDie()
+                                ->CreateDataPlaceholder(
+                                    bridge::GetCurrentDevice().toString(),
+                                    std::move(shape)));
+      return bridge::AtenFromXlaTensor(xla_tensor);
+    })
+```
+
+### CreateDataPlaceholder Implementation
+**File:** `torch_xla/csrc/runtime/pjrt_computation_client.cpp:189-198`
+
+```cpp
+ComputationClient::DataPtr PjRtComputationClient::CreateDataPlaceholder(
+    std::string device, xla::Shape shape,
+    std::optional<xla::OpSharding> sharding) {
+  if (sharding.has_value()) {
+    return std::make_shared<PjRtShardedData>(
+        std::move(device), std::move(shape), std::move(*sharding));
+  }
+
+  return std::make_shared<PjRtData>(std::move(device), std::move(shape));
+}
+```
+
+**Note:** This constructor creates `PjRtData` with shape and device, but NO buffer is allocated.
+
+### PjRtData Structure for Placeholders
+**File:** `torch_xla/csrc/runtime/pjrt_computation_client.h:214-268`
+
+```cpp
+struct PjRtData : public Data {
+  // Constructor for placeholder: buffer is nullptr
+  PjRtData(std::string device, xla::Shape device_shape)
+      : Data(std::move(device), std::move(device_shape)) {}
+
+  // Constructor with actual buffer
+  PjRtData(std::string device, xla::Shape device_shape,
+           std::shared_ptr<xla::PjRtBuffer> buffer)
+      : Data(std::move(device), std::move(device_shape)), buffer(buffer) {}
+
+  Handle GetHandle() override {
+    // If the data is a placeholder, use the address of this object as the handle
+    if (buffer == nullptr) {
+      return reinterpret_cast<std::uintptr_t>(this);
+    }
+    // Otherwise, return handle to actual buffer
+    XLA_CHECK(!buffer->IsDeleted())
+        << "buffer with shape " << shape().ToString() << " on device "
+        << device() << " is deleted";
+    return reinterpret_cast<std::uintptr_t>(buffer.get());
+  }
+
+  bool HasValue() const override {
+    return buffer != nullptr && !buffer->IsDeleted();
+  }
+
+  std::shared_ptr<xla::PjRtBuffer> buffer;  // nullptr for placeholders!
+};
+```
+
+### Placeholder Detection
+**File:** `torch_xla/csrc/init_python_bindings.cpp:2924-2929`
+
+```cpp
+.def("_is_placecholder",
+     [](at::Tensor& input) {
+      XLATensorPtr xtensor = bridge::GetXlaTensor(input);
+      return xtensor->CurrentDataHandle() &&
+             !xtensor->CurrentDataHandle()->HasValue();
+     })
+```
+
+### Key Findings for Question 2
+
+**Why No Buffer Instance is Created:**
+
+1. **Design Purpose:** Placeholders are for HLO tracing/staging, not actual computation
+2. **nullptr Buffer:** The `buffer` field in `PjRtData` remains `nullptr` (pjrt_computation_client.h:267)
+3. **No Allocation:** `CreateDataPlaceholder()` only stores metadata (shape, device), never calls `BufferFromHostBuffer`
+4. **Handle Strategy:** Instead of returning a buffer pointer, placeholders use the address of the `PjRtData` object itself as the handle
+5. **HasValue() Returns False:** Placeholders always return `false` from `HasValue()` because `buffer == nullptr`
+
+**Comparison Table:**
+
+| Aspect | Placeholder | Regular Tensor |
+|--------|-------------|-----------------|
+| **Buffer Field** | `nullptr` | `shared_ptr<xla::PjRtBuffer>` |
+| **HasValue()** | Always `false` | `true` if buffer exists |
+| **Handle** | Address of `PjRtData` object | Address of `xla::PjRtBuffer` |
+| **Purpose** | HLO staging/tracing | Actual computation |
+| **Device Transfer** | No actual transfer | Requires buffer allocation |
+| **Data Access** | Panics if accessed | Returns actual data |
+
+### Usage Examples
+**File:** `torch_xla/experimental/scan.py:649-651`
+
+```python
+def make_fake_tensor(v: torch.Tensor) -> torch.Tensor:
+  t = xb.create_placeholder_tensor(v.shape, v.dtype)
+  return t.requires_grad_(v.requires_grad)
+```
+
+---
+
+## Question 3: Memory Ownership for Buffer Instances
+
+### Summary
+**Memory ownership:** PJRT (the custom backend) owns the device buffer memory via `std::shared_ptr`. PyTorch XLA can trigger deallocation by dropping its reference, but the actual memory management is handled by the PJRT client.
+
+### PJRT Buffer Creation with Memory Semantics
+**File:** `torch_xla/csrc/runtime/pjrt_computation_client.cpp:278-288`
+
+```cpp
+std::shared_ptr<xla::PjRtBuffer> buffer =
+    std::move(client_
+                  ->BufferFromHostBuffer(
+                      tensor->data(),                      // Host buffer pointer
+                      tensor->primitive_type(),            // Element type
+                      tensor->dimensions(),                // Shape dimensions
+                      tensor->byte_strides(),              // Memory layout
+                      xla::PjRtClient::HostBufferSemantics::
+                          kImmutableUntilTransferCompletes, // Memory semantics
+                      [tensor]() { /* frees tensor */ },   // Callback
+                      *pjrt_device->default_memory_space(),
+                      /*device_layout=*/nullptr)
+                  .value());
+```
+
+**Key Points:**
+- Line 284: `kImmutableUntilTransferCompletes` - Host buffer must remain valid until transfer completes
+- Line 285: Lambda callback `[tensor]() { /* frees tensor */ }` - Called by PJRT when transfer is done
+- Return: `std::shared_ptr<xla::PjRtBuffer>` - **Shared ownership**
+
+### PjRtData Ownership
+**File:** `torch_xla/csrc/runtime/pjrt_computation_client.h:214-268`
+
+```cpp
+struct PjRtData : public Data {
+  // Buffer is owned via shared_ptr
+  std::shared_ptr<xla::PjRtBuffer> buffer;
+};
+```
+
+**Ownership Model:**
+- `PjRtData` holds a `std::shared_ptr<xla::PjRtBuffer>`
+- Multiple `PjRtData` objects can share the same buffer
+- Buffer is automatically deleted when last reference is dropped
+
+### Host Buffer Management
+**File:** `torch_xla/csrc/runtime/tensor_source.h:52-89`
+
+The `AtenSource` class manages host-side tensor data:
+
+```cpp
+class AtenSource : public TensorSource {
+ public:
+  AtenSource(const at::Tensor& tensor, xla::Shape shape, std::string device)
+      : TensorSource(std::move(device)), shape_(std::move(shape)) {
+    // Line 64: Convert to CPU in contiguous format for device transfer
+    tensor_ = std::move(
+        tensor.to(at::TensorOptions().device(at::kCPU).dtype(target_torch_type),
+                  /*non_blocking=*/false,
+                  /*copy=*/false, at::MemoryFormat::Contiguous));
+  }
+
+  const void* data() const override { return tensor_.const_data_ptr(); }
+  // ...
+ private:
+  at::Tensor tensor_;  // Owns host tensor until transfer completes
+  xla::Shape shape_;
+};
+```
+
+#### PyTorch Tensor Memory Ownership Details
+
+**Key Question:** Who owns the backing host memory for the PyTorch tensor? Does Python own it or does PJRT take ownership by std::moving the data?
+
+**Answer:** PyTorch uses **reference counting** via `c10::intrusive_ptr<TensorImpl>`. PJRT does **NOT** take ownership - it only copies the data. The host memory remains owned by PyTorch's reference counting system.
+
+**Critical Details:**
+
+1. **at::Tensor Uses Reference Counting:**
+   - `at::Tensor` internally uses `c10::intrusive_ptr<c10::TensorImpl>`
+   - Multiple `at::Tensor` objects can share the same underlying memory
+   - Similar to `std::shared_ptr` but more efficient (intrusive reference counting)
+
+2. **The `.to(at::kCPU, copy=false)` Call (line 64):**
+   - If tensor is already CPU, contiguous, and correct dtype: **No copy, increments refcount**
+   - If tensor needs format conversion: **Creates new CPU tensor** with new refcount
+   - Either way, `tensor_` member holds a valid reference
+
+3. **Memory NOT Moved/Transferred:**
+   - Line 281: `tensor->data()` only passes a **const void\* pointer** to PJRT
+   - PJRT **copies** the data from host to device memory
+   - Host memory remains owned by the `at::Tensor` inside `AtenSource`
+
+4. **Lambda Capture Keeps Memory Alive (line 285):**
+   ```cpp
+   [tensor]() { /* frees tensor */ }
+   ```
+   - Captures `tensor` which is `std::shared_ptr<const TensorSource>` by value
+   - This increments the `shared_ptr` refcount of the `AtenSource` wrapper
+   - The `AtenSource` contains `at::Tensor tensor_` member
+   - That `at::Tensor` internally has its own `c10::intrusive_ptr` refcount
+   - **Result:** Both wrapper and data use reference counting
+
+5. **HostBufferSemantics::kImmutableUntilTransferCompletes (line 284):**
+   - PJRT promises: "I will not modify this host memory and I only need it until transfer completes"
+   - TorchXLA promises: "I will keep this host memory alive and unmodified until you call the callback"
+   - **This is NOT zero-copy** - PJRT makes an asynchronous copy to device memory
+
+### Memory Lifecycle
+
+1. **Host Allocation:**
+   - PyTorch tensor on CPU (may already exist or converted via `tensor.to(at::kCPU)`)
+   - `at::Tensor` uses reference counting internally via `c10::intrusive_ptr<TensorImpl>`
+   - Wrapped in `AtenSource` which holds an `at::Tensor` member
+
+2. **Transfer to Device:**
+   - `BufferFromHostBuffer` is called with host pointer (`tensor->data()`)
+   - PJRT **copies data asynchronously** to device memory (no ownership transfer)
+   - Host buffer must remain valid (captured by lambda via `shared_ptr`)
+
+3. **Callback Execution:**
+   - After transfer completes, PJRT invokes callback `[tensor]() {}`
+   - Lambda's `shared_ptr<AtenSource>` goes out of scope
+   - `AtenSource` destructor runs
+   - `at::Tensor tensor_` member is destroyed
+   - `c10::intrusive_ptr<TensorImpl>` decrements its refcount
+   - **If last reference:** CPU memory is freed by PyTorch's memory allocator
+
+4. **Device Buffer Lifetime:**
+   - `std::shared_ptr<xla::PjRtBuffer>` manages device memory
+   - PJRT backend allocates device memory (separate from host memory)
+   - Device memory freed when last shared_ptr reference is dropped
+
+**Memory Ownership Flow Diagram:**
+
+```
+Python Tensor
+    ↓ (refcount semantics)
+at::Tensor (c10::intrusive_ptr<TensorImpl>)
+    ↓ (wrapped by)
+AtenSource::tensor_ member
+    ↓ (owned by)
+std::shared_ptr<AtenSource>
+    ↓ (captured by lambda)
+PJRT BufferFromHostBuffer callback [tensor]()
+    ↓ (async copy, NOT move)
+Device Memory (owned by PJRT backend)
+```
+
+**Key Insight:** PJRT does **NOT** take ownership via `std::move`. The data pointer is only used for **reading during async copy**. Host memory lifetime is managed by PyTorch's reference counting system, kept alive by the lambda capture until transfer completes.
+
+### Can TorchXLA Deallocate?
+
+**Yes, but with caveats:**
+
+**File:** `torch_xla/csrc/runtime/pjrt_computation_client.cpp:155-167`
+
+```cpp
+void PjRtComputationClient::DeconstructHandle(
+    ComputationClient::Data* handle, bool wait) {
+  PjRtData* pjrt_data = dynamic_cast<PjRtData*>(handle);
+  if (pjrt_data != nullptr && pjrt_data->buffer) {
+    // If we're not waiting, we can immediately delete the PJRT buffer.
+    // The buffer deletion should trigger a call to
+    // PjRtBuffer::DestructAsync which will enqueue device operations
+    // to free the memory.
+    pjrt_data->buffer.reset();
+  }
+}
+```
+
+**Mechanism:**
+- Calling `buffer.reset()` drops the shared_ptr reference
+- If this is the last reference, PJRT's `~PjRtBuffer()` destructor is called
+- Destructor may call backend-specific deallocation (depends on custom backend implementation)
+
+**Important:** The actual device memory deallocation is handled by **your custom PJRT backend**. TorchXLA can trigger it by dropping references, but the backend controls when/how memory is freed.
+
+### Explicit Buffer Deletion
+**File:** `torch_xla/csrc/runtime/pjrt_computation_client.h:258-261`
+
+```cpp
+void Assign(const torch::lazy::BackendData& data) override {
+  const PjRtData& pjrt_data = static_cast<const PjRtData&>(data);
+  buffer = pjrt_data.buffer;
+}
+```
+
+TorchXLA can also explicitly delete buffers via `XLATensor::SetData()` or by letting tensors go out of scope.
+
+### Memory Ownership Summary
+
+| Component | Owns What | Lifetime | Ownership Mechanism |
+|-----------|-----------|----------|---------------------|
+| **Python Tensor** | Python object wrapper | Until Python GC | Python refcount |
+| **at::Tensor (Host)** | CPU memory via `TensorImpl` | Until last `c10::intrusive_ptr` drops | `c10::intrusive_ptr<TensorImpl>` |
+| **AtenSource** | `at::Tensor` member | Until `shared_ptr<AtenSource>` drops | Wrapped in `shared_ptr` |
+| **Lambda Callback** | `shared_ptr<AtenSource>` | Until PJRT calls callback after transfer | Captured by value |
+| **PJRT Backend** | Device memory allocation | Until `PjRtBuffer` destructor | Custom backend allocator |
+| **PjRtData** | `shared_ptr<PjRtBuffer>` | While XLATensor holds reference | `std::shared_ptr` |
+| **TorchXLA** | Can drop references | Triggers deallocation via `reset()` | Reference management |
+
+**Answers to Question 3:**
+
+1. **Who owns host memory?**
+   - **PyTorch's reference counting system** (`c10::intrusive_ptr<TensorImpl>`) owns the CPU memory
+   - PJRT never takes ownership - it only receives a `const void*` pointer for reading
+
+2. **Does PJRT take ownership by std::moving?**
+   - **No.** PJRT only receives a pointer to read from
+   - The data is **copied asynchronously** to device memory
+   - Host memory remains owned by PyTorch's `at::Tensor` inside `AtenSource`
+   - `kImmutableUntilTransferCompletes` semantics ensure host memory stays valid during copy
+
+3. **Can TorchXLA deallocate?**
+   - **Device memory:** Yes, by dropping `shared_ptr<PjRtBuffer>` references
+   - **Host memory:** Indirectly, when lambda executes after transfer completes
+   - **Custom backend controls:** Actual device memory `free()` implementation
+
+**Key Insight:** This is a **copy-based transfer**, not a move/ownership transfer. PyTorch owns host memory via reference counting, and PJRT owns device memory. The lambda capture ensures host memory stays alive during the async copy operation.
+
+---
+
+## Complete .to(device) Interception Flow
+
+### High-Level Overview
+```
+User: tensor.to('xla:0')
+  ↓
+PyTorch Dispatch → TorchXLA Backend
+  ↓
+TensorToXlaData() [tensor_util.cpp:792-796]
+  ↓
+CreateComputationShapeFromTensor() + TensorToXlaData() [tensor_util.cpp:548-571]
+  ↓
+AtenSource wraps tensor [tensor_source.h:52-89]
+  ↓
+TransferToDevice() [pjrt_computation_client.cpp:231-296]
+  ↓
+client_->BufferFromHostBuffer() [pjrt_computation_client.cpp:278-288]
+  ↓
+PJRT Backend → Device Memory Allocation
+  ↓
+Return std::shared_ptr<PjRtBuffer> wrapped in PjRtData
+```
+
+### Detailed Call Chain with Line Numbers
+
+**1. Tensor to XLA Data Conversion**
+- **File:** `torch_xla/csrc/tensor_util.cpp:792-796`
+- **Function:** `TensorToXlaData(const at::Tensor& tensor, const BackendDevice& device)`
+
+**2. Shape Creation and Data Transfer**
+- **File:** `torch_xla/csrc/tensor_util.cpp:548-571`
+- **Function:** `TensorToXlaData(tensor, shape, device)`
+- **Line 565:** Create `AtenSource` with CPU-converted tensor
+- **Line 568:** Call `TransferToDevice()`
+
+**3. PJRT Client Transfer**
+- **File:** `torch_xla/csrc/runtime/pjrt_computation_client.cpp:231-296`
+- **Function:** `PjRtComputationClient::TransferToDevice()`
+- **Lines 278-288:** Call `client_->BufferFromHostBuffer()`
+
+**4. Buffer Creation**
+- **Line 280:** `tensor->data()` - pointer to CPU buffer
+- **Line 281:** `tensor->primitive_type()` - XLA element type
+- **Line 282:** `tensor->dimensions()` - shape dimensions
+- **Line 283:** `tensor->byte_strides()` - memory layout
+- **Line 284-285:** `kImmutableUntilTransferCompletes` with callback
+- **Line 286-287:** Device memory space and layout
+
+**5. Return Path**
+- **Line 290:** Wrap buffer in `PjRtData`
+- Return to `TensorToXlaData()` → wrap in `BackendDataPtr`
+
+---
+
+## Additional References
+
+### SPMD Sharding Tests
+**File:** `test/test_placeholder.py:1-74`
+
+Demonstrates placeholder behavior including:
+- Shape/dtype correctness (lines 15-25)
+- Value access crashes (lines 27-30)
+- No buffer transfers during tracing (lines 32-50)
+- Unique handles for different placeholders (lines 52-56)
+
+### PjRtBuffer Interface (OpenXLA)
+**File:** `xla/xla/pjrt/pjrt_client.h:1096`
+
+Defines the PJRT buffer interface that custom backends implement.
+
+---
+
+## Key Takeaways
+
+1. **SPMD + mark_sharding():**
+   - Virtual device `SPMD:0` defers buffer creation
+   - `mark_sharding()` immediately creates sharded buffer instances
+   - Each shard gets its own PJRT buffer on a physical device
+
+2. **Placeholder Tensors:**
+   - No buffer instance created (`buffer == nullptr`)
+   - Used for HLO graph tracing only
+   - Accessing data causes panic
+
+3. **Memory Ownership:**
+   - PJRT backend owns device memory
+   - TorchXLA holds shared_ptr references
+   - Dropping references triggers deallocation
+   - Custom backend controls actual memory free()
