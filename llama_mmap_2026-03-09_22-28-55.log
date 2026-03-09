@@ -1,0 +1,486 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-9.0.2, pluggy-1.6.0 -- /localdev/jameszianxu/tt-xla/venv/bin/python
+cachedir: .pytest_cache
+metadata: {'Python': '3.12.13', 'Platform': 'Linux-6.8.0-85-generic-x86_64-with-glibc2.35', 'Packages': {'pytest': '9.0.2', 'pluggy': '1.6.0'}, 'Plugins': {'split': '0.11.0', 'metadata': '3.1.1', 'forked': '1.6.0', 'json-report': '1.5.0', 'jaxtyping': '0.3.9', 'anyio': '4.12.1'}}
+rootdir: /localdev/jameszianxu/tt-xla
+configfile: pytest.ini
+plugins: split-0.11.0, metadata-3.1.1, forked-1.6.0, json-report-1.5.0, jaxtyping-0.3.9, anyio-4.12.1
+collecting ... 2026-03-09 22:28:03.565 | WARNING  | torch_plugin_tt:__init__:38 - TT plugin is setting XLA_STABLEHLO_COMPILE to 1. This is required for TT PJRT plugin to work correctly.
+collected 1 item
+
+memory_experiment/test_disk_offload.py::test_llama_disk_offload[no_spmd-no_offload] 2026-03-09 22:28:07.079 | critical |          Always | TT_FATAL: Logical eth core (x=0,y=15) is not an active eth core on chip 0. (assert.hpp:104)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | Skipping ethernet core ((x=0,y=15)) on chip 0
+2026-03-09 22:28:07.390809: W torch_xla/csrc/runtime/profiler.cpp:88] Profiler API not found for PJRT plugin
+
+======================================================================
+Mode: Single | Offload: NO
+======================================================================
+
+======================================================================
+Memory Snapshot: Initial
+======================================================================
+RSS: 1456.54 MB
+VMS: 14940.39 MB
+======================================================================
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading meta-llama/Llama-3.2-1B without disk offload...
+This will load all weights into RAM
+
+Model parameters: 1,235,814,400 (2357.13 MB)
+
+
+======================================================================
+Memory Snapshot: After CPU load without disk offload
+======================================================================
+RSS: 1797.18 MB
+VMS: 17826.25 MB
+======================================================================
+
+Touching all parameters to force them into physical RAM...
+Parameter sum: -1.08e+04
+
+
+======================================================================
+Memory Snapshot: After touching all parameters (actual RAM usage)
+======================================================================
+RSS: 3931.21 MB
+VMS: 18618.30 MB
+======================================================================
+
+2026-03-09 22:28:09.138 (   3.071s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [128256, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/773/0_128256_2048 with size 525336576 bytes
+2026-03-09 22:28:09.635 (   3.569s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/774/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:09.645 (   3.578s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/775/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:09.648 (   3.582s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/776/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:09.651 (   3.585s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/777/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:09.661 (   3.595s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/778/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:09.694 (   3.628s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/779/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:09.728 (   3.661s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 8192]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/780/0_2048_8192 with size 33554432 bytes
+2026-03-09 22:28:09.762 (   3.695s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/781/0_2048 with size 4096 bytes
+2026-03-09 22:28:09.763 (   3.697s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/782/0_2048 with size 4096 bytes
+2026-03-09 22:28:09.764 (   3.698s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/783/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:09.773 (   3.707s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/784/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:09.777 (   3.710s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/785/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:09.780 (   3.713s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/786/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:09.789 (   3.723s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/787/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:09.822 (   3.756s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/788/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:09.855 (   3.789s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 8192]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/789/0_2048_8192 with size 33554432 bytes
+2026-03-09 22:28:09.888 (   3.822s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/790/0_2048 with size 4096 bytes
+2026-03-09 22:28:09.889 (   3.823s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/791/0_2048 with size 4096 bytes
+2026-03-09 22:28:09.891 (   3.824s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/792/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:09.900 (   3.834s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/793/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:09.903 (   3.837s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/794/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:09.906 (   3.840s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/795/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:09.916 (   3.849s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/796/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:09.949 (   3.882s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/797/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:09.982 (   3.915s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 8192]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/798/0_2048_8192 with size 33554432 bytes
+2026-03-09 22:28:10.015 (   3.948s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/799/0_2048 with size 4096 bytes
+2026-03-09 22:28:10.016 (   3.950s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/800/0_2048 with size 4096 bytes
+2026-03-09 22:28:10.017 (   3.951s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/801/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:10.026 (   3.960s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/802/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:10.030 (   3.963s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/803/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:10.033 (   3.966s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/804/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:10.042 (   3.976s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/805/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:10.075 (   4.009s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/806/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:10.108 (   4.042s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 8192]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/807/0_2048_8192 with size 33554432 bytes
+2026-03-09 22:28:10.141 (   4.075s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/808/0_2048 with size 4096 bytes
+2026-03-09 22:28:10.142 (   4.076s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/809/0_2048 with size 4096 bytes
+2026-03-09 22:28:10.144 (   4.077s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/810/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:10.153 (   4.086s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/811/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:10.156 (   4.090s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/812/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:10.159 (   4.093s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/813/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:10.169 (   4.102s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/814/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:10.202 (   4.136s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/815/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:10.235 (   4.169s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 8192]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/816/0_2048_8192 with size 33554432 bytes
+2026-03-09 22:28:10.268 (   4.202s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/817/0_2048 with size 4096 bytes
+2026-03-09 22:28:10.270 (   4.204s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/818/0_2048 with size 4096 bytes
+2026-03-09 22:28:10.271 (   4.205s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/819/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:10.280 (   4.214s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/820/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:10.284 (   4.217s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/821/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:10.287 (   4.221s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/822/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:10.297 (   4.230s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/823/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:10.336 (   4.269s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/824/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:10.369 (   4.302s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 8192]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/825/0_2048_8192 with size 33554432 bytes
+2026-03-09 22:28:10.402 (   4.336s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/826/0_2048 with size 4096 bytes
+2026-03-09 22:28:10.403 (   4.337s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/827/0_2048 with size 4096 bytes
+2026-03-09 22:28:10.405 (   4.338s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/828/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:10.414 (   4.348s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/829/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:10.417 (   4.351s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/830/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:10.421 (   4.354s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/831/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:10.430 (   4.363s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/832/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:10.463 (   4.396s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/833/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:10.496 (   4.429s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 8192]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/834/0_2048_8192 with size 33554432 bytes
+2026-03-09 22:28:10.529 (   4.463s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/835/0_2048 with size 4096 bytes
+2026-03-09 22:28:10.530 (   4.464s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/836/0_2048 with size 4096 bytes
+2026-03-09 22:28:10.532 (   4.465s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/837/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:10.541 (   4.474s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/838/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:10.544 (   4.478s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/839/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:10.547 (   4.481s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/840/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:10.557 (   4.490s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/841/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:10.590 (   4.523s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/842/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:10.623 (   4.556s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 8192]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/843/0_2048_8192 with size 33554432 bytes
+2026-03-09 22:28:10.656 (   4.589s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/844/0_2048 with size 4096 bytes
+2026-03-09 22:28:10.657 (   4.591s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/845/0_2048 with size 4096 bytes
+2026-03-09 22:28:10.659 (   4.592s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/846/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:10.668 (   4.601s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/847/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:10.671 (   4.605s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/848/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:10.674 (   4.608s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/849/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:10.684 (   4.617s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/850/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:10.717 (   4.651s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/851/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:10.750 (   4.684s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 8192]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/852/0_2048_8192 with size 33554432 bytes
+2026-03-09 22:28:10.783 (   4.717s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/853/0_2048 with size 4096 bytes
+2026-03-09 22:28:10.785 (   4.718s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/854/0_2048 with size 4096 bytes
+2026-03-09 22:28:10.786 (   4.720s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/855/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:10.795 (   4.729s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/856/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:10.799 (   4.732s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/857/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:10.802 (   4.735s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/858/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:10.811 (   4.744s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/859/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:10.844 (   4.778s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/860/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:10.877 (   4.811s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 8192]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/861/0_2048_8192 with size 33554432 bytes
+2026-03-09 22:28:10.911 (   4.844s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/862/0_2048 with size 4096 bytes
+2026-03-09 22:28:10.912 (   4.846s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/863/0_2048 with size 4096 bytes
+2026-03-09 22:28:10.913 (   4.847s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/864/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:10.923 (   4.856s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/865/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:10.926 (   4.860s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/866/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:10.930 (   4.863s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/867/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:10.939 (   4.873s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/868/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:10.973 (   4.906s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/869/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:11.006 (   4.940s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 8192]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/870/0_2048_8192 with size 33554432 bytes
+2026-03-09 22:28:11.040 (   4.973s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/871/0_2048 with size 4096 bytes
+2026-03-09 22:28:11.041 (   4.975s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/872/0_2048 with size 4096 bytes
+2026-03-09 22:28:11.043 (   4.976s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/873/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:11.052 (   4.985s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/874/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:11.055 (   4.989s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/875/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:11.058 (   4.992s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/876/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:11.068 (   5.001s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/877/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:11.101 (   5.035s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/878/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:11.134 (   5.068s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 8192]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/879/0_2048_8192 with size 33554432 bytes
+2026-03-09 22:28:11.167 (   5.101s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/880/0_2048 with size 4096 bytes
+2026-03-09 22:28:11.169 (   5.102s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/881/0_2048 with size 4096 bytes
+2026-03-09 22:28:11.170 (   5.104s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/882/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:11.179 (   5.113s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/883/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:11.183 (   5.116s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/884/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:11.186 (   5.119s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/885/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:11.195 (   5.128s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/886/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:11.228 (   5.162s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/887/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:11.262 (   5.195s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 8192]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/888/0_2048_8192 with size 33554432 bytes
+2026-03-09 22:28:11.295 (   5.228s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/889/0_2048 with size 4096 bytes
+2026-03-09 22:28:11.296 (   5.230s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/890/0_2048 with size 4096 bytes
+2026-03-09 22:28:11.298 (   5.231s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/891/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:11.307 (   5.240s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/892/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:11.310 (   5.243s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/893/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:11.313 (   5.247s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/894/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:11.322 (   5.256s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/895/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:11.355 (   5.289s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/896/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:11.388 (   5.322s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 8192]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/897/0_2048_8192 with size 33554432 bytes
+2026-03-09 22:28:11.421 (   5.355s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/898/0_2048 with size 4096 bytes
+2026-03-09 22:28:11.423 (   5.356s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/899/0_2048 with size 4096 bytes
+2026-03-09 22:28:11.424 (   5.358s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/900/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:11.433 (   5.367s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/901/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:11.436 (   5.370s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/902/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:11.440 (   5.373s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/903/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:11.449 (   5.383s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/904/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:11.482 (   5.416s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/905/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:11.515 (   5.449s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 8192]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/906/0_2048_8192 with size 33554432 bytes
+2026-03-09 22:28:11.548 (   5.482s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/907/0_2048 with size 4096 bytes
+2026-03-09 22:28:11.550 (   5.483s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/908/0_2048 with size 4096 bytes
+2026-03-09 22:28:11.551 (   5.485s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/909/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:11.560 (   5.494s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/910/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:11.564 (   5.497s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [512, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/911/0_512_2048 with size 2097152 bytes
+2026-03-09 22:28:11.567 (   5.501s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/912/0_2048_2048 with size 8388608 bytes
+2026-03-09 22:28:11.576 (   5.510s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/913/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:11.609 (   5.543s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [8192, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/914/0_8192_2048 with size 33554432 bytes
+2026-03-09 22:28:11.643 (   5.576s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048, 8192]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/915/0_2048_8192 with size 33554432 bytes
+2026-03-09 22:28:11.676 (   5.610s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/916/0_2048 with size 4096 bytes
+2026-03-09 22:28:11.677 (   5.611s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/917/0_2048 with size 4096 bytes
+2026-03-09 22:28:11.679 (   5.612s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/918/0_2048 with size 4096 bytes
+2026-03-09 22:28:11.681 (   5.614s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [32]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/919/0_32 with size 128 bytes
+2026-03-09 22:28:11.682 (   5.616s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [128256, 2048]
+[32m                 Always[0m | [1m[38;5;69m    INFO[0m | mmap_tensor_data_to_tmp_file: Creating mmap file at /tmp/mmap/920/0_128256_2048 with size 525336576 bytes
+Moving model to TT device...
+This creates mmap regions in PJRT for each parameter
+Set TTXLA_LOGGER_LEVEL=DEBUG to see copyFromHost messages
+
+
+======================================================================
+Memory Snapshot: After move to TT device
+======================================================================
+RSS: 6880.11 MB
+VMS: 21501.43 MB
+======================================================================
+
+2026-03-09 22:28:13.184 (   7.117s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [1, 6]
+2026-03-09 22:28:13.184 (   7.118s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [1, 6]
+2026-03-09 22:28:13.662 (   7.596s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.663 (   7.596s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.704 (   7.637s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.704 (   7.638s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.741 (   7.675s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.742 (   7.675s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.778 (   7.712s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.779 (   7.712s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.815 (   7.749s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.816 (   7.749s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.853 (   7.786s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.853 (   7.787s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.890 (   7.824s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.891 (   7.824s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.928 (   7.861s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.928 (   7.862s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.966 (   7.900s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:13.967 (   7.900s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:14.003 (   7.937s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:14.004 (   7.937s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:14.040 (   7.974s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:14.041 (   7.974s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:14.077 (   8.011s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:14.078 (   8.011s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:14.115 (   8.048s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:14.115 (   8.049s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:14.152 (   8.085s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:14.152 (   8.086s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:14.190 (   8.123s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:14.190 (   8.124s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:14.227 (   8.160s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+2026-03-09 22:28:14.227 (   8.161s) [        CA141000]     client_instance.cc:817   INFO| Creating buffer with shape: [0]
+[32m                 Always[0m | [1m[31m   ERROR[0m | mmap_tensor_data_to_tmp_file: Cannot mmap a zero-size tensor (total_size=0, itemsize=2)
+[32m                 Always[0m | [1m[38;5;208m WARNING[0m | createOwnedHostTensor: mmap failed, falling back to normal tensor allocation
+Running forward pass with prompt: 'The capital of France is'
+
+======================================================================
+Memory Snapshot: After inference
+======================================================================
+RSS: 6991.02 MB
+VMS: 30118.82 MB
+======================================================================
+
+Predicted next token: ' the'
+
+======================================================================
+Memory Summary - Single | Offload: NO
+======================================================================
+Model: 2357.13 MB (1,235,814,400 params)
+After CPU load:   3931.21 MB
+After to(device): 6880.11 MB (+2948.91 MB)
+After inference:  6991.02 MB (+110.91 MB)
+======================================================================
+
+PASSED
+
+=============================== warnings summary ===============================
+memory_experiment/test_disk_offload.py::test_llama_disk_offload[no_spmd-no_offload]
+  /localdev/jameszianxu/tt-xla/memory_experiment/test_disk_offload.py:99: DeprecationWarning: Use torch_xla.device instead
+    return xm.xla_device()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 1 passed, 1 warning in 32.81s =========================
