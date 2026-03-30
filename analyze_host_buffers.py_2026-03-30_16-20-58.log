@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+"""
+Parse BufferInstance::copyFromHost log lines and produce a table of:
+  (host_buffer ptr, shape) -> num_copies -> size_bytes -> shape
+
+Each unique (ptr, shape) pair is treated as a distinct allocation.
+"""
+
+import re
+import sys
+from collections import defaultdict
+
+LOG_PATH = "test_kimi_sparse_moe_nocache_bi.log"
+
+PATTERN = re.compile(
+    r"BufferInstance::copyFromHost\s+uid=\d+\s+"
+    r"host_buffer=(\S+)\s+"
+    r"size_bytes=(\d+)\s+"
+    r"shape=(\[.*?\])"
+)
+
+
+def parse(log_path: str) -> dict:
+    # key: (ptr, shape)  value: {count, size_bytes}
+    allocs = defaultdict(lambda: {"count": 0, "size_bytes": None})
+    with open(log_path) as f:
+        for line in f:
+            m = PATTERN.search(line)
+            if m:
+                ptr, size_bytes, shape = m.group(1), int(m.group(2)), m.group(3)
+                key = (ptr, shape)
+                allocs[key]["count"] += 1
+                allocs[key]["size_bytes"] = size_bytes
+    return allocs
+
+
+def human_readable(n_bytes: int) -> str:
+    for unit in ("B", "KB", "MB", "GB", "TB"):
+        if abs(n_bytes) < 1024:
+            return f"{n_bytes:.2f} {unit}"
+        n_bytes /= 1024
+    return f"{n_bytes:.2f} PB"
+
+
+def print_table(allocs: dict) -> None:
+    sorted_allocs = sorted(allocs.items(), key=lambda x: int(x[0][0], 16))
+
+    header = f"{'host_buffer':<20} {'num_copies':>10} {'size_bytes':>15}  shape"
+    print(header)
+    print("-" * 70)
+
+    total_copied_bytes = 0
+    total_allocated_bytes = 0
+    for (ptr, shape), info in sorted_allocs:
+        size = info["size_bytes"]
+        print(f"{ptr:<20} {info['count']:>10} {size:>15,}  {shape}")
+        total_copied_bytes += info["count"] * size
+        total_allocated_bytes += size
+
+    print()
+    print(f"Unique allocations (ptr, shape):   {len(allocs)}")
+    print(f"Total copy events:                 {sum(v['count'] for v in allocs.values())}")
+    print(f"Total host memory allocated:       {human_readable(total_allocated_bytes)} ({total_allocated_bytes:,} bytes)")
+    print(f"Total bytes copied:                {human_readable(total_copied_bytes)} ({total_copied_bytes:,} bytes)")
+
+
+if __name__ == "__main__":
+    path = sys.argv[1] if len(sys.argv) > 1 else LOG_PATH
+    allocs = parse(path)
+    print_table(allocs)
