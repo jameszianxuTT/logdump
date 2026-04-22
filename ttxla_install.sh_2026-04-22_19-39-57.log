@@ -29,7 +29,17 @@ run_install() {
     # 4. Environment Activation
     if [ -f "venv/activate" ]; then
         echo "Activating internal venv..."
+        # Some callers may invoke bash with inherited nounset (-u). Temporarily
+        # disable it around activation so environment scripts that expect unset
+        # vars do not fail.
+        local had_nounset=0
+        case $- in
+            *u*) had_nounset=1; set +u ;;
+        esac
         source venv/activate
+        if [ "$had_nounset" -eq 1 ]; then
+            set -u
+        fi
     else
         echo "Error: Expected venv/activate not found in repository."
         exit 1
@@ -37,7 +47,21 @@ run_install() {
 
     # 5. Build
     echo "Starting bldxla Debug..."
-    bldxla Debug
+        check_return_code() {
+        if [ $? -ne 0 ]; then
+            echo "Error: $1 failed. Exiting."
+	    exit 1
+        fi
+    }
+
+    # Run cmake commands
+    cmake -G Ninja -B build -DCMAKE_BUILD_TYPE=Release
+    check_return_code "cmake configuration"
+
+    cmake --build build
+    check_return_code "cmake build"
+
+    echo "Build and installation of tt-xla completed successfully."
 
     echo "--------------------------------------------------------"
     echo "✅ Success: tt-xla build from $branch_or_commit complete."
