@@ -3,7 +3,7 @@
 # curl -sSL https://your-server.com/install.sh | bash -s -- feature-alpha
 
 run_install() {
-    set -euo pipefail
+    set -eo pipefail
 
     local branch_or_commit="${1:-main}"
     local repo_url="https://github.com/tenstorrent/tt-xla.git"
