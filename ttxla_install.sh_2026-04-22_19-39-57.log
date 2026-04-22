@@ -1,0 +1,48 @@
+#!/bin/bash
+# usage: curl -sSL https://your-server.com/install.sh | bash
+# curl -sSL https://your-server.com/install.sh | bash -s -- feature-alpha
+
+run_install() {
+    set -euo pipefail
+
+    local branch_or_commit="${1:-main}"
+    local repo_url="https://github.com/tenstorrent/tt-xla.git"
+    local dir_name="tt-xla"
+
+    # 1. Early Exit if directory exists
+    if [ -d "$dir_name" ]; then
+        echo "Exiting: Directory '$dir_name' already exists. Please remove it to re-install."
+        exit 1
+    fi
+
+    echo "--- Initializing tt-xla build ($branch_or_commit) ---"
+
+    # 2. Clone via HTTPS
+    echo "Cloning repository..."
+    git clone --recursive "$repo_url" "$dir_name"
+    cd "$dir_name"
+
+    # 3. Checkout target ref
+    echo "Checking out $branch_or_commit..."
+    git checkout "$branch_or_commit"
+
+    # 4. Environment Activation
+    if [ -f "venv/activate" ]; then
+        echo "Activating internal venv..."
+        source venv/activate
+    else
+        echo "Error: Expected venv/activate not found in repository."
+        exit 1
+    fi
+
+    # 5. Build
+    echo "Starting bldxla Debug..."
+    bldxla Debug
+
+    echo "--------------------------------------------------------"
+    echo "✅ Success: tt-xla build from $branch_or_commit complete."
+    echo "--------------------------------------------------------"
+}
+
+# The wrapper ensures the script is fully downloaded before execution
+run_install "$@"
