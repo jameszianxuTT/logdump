@@ -1,0 +1,515 @@
+2026-04-23 17:58:20.834 | INFO     | pjrt_plugin_tt:setup_tt_pjrt_plugin_dir:42 - Using PJRT plugin directory: /localdev/jameszianxu/clean/tt-xla/python_package/pjrt_plugin_tt
+2026-04-23 17:58:20.834 | INFO     | pjrt_plugin_tt:setup_tt_metal_home:103 - Using TT-Metal from the source tree: /localdev/jameszianxu/clean/tt-xla/third_party/tt-mlir/src/tt-mlir/third_party/tt-metal/src/tt-metal
+2026-04-23 17:58:20.834 | WARNING  | torch_plugin_tt:__init__:38 - TT plugin is setting XLA_STABLEHLO_COMPILE to 1. This is required for TT PJRT plugin to work correctly.
+2026-04-23 17:58:21.538190: W torch_xla/csrc/runtime/profiler.cpp:88] Profiler API not found for PJRT plugin
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]Fetching 11 files: 100%|██████████| 11/11 [00:00<00:00, 13307.57it/s]
+Loading weights: 0it [00:00, ?it/s]Loading weights: 0it [00:00, ?it/s]
+[1mQwen3_5VisionModel LOAD REPORT[0m from: Qwen/Qwen3.5-27B
+Key                                                                  | Status     | 
+---------------------------------------------------------------------+------------+-
+model.visual.blocks.{0...26}.norm2.bias                              | UNEXPECTED | 
+model.visual.blocks.{0...26}.attn.proj.weight                        | UNEXPECTED | 
+model.visual.blocks.{0...26}.mlp.linear_fc1.bias                     | UNEXPECTED | 
+model.language_model.layers.{0...62}.linear_attn.conv1d.weight       | UNEXPECTED | 
+model.language_model.layers.{0...62}.linear_attn.A_log               | UNEXPECTED | 
+model.visual.blocks.{0...26}.norm2.weight                            | UNEXPECTED | 
+model.language_model.layers.{0...63}.mlp.down_proj.weight            | UNEXPECTED | 
+model.language_model.layers.{0...63}.input_layernorm.weight          | UNEXPECTED | 
+model.language_model.layers.{0...62}.linear_attn.in_proj_b.weight    | UNEXPECTED | 
+model.language_model.layers.{0...62}.linear_attn.out_proj.weight     | UNEXPECTED | 
+model.visual.blocks.{0...26}.attn.qkv.bias                           | UNEXPECTED | 
+model.language_model.layers.{3...63}.self_attn.v_proj.weight         | UNEXPECTED | 
+model.language_model.layers.{0...62}.linear_attn.dt_bias             | UNEXPECTED | 
+model.language_model.layers.{0...62}.linear_attn.norm.weight         | UNEXPECTED | 
+model.visual.blocks.{0...26}.norm1.bias                              | UNEXPECTED | 
+model.language_model.layers.{0...62}.linear_attn.in_proj_a.weight    | UNEXPECTED | 
+model.language_model.layers.{0...63}.mlp.up_proj.weight              | UNEXPECTED | 
+model.language_model.layers.{0...62}.linear_attn.in_proj_qkv.weight  | UNEXPECTED | 
+model.language_model.layers.{3...63}.self_attn.q_proj.weight         | UNEXPECTED | 
+model.visual.blocks.{0...26}.attn.qkv.weight                         | UNEXPECTED | 
+model.language_model.layers.{0...63}.post_attention_layernorm.weight | UNEXPECTED | 
+model.language_model.layers.{0...63}.mlp.gate_proj.weight            | UNEXPECTED | 
+model.language_model.layers.{3...63}.self_attn.q_norm.weight         | UNEXPECTED | 
+model.language_model.layers.{0...62}.linear_attn.in_proj_z.weight    | UNEXPECTED | 
+model.visual.blocks.{0...26}.mlp.linear_fc2.bias                     | UNEXPECTED | 
+model.language_model.layers.{3...63}.self_attn.k_norm.weight         | UNEXPECTED | 
+model.visual.blocks.{0...26}.mlp.linear_fc2.weight                   | UNEXPECTED | 
+model.visual.merger.linear_fc1.bias                                  | UNEXPECTED | 
+model.visual.blocks.{0...26}.norm1.weight                            | UNEXPECTED | 
+model.language_model.layers.{3...63}.self_attn.k_proj.weight         | UNEXPECTED | 
+model.language_model.layers.{3...63}.self_attn.o_proj.weight         | UNEXPECTED | 
+model.visual.merger.linear_fc2.bias                                  | UNEXPECTED | 
+model.visual.blocks.{0...26}.attn.proj.bias                          | UNEXPECTED | 
+model.visual.blocks.{0...26}.mlp.linear_fc1.weight                   | UNEXPECTED | 
+model.visual.merger.linear_fc2.weight                                | UNEXPECTED | 
+model.language_model.norm.weight                                     | UNEXPECTED | 
+model.language_model.embed_tokens.weight                             | UNEXPECTED | 
+model.visual.merger.norm.bias                                        | UNEXPECTED | 
+model.visual.merger.norm.weight                                      | UNEXPECTED | 
+model.visual.pos_embed.weight                                        | UNEXPECTED | 
+lm_head.weight                                                       | UNEXPECTED | 
+model.visual.patch_embed.proj.weight                                 | UNEXPECTED | 
+model.visual.patch_embed.proj.bias                                   | UNEXPECTED | 
+model.visual.merger.linear_fc1.weight                                | UNEXPECTED | 
+blocks.{0...26}.mlp.linear_fc2.weight                                | MISSING    | 
+blocks.{0...26}.norm2.weight                                         | MISSING    | 
+blocks.{0...26}.attn.proj.weight                                     | MISSING    | 
+blocks.{0...26}.attn.proj.bias                                       | MISSING    | 
+blocks.{0...26}.norm2.bias                                           | MISSING    | 
+blocks.{0...26}.norm1.bias                                           | MISSING    | 
+blocks.{0...26}.mlp.linear_fc1.bias                                  | MISSING    | 
+blocks.{0...26}.mlp.linear_fc2.bias                                  | MISSING    | 
+blocks.{0...26}.norm1.weight                                         | MISSING    | 
+blocks.{0...26}.attn.qkv.bias                                        | MISSING    | 
+blocks.{0...26}.attn.qkv.weight                                      | MISSING    | 
+merger.linear_fc2.weight                                             | MISSING    | 
+blocks.{0...26}.mlp.linear_fc1.weight                                | MISSING    | 
+merger.linear_fc1.weight                                             | MISSING    | 
+patch_embed.proj.weight                                              | MISSING    | 
+merger.linear_fc1.bias                                               | MISSING    | 
+patch_embed.proj.bias                                                | MISSING    | 
+merger.norm.bias                                                     | MISSING    | 
+merger.linear_fc2.bias                                               | MISSING    | 
+merger.norm.weight                                                   | MISSING    | 
+pos_embed.weight                                                     | MISSING    | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING[3m	:those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.[0m
+2026-04-23 17:58:34.865 (  13.701s) [        A7548740]      module_builder.cc:1220     1| MLIR Module vhlo:
+module @SyncTensorsGraph.18 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  vhlo.func_v1 @main(%arg0: !vhlo.tensor_v1<1152x!vhlo.bf16_v1>, %arg1: !vhlo.tensor_v1<1152x3x2x16x16x!vhlo.bf16_v1>, %arg2: !vhlo.tensor_v1<16x1536x!vhlo.bf16_v1>) -> (!vhlo.tensor_v1<16x1152x!vhlo.bf16_v1>) {
+    %0 = "vhlo.reshape_v1"(%arg2) : (!vhlo.tensor_v1<16x1536x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x16x1536x!vhlo.bf16_v1>
+    %1 = "vhlo.custom_call_v1"(%0) <{api_version = #vhlo<api_version_v1 API_VERSION_UNSPECIFIED>, backend_config = #vhlo.string_v1<"">, call_target_name = #vhlo.string_v1<"tt.mark_argument">, called_computations = #vhlo.array_v1<[]>, has_side_effect = #vhlo.bool_v1<false>, operand_layouts = #vhlo.array_v1<[]>, output_operand_aliases = #vhlo.array_v1<[]>, result_layouts = #vhlo.array_v1<[]>}> {mhlo.frontend_attributes = #vhlo.dict_v1<{#vhlo.string_v1<"ttcore.argument_type"> = #vhlo.string_v1<"input">, #vhlo.string_v1<"ttir.name"> = #vhlo.string_v1<"args_0">}>} : (!vhlo.tensor_v1<1x16x1536x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x16x1536x!vhlo.bf16_v1>
+    %2 = "vhlo.reshape_v1"(%1) : (!vhlo.tensor_v1<1x16x1536x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<16x3x2x16x16x!vhlo.bf16_v1>
+    %3 = "vhlo.custom_call_v1"(%arg1) <{api_version = #vhlo<api_version_v1 API_VERSION_UNSPECIFIED>, backend_config = #vhlo.string_v1<"">, call_target_name = #vhlo.string_v1<"tt.mark_argument">, called_computations = #vhlo.array_v1<[]>, has_side_effect = #vhlo.bool_v1<false>, operand_layouts = #vhlo.array_v1<[]>, output_operand_aliases = #vhlo.array_v1<[]>, result_layouts = #vhlo.array_v1<[]>}> {mhlo.frontend_attributes = #vhlo.dict_v1<{#vhlo.string_v1<"ttcore.argument_type"> = #vhlo.string_v1<"parameter">, #vhlo.string_v1<"ttir.name"> = #vhlo.string_v1<"patch_embed.proj.weight">}>} : (!vhlo.tensor_v1<1152x3x2x16x16x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1152x3x2x16x16x!vhlo.bf16_v1>
+    %4 = "vhlo.convolution_v1"(%2, %3) <{batch_group_count = #vhlo.integer_v1<1 : i64>, feature_group_count = #vhlo.integer_v1<1 : i64>, input_batch_dimension = #vhlo.integer_v1<0 : i64>, input_feature_dimension = #vhlo.integer_v1<1 : i64>, input_spatial_dimensions = #vhlo.tensor_v1<dense<[2, 3, 4]> : tensor<3xi64>>, kernel_input_feature_dimension = #vhlo.integer_v1<1 : i64>, kernel_output_feature_dimension = #vhlo.integer_v1<0 : i64>, kernel_spatial_dimensions = #vhlo.tensor_v1<dense<[2, 3, 4]> : tensor<3xi64>>, lhs_dilation = #vhlo.tensor_v1<dense<1> : tensor<3xi64>>, output_batch_dimension = #vhlo.integer_v1<0 : i64>, output_feature_dimension = #vhlo.integer_v1<1 : i64>, output_spatial_dimensions = #vhlo.tensor_v1<dense<[2, 3, 4]> : tensor<3xi64>>, padding = #vhlo.tensor_v1<dense<0> : tensor<3x2xi64>>, precision_config = #vhlo.array_v1<[#vhlo<precision_v1 DEFAULT>, #vhlo<precision_v1 DEFAULT>]>, rhs_dilation = #vhlo.tensor_v1<dense<1> : tensor<3xi64>>, window_reversal = #vhlo.tensor_v1<dense<false> : tensor<3xi1>>, window_strides = #vhlo.tensor_v1<dense<[2, 16, 16]> : tensor<3xi64>>}> : (!vhlo.tensor_v1<16x3x2x16x16x!vhlo.bf16_v1>, !vhlo.tensor_v1<1152x3x2x16x16x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<16x1152x1x1x1x!vhlo.bf16_v1>
+    %5 = "vhlo.reshape_v1"(%arg0) : (!vhlo.tensor_v1<1152x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x1x1152x!vhlo.bf16_v1>
+    %6 = "vhlo.custom_call_v1"(%5) <{api_version = #vhlo<api_version_v1 API_VERSION_UNSPECIFIED>, backend_config = #vhlo.string_v1<"">, call_target_name = #vhlo.string_v1<"tt.mark_argument">, called_computations = #vhlo.array_v1<[]>, has_side_effect = #vhlo.bool_v1<false>, operand_layouts = #vhlo.array_v1<[]>, output_operand_aliases = #vhlo.array_v1<[]>, result_layouts = #vhlo.array_v1<[]>}> {mhlo.frontend_attributes = #vhlo.dict_v1<{#vhlo.string_v1<"ttcore.argument_type"> = #vhlo.string_v1<"parameter">, #vhlo.string_v1<"ttir.name"> = #vhlo.string_v1<"patch_embed.proj.bias">}>} : (!vhlo.tensor_v1<1x1x1152x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1x1x1152x!vhlo.bf16_v1>
+    %7 = "vhlo.reshape_v1"(%6) : (!vhlo.tensor_v1<1x1x1152x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<1152x!vhlo.bf16_v1>
+    %8 = "vhlo.broadcast_in_dim_v1"(%7) <{broadcast_dimensions = #vhlo.tensor_v1<dense<1> : tensor<1xi64>>}> : (!vhlo.tensor_v1<1152x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<16x1152x1x1x1x!vhlo.bf16_v1>
+    %9 = "vhlo.add_v1"(%4, %8) : (!vhlo.tensor_v1<16x1152x1x1x1x!vhlo.bf16_v1>, !vhlo.tensor_v1<16x1152x1x1x1x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<16x1152x1x1x1x!vhlo.bf16_v1>
+    %10 = "vhlo.reshape_v1"(%9) : (!vhlo.tensor_v1<16x1152x1x1x1x!vhlo.bf16_v1>) -> !vhlo.tensor_v1<16x1152x!vhlo.bf16_v1>
+    "vhlo.return_v1"(%10) : (!vhlo.tensor_v1<16x1152x!vhlo.bf16_v1>) -> ()
+  } {arg_attrs = #vhlo.array_v1<[]>, res_attrs = #vhlo.array_v1<[]>, sym_visibility = #vhlo.string_v1<"">}
+}
+------------------ END OF MLIR MODULE ------------------
+2026-04-23 17:58:34.871 (  13.708s) [        A7548740]      module_builder.cc:1220     1| MLIR Module shlo:
+module @SyncTensorsGraph.18 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  func.func @main(%arg0: tensor<1152xbf16>, %arg1: tensor<1152x3x2x16x16xbf16>, %arg2: tensor<16x1536xbf16>) -> tensor<16x1152xbf16> {
+    %0 = stablehlo.reshape %arg2 : (tensor<16x1536xbf16>) -> tensor<1x16x1536xbf16>
+    %1 = stablehlo.custom_call @tt.mark_argument(%0) {api_version = 0 : i32, mhlo.frontend_attributes = {ttcore.argument_type = "input", ttir.name = "args_0"}} : (tensor<1x16x1536xbf16>) -> tensor<1x16x1536xbf16>
+    %2 = stablehlo.reshape %1 : (tensor<1x16x1536xbf16>) -> tensor<16x3x2x16x16xbf16>
+    %3 = stablehlo.custom_call @tt.mark_argument(%arg1) {api_version = 0 : i32, mhlo.frontend_attributes = {ttcore.argument_type = "parameter", ttir.name = "patch_embed.proj.weight"}} : (tensor<1152x3x2x16x16xbf16>) -> tensor<1152x3x2x16x16xbf16>
+    %4 = stablehlo.convolution(%2, %3) dim_numbers = [b, f, 0, 1, 2]x[o, i, 0, 1, 2]->[b, f, 0, 1, 2], window = {stride = [2, 16, 16]} {batch_group_count = 1 : i64, feature_group_count = 1 : i64} : (tensor<16x3x2x16x16xbf16>, tensor<1152x3x2x16x16xbf16>) -> tensor<16x1152x1x1x1xbf16>
+    %5 = stablehlo.reshape %arg0 : (tensor<1152xbf16>) -> tensor<1x1x1152xbf16>
+    %6 = stablehlo.custom_call @tt.mark_argument(%5) {api_version = 0 : i32, mhlo.frontend_attributes = {ttcore.argument_type = "parameter", ttir.name = "patch_embed.proj.bias"}} : (tensor<1x1x1152xbf16>) -> tensor<1x1x1152xbf16>
+    %7 = stablehlo.reshape %6 : (tensor<1x1x1152xbf16>) -> tensor<1152xbf16>
+    %8 = stablehlo.broadcast_in_dim %7, dims = [1] : (tensor<1152xbf16>) -> tensor<16x1152x1x1x1xbf16>
+    %9 = stablehlo.add %4, %8 : tensor<16x1152x1x1x1xbf16>
+    %10 = stablehlo.reshape %9 : (tensor<16x1152x1x1x1xbf16>) -> tensor<16x1152xbf16>
+    return %10 : tensor<16x1152xbf16>
+  }
+}
+------------------ END OF MLIR MODULE ------------------
+2026-04-23 17:58:34.872 (  13.709s) [        A7548740]      module_builder.cc:1220     1| MLIR Module shlo_frontend:
+module @SyncTensorsGraph.18 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  func.func @main(%arg0: tensor<1152xbf16> {ttcore.argument_type = #ttcore.argument_type<parameter>, ttir.name = "patch_embed.proj.bias"}, %arg1: tensor<1152x3x2x16x16xbf16> {ttcore.argument_type = #ttcore.argument_type<parameter>, ttir.name = "patch_embed.proj.weight"}, %arg2: tensor<16x1536xbf16> {ttcore.argument_type = #ttcore.argument_type<input>, ttir.name = "args_0"}) -> tensor<16x1152xbf16> {
+    %0 = stablehlo.reshape %arg2 : (tensor<16x1536xbf16>) -> tensor<1x16x1536xbf16>
+    %1 = stablehlo.reshape %0 : (tensor<1x16x1536xbf16>) -> tensor<16x3x2x16x16xbf16>
+    %2 = stablehlo.convolution(%1, %arg1) dim_numbers = [b, f, 0, 1, 2]x[o, i, 0, 1, 2]->[b, f, 0, 1, 2], window = {stride = [2, 16, 16]} {batch_group_count = 1 : i64, feature_group_count = 1 : i64} : (tensor<16x3x2x16x16xbf16>, tensor<1152x3x2x16x16xbf16>) -> tensor<16x1152x1x1x1xbf16>
+    %3 = stablehlo.reshape %arg0 : (tensor<1152xbf16>) -> tensor<1x1x1152xbf16>
+    %4 = stablehlo.reshape %3 : (tensor<1x1x1152xbf16>) -> tensor<1152xbf16>
+    %5 = stablehlo.broadcast_in_dim %4, dims = [1] : (tensor<1152xbf16>) -> tensor<16x1152x1x1x1xbf16>
+    %6 = stablehlo.add %2, %5 : tensor<16x1152x1x1x1xbf16>
+    %7 = stablehlo.reshape %6 : (tensor<16x1152x1x1x1xbf16>) -> tensor<16x1152xbf16>
+    return %7 : tensor<16x1152xbf16>
+  }
+}
+------------------ END OF MLIR MODULE ------------------
+2026-04-23 17:58:34.877 (  13.714s) [        A7548740]      module_builder.cc:1220     1| MLIR Module shlo_compiler:
+module @SyncTensorsGraph.18 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  sdy.mesh @mesh = <["x"=1, "y"=1]>
+  func.func @main(%arg0: tensor<1152xbf16> {ttcore.argument_type = #ttcore.argument_type<parameter>, ttcore.local_shape = #ttcore<local_shape local_shape = tensor<1152xbf16>>, ttcore.shard_status = #ttcore.shard_status<unsharded>, ttir.name = "patch_embed.proj.bias"}, %arg1: tensor<1152x3x2x16x16xbf16> {ttcore.argument_type = #ttcore.argument_type<parameter>, ttcore.local_shape = #ttcore<local_shape local_shape = tensor<1152x3x2x16x16xbf16>>, ttcore.shard_status = #ttcore.shard_status<unsharded>, ttir.name = "patch_embed.proj.weight"}, %arg2: tensor<16x1536xbf16> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.local_shape = #ttcore<local_shape local_shape = tensor<16x1536xbf16>>, ttcore.shard_status = #ttcore.shard_status<unsharded>, ttir.name = "args_0"}) -> (tensor<16x1152xbf16> {ttcore.local_shape = #ttcore<local_shape local_shape = tensor<16x1152xbf16>>, ttcore.shard_status = #ttcore.shard_status<presharded>}) {
+    %0 = stablehlo.reshape %arg2 : (tensor<16x1536xbf16>) -> tensor<1x16x1536xbf16>
+    %1 = stablehlo.reshape %0 : (tensor<1x16x1536xbf16>) -> tensor<16x3x2x16x16xbf16>
+    %2 = stablehlo.convolution(%1, %arg1) dim_numbers = [b, f, 0, 1, 2]x[o, i, 0, 1, 2]->[b, f, 0, 1, 2], window = {stride = [2, 16, 16]} {batch_group_count = 1 : i64, feature_group_count = 1 : i64} : (tensor<16x3x2x16x16xbf16>, tensor<1152x3x2x16x16xbf16>) -> tensor<16x1152x1x1x1xbf16>
+    %3 = stablehlo.reshape %arg0 : (tensor<1152xbf16>) -> tensor<1x1x1152xbf16>
+    %4 = stablehlo.reshape %3 : (tensor<1x1x1152xbf16>) -> tensor<1152xbf16>
+    %5 = stablehlo.broadcast_in_dim %4, dims = [1] : (tensor<1152xbf16>) -> tensor<16x1152x1x1x1xbf16>
+    %6 = stablehlo.add %2, %5 : tensor<16x1152x1x1x1xbf16>
+    %7 = stablehlo.reshape %6 : (tensor<16x1152x1x1x1xbf16>) -> tensor<16x1152xbf16>
+    return %7 : tensor<16x1152xbf16>
+  }
+}
+------------------ END OF MLIR MODULE ------------------
+2026-04-23 17:58:34.878 (  13.715s) [        A7548740]      module_builder.cc:1220     1| MLIR Module shlo_set_mesh_attr:
+module @SyncTensorsGraph.18 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  sdy.mesh @mesh = <["x"=1, "y"=1]>
+  func.func @main(%arg0: tensor<1152xbf16> {ttcore.argument_type = #ttcore.argument_type<parameter>, ttcore.local_shape = #ttcore<local_shape local_shape = tensor<1152xbf16>>, ttcore.shard_status = #ttcore.shard_status<unsharded>, ttir.name = "patch_embed.proj.bias"}, %arg1: tensor<1152x3x2x16x16xbf16> {ttcore.argument_type = #ttcore.argument_type<parameter>, ttcore.local_shape = #ttcore<local_shape local_shape = tensor<1152x3x2x16x16xbf16>>, ttcore.shard_status = #ttcore.shard_status<unsharded>, ttir.name = "patch_embed.proj.weight"}, %arg2: tensor<16x1536xbf16> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.local_shape = #ttcore<local_shape local_shape = tensor<16x1536xbf16>>, ttcore.shard_status = #ttcore.shard_status<unsharded>, ttir.name = "args_0"}) -> (tensor<16x1152xbf16> {ttcore.local_shape = #ttcore<local_shape local_shape = tensor<16x1152xbf16>>, ttcore.shard_status = #ttcore.shard_status<presharded>}) {
+    %0 = stablehlo.reshape %arg2 : (tensor<16x1536xbf16>) -> tensor<1x16x1536xbf16>
+    %1 = stablehlo.reshape %0 : (tensor<1x16x1536xbf16>) -> tensor<16x3x2x16x16xbf16>
+    %2 = stablehlo.convolution(%1, %arg1) dim_numbers = [b, f, 0, 1, 2]x[o, i, 0, 1, 2]->[b, f, 0, 1, 2], window = {stride = [2, 16, 16]} {batch_group_count = 1 : i64, feature_group_count = 1 : i64} : (tensor<16x3x2x16x16xbf16>, tensor<1152x3x2x16x16xbf16>) -> tensor<16x1152x1x1x1xbf16>
+    %3 = stablehlo.reshape %arg0 : (tensor<1152xbf16>) -> tensor<1x1x1152xbf16>
+    %4 = stablehlo.reshape %3 : (tensor<1x1x1152xbf16>) -> tensor<1152xbf16>
+    %5 = stablehlo.broadcast_in_dim %4, dims = [1] : (tensor<1152xbf16>) -> tensor<16x1152x1x1x1xbf16>
+    %6 = stablehlo.add %2, %5 : tensor<16x1152x1x1x1xbf16>
+    %7 = stablehlo.reshape %6 : (tensor<16x1152x1x1x1xbf16>) -> tensor<16x1152xbf16>
+    return %7 : tensor<16x1152xbf16>
+  }
+}
+------------------ END OF MLIR MODULE ------------------
+2026-04-23 17:58:34.879 (  13.716s) [        A7548740]      module_builder.cc:1220     1| MLIR Module shlo_compiler_cleaned:
+module @SyncTensorsGraph.18 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false} {
+  func.func @main(%arg0: tensor<1152xbf16>, %arg1: tensor<1152x3x2x16x16xbf16>, %arg2: tensor<16x1536xbf16>) -> tensor<16x1152xbf16> {
+    %0 = stablehlo.reshape %arg2 : (tensor<16x1536xbf16>) -> tensor<1x16x1536xbf16>
+    %1 = stablehlo.reshape %0 : (tensor<1x16x1536xbf16>) -> tensor<16x3x2x16x16xbf16>
+    %2 = stablehlo.convolution(%1, %arg1) dim_numbers = [b, f, 0, 1, 2]x[o, i, 0, 1, 2]->[b, f, 0, 1, 2], window = {stride = [2, 16, 16]} {batch_group_count = 1 : i64, feature_group_count = 1 : i64} : (tensor<16x3x2x16x16xbf16>, tensor<1152x3x2x16x16xbf16>) -> tensor<16x1152x1x1x1xbf16>
+    %3 = stablehlo.reshape %arg0 : (tensor<1152xbf16>) -> tensor<1x1x1152xbf16>
+    %4 = stablehlo.reshape %3 : (tensor<1x1x1152xbf16>) -> tensor<1152xbf16>
+    %5 = stablehlo.broadcast_in_dim %4, dims = [1] : (tensor<1152xbf16>) -> tensor<16x1152x1x1x1xbf16>
+    %6 = stablehlo.add %2, %5 : tensor<16x1152x1x1x1xbf16>
+    %7 = stablehlo.reshape %6 : (tensor<16x1152x1x1x1xbf16>) -> tensor<16x1152xbf16>
+    return %7 : tensor<16x1152xbf16>
+  }
+}
+------------------ END OF MLIR MODULE ------------------
+2026-04-23 17:58:34.882 (  13.718s) [        A7548740]      module_builder.cc:1220     1| MLIR Module ttir:
+module @SyncTensorsGraph.18 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+  ttcore.device_module {
+    builtin.module @SyncTensorsGraph.18 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+      func.func @main(%arg0: tensor<1152xbf16> {ttcore.argument_type = #ttcore.argument_type<parameter>, ttcore.local_shape = #ttcore<local_shape local_shape = tensor<1152xbf16>>, ttcore.shard_status = #ttcore.shard_status<unsharded>, ttir.name = "patch_embed.proj.bias"}, %arg1: tensor<1152x3x2x16x16xbf16> {ttcore.argument_type = #ttcore.argument_type<parameter>, ttcore.local_shape = #ttcore<local_shape local_shape = tensor<1152x3x2x16x16xbf16>>, ttcore.shard_status = #ttcore.shard_status<unsharded>, ttir.name = "patch_embed.proj.weight"}, %arg2: tensor<16x1536xbf16> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.local_shape = #ttcore<local_shape local_shape = tensor<16x1536xbf16>>, ttcore.shard_status = #ttcore.shard_status<unsharded>, ttir.name = "args_0"}) -> (tensor<16x1152xbf16> {ttcore.local_shape = #ttcore<local_shape local_shape = tensor<16x1152xbf16>>, ttcore.shard_status = #ttcore.shard_status<presharded>}) {
+        %0 = "ttir.reshape"(%arg2) <{shape = [16 : i32, 3 : i32, 2 : i32, 16 : i32, 16 : i32]}> : (tensor<16x1536xbf16>) -> tensor<16x3x2x16x16xbf16>
+        %1 = "ttir.permute"(%arg1) <{permutation = array<i64: 0, 1, 2, 3, 4>}> : (tensor<1152x3x2x16x16xbf16>) -> tensor<1152x3x2x16x16xbf16>
+        %2 = "ttir.conv3d"(%0, %1) <{batch_dim = 0 : i64, channel_dim = 1 : i64, depth_dim = 2 : i64, groups = 1 : i32, height_dim = 3 : i64, padding = array<i32: 0, 0, 0>, padding_mode = "zeros", stride = array<i32: 2, 16, 16>, width_dim = 4 : i64}> : (tensor<16x3x2x16x16xbf16>, tensor<1152x3x2x16x16xbf16>) -> tensor<16x1152x1x1x1xbf16>
+        %3 = "ttir.reshape"(%arg0) <{shape = [1 : i32, 1152 : i32, 1 : i32, 1 : i32, 1 : i32]}> : (tensor<1152xbf16>) -> tensor<1x1152x1x1x1xbf16>
+        %4 = "ttir.broadcast"(%3) <{broadcast_dimensions = array<i64: 16, 1, 1, 1, 1>}> : (tensor<1x1152x1x1x1xbf16>) -> tensor<16x1152x1x1x1xbf16>
+        %5 = "ttir.add"(%2, %4) : (tensor<16x1152x1x1x1xbf16>, tensor<16x1152x1x1x1xbf16>) -> tensor<16x1152x1x1x1xbf16>
+        %6 = "ttir.reshape"(%5) <{shape = [16 : i32, 1152 : i32]}> : (tensor<16x1152x1x1x1xbf16>) -> tensor<16x1152xbf16>
+        return %6 : tensor<16x1152xbf16>
+      }
+    }
+  }
+}
+------------------ END OF MLIR MODULE ------------------
+2026-04-23 17:58:34.905 (  13.741s) [        A7548740]      module_builder.cc:1220     1| MLIR Module ttnn:
+#dram = #ttnn.buffer_type<dram>
+#system_desc = #ttcore.system_desc<[{role = host, target_triple = "x86_64-pc-linux"}], [{arch = <wormhole_b0>, grid = 8x8, coord_translation_offsets = 18x18, l1_size = 1499136, num_dram_channels = 12, dram_channel_size = 1073741824, noc_l1_address_align_bytes = 16, pcie_address_align_bytes = 32, noc_dram_address_align_bytes = 32, l1_unreserved_base = 103712, erisc_l1_unreserved_base = 98304, dram_unreserved_base = 1920032, dram_unreserved_end = 1073119552, supported_data_types = [<f32>, <f16>, <bf16>, <bfp_f8>, <bfp_bf8>, <bfp_f4>, <bfp_bf4>, <bfp_f2>, <bfp_bf2>, <u32>, <u16>, <u8>, <si32>], supported_tile_sizes = [ 4x16,  16x16,  32x16,  4x32,  16x32,  32x32], dst_physical_size_tiles = 16, num_cbs = 64, num_compute_threads = 1, num_datamovement_threads = 2}], [0], [1 : i32], [ 0x0x0x0]>
+#system_memory = #ttnn.buffer_type<system_memory>
+#ttnn_layout = #ttnn.ttnn_layout<(d0, d1, d2, d3, d4) -> (d0 * 96 + d1 * 32 + d2 * 16 + d3, d4), <1x1>, memref<110592x16xbf16, #system_memory>>
+#ttnn_layout1 = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<512x36x!ttcore.tile<32x32, bf16>, #dram>, <interleaved>>
+#ttnn_layout2 = #ttnn.ttnn_layout<(d0, d1, d2, d3, d4) -> (d0 * 96 + d1 * 32 + d2 * 16 + d3, d4), <1x1>, memref<110592x16xbf16, #dram>, <interleaved>>
+#ttnn_layout3 = #ttnn.ttnn_layout<(d0, d1, d2, d3, d4) -> (d0 * 192 + d1 * 64 + d2 * 32 + d3, d4), <1x1>, memref<6912x1x!ttcore.tile<32x32, bf16>, #dram>, <interleaved>>
+#ttnn_layout4 = #ttnn.ttnn_layout<(d0, d1, d2, d3, d4) -> (d0 * 294912 + d1 * 18432 + d2 * 1152 + d3, d4), <1x1>, memref<18432x1x!ttcore.tile<32x32, bf16>, #dram>, <interleaved>>
+#ttnn_layout5 = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<18432x1x!ttcore.tile<32x32, bf16>, #dram>, <interleaved>>
+#ttnn_layout6 = #ttnn.ttnn_layout<(d0, d1, d2, d3, d4) -> (d0 * 8192 + d1 * 512 + d2 * 32 + d3, d4), <1x1>, memref<512x36x!ttcore.tile<32x32, bf16>, #dram>, <interleaved>>
+#ttnn_layout7 = #ttnn.ttnn_layout<(d0) -> (0, d0), <1x1>, memref<1x1152xbf16, #system_memory>>
+#ttnn_layout8 = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x36x!ttcore.tile<32x32, bf16>, #dram>, <interleaved>>
+#ttnn_layout9 = #ttnn.ttnn_layout<(d0) -> (0, d0), <1x1>, memref<1x1152xf32, #system_memory>>
+#ttnn_layout10 = #ttnn.ttnn_layout<(d0, d1, d2, d3, d4) -> (d0 * 1152 + d1 + d2 + d3, d4), <1x1>, memref<1152x1xf32, #system_memory>>
+#ttnn_layout11 = #ttnn.ttnn_layout<(d0, d1, d2, d3, d4) -> (d0 * 1152 + d1 + d2 + d3, d4), <1x1>, memref<1152x1xbf16, #system_memory>>
+#ttnn_layout12 = #ttnn.ttnn_layout<(d0, d1, d2, d3, d4) -> (d0 * 36864 + d1 * 32 + d2 * 32 + d3, d4), <1x1>, memref<1152x1x!ttcore.tile<32x32, bf16>, #system_memory>>
+#ttnn_layout13 = #ttnn.ttnn_layout<(d0, d1, d2, d3, d4) -> (d0 * 36864 + d1 * 32 + d2 * 32 + d3, d4), <1x1>, memref<1152x1x!ttcore.tile<32x32, bf16>, #dram>, <interleaved>>
+#ttnn_layout14 = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<16x1536xbf16, #dram>, <interleaved>>
+#ttnn_layout15 = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<1x48x!ttcore.tile<32x32, bf16>, #dram>, <interleaved>>
+#ttnn_layout16 = #ttnn.ttnn_layout<(d0, d1, d2, d3, d4) -> (d0 * 192 + d1 * 64 + d2 * 32 + d3, d4), <1x1>, memref<96x1x!ttcore.tile<32x32, bf16>, #dram>, <interleaved>>
+#ttnn_layout17 = #ttnn.ttnn_layout<(d0, d1, d2, d3, d4) -> (d0 * 1024 + d1 * 512 + d2 * 32 + d3, d4), <1x1>, memref<512x1x!ttcore.tile<32x32, bf16>, #dram>, <interleaved>>
+#ttnn_layout18 = #ttnn.ttnn_layout<(d0, d1) -> (d0, d1), <1x1>, memref<256x1x!ttcore.tile<32x32, bf16>, #dram>, <interleaved>>
+#ttnn_layout19 = #ttnn.ttnn_layout<(d0, d1, d2, d3, d4) -> (d0 * 512 + d1 * 256 + d2 * 16 + d3, d4), <1x1>, memref<8192x32xbf16, #dram>, <interleaved>>
+#ttnn_layout20 = #ttnn.ttnn_layout<(d0, d1, d2, d3, d4) -> (d0 + d1 + d2 + d3, d4), <1x1>, memref<16x1152xbf16, #dram>, <interleaved>>
+#ttnn_layout21 = #ttnn.ttnn_layout<(d0, d1, d2, d3, d4) -> (d0 * 1152 + d1 + d2 + d3, d4), <1x1>, memref<18432x1xbf16, #dram>, <interleaved>>
+#ttnn_layout22 = #ttnn.ttnn_layout<(d0, d1, d2, d3, d4) -> (d0 * 36864 + d1 * 32 + d2 * 32 + d3, d4), <1x1>, memref<18432x1x!ttcore.tile<32x32, bf16>, #dram>, <interleaved>>
+module @SyncTensorsGraph.18 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>} {
+  ttcore.device_module {
+    builtin.module @SyncTensorsGraph.18 attributes {mhlo.cross_program_prefetches = [], mhlo.input_output_alias = [], mhlo.is_dynamic = false, mhlo.use_auto_spmd_partitioning = false, ttcore.meshes = #ttcore.meshes<[<"mesh" = 1x1>]>, ttcore.system_desc = #system_desc} {
+      ttcore.device @default_device = <workerGrid = #ttcore.grid<8x8, virt_to_physical_map = (d0, d1) -> (0, d0, d1), physical_to_virt_map = (d0, d1, d2) -> (d1, d2)>, l1Map = (d0, d1, d2)[s0] -> (0, d0, d1, d2 + s0), dramMap = (d0, d1, d2)[s0, s1, s2, s3, s4, s5, s6] -> (0, 0, (((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) mod 12, ((((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) floordiv s4) floordiv 12) * s4 + ((d0 * s1) * (s2 * (s3 * s6)) + d1 * (s2 * (s3 * s6)) + d2) mod s4 + s5), meshShape = 1x1, chipIds = [0]>
+      func.func private @main_const_eval_0(%arg0: tensor<1152x3x2x16x16xbf16, #ttnn_layout> {ttir.conv2d_weight}) -> tensor<16384x1152xbf16, #ttnn_layout1> attributes {tt.function_type = "const_eval"} {
+        %0 = "ttnn.get_device"() <{mesh_offset = #ttnn<mesh_offset 0x0>, mesh_shape = #ttnn<mesh_shape 1x1>}> : () -> !ttnn.device
+        %1 = "ttnn.to_device"(%arg0, %0) <{memory_config = #ttnn.memory_config<#dram, <interleaved>>}> : (tensor<1152x3x2x16x16xbf16, #ttnn_layout>, !ttnn.device) -> tensor<1152x3x2x16x16xbf16, #ttnn_layout2>
+        %2 = "ttnn.to_layout"(%1) <{layout = #ttnn.layout<tile>}> : (tensor<1152x3x2x16x16xbf16, #ttnn_layout2>) -> tensor<1152x3x2x16x16xbf16, #ttnn_layout3>
+        "ttnn.deallocate"(%1) <{force = false}> : (tensor<1152x3x2x16x16xbf16, #ttnn_layout2>) -> ()
+        %3 = "ttnn.permute"(%2) <{permutation = array<i64: 2, 3, 4, 0, 1>}> : (tensor<1152x3x2x16x16xbf16, #ttnn_layout3>) -> tensor<2x16x16x1152x3xbf16, #ttnn_layout4>
+        "ttnn.deallocate"(%2) <{force = false}> : (tensor<1152x3x2x16x16xbf16, #ttnn_layout3>) -> ()
+        %4 = "ttnn.reshape"(%3) <{shape = [589824 : i32, 3 : i32]}> : (tensor<2x16x16x1152x3xbf16, #ttnn_layout4>) -> tensor<589824x3xbf16, #ttnn_layout5>
+        "ttnn.deallocate"(%3) <{force = false}> : (tensor<2x16x16x1152x3xbf16, #ttnn_layout4>) -> ()
+        %5 = "ttnn.pad"(%4) <{padding = array<i32: 0, 0, 0, 29>, use_multicore = true, value = 0.000000e+00 : f32}> : (tensor<589824x3xbf16, #ttnn_layout5>) -> tensor<589824x32xbf16, #ttnn_layout5>
+        "ttnn.deallocate"(%4) <{force = false}> : (tensor<589824x3xbf16, #ttnn_layout5>) -> ()
+        %6 = "ttnn.reshape"(%5) <{shape = [2 : i32, 16 : i32, 16 : i32, 1152 : i32, 32 : i32]}> : (tensor<589824x32xbf16, #ttnn_layout5>) -> tensor<2x16x16x1152x32xbf16, #ttnn_layout4>
+        "ttnn.deallocate"(%5) <{force = false}> : (tensor<589824x32xbf16, #ttnn_layout5>) -> ()
+        %7 = "ttnn.permute"(%6) <{permutation = array<i64: 0, 1, 2, 4, 3>}> : (tensor<2x16x16x1152x32xbf16, #ttnn_layout4>) -> tensor<2x16x16x32x1152xbf16, #ttnn_layout6>
+        "ttnn.deallocate"(%6) <{force = false}> : (tensor<2x16x16x1152x32xbf16, #ttnn_layout4>) -> ()
+        %8 = "ttnn.reshape"(%7) <{shape = [16384 : i32, 1152 : i32]}> : (tensor<2x16x16x32x1152xbf16, #ttnn_layout6>) -> tensor<16384x1152xbf16, #ttnn_layout1>
+        "ttnn.deallocate"(%7) <{force = false}> : (tensor<2x16x16x32x1152xbf16, #ttnn_layout6>) -> ()
+        return %8 : tensor<16384x1152xbf16, #ttnn_layout1>
+      }
+      func.func private @main_const_eval_1(%arg0: tensor<1152xbf16, #ttnn_layout7>) -> tensor<1x1152xbf16, #ttnn_layout8> attributes {tt.function_type = "const_eval"} {
+        %0 = "ttnn.get_device"() <{mesh_offset = #ttnn<mesh_offset 0x0>, mesh_shape = #ttnn<mesh_shape 1x1>}> : () -> !ttnn.device
+        %1 = "ttnn.typecast"(%arg0) <{dtype = #ttcore.supportedDataTypes<f32>}> : (tensor<1152xbf16, #ttnn_layout7>) -> tensor<1152xf32, #ttnn_layout9>
+        %2 = call @cpu_hoisted_const_eval_f2bca5ab(%1) {ttir.cpu_hoist_call} : (tensor<1152xf32, #ttnn_layout9>) -> tensor<1x1152x1x1x1xf32, #ttnn_layout10>
+        "ttnn.deallocate"(%1) <{force = false}> : (tensor<1152xf32, #ttnn_layout9>) -> ()
+        %3 = "ttnn.typecast"(%2) <{dtype = #ttcore.supportedDataTypes<bf16>}> : (tensor<1x1152x1x1x1xf32, #ttnn_layout10>) -> tensor<1x1152x1x1x1xbf16, #ttnn_layout11>
+        "ttnn.deallocate"(%2) <{force = false}> : (tensor<1x1152x1x1x1xf32, #ttnn_layout10>) -> ()
+        %4 = "ttnn.to_layout"(%3) <{layout = #ttnn.layout<tile>}> : (tensor<1x1152x1x1x1xbf16, #ttnn_layout11>) -> tensor<1x1152x1x1x1xbf16, #ttnn_layout12>
+        "ttnn.deallocate"(%3) <{force = false}> : (tensor<1x1152x1x1x1xbf16, #ttnn_layout11>) -> ()
+        %5 = "ttnn.to_device"(%4, %0) <{memory_config = #ttnn.memory_config<#dram, <interleaved>>}> : (tensor<1x1152x1x1x1xbf16, #ttnn_layout12>, !ttnn.device) -> tensor<1x1152x1x1x1xbf16, #ttnn_layout13>
+        "ttnn.deallocate"(%4) <{force = false}> : (tensor<1x1152x1x1x1xbf16, #ttnn_layout12>) -> ()
+        %6 = "ttnn.reshape"(%5) <{shape = [1 : i32, 1152 : i32]}> : (tensor<1x1152x1x1x1xbf16, #ttnn_layout13>) -> tensor<1x1152xbf16, #ttnn_layout8>
+        "ttnn.deallocate"(%5) <{force = false}> : (tensor<1x1152x1x1x1xbf16, #ttnn_layout13>) -> ()
+        return %6 : tensor<1x1152xbf16, #ttnn_layout8>
+      }
+      func.func @main(%arg0: tensor<1152xbf16, #ttnn_layout7> {ttcore.argument_type = #ttcore.argument_type<parameter>, ttcore.local_shape = #ttcore<local_shape local_shape = tensor<1152xbf16>>, ttcore.shard_status = #ttcore.shard_status<unsharded>, ttir.name = "patch_embed.proj.bias"}, %arg1: tensor<1152x3x2x16x16xbf16, #ttnn_layout> {ttcore.argument_type = #ttcore.argument_type<parameter>, ttcore.local_shape = #ttcore<local_shape local_shape = tensor<1152x3x2x16x16xbf16>>, ttcore.shard_status = #ttcore.shard_status<unsharded>, ttir.conv2d_weight, ttir.name = "patch_embed.proj.weight"}, %arg2: tensor<16x1536xbf16, #ttnn_layout14> {ttcore.argument_type = #ttcore.argument_type<input>, ttcore.local_shape = #ttcore<local_shape local_shape = tensor<16x1536xbf16>>, ttcore.shard_status = #ttcore.shard_status<unsharded>, ttir.name = "args_0"}) -> (tensor<16x1152xbf16, #ttnn_layout8> {ttcore.local_shape = #ttcore<local_shape local_shape = tensor<16x1152xbf16>>, ttcore.shard_status = #ttcore.shard_status<presharded>}) attributes {tt.function_type = "forward_device"} {
+        %0 = ttcore.load_cached(@main_const_eval_0, [%arg1]) : (tensor<1152x3x2x16x16xbf16, #ttnn_layout>) -> tensor<16384x1152xbf16, #ttnn_layout1>
+        "ttnn.deallocate"(%arg1) <{force = false}> : (tensor<1152x3x2x16x16xbf16, #ttnn_layout>) -> ()
+        %1 = ttcore.load_cached(@main_const_eval_1, [%arg0]) : (tensor<1152xbf16, #ttnn_layout7>) -> tensor<1x1152xbf16, #ttnn_layout8>
+        "ttnn.deallocate"(%arg0) <{force = false}> : (tensor<1152xbf16, #ttnn_layout7>) -> ()
+        %2 = "ttnn.get_device"() <{mesh_offset = #ttnn<mesh_offset 0x0>, mesh_shape = #ttnn<mesh_shape 1x1>}> : () -> !ttnn.device
+        %3 = "ttnn.to_layout"(%arg2) <{layout = #ttnn.layout<tile>}> : (tensor<16x1536xbf16, #ttnn_layout14>) -> tensor<16x1536xbf16, #ttnn_layout15>
+        "ttnn.deallocate"(%arg2) <{force = false}> : (tensor<16x1536xbf16, #ttnn_layout14>) -> ()
+        %4 = "ttnn.reshape"(%3) <{shape = [16 : i32, 3 : i32, 2 : i32, 16 : i32, 16 : i32]}> : (tensor<16x1536xbf16, #ttnn_layout15>) -> tensor<16x3x2x16x16xbf16, #ttnn_layout16>
+        "ttnn.deallocate"(%3) <{force = false}> : (tensor<16x1536xbf16, #ttnn_layout15>) -> ()
+        %5 = "ttnn.permute"(%4) <{permutation = array<i64: 0, 2, 3, 4, 1>}> : (tensor<16x3x2x16x16xbf16, #ttnn_layout16>) -> tensor<16x2x16x16x3xbf16, #ttnn_layout17>
+        "ttnn.deallocate"(%4) <{force = false}> : (tensor<16x3x2x16x16xbf16, #ttnn_layout16>) -> ()
+        %6 = "ttnn.reshape"(%5) <{shape = [8192 : i32, 3 : i32]}> : (tensor<16x2x16x16x3xbf16, #ttnn_layout17>) -> tensor<8192x3xbf16, #ttnn_layout18>
+        "ttnn.deallocate"(%5) <{force = false}> : (tensor<16x2x16x16x3xbf16, #ttnn_layout17>) -> ()
+        %7 = "ttnn.pad"(%6) <{padding = array<i32: 0, 0, 0, 29>, use_multicore = true, value = 0.000000e+00 : f32}> : (tensor<8192x3xbf16, #ttnn_layout18>) -> tensor<8192x32xbf16, #ttnn_layout18>
+        "ttnn.deallocate"(%6) <{force = false}> : (tensor<8192x3xbf16, #ttnn_layout18>) -> ()
+        %8 = "ttnn.reshape"(%7) <{shape = [16 : i32, 2 : i32, 16 : i32, 16 : i32, 32 : i32]}> : (tensor<8192x32xbf16, #ttnn_layout18>) -> tensor<16x2x16x16x32xbf16, #ttnn_layout17>
+        "ttnn.deallocate"(%7) <{force = false}> : (tensor<8192x32xbf16, #ttnn_layout18>) -> ()
+        %9 = "ttnn.to_layout"(%8) <{layout = #ttnn.layout<row_major>}> : (tensor<16x2x16x16x32xbf16, #ttnn_layout17>) -> tensor<16x2x16x16x32xbf16, #ttnn_layout19>
+        "ttnn.deallocate"(%8) <{force = false}> : (tensor<16x2x16x16x32xbf16, #ttnn_layout17>) -> ()
+        %10 = "ttnn.conv3d"(%9, %0, %1, %2) <{batch_size = 16 : i32, compute_config = #ttnn.device_compute_kernel_config<math_fidelity = hifi4, fp32_dest_acc_en = true>, dtype = #ttcore.supportedDataTypes<bf16>, groups = 1 : i32, in_channels = 32 : i32, input_depth = 2 : i32, input_height = 16 : i32, input_width = 16 : i32, kernel_size = array<i32: 2, 16, 16>, out_channels = 1152 : i32, padding = array<i32: 0, 0, 0>, padding_mode = "zeros", stride = array<i32: 2, 16, 16>}> : (tensor<16x2x16x16x32xbf16, #ttnn_layout19>, tensor<16384x1152xbf16, #ttnn_layout1>, tensor<1x1152xbf16, #ttnn_layout8>, !ttnn.device) -> tensor<16x1x1x1x1152xbf16, #ttnn_layout20>
+        "ttnn.deallocate"(%9) <{force = false}> : (tensor<16x2x16x16x32xbf16, #ttnn_layout19>) -> ()
+        "ttnn.deallocate"(%1) <{force = false}> : (tensor<1x1152xbf16, #ttnn_layout8>) -> ()
+        "ttnn.deallocate"(%0) <{force = false}> : (tensor<16384x1152xbf16, #ttnn_layout1>) -> ()
+        %11 = "ttnn.reshape"(%10) <{shape = [16 : i32, 1152 : i32, 1 : i32, 1 : i32, 1 : i32]}> : (tensor<16x1x1x1x1152xbf16, #ttnn_layout20>) -> tensor<16x1152x1x1x1xbf16, #ttnn_layout21>
+        "ttnn.deallocate"(%10) <{force = false}> : (tensor<16x1x1x1x1152xbf16, #ttnn_layout20>) -> ()
+        %12 = "ttnn.to_layout"(%11) <{layout = #ttnn.layout<tile>}> : (tensor<16x1152x1x1x1xbf16, #ttnn_layout21>) -> tensor<16x1152x1x1x1xbf16, #ttnn_layout22>
+        "ttnn.deallocate"(%11) <{force = false}> : (tensor<16x1152x1x1x1xbf16, #ttnn_layout21>) -> ()
+        %13 = "ttnn.reshape"(%12) <{shape = [16 : i32, 1152 : i32]}> : (tensor<16x1152x1x1x1xbf16, #ttnn_layout22>) -> tensor<16x1152xbf16, #ttnn_layout8>
+        "ttnn.deallocate"(%12) <{force = false}> : (tensor<16x1152x1x1x1xbf16, #ttnn_layout22>) -> ()
+        return %13 : tensor<16x1152xbf16, #ttnn_layout8>
+      }
+      func.func private @cpu_hoisted_const_eval_f2bca5ab(tensor<1152xf32, #ttnn_layout9>) -> tensor<1x1152x1x1x1xf32, #ttnn_layout10> attributes {func_hash = "f2bca5ab6e8793ff59a87c8044406621c95874b440ac8a04d59b7869e2dd820d", tt.function_type = "forward_cpu_declaration"}
+    }
+  }
+  ttcore.cpu_module {
+    builtin.module {
+      llvm.func @malloc(i64) -> !llvm.ptr
+      llvm.func @cpu_hoisted_const_eval_f2bca5ab(%arg0: !llvm.ptr, %arg1: !llvm.ptr, %arg2: i64, %arg3: i64, %arg4: i64) -> !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> attributes {arg_ranks = [1], func_hash = "f2bca5ab6e8793ff59a87c8044406621c95874b440ac8a04d59b7869e2dd820d", result_ranks = [5], tt.function_type = "forward_cpu"} {
+        %0 = llvm.mlir.poison : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)>
+        %1 = llvm.mlir.zero : !llvm.ptr
+        %2 = llvm.mlir.constant(1152 : index) : i64
+        %3 = llvm.mlir.constant(1 : index) : i64
+        %4 = llvm.mlir.constant(0 : index) : i64
+        %5 = llvm.getelementptr %1[1152] : (!llvm.ptr) -> !llvm.ptr, f32
+        %6 = llvm.ptrtoint %5 : !llvm.ptr to i64
+        %7 = llvm.call @malloc(%6) : (i64) -> !llvm.ptr
+        %8 = llvm.insertvalue %7, %0[0] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %9 = llvm.insertvalue %7, %8[1] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %10 = llvm.insertvalue %4, %9[2] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %11 = llvm.insertvalue %3, %10[3, 0] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %12 = llvm.insertvalue %2, %11[3, 1] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %13 = llvm.insertvalue %3, %12[3, 2] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %14 = llvm.insertvalue %3, %13[3, 3] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %15 = llvm.insertvalue %3, %14[3, 4] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %16 = llvm.insertvalue %2, %15[4, 0] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %17 = llvm.insertvalue %3, %16[4, 1] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %18 = llvm.insertvalue %3, %17[4, 2] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %19 = llvm.insertvalue %3, %18[4, 3] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %20 = llvm.insertvalue %3, %19[4, 4] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %21 = llvm.mul %3, %3 : i64
+        %22 = llvm.mul %21, %2 : i64
+        %23 = llvm.mul %22, %3 : i64
+        %24 = llvm.mul %23, %3 : i64
+        %25 = llvm.mul %24, %3 : i64
+        %26 = llvm.getelementptr %1[1] : (!llvm.ptr) -> !llvm.ptr, f32
+        %27 = llvm.ptrtoint %26 : !llvm.ptr to i64
+        %28 = llvm.mul %25, %27 : i64
+        "llvm.intr.memcpy"(%7, %arg1, %28) <{isVolatile = false}> : (!llvm.ptr, !llvm.ptr, i64) -> ()
+        llvm.return %20 : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)>
+      }
+      llvm.func @cpu_hoisted_const_eval_f2bca5ab_helper(%arg0: !llvm.ptr) -> !llvm.ptr {
+        %0 = llvm.mlir.constant(0 : i64) : i64
+        %1 = llvm.mlir.constant(4 : i64) : i64
+        %2 = llvm.mul %0, %1 : i64
+        %3 = llvm.getelementptr inbounds %arg0[%2] : (!llvm.ptr, i64) -> !llvm.ptr, !llvm.ptr
+        %4 = llvm.load %3 : !llvm.ptr -> !llvm.struct<(ptr, ptr, i64, ptr)>
+        %5 = llvm.extractvalue %4[0] : !llvm.struct<(ptr, ptr, i64, ptr)> 
+        %6 = llvm.extractvalue %4[1] : !llvm.struct<(ptr, ptr, i64, ptr)> 
+        %7 = llvm.extractvalue %4[2] : !llvm.struct<(ptr, ptr, i64, ptr)> 
+        %8 = llvm.extractvalue %4[3] : !llvm.struct<(ptr, ptr, i64, ptr)> 
+        %9 = llvm.mlir.constant(0 : i64) : i64
+        %10 = llvm.getelementptr %8[%9] : (!llvm.ptr, i64) -> !llvm.ptr, !llvm.ptr
+        %11 = llvm.load %10 : !llvm.ptr -> i64
+        %12 = llvm.mlir.constant(1 : i64) : i64
+        %13 = llvm.getelementptr %8[%12] : (!llvm.ptr, i64) -> !llvm.ptr, !llvm.ptr
+        %14 = llvm.load %13 : !llvm.ptr -> i64
+        %15 = llvm.call @cpu_hoisted_const_eval_f2bca5ab(%5, %6, %7, %11, %14) : (!llvm.ptr, !llvm.ptr, i64, i64, i64) -> !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)>
+        %16 = llvm.mlir.constant(32 : i64) : i64
+        %17 = llvm.call @malloc(%16) : (i64) -> !llvm.ptr
+        %18 = llvm.mlir.constant(80 : i64) : i64
+        %19 = llvm.call @malloc(%18) : (i64) -> !llvm.ptr
+        %20 = llvm.extractvalue %15[0] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %21 = llvm.extractvalue %15[1] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %22 = llvm.extractvalue %15[2] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %23 = llvm.mlir.constant(0 : i64) : i64
+        %24 = llvm.getelementptr %19[%23] : (!llvm.ptr, i64) -> !llvm.ptr, i8
+        %25 = llvm.extractvalue %15[3, 0] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %26 = llvm.mlir.constant(0 : i64) : i64
+        %27 = llvm.getelementptr %24[%26] : (!llvm.ptr, i64) -> !llvm.ptr, i64
+        llvm.store %25, %27 : i64, !llvm.ptr
+        %28 = llvm.extractvalue %15[3, 1] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %29 = llvm.mlir.constant(1 : i64) : i64
+        %30 = llvm.getelementptr %24[%29] : (!llvm.ptr, i64) -> !llvm.ptr, i64
+        llvm.store %28, %30 : i64, !llvm.ptr
+        %31 = llvm.extractvalue %15[3, 2] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %32 = llvm.mlir.constant(2 : i64) : i64
+        %33 = llvm.getelementptr %24[%32] : (!llvm.ptr, i64) -> !llvm.ptr, i64
+        llvm.store %31, %33 : i64, !llvm.ptr
+        %34 = llvm.extractvalue %15[3, 3] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %35 = llvm.mlir.constant(3 : i64) : i64
+        %36 = llvm.getelementptr %24[%35] : (!llvm.ptr, i64) -> !llvm.ptr, i64
+        llvm.store %34, %36 : i64, !llvm.ptr
+        %37 = llvm.extractvalue %15[3, 4] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %38 = llvm.mlir.constant(4 : i64) : i64
+        %39 = llvm.getelementptr %24[%38] : (!llvm.ptr, i64) -> !llvm.ptr, i64
+        llvm.store %37, %39 : i64, !llvm.ptr
+        %40 = llvm.extractvalue %15[4, 0] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %41 = llvm.mlir.constant(5 : i64) : i64
+        %42 = llvm.getelementptr %24[%41] : (!llvm.ptr, i64) -> !llvm.ptr, i64
+        llvm.store %40, %42 : i64, !llvm.ptr
+        %43 = llvm.extractvalue %15[4, 1] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %44 = llvm.mlir.constant(6 : i64) : i64
+        %45 = llvm.getelementptr %24[%44] : (!llvm.ptr, i64) -> !llvm.ptr, i64
+        llvm.store %43, %45 : i64, !llvm.ptr
+        %46 = llvm.extractvalue %15[4, 2] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %47 = llvm.mlir.constant(7 : i64) : i64
+        %48 = llvm.getelementptr %24[%47] : (!llvm.ptr, i64) -> !llvm.ptr, i64
+        llvm.store %46, %48 : i64, !llvm.ptr
+        %49 = llvm.extractvalue %15[4, 3] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %50 = llvm.mlir.constant(8 : i64) : i64
+        %51 = llvm.getelementptr %24[%50] : (!llvm.ptr, i64) -> !llvm.ptr, i64
+        llvm.store %49, %51 : i64, !llvm.ptr
+        %52 = llvm.extractvalue %15[4, 4] : !llvm.struct<(ptr, ptr, i64, array<5 x i64>, array<5 x i64>)> 
+        %53 = llvm.mlir.constant(9 : i64) : i64
+        %54 = llvm.getelementptr %24[%53] : (!llvm.ptr, i64) -> !llvm.ptr, i64
+        llvm.store %52, %54 : i64, !llvm.ptr
+        %55 = llvm.mlir.undef : !llvm.struct<(ptr, ptr, i64, ptr)>
+        %56 = llvm.insertvalue %20, %55[0] : !llvm.struct<(ptr, ptr, i64, ptr)> 
+        %57 = llvm.insertvalue %21, %56[1] : !llvm.struct<(ptr, ptr, i64, ptr)> 
+        %58 = llvm.insertvalue %22, %57[2] : !llvm.struct<(ptr, ptr, i64, ptr)> 
+        %59 = llvm.insertvalue %24, %58[3] : !llvm.struct<(ptr, ptr, i64, ptr)> 
+        %60 = llvm.mlir.constant(0 : i64) : i64
+        %61 = llvm.getelementptr %17[%60] : (!llvm.ptr, i64) -> !llvm.ptr, !llvm.struct<(ptr, ptr, i64, ptr)>
+        llvm.store %59, %61 : !llvm.struct<(ptr, ptr, i64, ptr)>, !llvm.ptr
+        llvm.return %17 : !llvm.ptr
+      }
+    }
+  }
+}
+------------------ END OF MLIR MODULE ------------------
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0] Backend compiler exception
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]   Explanation: Backend compiler `tt` failed with aten._local_scalar_dense.default
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0] 
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]     While executing %item : [num_users=1] = call_method[target=item](args = (%getitem_1,), kwargs = {})
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]     Original traceback:
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]       File "/localdev/jameszianxu/clean/tt-xla/python_package/tt_torch/torch_overrides.py", line 22, in __torch_function__
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]         return func(*args, **(kwargs or {}))
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0] 
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]     Use tlparse to see full graph. (https://github.com/pytorch/tlparse?tab=readme-ov-file#tlparse-parse-structured-pt2-logs). Adding a graph break.
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]   Hint: Report an issue to the backend compiler repo.
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0] 
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]   Developer debug context: Backend: tt
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]     Exception:aten._local_scalar_dense.default
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0] 
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]     While executing %item : [num_users=1] = call_method[target=item](args = (%getitem_1,), kwargs = {})
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]     Original traceback:
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]       File "/localdev/jameszianxu/clean/tt-xla/python_package/tt_torch/torch_overrides.py", line 22, in __torch_function__
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]         return func(*args, **(kwargs or {}))
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0] 
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]     Use tlparse to see full graph. (https://github.com/pytorch/tlparse?tab=readme-ov-file#tlparse-parse-structured-pt2-logs)
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]     Traceback:
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]       File "/localdev/jameszianxu/clean/tt-xla/python_package/tt_torch/torch_overrides.py", line 22, in __torch_function__
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]         return func(*args, **(kwargs or {}))
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0] 
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0] 
+W0423 17:58:35.012000 246659 venv/lib/python3.12/site-packages/torch/_dynamo/exc.py:593] [4/0]  For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0219.html
+2026-04-23 17:58:35.057 | critical |          Always | TT_THROW: Statically allocated circular buffers on core range [(x=0,y=0) - (x=7,y=7)] grow to 2239776 B which is beyond max L1 size of 1499136 B (assert.hpp:104)
+2026-04-23 17:58:35.093 (  13.930s) [        D17FA6C0]                utils.h:62     ERR| Exception:
+{TT_THROW @ /localdev/jameszianxu/clean/tt-xla/third_party/tt-mlir/src/tt-mlir/third_party/tt-metal/src/tt-metal/tt_metal/impl/program/program.cpp:1136: tt::exception
+info:
+Statically allocated circular buffers on core range [(x=0,y=0) - (x=7,y=7)] grow to 2239776 B which is beyond max L1 size of 1499136 B
+backtrace:
+ --- /localdev/jameszianxu/clean/tt-xla/third_party/tt-mlir/install/lib/libtt_metal.so(+0x78121a) [0x7d86dcf8121a]
+ --- tt::tt_metal::detail::ProgramImpl::validate_circular_buffer_region(tt::tt_metal::IDevice const*)
+ --- tt::tt_metal::distributed::MeshWorkloadImpl::compile(tt::tt_metal::distributed::MeshDevice*)
+ --- tt::tt_metal::distributed::EnqueueMeshWorkload(tt::tt_metal::distributed::MeshCommandQueue&, tt::tt_metal::distributed::MeshWorkload&, bool)
+ --- /localdev/jameszianxu/clean/tt-xla/third_party/tt-mlir/install/lib/_ttnncpp.so(_ZN4ttnn16device_operation6detail21enqueue_mesh_workloadITkNS0_36DeviceOperationWithMeshDeviceAdapterENS0_26MeshDeviceOperationAdapterINS_12experimental4prim21Conv3dDeviceOperationEEEEEvRKNT_22operation_attributes_tERKNS8_13tensor_args_tERNS8_21tensor_return_value_tEPN2tt8tt_metal11distributed10MeshDeviceERNSJ_12MeshWorkloadEb+0x33e) [0x7d86c75ea86e]
+ --- /localdev/jameszianxu/clean/tt-xla/third_party/tt-mlir/install/lib/_ttnncpp.so(+0xff09e9) [0x7d86c75f09e9]
+ --- /localdev/jameszianxu/clean/tt-xla/third_party/tt-mlir/install/lib/_ttnncpp.so(_ZN4ttnn16device_operation6detail29launch_operation_with_adapterITkNS0_36DeviceOperationWithMeshDeviceAdapterENS0_26MeshDeviceOperationAdapterINS_12experimental4prim21Conv3dDeviceOperationEEEEEvRKNT_22operation_attributes_tERKNS8_13tensor_args_tERNS8_21tensor_return_value_tEPN2tt8tt_metal11distributed10MeshDeviceE+0x1e3) [0x7d86c75e8da3]
+ --- /localdev/jameszianxu/clean/tt-xla/third_party/tt-mlir/install/lib/_ttnncpp.so(_ZN4ttnn16device_operation6detail6launchITkNS0_22DeviceOperationConceptENS_12experimental4prim21Conv3dDeviceOperationEEENT_21tensor_return_value_tERKNS6_22operation_attributes_tERKNS6_13tensor_args_tE+0x33e) [0x7d86c75e62ce]
+ --- /localdev/jameszianxu/clean/tt-xla/third_party/tt-mlir/install/lib/_ttnncpp.so(_ZN4ttnn4prim6conv3dERKN2tt8tt_metal6TensorES5_RKSt8optionalIS3_ERKNS_12experimental4prim12Conv3dConfigENS2_8DataTypeEjRKSt5arrayIjLm3EESJ_SJ_SJ_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjRKS6_INS2_12MemoryConfigEES6_INS_19ComputeKernelConfigEE+0x2a5) [0x7d86c75d63c5]
+ --- /localdev/jameszianxu/clean/tt-xla/third_party/tt-mlir/install/lib/_ttnncpp.so(_ZN4ttnn12experimental6conv3dERKN2tt8tt_metal6TensorES5_St8optionalIPNS2_11distributed10MeshDeviceEERKS6_IS3_ERKS6_INS0_4prim12Conv3dConfigEENS2_8DataTypeEjRKSt5arrayIjLm3EESN_SN_SN_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjRKS6_INS2_12MemoryConfigEES6_INS_19ComputeKernelConfigEE+0x2f7) [0x7d86c75d6007]
+ --- tt::runtime::ttnn::operations::conv::run(tt::target::ttnn::Conv3dOp const*, tt::runtime::ttnn::ProgramContext&)
+ --- tt::runtime::ttnn::ProgramExecutor::runOperation(tt::target::ttnn::Operation const*)
+ --- tt::runtime::ttnn::ProgramExecutor::execute()
+ --- tt::runtime::ttnn::submit(tt::runtime::Device, tt::runtime::Binary, unsigned int, std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> >&)
+ --- tt::runtime::submit(tt::runtime::Device, tt::runtime::Binary, unsigned int, std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> >&)
+ --- std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> > std::__invoke_impl<std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> >, std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> > (&)(tt::runtime::Device, tt::runtime::Binary, unsigned int, std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> >&), tt::runtime::Device&, tt::runtime::Binary const&, unsigned int&, std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> >&>(std::__invoke_other, std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> > (&)(tt::runtime::Device, tt::runtime::Binary, unsigned int, std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> >&), tt::runtime::Device&, tt::runtime::Binary const&, unsigned int&, std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> >&)
+ --- std::optional<std::conditional<std::is_same_v<std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> >, void>, std::monostate, std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> > >::type> tt::pjrt::utils::invoke_noexcept<std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> > (&)(tt::runtime::Device, tt::runtime::Binary, unsigned int, std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> >&), tt::runtime::Device&, tt::runtime::Binary const&, unsigned int&, std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> >&, std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> > >(std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> > (&)(tt::runtime::Device, tt::runtime::Binary, unsigned int, std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> >&), tt::runtime::Device&, tt::runtime::Binary const&, unsigned int&, std::vector<tt::runtime::Tensor, std::allocator<tt::runtime::Tensor> >&)
+ --- tt::pjrt::FlatbufferLoadedExecutableInstance::execute(PJRT_LoadedExecutable_Execute_Args*)
+ --- tt::pjrt::internal::onLoadedExecutableExecute(PJRT_LoadedExecutable_Execute_Args*)
+ --- xla::PjRtCApiLoadedExecutable::ExecuteWithSingleDevice(absl::lts_20230802::Span<xla::PjRtBuffer* const>, xla::PjRtDevice*, xla::ExecuteOptions const&, std::optional<xla::PjRtFuture<void> >&, bool)
+ --- xla::PjRtCApiLoadedExecutable::ExecutePortable(absl::lts_20230802::Span<xla::PjRtBuffer* const>, xla::PjRtDevice*, xla::ExecuteOptions const&, std::optional<xla::PjRtFuture<void> >&, bool)
+ --- torch_xla::runtime::PjRtComputationClient::ExecuteComputation(torch_xla::runtime::ComputationClient::Computation const&, absl::lts_20230802::Span<std::shared_ptr<torch_xla::runtime::ComputationClient::Data> const>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, torch_xla::runtime::ComputationClient::ExecuteComputationOptions const&)
+ --- torch_xla::XlaBackendImpl::ExecuteComputation(std::shared_ptr<torch::lazy::Computation>, c10::ArrayRef<std::shared_ptr<torch::lazy::BackendData> >, torch::lazy::BackendDevice const&) const
+ --- /localdev/jameszianxu/clean/tt-xla/venv/lib/python3.12/site-packages/_XLAC.cpython-312-x86_64-linux-gnu.so(+0x6ded470) [0x7d89571ed470]
+ --- torch::lazy::MultiWait::Complete(std::function<void ()> const&)
+ --- Eigen::ThreadPoolTempl<tsl::thread::EigenEnvironment>::WorkerLoop(int)
+ --- void absl::lts_20230802::internal_any_invocable::RemoteInvoker<false, void, tsl::thread::EigenEnvironment::CreateThread(std::function<void ()>)::{lambda()#1}&>(absl::lts_20230802::internal_any_invocable::TypeErasedState*)
+ --- /localdev/jameszianxu/clean/tt-xla/venv/lib/python3.12/site-packages/_XLAC.cpython-312-x86_64-linux-gnu.so(+0x1168b182) [0x7d8961a8b182]
+ --- /lib/x86_64-linux-gnu/libc.so.6(+0x9caa4) [0x7d89a75e7aa4]
+ --- /lib/x86_64-linux-gnu/libc.so.6(+0x129c6c) [0x7d89a7674c6c]
+}
+
+Compiled model
+Traceback (most recent call last):
+  File "/localdev/jameszianxu/clean/tt-xla/qwen_3_5_vision_encoder_demo.py", line 49, in <module>
+    actual = compiled_encoder(hidden_states, grid_thw=grid_thw)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/localdev/jameszianxu/clean/tt-xla/venv/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 414, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/localdev/jameszianxu/clean/tt-xla/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/localdev/jameszianxu/clean/tt-xla/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/localdev/jameszianxu/clean/tt-xla/venv/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 832, in compile_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/localdev/jameszianxu/clean/tt-xla/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/localdev/jameszianxu/clean/tt-xla/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/localdev/jameszianxu/clean/tt-xla/venv/lib/python3.12/site-packages/transformers/utils/generic.py", line 915, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/localdev/jameszianxu/clean/tt-xla/venv/lib/python3.12/site-packages/transformers/utils/output_capturing.py", line 253, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/localdev/jameszianxu/clean/tt-xla/venv/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 1239, in forward
+    pos_embeds = self.fast_pos_embed_interpolate(grid_thw)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/localdev/jameszianxu/clean/tt-xla/venv/lib/python3.12/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 1162, in fast_pos_embed_interpolate
+    grid_thw_list = grid_thw.tolist()
+                    ^^^^^^^^^^^^^^^^^
+  File "/localdev/jameszianxu/clean/tt-xla/python_package/tt_torch/torch_overrides.py", line 22, in __torch_function__
+    return func(*args, **(kwargs or {}))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Bad StatusOr access: INTERNAL: Error code: 13
