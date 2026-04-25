@@ -1,0 +1,237 @@
+#!/usr/bin/env python3
+"""
+Simple standalone test for _CircularKVCacheUpdate.
+No CPU comparison - just compile with TT backend and print results.
+"""
+
+import torch
+import torch.nn as nn
+import torch_xla.core.xla_model as xm
+import torch_xla.runtime as xr
+
+
+class _CircularKVCacheUpdate(nn.Module):
+    """Standalone module that implements circular buffer KV cache update logic."""
+
+    def __init__(self, window_size: int, head_dim: int, max_batch_size: int = 2):
+        super().__init__()
+        self.win = window_size
+        self.register_buffer(
+            "kv_cache",
+            torch.zeros(max_batch_size, window_size, head_dim, dtype=torch.bfloat16),
+            persistent=False,
+        )
+
+    def forward(self, kv: torch.Tensor, start_pos: int):
+        """
+        Update circular buffer with new KV tokens.
+
+        Args:
+            kv: New KV tokens [batch, seqlen, head_dim]
+            start_pos: Starting position in the sequence
+
+        Returns:
+            Updated kv_cache for verification
+        """
+        bsz, seqlen, _ = kv.shape
+        win = self.win
+
+        # Actual logic from Attention.forward (lines 491-502)
+        if start_pos == 0:
+            # Prefill path
+            if seqlen <= win:
+                self.kv_cache[:bsz, :seqlen] = kv
+            else:
+                # Handle wrap-around for long prefill
+                cutoff = seqlen % win
+                self.kv_cache[:bsz, cutoff:win], self.kv_cache[:bsz, :cutoff] = (
+                    kv[:, : win - cutoff],
+                    kv[:, win - cutoff :],
+                )
+        else:
+            # Decode path: single token update at circular position
+            self.kv_cache[:bsz, start_pos % win] = kv.squeeze(1)
+
+        return self.kv_cache[:bsz]
+
+
+def test_decode_only():
+    """Test decode operations at various positions."""
+    print("=" * 80)
+    print("Test: Decode at various positions (fresh cache each time)")
+    print("=" * 80)
+
+    xr.set_device_type("TT")
+    device = xm.xla_device()
+
+    window_size = 8
+    head_dim = 32
+    bsz = 1
+    max_batch_size = 2
+
+    # Test positions
+    """If 0 is first here, then pos4 and pos7 tests will be corrupted by the prefill from pos0"""
+    positions = [0, 4, 7]
+
+    # Use same seed for all positions
+    torch.manual_seed(42)
+    # kv_input = torch.randn(bsz, 1, head_dim, dtype=torch.bfloat16).to(device)
+    kv_input = torch.arange(bsz * head_dim, dtype=torch.bfloat16).view(bsz, 1, head_dim).to(device)+1
+    results = {}
+    for start_pos in positions:
+        print(f"\n{'─' * 80}")
+        print(f"Decode at position {start_pos}")
+        print(f"{'─' * 80}")
+
+        # Fresh module for each position
+        module = _CircularKVCacheUpdate(window_size, head_dim, max_batch_size).to(device)
+        compiled_module = torch.compile(module, backend="tt")
+
+        print(f"\nInput KV (1 token):")
+        print(kv_input)
+
+        # Run on device
+        result = compiled_module(kv_input, start_pos)
+        xm.mark_step()
+        xm.wait_device_ops()
+        print(f"\nKV cache after decode (position {start_pos}):")
+        print(result)
+
+    
+
+def test_prefill_then_decode():
+    """Test prefill followed by decode."""
+    print("\n" + "=" * 80)
+    print("Test: Prefill 4 tokens, then decode 2 more")
+    print("=" * 80)
+
+    xr.set_device_type("TT")
+    device = xm.xla_device()
+
+    window_size = 8
+    head_dim = 32
+    bsz = 1
+    max_batch_size = 2
+
+    module = _CircularKVCacheUpdate(window_size, head_dim, max_batch_size).to(device)
+    compiled_module = torch.compile(module, backend="tt")
+
+    # Prefill: 4 tokens
+    print("\n" + "─" * 80)
+    print("PREFILL: 4 tokens at position 0")
+    print("─" * 80)
+
+    torch.manual_seed(42)
+    prefill_kv = torch.arange(bsz * 4 * head_dim, dtype=torch.bfloat16).view(bsz, 4, head_dim).to(device)
+
+    print(f"\nPrefill input:")
+    print(prefill_kv)
+
+    cache = compiled_module(prefill_kv, start_pos=0)
+    xm.mark_step()
+    xm.wait_device_ops()
+
+    print(f"\nCache after prefill:")
+    print(cache)
+
+    # Decode 1: position 4
+    print("\n" + "─" * 80)
+    print("DECODE 1: position 4")
+    print("─" * 80)
+
+    decode_kv1 = torch.ones(bsz, 1, head_dim, dtype=torch.bfloat16).to(device)
+
+    print(f"\nDecode 1 input:")
+    print(decode_kv1)
+
+    cache = compiled_module(decode_kv1, start_pos=4)
+    xm.mark_step()
+    xm.wait_device_ops()
+
+    print(f"\nCache after decode 1:")
+    print(cache)
+
+    # Decode 2: position 5
+    print("\n" + "─" * 80)
+    print("DECODE 2: position 5")
+    print("─" * 80)
+
+    decode_kv2 = torch.full((bsz, 1, head_dim), -1.0, dtype=torch.bfloat16).to(device)
+
+    print(f"\nDecode 2 input:")
+    print(decode_kv2)
+
+    cache = compiled_module(decode_kv2, start_pos=5)
+    xm.mark_step()
+    xm.wait_device_ops()
+
+    print(f"\nCache after decode 2:")
+    print(cache)
+
+
+def test_wrap_around():
+    """Test circular buffer wrap-around."""
+    print("\n" + "=" * 80)
+    print("Test: Fill window (8 tokens), then wrap to position 0")
+    print("=" * 80)
+
+    xr.set_device_type("TT")
+    device = xm.xla_device()
+
+    window_size = 8
+    head_dim = 32
+    bsz = 1
+    max_batch_size = 2
+
+    module = _CircularKVCacheUpdate(window_size, head_dim, max_batch_size).to(device)
+    compiled_module = torch.compile(module, backend="tt")
+
+    # Prefill: 8 tokens (full window)
+    print("\n" + "─" * 80)
+    print("PREFILL: 8 tokens (fills entire window)")
+    print("─" * 80)
+
+    torch.manual_seed(42)
+    prefill_kv = torch.arange(bsz * 8 * head_dim, dtype=torch.bfloat16).view(bsz, 8, head_dim).to(device)
+
+    print(f"\nPrefill input:")
+    print(prefill_kv)
+
+    cache = compiled_module(prefill_kv, start_pos=0)
+    xm.mark_step()
+    xm.wait_device_ops()
+
+    print(f"\nCache after prefill (full):")
+    print(cache)
+
+    # Decode at position 8 (wraps to 0)
+    print("\n" + "─" * 80)
+    print("DECODE: position 8 (wraps to position 0)")
+    print("─" * 80)
+
+    decode_kv = torch.full((bsz, 1, head_dim), 999.0, dtype=torch.bfloat16).to(device)
+
+    print(f"\nDecode input (all 999s):")
+    print(decode_kv)
+
+    cache = compiled_module(decode_kv, start_pos=8)
+    xm.mark_step()
+    xm.wait_device_ops()
+
+    print(f"\nCache after decode (position 0 should be overwritten with 999s):")
+    print(cache)
+
+
+if __name__ == "__main__":
+    print("\n" + "=" * 80)
+    print("Circular KV Cache Update - Simple Tests")
+    print("=" * 80)
+
+    # Run all tests
+    test_decode_only()
+    test_prefill_then_decode()
+    test_wrap_around()
+
+    print("\n" + "=" * 80)
+    print("All tests complete")
+    print("=" * 80)
