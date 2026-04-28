@@ -1,0 +1,792 @@
+2026-04-28 16:08:11.171 | DEBUG    | ttnn:<module>:79 - Initial ttnn.CONFIG:
+Config{cache_path=/home/jameszianxu/.cache/ttnn,model_cache_path=/home/jameszianxu/.cache/ttnn/models,tmp_dir=/tmp/ttnn,enable_model_cache=false,enable_fast_runtime_mode=true,throw_exception_on_fallback=false,enable_logging=false,enable_graph_report=false,enable_detailed_buffer_report=false,enable_detailed_tensor_report=false,enable_comparison_mode=false,comparison_mode_should_raise_exception=false,comparison_mode_pcc=0.9999,root_report_path=generated/ttnn/reports,report_name=std::nullopt,std::nullopt}
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-9.0.3, pluggy-1.6.0 -- /localdev/jameszianxu/tt-metal/python_env/bin/python3
+cachedir: .pytest_cache
+benchmark: 5.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /localdev/jameszianxu/tt-metal
+configfile: pytest.ini
+plugins: dash-2.15.0, anyio-4.13.0, cov-7.0.0, split-0.11.0, timeout-2.4.0, benchmark-5.2.3, github-actions-annotate-failures-0.3.0
+timeout: 300.0s
+timeout method: signal
+timeout func_only: False
+collecting ... 2026-04-28 16:08:11.337 | WARNING  | tests.ttnn.conftest:pytest_collection_modifyitems:46 - Fast Runtime Mode is ON. Skipping tests tagged with @pytest.mark.requires_fast_runtime_mode_off
+collected 60 items
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[32, 32]] 2026-04-28 16:08:11.339 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[32, 32]]: 2026-04-28 16:08:11 (UTC)
+2026-04-28 16:08:11.339 | info     |             UMD | Creating TopologyDiscovery for architecture: wormhole_b0 (topology_discovery.cpp:72)
+2026-04-28 16:08:11.349 | info     |             UMD | Established firmware bundle version: 18.12.1 (topology_discovery.cpp:468)
+2026-04-28 16:08:11.354 | info     |          Device | Opening user mode device driver (tt_cluster.cpp:225)
+2026-04-28 16:08:11.355 | info     |             UMD | Creating TopologyDiscovery for architecture: wormhole_b0 (topology_discovery.cpp:72)
+2026-04-28 16:08:11.364 | info     |             UMD | Established firmware bundle version: 18.12.1 (topology_discovery.cpp:468)
+2026-04-28 16:08:11.369 | info     |             UMD | Harvesting masks for Chip 0: Tensix: 0x2 DRAM: 0x0 ETH: 0x0 PCIe: 0x0 L2CPU: 0x0 (cluster.cpp:295)
+2026-04-28 16:08:11.379 | info     |             UMD | Initializing iommu for sysmem (size: 0x40000000). (silicon_sysmem_manager.cpp:322)
+2026-04-28 16:08:11.379 | info     |             UMD | Allocating sysmem for IOMMU (size: 0x40000000). (silicon_sysmem_manager.cpp:328)
+2026-04-28 16:08:11.447 | info     |             UMD | Opening local chip ids/PCIe ids: {0}/[5] and remote chip ids {} (cluster.cpp:184)
+2026-04-28 16:08:11.447 | info     |             UMD | IOMMU: enabled (cluster.cpp:158)
+2026-04-28 16:08:11.447 | info     |             UMD | KMD version: 2.4.1 (cluster.cpp:161)
+2026-04-28 16:08:11.448 | info     |             UMD | Starting devices in cluster (cluster.cpp:1042)
+2026-04-28 16:08:11.449 | info     |             UMD | Mapped sysmem without hugepages to IOVA 0x40000000; NOC address 0x800000000 (silicon_sysmem_manager.cpp:376)
+2026-04-28 16:08:11.556 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:11.556 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:11.556 | info     |     Distributed | Using auto discovery to generate mesh graph. (metal_env.cpp:332)
+2026-04-28 16:08:11.556 | info     |     Distributed | Constructing control plane using auto-discovery (no mesh graph descriptor). (metal_env.cpp:394)
+2026-04-28 16:08:11.556 | info     |             UMD | Creating TopologyDiscovery for architecture: wormhole_b0 (topology_discovery.cpp:72)
+2026-04-28 16:08:11.566 | info     |             UMD | Established firmware bundle version: 18.12.1 (topology_discovery.cpp:468)
+2026-04-28 16:08:11.571 | warning  |          Always | Unknown motherboard 'H12DSG-O-CPU' for chip_id=0 (bus_id=0xc1) — defaulting tray_id to 0. Add this motherboard and its bus IDs to mobo_to_bus_ids in physical_system_discovery.cpp. (physical_system_discovery.cpp:62)
+2026-04-28 16:08:11.571 | info     |          Fabric | TopologyMapper: Logical Multi-Mesh Adjacency Map: (topology_mapper.cpp:1474)
+2026-04-28 16:08:11.571 | info     |          Fabric | 
+=== Logical Mesh-Level Graph Adjacency Map ===
+Total nodes: 1
+Degree histogram: {0:1}
+ (topology_solver.tpp:91)
+2026-04-28 16:08:11.571 | info     |          Fabric | 
+=== Logical Mesh 0 Internal Graph Adjacency Map ===
+Total nodes: 1
+Degree histogram: {0:1}
+ (topology_solver.tpp:91)
+2026-04-28 16:08:11.571 | info     |          Fabric | TopologyMapper: Physical Multi-Mesh Adjacency Map: (topology_mapper.cpp:1485)
+2026-04-28 16:08:11.571 | info     |          Fabric | 
+=== Physical Mesh-Level Graph Adjacency Map ===
+Total nodes: 1
+Degree histogram: {0:1}
+ (topology_solver.tpp:91)
+2026-04-28 16:08:11.571 | info     |          Fabric | 
+=== Physical Mesh 0 Internal Graph Adjacency Map ===
+Total nodes: 1
+Degree histogram: {0:1}
+ (topology_solver.tpp:91)
+2026-04-28 16:08:11.571 | info     |          Fabric | Starting multi-mesh mapping: 1 logical mesh(es) to 1 physical mesh(es) (topology_mapper_utils.cpp:1469)
+2026-04-28 16:08:11.571 | info     |          Fabric | Multi-mesh mapping attempt 1/2: Trying inter-mesh mapping (topology_mapper_utils.cpp:1510)
+2026-04-28 16:08:11.571 | info     |          Fabric | Attempt 1: Inter-mesh mapping succeeded, found 1 mesh pair(s) (topology_mapper_utils.cpp:1539)
+2026-04-28 16:08:11.571 | info     |          Fabric | Attempt 1: Mapping 1 mesh pair(s) (topology_mapper_utils.cpp:1547)
+2026-04-28 16:08:11.571 | info     |          Fabric | Attempt 1: Mapping mesh 0 -> 0 (topology_mapper_utils.cpp:1554)
+2026-04-28 16:08:11.571 | info     |          Fabric | Multi-mesh mapping succeeded after 1 attempt(s): 1 mesh pair(s) mapped (topology_mapper_utils.cpp:1686)
+2026-04-28 16:08:11.583 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:11.633 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[8, 1, 32]] 2026-04-28 16:08:11.634 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[8, 1, 32]]: 2026-04-28 16:08:11 (UTC)
+2026-04-28 16:08:11.635 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:11.635 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:11.641 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:11.670 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[1, 8, 32]] 2026-04-28 16:08:11.671 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[1, 8, 32]]: 2026-04-28 16:08:11 (UTC)
+2026-04-28 16:08:11.671 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:11.671 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:11.677 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:11.706 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]] 2026-04-28 16:08:11.707 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]]: 2026-04-28 16:08:11 (UTC)
+2026-04-28 16:08:11.707 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:11.707 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:11.713 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:11.742 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[64, 64]] 2026-04-28 16:08:11.743 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[64, 64]]: 2026-04-28 16:08:11 (UTC)
+2026-04-28 16:08:11.743 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:11.743 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:11.749 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:11.778 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[33, 33]] 2026-04-28 16:08:11.778 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[33, 33]]: 2026-04-28 16:08:11 (UTC)
+2026-04-28 16:08:11.779 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:11.779 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:11.784 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:11.813 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[32, 32]] 2026-04-28 16:08:11.814 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[32, 32]]: 2026-04-28 16:08:11 (UTC)
+2026-04-28 16:08:11.814 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:11.814 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:11.819 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:11.848 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[8, 1, 32]] 2026-04-28 16:08:11.849 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[8, 1, 32]]: 2026-04-28 16:08:11 (UTC)
+2026-04-28 16:08:11.850 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:11.850 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:11.856 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+FAILED2026-04-28 16:08:11.886 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+2026-04-28 16:08:11.886 | INFO     | conftest:pytest_runtest_teardown:1122 - In custom teardown, open device ids: {0}
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[1, 8, 32]] 2026-04-28 16:08:11.887 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[1, 8, 32]]: 2026-04-28 16:08:11 (UTC)
+2026-04-28 16:08:11.887 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:11.887 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:11.894 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:11.922 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[1, 1, 32, 64]] 2026-04-28 16:08:11.923 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[1, 1, 32, 64]]: 2026-04-28 16:08:11 (UTC)
+2026-04-28 16:08:11.923 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:11.923 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:11.929 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:11.959 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[64, 64]] 2026-04-28 16:08:11.960 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[64, 64]]: 2026-04-28 16:08:11 (UTC)
+2026-04-28 16:08:11.960 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:11.960 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:11.966 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:11.995 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[33, 33]] 2026-04-28 16:08:11.996 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[33, 33]]: 2026-04-28 16:08:11 (UTC)
+2026-04-28 16:08:11.997 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:11.997 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.002 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.031 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[32, 32]] 2026-04-28 16:08:12.032 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[32, 32]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.032 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.032 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.037 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.066 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[8, 1, 32]] 2026-04-28 16:08:12.067 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[8, 1, 32]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.067 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.067 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.073 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.102 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[1, 8, 32]] 2026-04-28 16:08:12.103 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[1, 8, 32]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.103 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.103 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.109 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.138 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]] 2026-04-28 16:08:12.139 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.139 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.139 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.145 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.173 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[64, 64]] 2026-04-28 16:08:12.174 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[64, 64]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.174 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.175 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.180 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.209 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[33, 33]] 2026-04-28 16:08:12.210 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[33, 33]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.210 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.210 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.215 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.244 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[32, 32]] 2026-04-28 16:08:12.245 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[32, 32]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.245 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.245 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.251 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.279 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[8, 1, 32]] 2026-04-28 16:08:12.280 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[8, 1, 32]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.280 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.280 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.287 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+FAILED2026-04-28 16:08:12.317 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+2026-04-28 16:08:12.317 | INFO     | conftest:pytest_runtest_teardown:1122 - In custom teardown, open device ids: {0}
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[1, 8, 32]] 2026-04-28 16:08:12.318 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[1, 8, 32]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.318 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.318 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.324 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.352 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[1, 1, 32, 64]] 2026-04-28 16:08:12.353 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[1, 1, 32, 64]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.353 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.354 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.360 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.389 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[64, 64]] 2026-04-28 16:08:12.389 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[64, 64]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.390 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.390 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.395 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.424 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[33, 33]] 2026-04-28 16:08:12.425 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[33, 33]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.425 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.425 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.430 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.459 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[32, 32]] 2026-04-28 16:08:12.460 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[32, 32]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.460 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.460 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.465 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.495 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[8, 1, 32]] 2026-04-28 16:08:12.495 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[8, 1, 32]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.496 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.496 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.501 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+FAILED2026-04-28 16:08:12.531 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+2026-04-28 16:08:12.531 | INFO     | conftest:pytest_runtest_teardown:1122 - In custom teardown, open device ids: {0}
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[1, 8, 32]] 2026-04-28 16:08:12.532 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[1, 8, 32]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.532 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.532 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.538 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.567 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[1, 1, 32, 64]] 2026-04-28 16:08:12.568 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[1, 1, 32, 64]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.568 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.568 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.574 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.604 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[64, 64]] 2026-04-28 16:08:12.605 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[64, 64]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.605 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.605 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.611 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.640 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[33, 33]] 2026-04-28 16:08:12.641 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[33, 33]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.642 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.642 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.647 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.676 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[32, 32]] 2026-04-28 16:08:12.677 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[32, 32]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.678 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.678 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.683 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.712 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[8, 1, 32]] 2026-04-28 16:08:12.713 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[8, 1, 32]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.713 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.713 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.718 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+FAILED2026-04-28 16:08:12.748 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+2026-04-28 16:08:12.748 | INFO     | conftest:pytest_runtest_teardown:1122 - In custom teardown, open device ids: {0}
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[1, 8, 32]] 2026-04-28 16:08:12.749 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[1, 8, 32]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.749 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.749 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.755 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.784 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[1, 1, 32, 64]] 2026-04-28 16:08:12.785 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[1, 1, 32, 64]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.785 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.785 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.791 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.819 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[64, 64]] 2026-04-28 16:08:12.820 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[64, 64]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.821 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.821 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.826 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.855 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[33, 33]] 2026-04-28 16:08:12.856 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[33, 33]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.856 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.856 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.862 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.891 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[32, 32]] 2026-04-28 16:08:12.892 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[32, 32]]: 2026-04-28 16:08:12 (UTC)
+PASSED2026-04-28 16:08:12.893 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[8, 1, 32]] 2026-04-28 16:08:12.894 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[8, 1, 32]]: 2026-04-28 16:08:12 (UTC)
+PASSED2026-04-28 16:08:12.894 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[1, 8, 32]] 2026-04-28 16:08:12.895 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[1, 8, 32]]: 2026-04-28 16:08:12 (UTC)
+PASSED2026-04-28 16:08:12.896 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]] 2026-04-28 16:08:12.896 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]]: 2026-04-28 16:08:12 (UTC)
+PASSED2026-04-28 16:08:12.897 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[64, 64]] 2026-04-28 16:08:12.898 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[64, 64]]: 2026-04-28 16:08:12 (UTC)
+PASSED2026-04-28 16:08:12.898 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[33, 33]] 2026-04-28 16:08:12.899 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[33, 33]]: 2026-04-28 16:08:12 (UTC)
+PASSED2026-04-28 16:08:12.900 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[32, 32]] 2026-04-28 16:08:12.900 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[32, 32]]: 2026-04-28 16:08:12 (UTC)
+PASSED2026-04-28 16:08:12.901 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[8, 1, 32]] 2026-04-28 16:08:12.902 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[8, 1, 32]]: 2026-04-28 16:08:12 (UTC)
+FAILED2026-04-28 16:08:12.903 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[1, 8, 32]] 2026-04-28 16:08:12.904 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[1, 8, 32]]: 2026-04-28 16:08:12 (UTC)
+PASSED2026-04-28 16:08:12.905 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[1, 1, 32, 64]] 2026-04-28 16:08:12.905 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[1, 1, 32, 64]]: 2026-04-28 16:08:12 (UTC)
+PASSED2026-04-28 16:08:12.906 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[64, 64]] 2026-04-28 16:08:12.907 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[64, 64]]: 2026-04-28 16:08:12 (UTC)
+PASSED2026-04-28 16:08:12.907 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[33, 33]] 2026-04-28 16:08:12.908 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[33, 33]]: 2026-04-28 16:08:12 (UTC)
+PASSED2026-04-28 16:08:12.909 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[32, 32]] 2026-04-28 16:08:12.909 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[32, 32]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.910 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.910 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.915 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:12.945 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[8, 1, 32]] 2026-04-28 16:08:12.945 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[8, 1, 32]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.946 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.946 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.952 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+FAILED2026-04-28 16:08:12.981 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+2026-04-28 16:08:12.982 | INFO     | conftest:pytest_runtest_teardown:1122 - In custom teardown, open device ids: {0}
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 8, 32]] 2026-04-28 16:08:12.982 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 8, 32]]: 2026-04-28 16:08:12 (UTC)
+2026-04-28 16:08:12.983 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:12.983 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:12.988 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:13.017 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 1, 32, 64]] 2026-04-28 16:08:13.018 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 1, 32, 64]]: 2026-04-28 16:08:13 (UTC)
+2026-04-28 16:08:13.018 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:13.018 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:13.023 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:13.052 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[64, 64]] 2026-04-28 16:08:13.053 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[64, 64]]: 2026-04-28 16:08:13 (UTC)
+2026-04-28 16:08:13.053 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:13.053 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:13.058 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:13.087 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[33, 33]] 2026-04-28 16:08:13.088 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[33, 33]]: 2026-04-28 16:08:13 (UTC)
+2026-04-28 16:08:13.088 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:13.088 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:13.094 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:13.123 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[32, 32]] 2026-04-28 16:08:13.123 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[32, 32]]: 2026-04-28 16:08:13 (UTC)
+2026-04-28 16:08:13.124 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:13.124 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:13.129 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:13.158 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[8, 1, 32]] 2026-04-28 16:08:13.159 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[8, 1, 32]]: 2026-04-28 16:08:13 (UTC)
+2026-04-28 16:08:13.159 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:13.159 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:13.164 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+FAILED2026-04-28 16:08:13.194 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+2026-04-28 16:08:13.195 | INFO     | conftest:pytest_runtest_teardown:1122 - In custom teardown, open device ids: {0}
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 8, 32]] 2026-04-28 16:08:13.195 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 8, 32]]: 2026-04-28 16:08:13 (UTC)
+2026-04-28 16:08:13.195 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:13.195 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:13.200 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:13.229 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 1, 32, 64]] 2026-04-28 16:08:13.230 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 1, 32, 64]]: 2026-04-28 16:08:13 (UTC)
+2026-04-28 16:08:13.230 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:13.230 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:13.236 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:13.265 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[64, 64]] 2026-04-28 16:08:13.266 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[64, 64]]: 2026-04-28 16:08:13 (UTC)
+2026-04-28 16:08:13.266 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:13.266 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:13.272 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:13.301 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[33, 33]] 2026-04-28 16:08:13.302 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[33, 33]]: 2026-04-28 16:08:13 (UTC)
+2026-04-28 16:08:13.302 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-28 16:08:13.302 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-28 16:08:13.307 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+PASSED2026-04-28 16:08:13.336 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+
+
+- generated xml file: /localdev/jameszianxu/tt-metal/generated/test_reports/most_recent_tests.xml -
+============================== slowest durations ===============================
+0.28s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[32, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[1, 1, 32, 64]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[8, 1, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[64, 64]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[8, 1, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[33, 33]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[8, 1, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[1, 8, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[64, 64]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[1, 1, 32, 64]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[1, 8, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[8, 1, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[8, 1, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[1, 8, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[32, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[1, 1, 32, 64]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 1, 32, 64]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[33, 33]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[64, 64]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[64, 64]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[1, 8, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[33, 33]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[1, 8, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[32, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[1, 1, 32, 64]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[64, 64]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[64, 64]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[33, 33]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[8, 1, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[32, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[64, 64]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[8, 1, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[32, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[33, 33]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[32, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[33, 33]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[8, 1, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[32, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[64, 64]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[1, 8, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 8, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[32, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 1, 32, 64]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 8, 32]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[33, 33]]
+0.03s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[33, 33]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[32, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[1, 1, 32, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[32, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[8, 1, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[8, 1, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[8, 1, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[8, 1, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[1, 8, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[64, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[33, 33]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[64, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[8, 1, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[8, 1, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 1, 32, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[8, 1, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[33, 33]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[33, 33]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[33, 33]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[1, 1, 32, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[64, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[1, 8, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 8, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[64, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[8, 1, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[32, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[33, 33]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[1, 8, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[32, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[32, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[64, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[33, 33]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[33, 33]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[32, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[64, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[64, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[32, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 8, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[64, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 1, 32, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[1, 8, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[1, 1, 32, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[33, 33]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[1, 1, 32, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[1, 8, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[1, 8, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[32, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[32, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[8, 1, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[8, 1, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[8, 1, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[8, 1, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[8, 1, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[8, 1, 32]]
+0.00s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[8, 1, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[64, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[33, 33]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[32, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[64, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[33, 33]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 1, 32, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[64, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[64, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[32, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[8, 1, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[64, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[1, 1, 32, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[1, 1, 32, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 1, 32, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[64, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[1, 8, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[1, 1, 32, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[33, 33]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[1, 1, 32, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 8, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[1, 8, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[1, 8, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[32, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[33, 33]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[32, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[33, 33]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[32, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[33, 33]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[8, 1, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 8, 32]]
+0.00s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[32, 32]]
+0.00s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[8, 1, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[32, 32]]
+0.00s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[1, 1, 32, 64]]
+0.00s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[32, 32]]
+0.00s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[64, 64]]
+0.00s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[1, 8, 32]]
+0.00s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]]
+0.00s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[64, 64]]
+0.00s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[1, 8, 32]]
+0.00s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[33, 33]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[1, 8, 32]]
+0.00s setup    tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[33, 33]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[64, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[32, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[64, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[33, 33]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[1, 8, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[8, 1, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[1, 8, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[33, 33]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[33, 33]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[64, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[64, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[8, 1, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[1, 1, 32, 64]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[32, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[1, 8, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[33, 33]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[1, 1, 32, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[64, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[8, 1, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[32, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[64, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[33, 33]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[32, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[1, 8, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[1, 8, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[33, 33]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[1, 8, 32]]
+0.00s teardown tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[32, 32]]
+0.00s call     tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[8, 1, 32]]
+=========================== short test summary info ============================
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[32, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[8, 1, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[1, 8, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[64, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.ROW_MAJOR-shape=[33, 33]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[32, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[1, 8, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[1, 1, 32, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[64, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[33, 33]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[32, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[8, 1, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[1, 8, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[64, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.ROW_MAJOR-shape=[33, 33]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[32, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[1, 8, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[1, 1, 32, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[64, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[33, 33]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[32, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[1, 8, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[1, 1, 32, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[64, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[33, 33]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[32, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[1, 8, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[1, 1, 32, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[64, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[33, 33]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[32, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[8, 1, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[1, 8, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[1, 1, 32, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[64, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.ROW_MAJOR-shape=[33, 33]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[32, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[1, 8, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[1, 1, 32, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[64, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[33, 33]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[32, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 8, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 1, 32, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[64, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[33, 33]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[32, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 8, 32]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[1, 1, 32, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[64, 64]]
+PASSED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[33, 33]]
+FAILED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=False-layout=Layout.TILE-shape=[8, 1, 32]] - AssertionError: BUG: repr() shows zeros but data has none.
+  Shape=[8, 1, 32], layout=Layout.TILE, on_device=False
+  First few values from to_torch: [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0]
+  repr:
+  ttnn.Tensor([[[ 1.0000,  2.0000,  ..., 31.0000, 32.0000]],
+  
+               [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+  
+               ...,
+  
+               [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+  
+               [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]]], shape=Shape([8, 1, 32]), dtype=DataType::BFLOAT16, layout=Layout::TILE)
+assert '0.0000' not in 'ttnn.Tensor([[[ 1.0000,  2.0000,  ..., 31.0000, 32.0000]],\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],\n\n             ...,\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]]], shape=Shape([8, 1, 32]), dtype=DataType::BFLOAT16, layout=Layout::TILE)'
+  
+  '0.0000' is contained here:
+    ttnn.Tensor([[[ 1.0000,  2.0000,  ..., 31.0000, 32.0000]],
+    
+  ?                ---          ------
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+  ?                                 +++++++++++++++
+    
+                 ...,
+    
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+    
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]]], shape=Shape([8, 1, 32]), dtype=DataType::BFLOAT16, layout=Layout::TILE)
+FAILED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_no_spurious_zeros[on_device=True-layout=Layout.TILE-shape=[8, 1, 32]] - AssertionError: BUG: repr() shows zeros but data has none.
+  Shape=[8, 1, 32], layout=Layout.TILE, on_device=True
+  First few values from to_torch: [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0]
+  repr:
+  ttnn.Tensor([[[ 1.0000,  2.0000,  ..., 31.0000, 32.0000]],
+  
+               [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+  
+               ...,
+  
+               [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+  
+               [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]]], shape=Shape([8, 1, 32]), dtype=DataType::BFLOAT16, layout=Layout::TILE)
+assert '0.0000' not in 'ttnn.Tensor([[[ 1.0000,  2.0000,  ..., 31.0000, 32.0000]],\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],\n\n             ...,\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]]], shape=Shape([8, 1, 32]), dtype=DataType::BFLOAT16, layout=Layout::TILE)'
+  
+  '0.0000' is contained here:
+    ttnn.Tensor([[[ 1.0000,  2.0000,  ..., 31.0000, 32.0000]],
+    
+  ?                ---          ------
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+  ?                                 +++++++++++++++
+    
+                 ...,
+    
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+    
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]]], shape=Shape([8, 1, 32]), dtype=DataType::BFLOAT16, layout=Layout::TILE)
+FAILED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.BFLOAT16-shape=[8, 1, 32]] - AssertionError: assert '0.0000' not in 'ttnn.Tensor([[[ 1.0000,  2.0000,  ..., 31.0000, 32.0000]],\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],\n\n             ...,\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]]], shape=Shape([8, 1, 32]), dtype=DataType::BFLOAT16, layout=Layout::TILE)'
+  
+  '0.0000' is contained here:
+    ttnn.Tensor([[[ 1.0000,  2.0000,  ..., 31.0000, 32.0000]],
+    
+  ?                ---          ------
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+  ?                                 +++++++++++++++
+    
+                 ...,
+    
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+    
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]]], shape=Shape([8, 1, 32]), dtype=DataType::BFLOAT16, layout=Layout::TILE)
+FAILED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_dtypes[dtype=DataType.FLOAT32-shape=[8, 1, 32]] - AssertionError: assert '0.0000' not in 'ttnn.Tensor([[[ 1.0000,  2.0000,  ..., 31.0000, 32.0000]],\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],\n\n             ...,\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]]], shape=Shape([8, 1, 32]), dtype=DataType::FLOAT32, layout=Layout::TILE)'
+  
+  '0.0000' is contained here:
+    ttnn.Tensor([[[ 1.0000,  2.0000,  ..., 31.0000, 32.0000]],
+    
+  ?                ---          ------
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+  ?                                 +++++++++++++++
+    
+                 ...,
+    
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+    
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]]], shape=Shape([8, 1, 32]), dtype=DataType::FLOAT32, layout=Layout::TILE)
+FAILED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_cpu_tensor[layout=Layout.TILE-shape=[8, 1, 32]] - AssertionError: assert '0.0000' not in 'ttnn.Tensor([[[ 1.0000,  2.0000,  ..., 31.0000, 32.0000]],\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],\n\n             ...,\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]]], shape=Shape([8, 1, 32]), dtype=DataType::BFLOAT16, layout=Layout::TILE)'
+  
+  '0.0000' is contained here:
+    ttnn.Tensor([[[ 1.0000,  2.0000,  ..., 31.0000, 32.0000]],
+    
+  ?                ---          ------
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+  ?                                 +++++++++++++++
+    
+                 ...,
+    
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+    
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]]], shape=Shape([8, 1, 32]), dtype=DataType::BFLOAT16, layout=Layout::TILE)
+FAILED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::DRAM,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[8, 1, 32]] - AssertionError: assert '0.0000' not in 'ttnn.Tensor([[[ 1.0000,  2.0000,  ..., 31.0000, 32.0000]],\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],\n\n             ...,\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]]], shape=Shape([8, 1, 32]), dtype=DataType::BFLOAT16, layout=Layout::TILE)'
+  
+  '0.0000' is contained here:
+    ttnn.Tensor([[[ 1.0000,  2.0000,  ..., 31.0000, 32.0000]],
+    
+  ?                ---          ------
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+  ?                                 +++++++++++++++
+    
+                 ...,
+    
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+    
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]]], shape=Shape([8, 1, 32]), dtype=DataType::BFLOAT16, layout=Layout::TILE)
+FAILED tests/ttnn/unit_tests/base_functionality/test_tensor_repr.py::TestTensorRepr::test_repr_different_memory_configs[memory_config=MemoryConfig(memory_layout=TensorMemoryLayout::INTERLEAVED,buffer_type=BufferType::L1,shard_spec=std::nullopt,nd_shard_spec=std::nullopt,created_with_nd_shard_spec=0)-shape=[8, 1, 32]] - AssertionError: assert '0.0000' not in 'ttnn.Tensor([[[ 1.0000,  2.0000,  ..., 31.0000, 32.0000]],\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],\n\n             ...,\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],\n\n             [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]]], shape=Shape([8, 1, 32]), dtype=DataType::BFLOAT16, layout=Layout::TILE)'
+  
+  '0.0000' is contained here:
+    ttnn.Tensor([[[ 1.0000,  2.0000,  ..., 31.0000, 32.0000]],
+    
+  ?                ---          ------
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+  ?                                 +++++++++++++++
+    
+                 ...,
+    
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]],
+    
+                 [[ 0.0000,  0.0000,  ...,  0.0000,  0.0000]]], shape=Shape([8, 1, 32]), dtype=DataType::BFLOAT16, layout=Layout::TILE)
+========================= 7 failed, 53 passed in 2.04s =========================
+nanobind: leaked 6 instances!
+ - leaked instance 0x7feaa89c5608 of type "ttnn._ttnn.tensor.MemoryConfig"
+ - leaked instance 0x7fea5acc7bb8 of type "ttnn._ttnn.tensor.CoreRangeSet"
+ - leaked instance 0x7fea5a6659c8 of type "ttnn._ttnn.tensor.MemoryConfig"
+ - leaked instance 0x7feaa89c56c8 of type "ttnn._ttnn.tensor.MemoryConfig"
+ - leaked instance 0x7fea5ab9c4c8 of type "ttnn._ttnn.tensor.MemoryConfig"
+ - leaked instance 0x7fea5ac300a8 of type "ttnn._ttnn.device.DispatchCoreConfig"
+nanobind: leaked 40 types!
+ - leaked type "DispatchCoreAxis"
+ - leaked type "ttnn._ttnn.device.SubDeviceManagerId"
+ - leaked type "MathFidelity"
+ - leaked type "ttnn._ttnn.operations.matmul.MatmulMultiCoreReuseMultiCast1DProgramConfig"
+ - leaked type "ttnn._ttnn.types.Shape"
+ - leaked type "ttnn._ttnn.operations.matmul.MatmulInputs"
+ - leaked type "ttnn._ttnn.operations.matmul.MatmulMultiCoreReuseMultiCastBatchedDRAMShardedProgramConfig"
+ - leaked type "BufferType"
+ - leaked type "UnaryOpType"
+ - leaked type "Layout"
+ - ... skipped remainder
+nanobind: leaked 323 functions!
+ - leaked function ""
+ - leaked function ""
+ - leaked function ""
+ - leaked function ""
+ - leaked function "logical_volume"
+ - leaked function "__init__"
+ - leaked function "to_json"
+ - leaked function "DisableMemoryReports"
+ - leaked function "dims"
+ - leaked function ""
+ - ... skipped remainder
+nanobind: this is likely caused by a reference counting issue in the binding code.
+See https://nanobind.readthedocs.io/en/latest/refleaks.html2026-04-28 16:08:14.595 | info     |    BuildKernels | JIT cache stats: 3/3 hits (100.0%) [3 cached, 141 build-once dedup, 0 merged artifacts, 0 merged genfiles] (build_cache_telemetry.cpp:207)
+2026-04-28 16:08:14.595 | info     |    BuildKernels | JIT telemetry: 3 registered TelemetryTokens (build_cache_telemetry.cpp:230)
+2026-04-28 16:08:14.595 | info     |    BuildKernels | JIT telemetry [dependencies_up_to_date]: count=6, total=9.169ms, min=0.120ms, max=3.917ms, mean=1.528ms (build_cache_telemetry.cpp:246)
+2026-04-28 16:08:14.595 | info     |    BuildKernels | JIT telemetry [JitBuildState::build]: count=3, total=9.365ms, min=2.025ms, max=4.102ms, mean=3.122ms (build_cache_telemetry.cpp:246)
+2026-04-28 16:08:14.595 | info     |    BuildKernels | JIT telemetry [jit_build]: count=3, total=9.367ms, min=2.026ms, max=4.102ms, mean=3.122ms (build_cache_telemetry.cpp:246)
+2026-04-28 16:08:14.597 | info     |          Device | Closing user mode device drivers (tt_cluster.cpp:508)
+2026-04-28 16:08:14.597 | info     |             UMD | Closing devices in cluster (cluster.cpp:1054)
