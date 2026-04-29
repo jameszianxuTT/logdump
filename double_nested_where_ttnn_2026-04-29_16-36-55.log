@@ -1,0 +1,382 @@
+ @pytest.mark.parametrize("layout", [ttnn.TILE_LAYOUT])
+    def test_double_nested_where_minimal(self, device, layout):
+        """
+        Minimal reproduction: Two sequential nested where operations.
+
+        This isolates the interaction between two where operations with
+        broadcasting masks of different shapes.
+        """
+        torch.manual_seed(42)
+
+        # Step 1: Update x using column mask
+        x = torch.randn(1, 4, 32, dtype=torch.bfloat16)
+        col_mask = torch.zeros(1, 1, 32, dtype=torch.bfloat16)
+        col_mask[:, :, 16:] = 1.0
+        new_x_vals = x.clone()
+        new_x_vals[:, :, 16:] = x[:, :, 16:] * 2.0
+
+        # Step 2: Update cache using row mask
+        cache = torch.zeros(1, 8, 32, dtype=torch.bfloat16)
+        row_mask = torch.zeros(1, 8, 1, dtype=torch.bfloat16)
+        row_mask[:, :4, :] = 1.0
+
+        # === PyTorch reference ===
+        x_updated = torch.where(col_mask.bool().expand_as(x), new_x_vals, x)
+        x_expanded = torch.zeros(1, 8, 32, dtype=torch.bfloat16)
+        x_expanded[:, :4, :] = x_updated
+        cache_expected = torch.where(row_mask.bool().expand_as(cache), x_expanded, cache)
+
+        # === TTNN with nested where ===
+        x_ttnn = ttnn.from_torch(x, device=device, layout=layout, dtype=ttnn.bfloat16)
+        new_x_vals_ttnn = ttnn.from_torch(new_x_vals, device=device, layout=layout, dtype=ttnn.bfloat16)
+        cache_ttnn = ttnn.from_torch(cache, device=device, layout=layout, dtype=ttnn.bfloat16)
+
+        col_mask_ttnn = ttnn.from_torch(col_mask, device=device, layout=layout, dtype=ttnn.bfloat16)
+        row_mask_ttnn = ttnn.from_torch(row_mask, device=device, layout=layout, dtype=ttnn.bfloat16)
+        zero_ttnn = ttnn.from_torch(torch.zeros(1, 1, 1, dtype=torch.bfloat16), device=device, layout=layout, dtype=ttnn.bfloat16)
+
+        not_col_mask = ttnn.logical_not(col_mask_ttnn)
+        not_row_mask = ttnn.logical_not(row_mask_ttnn)
+
+        # First nested where: update x
+        temp1 = ttnn.where(not_col_mask, zero_ttnn, new_x_vals_ttnn)
+        x_updated_ttnn = ttnn.where(col_mask_ttnn, temp1, x_ttnn)
+
+        # Expand x to cache shape
+        x_upd = ttnn.to_torch(x_updated_ttnn)
+        x_expanded_torch = torch.zeros(1, 8, 32, dtype=torch.bfloat16)
+        x_expanded_torch[:, :4, :] = x_upd
+        x_expanded_ttnn = ttnn.from_torch(x_expanded_torch, device=device, layout=layout, dtype=ttnn.bfloat16)
+
+        # Second nested where: update cache
+        temp2 = ttnn.where(not_row_mask, zero_ttnn, x_expanded_ttnn)
+        cache_updated = ttnn.where(row_mask_ttnn, temp2, cache_ttnn)
+        cache_result = ttnn.to_torch(cache_updated)
+
+        log_finding("\n[test_double_nested_where_minimal]")
+        log_finding(f"Expected cache[0,0,:8]: {cache_expected[0, 0, :8].tolist()}")
+        log_finding(f"Actual cache[0,0,:8]: {cache_result[0, 0, :8].tolist()}")
+        log_finding(f"Non-zero in actual: {(cache_result[:1, :4] != 0).sum().item()}")
+        log_finding(f"Non-zero in expected: {(cache_expected[:1, :4] != 0).sum().item()}")
+
+        first_col_nonzero = (cache_result[:1, :4, 0] != 0).sum().item()
+        other_cols_nonzero = (cache_result[:1, :4, 1:] != 0).sum().item()
+        log_finding(f"First col non-zero: {first_col_nonzero}, Other cols: {other_cols_nonzero}")
+
+        if other_cols_nonzero == 0 and first_col_nonzero > 0:
+            log_finding("BUG REPRODUCED in minimal test!")
+
+        assert_with_pcc(cache_expected, cache_result, 0.9999)
+
+
+
+2026-04-29 16:36:25.999 | DEBUG    | ttnn:<module>:79 - Initial ttnn.CONFIG:
+Config{cache_path=/home/jameszianxu/.cache/ttnn,model_cache_path=/home/jameszianxu/.cache/ttnn/models,tmp_dir=/tmp/ttnn,enable_model_cache=false,enable_fast_runtime_mode=true,throw_exception_on_fallback=false,enable_logging=false,enable_graph_report=false,enable_detailed_buffer_report=false,enable_detailed_tensor_report=false,enable_comparison_mode=false,comparison_mode_should_raise_exception=false,comparison_mode_pcc=0.9999,root_report_path=generated/ttnn/reports,report_name=std::nullopt,std::nullopt}
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-9.0.3, pluggy-1.6.0 -- /localdev/jameszianxu/tt-metal/python_env/bin/python3
+cachedir: .pytest_cache
+benchmark: 5.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /localdev/jameszianxu/tt-metal
+configfile: pytest.ini
+plugins: dash-2.15.0, anyio-4.13.0, cov-7.0.0, split-0.11.0, timeout-2.4.0, benchmark-5.2.3, github-actions-annotate-failures-0.3.0
+timeout: 300.0s
+timeout method: signal
+timeout func_only: False
+collecting ... 2026-04-29 16:36:26.169 | WARNING  | tests.ttnn.conftest:pytest_collection_modifyitems:46 - Fast Runtime Mode is ON. Skipping tests tagged with @pytest.mark.requires_fast_runtime_mode_off
+collected 1 item
+
+tests/ttnn/unit_tests/operations/data_movement/test_double_slice_bug_repro.py::TestDoubleSliceBugReproWithWhere::test_double_nested_where_minimal[layout=Layout.TILE] 2026-04-29 16:36:26.170 | DEBUG    | ttnn:manage_config:87 - Set ttnn.CONFIG.report_name to tests/ttnn/unit_tests/operations/data_movement/test_double_slice_bug_repro.py::TestDoubleSliceBugReproWithWhere::test_double_nested_where_minimal[layout=Layout.TILE]: 2026-04-29 16:36:26 (UTC)
+2026-04-29 16:36:26.171 | info     |             UMD | Creating TopologyDiscovery for architecture: wormhole_b0 (topology_discovery.cpp:72)
+2026-04-29 16:36:26.181 | info     |             UMD | Established firmware bundle version: 18.12.1 (topology_discovery.cpp:468)
+2026-04-29 16:36:26.186 | info     |          Device | Opening user mode device driver (tt_cluster.cpp:225)
+2026-04-29 16:36:26.186 | info     |             UMD | Creating TopologyDiscovery for architecture: wormhole_b0 (topology_discovery.cpp:72)
+2026-04-29 16:36:26.196 | info     |             UMD | Established firmware bundle version: 18.12.1 (topology_discovery.cpp:468)
+2026-04-29 16:36:26.200 | info     |             UMD | Harvesting masks for Chip 0: Tensix: 0x8 DRAM: 0x0 ETH: 0x0 PCIe: 0x0 L2CPU: 0x0 (cluster.cpp:295)
+2026-04-29 16:36:26.210 | info     |             UMD | Initializing iommu for sysmem (size: 0x40000000). (silicon_sysmem_manager.cpp:322)
+2026-04-29 16:36:26.210 | info     |             UMD | Allocating sysmem for IOMMU (size: 0x40000000). (silicon_sysmem_manager.cpp:328)
+2026-04-29 16:36:26.278 | info     |             UMD | Opening local chip ids/PCIe ids: {0}/[6] and remote chip ids {} (cluster.cpp:184)
+2026-04-29 16:36:26.278 | info     |             UMD | IOMMU: enabled (cluster.cpp:158)
+2026-04-29 16:36:26.278 | info     |             UMD | KMD version: 2.4.1 (cluster.cpp:161)
+2026-04-29 16:36:26.279 | info     |             UMD | Starting devices in cluster (cluster.cpp:1042)
+2026-04-29 16:36:26.280 | info     |             UMD | Mapped sysmem without hugepages to IOVA 0x40000000; NOC address 0x800000000 (silicon_sysmem_manager.cpp:376)
+2026-04-29 16:36:26.385 | DEBUG    | ttnn.device:__init__:152 - Using default dispatch core type for this system: DispatchCoreType.WORKER
+2026-04-29 16:36:26.385 | DEBUG    | ttnn.device:__init__:154 - Using default dispatch core axis for this system: DispatchCoreAxis.ROW
+2026-04-29 16:36:26.385 | info     |     Distributed | Using auto discovery to generate mesh graph. (metal_env.cpp:332)
+2026-04-29 16:36:26.385 | info     |     Distributed | Constructing control plane using auto-discovery (no mesh graph descriptor). (metal_env.cpp:394)
+2026-04-29 16:36:26.386 | info     |             UMD | Creating TopologyDiscovery for architecture: wormhole_b0 (topology_discovery.cpp:72)
+2026-04-29 16:36:26.396 | info     |             UMD | Established firmware bundle version: 18.12.1 (topology_discovery.cpp:468)
+2026-04-29 16:36:26.400 | warning  |          Always | Unknown motherboard 'H12DSG-O-CPU' for chip_id=0 (bus_id=0x81) — defaulting tray_id to 0. Add this motherboard and its bus IDs to mobo_to_bus_ids in physical_system_discovery.cpp. (physical_system_discovery.cpp:62)
+2026-04-29 16:36:26.400 | info     |          Fabric | TopologyMapper: Logical Multi-Mesh Adjacency Map: (topology_mapper.cpp:1474)
+2026-04-29 16:36:26.400 | info     |          Fabric | 
+=== Logical Mesh-Level Graph Adjacency Map ===
+Total nodes: 1
+Degree histogram: {0:1}
+ (topology_solver.tpp:91)
+2026-04-29 16:36:26.400 | info     |          Fabric | 
+=== Logical Mesh 0 Internal Graph Adjacency Map ===
+Total nodes: 1
+Degree histogram: {0:1}
+ (topology_solver.tpp:91)
+2026-04-29 16:36:26.400 | info     |          Fabric | TopologyMapper: Physical Multi-Mesh Adjacency Map: (topology_mapper.cpp:1485)
+2026-04-29 16:36:26.400 | info     |          Fabric | 
+=== Physical Mesh-Level Graph Adjacency Map ===
+Total nodes: 1
+Degree histogram: {0:1}
+ (topology_solver.tpp:91)
+2026-04-29 16:36:26.400 | info     |          Fabric | 
+=== Physical Mesh 0 Internal Graph Adjacency Map ===
+Total nodes: 1
+Degree histogram: {0:1}
+ (topology_solver.tpp:91)
+2026-04-29 16:36:26.401 | info     |          Fabric | Starting multi-mesh mapping: 1 logical mesh(es) to 1 physical mesh(es) (topology_mapper_utils.cpp:1469)
+2026-04-29 16:36:26.401 | info     |          Fabric | Multi-mesh mapping attempt 1/2: Trying inter-mesh mapping (topology_mapper_utils.cpp:1510)
+2026-04-29 16:36:26.401 | info     |          Fabric | Attempt 1: Inter-mesh mapping succeeded, found 1 mesh pair(s) (topology_mapper_utils.cpp:1539)
+2026-04-29 16:36:26.401 | info     |          Fabric | Attempt 1: Mapping 1 mesh pair(s) (topology_mapper_utils.cpp:1547)
+2026-04-29 16:36:26.401 | info     |          Fabric | Attempt 1: Mapping mesh 0 -> 0 (topology_mapper_utils.cpp:1554)
+2026-04-29 16:36:26.401 | info     |          Fabric | Multi-mesh mapping succeeded after 1 attempt(s): 1 mesh pair(s) mapped (topology_mapper_utils.cpp:1686)
+2026-04-29 16:36:26.411 | info     |    BuildKernels | Using pre-compiled firmware from: /localdev/jameszianxu/tt-metal/tt_metal/pre-compiled/6658346942447196626/ (build_env_manager.cpp:260)
+FAILED2026-04-29 16:36:26.641 | DEBUG    | ttnn:manage_config:98 - Restored ttnn.CONFIG.report_name to empty string as a substitute for None
+2026-04-29 16:36:26.641 | INFO     | conftest:pytest_runtest_teardown:1122 - In custom teardown, open device ids: {0}
+
+
+=================================== FAILURES ===================================
+_ TestDoubleSliceBugReproWithWhere.test_double_nested_where_minimal[layout=Layout.TILE] _
+
+self = <tests.ttnn.unit_tests.operations.data_movement.test_double_slice_bug_repro.TestDoubleSliceBugReproWithWhere object at 0x78aa2dd4f590>
+device = MeshDevice(1x1 grid, 1 devices), layout = Layout.TILE
+
+    @pytest.mark.parametrize("layout", [ttnn.TILE_LAYOUT])
+    def test_double_nested_where_minimal(self, device, layout):
+        """
+        Minimal reproduction: Two sequential nested where operations.
+    
+        This isolates the interaction between two where operations with
+        broadcasting masks of different shapes.
+        """
+        torch.manual_seed(42)
+    
+        # Step 1: Update x using column mask
+        x = torch.randn(1, 4, 32, dtype=torch.bfloat16)
+        col_mask = torch.zeros(1, 1, 32, dtype=torch.bfloat16)
+        col_mask[:, :, 16:] = 1.0
+        new_x_vals = x.clone()
+        new_x_vals[:, :, 16:] = x[:, :, 16:] * 2.0
+    
+        # Step 2: Update cache using row mask
+        cache = torch.zeros(1, 8, 32, dtype=torch.bfloat16)
+        row_mask = torch.zeros(1, 8, 1, dtype=torch.bfloat16)
+        row_mask[:, :4, :] = 1.0
+    
+        # === PyTorch reference ===
+        x_updated = torch.where(col_mask.bool().expand_as(x), new_x_vals, x)
+        x_expanded = torch.zeros(1, 8, 32, dtype=torch.bfloat16)
+        x_expanded[:, :4, :] = x_updated
+        cache_expected = torch.where(row_mask.bool().expand_as(cache), x_expanded, cache)
+    
+        # === TTNN with nested where ===
+        x_ttnn = ttnn.from_torch(x, device=device, layout=layout, dtype=ttnn.bfloat16)
+        new_x_vals_ttnn = ttnn.from_torch(new_x_vals, device=device, layout=layout, dtype=ttnn.bfloat16)
+        cache_ttnn = ttnn.from_torch(cache, device=device, layout=layout, dtype=ttnn.bfloat16)
+    
+        col_mask_ttnn = ttnn.from_torch(col_mask, device=device, layout=layout, dtype=ttnn.bfloat16)
+        row_mask_ttnn = ttnn.from_torch(row_mask, device=device, layout=layout, dtype=ttnn.bfloat16)
+        zero_ttnn = ttnn.from_torch(torch.zeros(1, 1, 1, dtype=torch.bfloat16), device=device, layout=layout, dtype=ttnn.bfloat16)
+    
+        not_col_mask = ttnn.logical_not(col_mask_ttnn)
+        not_row_mask = ttnn.logical_not(row_mask_ttnn)
+    
+        # First nested where: update x
+        temp1 = ttnn.where(not_col_mask, zero_ttnn, new_x_vals_ttnn)
+        x_updated_ttnn = ttnn.where(col_mask_ttnn, temp1, x_ttnn)
+    
+        # Expand x to cache shape
+        x_upd = ttnn.to_torch(x_updated_ttnn)
+        x_expanded_torch = torch.zeros(1, 8, 32, dtype=torch.bfloat16)
+        x_expanded_torch[:, :4, :] = x_upd
+        x_expanded_ttnn = ttnn.from_torch(x_expanded_torch, device=device, layout=layout, dtype=ttnn.bfloat16)
+    
+        # Second nested where: update cache
+        temp2 = ttnn.where(not_row_mask, zero_ttnn, x_expanded_ttnn)
+        cache_updated = ttnn.where(row_mask_ttnn, temp2, cache_ttnn)
+        cache_result = ttnn.to_torch(cache_updated)
+    
+        log_finding("\n[test_double_nested_where_minimal]")
+        log_finding(f"Expected cache[0,0,:8]: {cache_expected[0, 0, :8].tolist()}")
+        log_finding(f"Actual cache[0,0,:8]: {cache_result[0, 0, :8].tolist()}")
+        log_finding(f"Non-zero in actual: {(cache_result[:1, :4] != 0).sum().item()}")
+        log_finding(f"Non-zero in expected: {(cache_expected[:1, :4] != 0).sum().item()}")
+    
+        first_col_nonzero = (cache_result[:1, :4, 0] != 0).sum().item()
+        other_cols_nonzero = (cache_result[:1, :4, 1:] != 0).sum().item()
+        log_finding(f"First col non-zero: {first_col_nonzero}, Other cols: {other_cols_nonzero}")
+    
+        if other_cols_nonzero == 0 and first_col_nonzero > 0:
+            log_finding("BUG REPRODUCED in minimal test!")
+    
+>       assert_with_pcc(cache_expected, cache_result, 0.9999)
+
+tests/ttnn/unit_tests/operations/data_movement/test_double_slice_bug_repro.py:629: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+expected_pytorch_result = tensor([[[-0.8086, -1.5312,  0.4062,  0.1719, -0.2471,  0.2041, -0.8789,
+          -0.3867,  0.6016,  0.2676, -0.8516, -0.2891,  1.0000, -0.7812,
+           1.3750,  0.1187,  1.7266, -1.5312,  1.6484, -2.3750, -0.0659,
+          -0.1602,  0.1562, -1.2969, -0.9492, -1.3359,  2.1094, -0.0718,
+          -2.6406, -1.3438,  0.0830, -1.2891],
+         [ 0.2637,  0.7070, -0.2188,  2.8906,  1.3672, -0.1084,  0.2402,
+           1.8359,  1.7500, -0.0459, -0.3516, -0.0962, -1.7656, -0.9102,
+          -0.5977,  0.6602,  0.0786,  3.2188, -3.0156,  2.5312,  0.4453,
+          -2.0625,  1.2109, -0.9414,  3.2812, -0.6172, -0.1387, -2.0938,
+           1.2422, -0.2910,  0.6484,  4.7812],
+         [ 1.4141, -0.2148,  0.3496, -0.9180, -0.3223, -0.1992, -2.1719,
+          -0.3184,  0.2832,  0.3027,  1.1406, -0.0278,  0.6445,  0.2539,
+           1.0156, -2.6719, -2.2500,  1.0703, -4.7500, -0.4688,  3.0156,
+           1.0625, -3.5625,  0.4570, -2.6094,  2.7656,  3.3125, -0.0364,
+           0.0742, -0.0688, -0.4434,  1.6719],
+         [-0.7031,  0.0342, -0.0598,  1.4844,  1.5625, -0.8750,  0.7812,
+           0.5703, -0.7422, -0.1494, -0.6797, -1.3047,  0.5156,  0.9570,
+           1.7734,  0.2041,  1.2969,  3.1406, -1.5312, -5.0938,  1.5469,
+           2.7656, -0.9414,  2.1250, -3.2188, -1.7266,  3.4688,  2.3906,
+           5.0625,  1.7578, -0.6562, -3.0938],
+         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000],
+         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000],
+         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000],
+         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000]]], dtype=torch.bfloat16)
+actual_pytorch_result = tensor([[[-0.8086,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000],
+         [ 0.2637,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000],
+         [ 1.4141,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000],
+         [-0.7031,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000],
+         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000],
+         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000],
+         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000],
+         [ 0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,  0.0000,
+           0.0000,  0.0000,  0.0000,  0.0000]]], dtype=torch.bfloat16)
+pcc = 0.9999
+
+    def assert_with_pcc(expected_pytorch_result, actual_pytorch_result, pcc=0.9999):
+        """
+        Assert that two PyTorch tensors are similar within a specified Pearson Correlation Coefficient (PCC) threshold.
+    
+        This function compares two tensors using PCC, which measures the linear correlation between them.
+        It's particularly useful for floating-point comparisons where exact equality is not expected due to
+        numerical precision differences.
+    
+        Args:
+            expected_pytorch_result (torch.Tensor): The expected reference tensor
+            actual_pytorch_result (torch.Tensor): The actual tensor to compare against the reference
+            pcc (float, optional): The minimum PCC threshold for the comparison to pass. Defaults to 0.9999.
+                                  Values closer to 1.0 indicate stronger correlation.
+    
+        Returns:
+            tuple: A tuple containing:
+                - pcc_passed (bool): True if the PCC check passed, False otherwise
+                - pcc_message (str): A message describing the PCC comparison result
+    
+        Raises:
+            AssertionError: If the tensor shapes don't match or if the PCC is below the specified threshold
+        """
+    
+        expected_pytorch_result = _normalize_tensor(expected_pytorch_result)
+        actual_pytorch_result = _normalize_tensor(actual_pytorch_result)
+    
+        assert list(expected_pytorch_result.shape) == list(
+            actual_pytorch_result.shape
+        ), f"list(expected_pytorch_result.shape)={list(expected_pytorch_result.shape)} vs list(actual_pytorch_result.shape)={list(actual_pytorch_result.shape)}"
+        pcc_passed, pcc_message = comp_pcc(expected_pytorch_result, actual_pytorch_result, pcc)
+>       assert pcc_passed, construct_pcc_assert_message(pcc_message, expected_pytorch_result, actual_pytorch_result)
+               ^^^^^^^^^^
+E       AssertionError: 0.09246132788241809
+
+tests/ttnn/utils_for_testing.py:119: AssertionError
+- generated xml file: /localdev/jameszianxu/tt-metal/generated/test_reports/most_recent_tests.xml -
+============================== slowest durations ===============================
+0.28s setup    tests/ttnn/unit_tests/operations/data_movement/test_double_slice_bug_repro.py::TestDoubleSliceBugReproWithWhere::test_double_nested_where_minimal[layout=Layout.TILE]
+0.04s call     tests/ttnn/unit_tests/operations/data_movement/test_double_slice_bug_repro.py::TestDoubleSliceBugReproWithWhere::test_double_nested_where_minimal[layout=Layout.TILE]
+0.00s teardown tests/ttnn/unit_tests/operations/data_movement/test_double_slice_bug_repro.py::TestDoubleSliceBugReproWithWhere::test_double_nested_where_minimal[layout=Layout.TILE]
+=========================== short test summary info ============================
+FAILED tests/ttnn/unit_tests/operations/data_movement/test_double_slice_bug_repro.py::TestDoubleSliceBugReproWithWhere::test_double_nested_where_minimal[layout=Layout.TILE] - AssertionError: 0.09246132788241809
+============================== 1 failed in 0.51s ===============================
+nanobind: leaked 4 instances!
+ - leaked instance 0x78aa2de0d9c8 of type "ttnn._ttnn.tensor.MemoryConfig"
+ - leaked instance 0x78aa2e3484c8 of type "ttnn._ttnn.tensor.MemoryConfig"
+ - leaked instance 0x78aa2e3abbe8 of type "ttnn._ttnn.device.DispatchCoreConfig"
+ - leaked instance 0x78aa2e47b8e8 of type "ttnn._ttnn.tensor.CoreRangeSet"
+nanobind: leaked 40 types!
+ - leaked type "DispatchCoreAxis"
+ - leaked type "ttnn._ttnn.device.SubDeviceManagerId"
+ - leaked type "MathFidelity"
+ - leaked type "ttnn._ttnn.operations.matmul.MatmulMultiCoreReuseMultiCast1DProgramConfig"
+ - leaked type "ttnn._ttnn.types.Shape"
+ - leaked type "ttnn._ttnn.operations.matmul.MatmulInputs"
+ - leaked type "ttnn._ttnn.operations.matmul.MatmulMultiCoreReuseMultiCastBatchedDRAMShardedProgramConfig"
+ - leaked type "BufferType"
+ - leaked type "UnaryOpType"
+ - leaked type "Layout"
+ - ... skipped remainder
+nanobind: leaked 323 functions!
+ - leaked function "create_submeshes"
+ - leaked function "__getitem__"
+ - leaked function ""
+ - leaked function "compute_output_specs"
+ - leaked function "buffer_address"
+ - leaked function ""
+ - leaked function ""
+ - leaked function ""
+ - leaked function ""
+ - leaked function ""
+ - ... skipped remainder
+nanobind: this is likely caused by a reference counting issue in the binding code.
+See https://nanobind.readthedocs.io/en/latest/refleaks.html2026-04-29 16:36:27.896 | info     |    BuildKernels | JIT cache stats: 22/22 hits (100.0%) [22 cached, 1 build-once dedup, 0 merged artifacts, 0 merged genfiles] (build_cache_telemetry.cpp:207)
+2026-04-29 16:36:27.896 | info     |    BuildKernels | JIT telemetry: 3 registered TelemetryTokens (build_cache_telemetry.cpp:230)
+2026-04-29 16:36:27.896 | info     |    BuildKernels | JIT telemetry [dependencies_up_to_date]: count=44, total=49.790ms, min=0.041ms, max=4.803ms, mean=1.132ms (build_cache_telemetry.cpp:246)
+2026-04-29 16:36:27.896 | info     |    BuildKernels | JIT telemetry [JitBuildState::build]: count=22, total=51.502ms, min=1.363ms, max=4.996ms, mean=2.341ms (build_cache_telemetry.cpp:246)
+2026-04-29 16:36:27.896 | info     |    BuildKernels | JIT telemetry [jit_build]: count=10, total=22.960ms, min=1.363ms, max=4.996ms, mean=2.296ms (build_cache_telemetry.cpp:246)
+2026-04-29 16:36:27.898 | info     |          Device | Closing user mode device drivers (tt_cluster.cpp:508)
+2026-04-29 16:36:27.898 | info     |             UMD | Closing devices in cluster (cluster.cpp:1054)
