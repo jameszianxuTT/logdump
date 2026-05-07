@@ -54,12 +54,14 @@ run_install() {
         fi
     }
 
-    # Run cmake commands
-    cmake -G Ninja -B build -DCMAKE_BUILD_TYPE=Release
+    # Run cmake commands - disable system sfpi to avoid needing to pull
+    cmake -G Ninja -B build -DCMAKE_BUILD_TYPE=Release -DTT_USE_SYSTEM_SFPI=OFF
     check_return_code "cmake configuration"
 
     cmake --build build
     check_return_code "cmake build"
+    cd tt-xla
+    source venv/activate
 
     echo "Build and installation of tt-xla completed successfully."
 
