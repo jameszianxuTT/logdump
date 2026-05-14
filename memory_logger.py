@@ -79,7 +79,7 @@ def resolve_target_process(args):
         time.sleep(args.poll_interval)
 
 
-def generate_plot(csv_path: Path, png_path: Path):
+def generate_plot(csv_path: Path, png_path: Path, process_name: str):
     timestamps = []
     rss_mib = []
     swap_mib = []
@@ -120,7 +120,7 @@ def generate_plot(csv_path: Path, png_path: Path):
     else:
         ax1.legend(loc="upper left")
 
-    ax1.set_title("Process Memory Over Time")
+    ax1.set_title(f"Process Memory Over Time ({process_name})")
     ax1.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M:%S"))
     fig.autofmt_xdate()
 
@@ -184,7 +184,7 @@ def main():
         except KeyboardInterrupt:
             print("\nStopping sampler...")
 
-    generate_plot(args.csv, args.png)
+    generate_plot(args.csv, args.png, proc_name)
 
 
 if __name__ == "__main__":
