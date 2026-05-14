@@ -23,7 +23,7 @@ def get_oom_score(pid: int) -> int | None:
     try:
         with open(f"/proc/{pid}/oom_score") as f:
             return int(f.read().strip())
-    except (FileNotFoundError, PermissionError, ValueError):
+    except (FileNotFoundError, ProcessLookupError, PermissionError, ValueError, OSError):
         return None
 
 
