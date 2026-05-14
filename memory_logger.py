@@ -18,8 +18,17 @@ def bytes_to_mib(num_bytes: int) -> float:
     return num_bytes / (1024 * 1024)
 
 
+def get_oom_score(pid: int) -> int | None:
+    """Read OOM score from /proc/[pid]/oom_score (Linux only, range 0-1000)."""
+    try:
+        with open(f"/proc/{pid}/oom_score") as f:
+            return int(f.read().strip())
+    except (FileNotFoundError, PermissionError, ValueError):
+        return None
+
+
 def parse_args():
-    parser = argparse.ArgumentParser(description="Log RSS and swap for a specific PID and plot it.")
+    parser = argparse.ArgumentParser(description="Log RSS, swap, and OOM score for a specific PID and plot it.")
     target_group = parser.add_mutually_exclusive_group(required=True)
     target_group.add_argument("--pid", type=int, help="Target process ID")
     target_group.add_argument(
@@ -74,6 +83,7 @@ def generate_plot(csv_path: Path, png_path: Path):
     timestamps = []
     rss_mib = []
     swap_mib = []
+    oom_scores = []
 
     with csv_path.open("r", newline="") as f:
         reader = csv.DictReader(f)
@@ -81,21 +91,37 @@ def generate_plot(csv_path: Path, png_path: Path):
             timestamps.append(datetime.fromisoformat(row["timestamp_utc"]))
             rss_mib.append(float(row["rss_mib"]))
             swap_mib.append(float(row["swap_mib"]))
+            oom_scores.append(int(row["oom_score"]) if row["oom_score"] else None)
 
     if not timestamps:
         print("No samples collected, skipping plot.")
         return
 
-    fig, ax = plt.subplots(figsize=(10, 4.5))
-    ax.plot(timestamps, rss_mib, linewidth=2, label="RSS (MiB)")
-    ax.plot(timestamps, swap_mib, linewidth=2, label="Swap (MiB)")
-    ax.set_title("Process Memory Over Time")
-    ax.set_xlabel("Time (UTC)")
-    ax.set_ylabel("Memory (MiB)")
-    ax.grid(True, alpha=0.3)
-    ax.legend(loc="upper left")
+    fig, ax1 = plt.subplots(figsize=(10, 4.5))
 
-    ax.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M:%S"))
+    # Memory on left y-axis
+    ax1.plot(timestamps, rss_mib, linewidth=2, label="RSS (MiB)", color="tab:blue")
+    ax1.plot(timestamps, swap_mib, linewidth=2, label="Swap (MiB)", color="tab:orange")
+    ax1.set_xlabel("Time (UTC)")
+    ax1.set_ylabel("Memory (MiB)")
+    ax1.grid(True, alpha=0.3)
+
+    # OOM score on right y-axis (if available)
+    has_oom_data = any(s is not None for s in oom_scores)
+    if has_oom_data:
+        ax2 = ax1.twinx()
+        ax2.plot(timestamps, oom_scores, linewidth=2, label="OOM Score", color="tab:red", linestyle="--")
+        ax2.set_ylabel("OOM Score (0-1000)")
+        ax2.set_ylim(0, 1000)
+        # Combine legends from both axes
+        lines1, labels1 = ax1.get_legend_handles_labels()
+        lines2, labels2 = ax2.get_legend_handles_labels()
+        ax1.legend(lines1 + lines2, labels1 + labels2, loc="upper left")
+    else:
+        ax1.legend(loc="upper left")
+
+    ax1.set_title("Process Memory Over Time")
+    ax1.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M:%S"))
     fig.autofmt_xdate()
 
     plt.tight_layout()
@@ -119,10 +145,10 @@ def main():
 
     with args.csv.open("w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["timestamp_utc", "pid", "process_name", "rss_bytes", "rss_mib", "swap_bytes", "swap_mib"])
+        writer.writerow(["timestamp_utc", "pid", "process_name", "rss_bytes", "rss_mib", "swap_bytes", "swap_mib", "oom_score"])
 
         print(
-            f"Sampling RSS and swap for PID={target_pid} ({proc_name}) every {args.interval}s.\n"
+            f"Sampling RSS, swap, and OOM score for PID={target_pid} ({proc_name}) every {args.interval}s.\n"
             f"Writing CSV: {args.csv}\nPress Ctrl+C to stop and generate {args.png}."
         )
 
@@ -136,6 +162,7 @@ def main():
                     mem_info = proc.memory_full_info()
                     rss_bytes = mem_info.rss
                     swap_bytes = mem_info.swap
+                    oom_score = get_oom_score(target_pid)
                 except psutil.NoSuchProcess:
                     print(f"PID {target_pid} exited; stopping sampler.")
                     break
@@ -149,6 +176,7 @@ def main():
                     round(bytes_to_mib(rss_bytes), 3),
                     swap_bytes,
                     round(bytes_to_mib(swap_bytes), 3),
+                    oom_score if oom_score is not None else "",
                 ])
                 f.flush()
                 time.sleep(args.interval)
