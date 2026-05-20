@@ -2,6 +2,7 @@
 # pip install psutil matplotlib
 # python memory_logger.py --pid 12345 --interval 0.1 --csv memory.csv --png memory.png
 # python memory_logger.py --name worker --interval 0.1 --csv memory.csv --png memory.png
+# python memory_logger.py --from-csv memory.csv --png memory.png
 
 import argparse
 import csv
@@ -28,13 +29,20 @@ def get_oom_score(pid: int) -> int | None:
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Log RSS, swap, and OOM score for a specific PID and plot it.")
+    parser = argparse.ArgumentParser(
+        description="Log RSS, swap, and OOM score for a specific PID and plot it, or render a PNG from an existing CSV."
+    )
     target_group = parser.add_mutually_exclusive_group(required=True)
     target_group.add_argument("--pid", type=int, help="Target process ID")
     target_group.add_argument(
         "--name",
         type=str,
         help="Attach to first process whose name exactly matches this string",
+    )
+    target_group.add_argument(
+        "--from-csv",
+        type=Path,
+        help="Read an existing CSV and generate a PNG without attaching to a process",
     )
     parser.add_argument("--interval", type=float, default=1.0, help="Sampling interval seconds")
     parser.add_argument(
@@ -130,8 +138,24 @@ def generate_plot(csv_path: Path, png_path: Path, process_name: str):
     print(f"Saved plot: {png_path}")
 
 
+def infer_process_name_from_csv(csv_path: Path) -> str:
+    with csv_path.open("r", newline="") as f:
+        reader = csv.DictReader(f)
+        first_row = next(reader, None)
+        if first_row is None:
+            return csv_path.stem
+        process_name = (first_row.get("process_name") or "").strip()
+        return process_name or csv_path.stem
+
+
 def main():
     args = parse_args()
+
+    if args.from_csv is not None:
+        process_name = infer_process_name_from_csv(args.from_csv)
+        generate_plot(args.from_csv, args.png, process_name)
+        return
+
     try:
         proc = resolve_target_process(args)
     except KeyboardInterrupt:
