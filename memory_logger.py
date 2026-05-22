@@ -28,6 +28,22 @@ def get_oom_score(pid: int) -> int | None:
         return None
 
 
+def get_swap_bytes(pid: int) -> int:
+    """Read VmSwap from /proc/[pid]/status and return bytes (Linux only)."""
+    try:
+        with open(f"/proc/{pid}/status") as f:
+            for line in f:
+                if line.startswith("VmSwap:"):
+                    # VmSwap is reported as: "VmSwap:\t<value> kB"
+                    parts = line.split()
+                    if len(parts) >= 2:
+                        return int(parts[1]) * 1024
+                    break
+    except (FileNotFoundError, ProcessLookupError, PermissionError, ValueError, OSError):
+        pass
+    return 0
+
+
 def parse_args():
     parser = argparse.ArgumentParser(
         description="Log RSS, swap, and OOM score for a specific PID and plot it, or render a PNG from an existing CSV."
@@ -183,9 +199,12 @@ def main():
                     if not proc.is_running() or proc.create_time() != target_create_time:
                         print(f"PID {target_pid} exited/restarted; stopping sampler.")
                         break
-                    mem_info = proc.memory_full_info()
+                    # Do not use memory_full_info() in this hot loop: on Linux it
+                    # can be expensive (often parsing detailed memory maps), which
+                    # distorts high-frequency sampling and perturbs the target app.
+                    mem_info = proc.memory_info()
                     rss_bytes = mem_info.rss
-                    swap_bytes = mem_info.swap
+                    swap_bytes = get_swap_bytes(target_pid)
                     oom_score = get_oom_score(target_pid)
                 except psutil.NoSuchProcess:
                     print(f"PID {target_pid} exited; stopping sampler.")
