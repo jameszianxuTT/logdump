@@ -3,6 +3,7 @@
 # python memory_logger.py --pid 12345 --interval 0.1 --csv memory.csv --png memory.png
 # python memory_logger.py --name worker --interval 0.1 --csv memory.csv --png memory.png
 # python memory_logger.py --from-csv memory.csv --png memory.png
+# python memory_logger.py --top 10 --interval 0.5 --csv top_memory.csv --png top_memory.png
 
 import argparse
 import csv
@@ -59,6 +60,12 @@ def parse_args():
         "--from-csv",
         type=Path,
         help="Read an existing CSV and generate a PNG without attaching to a process",
+    )
+    target_group.add_argument(
+        "--top",
+        type=int,
+        metavar="N",
+        help="Monitor top N memory-consuming processes system-wide",
     )
     parser.add_argument("--interval", type=float, default=1.0, help="Sampling interval seconds")
     parser.add_argument(
@@ -154,6 +161,134 @@ def generate_plot(csv_path: Path, png_path: Path, process_name: str):
     print(f"Saved plot: {png_path}")
 
 
+def get_top_processes(n: int) -> list[dict]:
+    """Get top N processes by RSS memory usage."""
+    procs = []
+    for proc in psutil.process_iter(["pid", "name", "memory_info"]):
+        try:
+            info = proc.info
+            mem_info = info.get("memory_info")
+            if mem_info is None:
+                continue
+            procs.append({
+                "pid": info["pid"],
+                "name": info["name"] or "unknown",
+                "rss": mem_info.rss,
+            })
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+            continue
+    # Sort by RSS descending and return top N
+    procs.sort(key=lambda x: x["rss"], reverse=True)
+    return procs[:n]
+
+
+def generate_top_plot(csv_path: Path, png_path: Path):
+    """Generate a plot showing RSS over time for multiple processes."""
+    # Read CSV and organize by process key (pid:name)
+    from collections import defaultdict
+
+    process_data = defaultdict(lambda: {"timestamps": [], "rss_mib": []})
+    all_timestamps = set()
+
+    with csv_path.open("r", newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            ts = datetime.fromisoformat(row["timestamp_utc"])
+            all_timestamps.add(ts)
+            # Use pid:name as key to handle pid reuse
+            proc_key = f"{row['pid']}:{row['process_name']}"
+            process_data[proc_key]["timestamps"].append(ts)
+            process_data[proc_key]["rss_mib"].append(float(row["rss_mib"]))
+            process_data[proc_key]["name"] = row["process_name"]
+            process_data[proc_key]["pid"] = row["pid"]
+
+    if not process_data:
+        print("No samples collected, skipping plot.")
+        return
+
+    # Find processes with highest peak RSS for legend ordering
+    peak_rss = {k: max(v["rss_mib"]) for k, v in process_data.items()}
+    sorted_procs = sorted(process_data.keys(), key=lambda k: peak_rss[k], reverse=True)
+
+    # Limit legend to top 15 processes, group rest as "others"
+    max_legend = 15
+    fig, ax = plt.subplots(figsize=(14, 8))
+
+    # Use a colormap that handles many processes
+    colors = plt.cm.tab20.colors + plt.cm.tab20b.colors + plt.cm.tab20c.colors
+
+    for i, proc_key in enumerate(sorted_procs[:max_legend]):
+        data = process_data[proc_key]
+        color = colors[i % len(colors)]
+        label = f"{data['name']} (pid {data['pid']}, peak {peak_rss[proc_key]:.0f} MiB)"
+        ax.plot(data["timestamps"], data["rss_mib"], linewidth=1.5, label=label, color=color)
+
+    # Plot remaining processes with thin gray lines (no legend)
+    for proc_key in sorted_procs[max_legend:]:
+        data = process_data[proc_key]
+        ax.plot(data["timestamps"], data["rss_mib"], linewidth=0.5, color="gray", alpha=0.3)
+
+    ax.set_xlabel("Time (UTC)")
+    ax.set_ylabel("RSS (MiB)")
+    ax.set_title(f"Top Memory Consumers Over Time ({len(process_data)} processes tracked)")
+    ax.grid(True, alpha=0.3)
+    ax.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M:%S"))
+
+    # Place legend outside plot
+    ax.legend(loc="upper left", bbox_to_anchor=(1.02, 1), fontsize=8)
+
+    fig.autofmt_xdate()
+    plt.tight_layout()
+    plt.savefig(png_path, dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    print(f"Saved plot: {png_path}")
+
+
+def run_top_monitor(args):
+    """Monitor top N memory-consuming processes system-wide."""
+    seen_processes = set()  # Track all processes we've seen
+
+    with args.csv.open("w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["timestamp_utc", "pid", "process_name", "rss_bytes", "rss_mib", "swap_bytes", "swap_mib"])
+
+        print(
+            f"Monitoring top {args.top} memory-consuming processes every {args.interval}s.\n"
+            f"Writing CSV: {args.csv}\nPress Ctrl+C to stop and generate {args.png}."
+        )
+
+        try:
+            while True:
+                ts = datetime.now(timezone.utc).isoformat()
+                top_procs = get_top_processes(args.top)
+
+                for proc in top_procs:
+                    pid = proc["pid"]
+                    name = proc["name"]
+                    rss_bytes = proc["rss"]
+                    swap_bytes = get_swap_bytes(pid)
+
+                    seen_processes.add(f"{pid}:{name}")
+
+                    writer.writerow([
+                        ts,
+                        pid,
+                        name,
+                        rss_bytes,
+                        round(bytes_to_mib(rss_bytes), 3),
+                        swap_bytes,
+                        round(bytes_to_mib(swap_bytes), 3),
+                    ])
+
+                f.flush()
+                time.sleep(args.interval)
+
+        except KeyboardInterrupt:
+            print(f"\nStopping sampler... tracked {len(seen_processes)} unique processes.")
+
+    generate_top_plot(args.csv, args.png)
+
+
 def infer_process_name_from_csv(csv_path: Path) -> str:
     with csv_path.open("r", newline="") as f:
         reader = csv.DictReader(f)
@@ -168,8 +303,19 @@ def main():
     args = parse_args()
 
     if args.from_csv is not None:
-        process_name = infer_process_name_from_csv(args.from_csv)
-        generate_plot(args.from_csv, args.png, process_name)
+        # Detect if this is a top-monitor CSV (no oom_score column) or single-process CSV
+        with args.from_csv.open("r", newline="") as f:
+            reader = csv.DictReader(f)
+            fieldnames = reader.fieldnames or []
+        if "oom_score" not in fieldnames:
+            generate_top_plot(args.from_csv, args.png)
+        else:
+            process_name = infer_process_name_from_csv(args.from_csv)
+            generate_plot(args.from_csv, args.png, process_name)
+        return
+
+    if args.top is not None:
+        run_top_monitor(args)
         return
 
     try:
