@@ -14,6 +14,7 @@ from pathlib import Path
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import psutil
+from matplotlib.ticker import AutoMinorLocator
 
 
 def bytes_to_mib(num_bytes: int) -> float:
@@ -64,6 +65,14 @@ def get_vmstat_swap() -> tuple[int, int]:
 def pages_to_mib(pages: int) -> float:
     """Convert pages to MiB (assumes 4KB page size)."""
     return (pages * 4096) / (1024 * 1024)
+
+
+def apply_grid_with_subgrid(ax, y_minor_divisions: int = 2):
+    """Enable major and minor grid lines for readability."""
+    ax.minorticks_on()
+    ax.yaxis.set_minor_locator(AutoMinorLocator(y_minor_divisions))
+    ax.grid(True, which="major", alpha=0.3)
+    ax.grid(True, which="minor", alpha=0.15, linestyle=":")
 
 
 def parse_args():
@@ -168,7 +177,7 @@ def generate_plot(csv_path: Path, png_path: Path, process_name: str):
     ax1.plot(timestamps, rss_mib, linewidth=2, label="RSS (MiB)", color="tab:blue")
     ax1.plot(timestamps, swap_mib, linewidth=2, label="Swap (MiB)", color="tab:orange")
     ax1.set_ylabel("Memory (MiB)")
-    ax1.grid(True, alpha=0.3)
+    apply_grid_with_subgrid(ax1)
 
     # OOM score on right y-axis (if available)
     has_oom_data = any(s is not None for s in oom_scores)
@@ -193,7 +202,7 @@ def generate_plot(csv_path: Path, png_path: Path, process_name: str):
         ax_vmstat.plot(timestamps, pswpout_delta_mib, linewidth=2, label="Swap Out (MiB)", color="tab:purple")
         ax_vmstat.set_ylabel("Cumulative Swap I/O (MiB)")
         ax_vmstat.set_xlabel("Time (UTC)")
-        ax_vmstat.grid(True, alpha=0.3)
+        apply_grid_with_subgrid(ax_vmstat)
         ax_vmstat.legend(loc="upper left")
         ax_vmstat.set_title("System-wide Swap I/O (since monitoring started)")
         ax_vmstat.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M:%S"))
@@ -293,7 +302,7 @@ def generate_top_plot(csv_path: Path, png_path: Path):
 
     ax.set_ylabel("RSS (MiB)")
     ax.set_title(f"Top Memory Consumers Over Time ({len(process_data)} processes tracked)")
-    ax.grid(True, alpha=0.3)
+    apply_grid_with_subgrid(ax)
 
     # Place legend outside plot
     ax.legend(loc="upper left", bbox_to_anchor=(1.02, 1), fontsize=8)
@@ -305,7 +314,7 @@ def generate_top_plot(csv_path: Path, png_path: Path):
         ax_vmstat.plot(vmstat_data["timestamps"], vmstat_data["pswpout_delta_mib"], linewidth=2, label="Swap Out (MiB)", color="tab:purple")
         ax_vmstat.set_ylabel("Cumulative Swap I/O (MiB)")
         ax_vmstat.set_xlabel("Time (UTC)")
-        ax_vmstat.grid(True, alpha=0.3)
+        apply_grid_with_subgrid(ax_vmstat)
         ax_vmstat.legend(loc="upper left")
         ax_vmstat.set_title("System-wide Swap I/O (since monitoring started)")
         ax_vmstat.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M:%S"))
