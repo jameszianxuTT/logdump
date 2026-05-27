@@ -1,0 +1,181 @@
+---
+name: tt-metal-bisect
+description: Use when bisecting tt-metal commits to find regressions within tt-xla. Guides the process of testing different tt-metal versions through tt-mlir's CMakeLists.txt.
+---
+
+# TT-Metal Bisect Procedure for TT-XLA
+
+## Overview
+
+This skill documents the procedure for bisecting tt-metal commits when debugging regressions in tt-xla. The tt-xla project depends on tt-metal through tt-mlir, and the tt-metal version is controlled via CMake.
+
+## Architecture
+
+```
+tt-xla
+└── third_party/tt-mlir/src/tt-mlir/
+    └── third_party/
+        ├── CMakeLists.txt          # Controls TT_METAL_VERSION
+        └── tt-metal/src/tt-metal/  # Actual tt-metal checkout
+```
+
+## Key File
+
+**Version control file:**
+```
+tt-xla/third_party/tt-mlir/src/tt-mlir/third_party/CMakeLists.txt
+```
+
+Edit the `TT_METAL_VERSION` variable to test different commits:
+```cmake
+set(TT_METAL_VERSION "<commit-hash>")
+```
+
+## Bisect Procedure
+
+### 1. Identify Commit Range
+
+Get the list of commits between good and bad:
+```bash
+git -C /path/to/tt-xla/third_party/tt-mlir/src/tt-mlir/third_party/tt-metal/src/tt-metal \
+    log --oneline <good-commit>..<bad-commit>
+```
+
+To get commits in chronological order (oldest first):
+```bash
+git -C /path/to/tt-xla/third_party/tt-mlir/src/tt-mlir/third_party/tt-metal/src/tt-metal \
+    log --oneline --reverse <good-commit>..<bad-commit>
+```
+
+### 2. Update TT_METAL_VERSION
+
+Edit the CMakeLists.txt to set the commit to test:
+```cmake
+set(TT_METAL_VERSION "<commit-to-test>")
+```
+
+### 3. Trigger Rebuild
+
+**Critical:** After changing TT_METAL_VERSION, you must remove tt-mlir stamp files to force a rebuild:
+
+```bash
+rm -f /path/to/tt-xla/third_party/tt-mlir/src/tt-mlir-stamp/tt-mlir-{build,configure,install,done}
+```
+
+Then rebuild:
+```bash
+source venv/activate
+cmake --build build
+```
+
+### 4. Run Test
+
+```bash
+export HF_TOKEN=<your-huggingface-token>  # If testing gated models
+source venv/activate
+pytest -svv <test-path> --forked 2>&1 | tee logs/test_<commit>.log
+```
+
+### 5. Binary Search
+
+Use standard binary search:
+- If test **PASSES**: The bug is in the later half, test midpoint of [current+1, bad]
+- If test **FAILS**: The bug is in the earlier half, test midpoint of [good, current-1]
+
+## API Compatibility Issues
+
+When bisecting across tt-metal commits, you may encounter API incompatibilities between older tt-metal and newer tt-mlir. Common symptoms:
+
+- **Linker errors** with undefined symbols
+- **Compilation errors** about missing parameters
+
+### Solution: Patch tt-metal Source
+
+If you encounter API incompatibilities (e.g., missing function parameters), you can patch the tt-metal source files directly. The patches are applied to:
+```
+tt-xla/third_party/tt-mlir/src/tt-mlir/third_party/tt-metal/src/tt-metal/
+```
+
+**Example:** Adding a missing `bool skip_padding_fill` parameter to `ttnn::reshape`:
+
+Files to patch:
+1. `ttnn/cpp/ttnn/operations/data_movement/reshape_view/reshape.hpp`
+2. `ttnn/cpp/ttnn/operations/data_movement/reshape_view/reshape.cpp`
+3. `ttnn/cpp/ttnn/operations/data_movement/reshape_view/reshape_nanobind.cpp`
+
+Add `bool skip_padding_fill = false` to function declarations/definitions and update nanobind overload casts.
+
+**Important:** These patches are local modifications. Do NOT commit them to tt-xla or tt-mlir.
+
+## Common Issues
+
+### 1. Build Not Rebuilding tt-metal
+
+**Symptom:** Changed TT_METAL_VERSION but build says "up to date"
+
+**Fix:** Remove stamp files:
+```bash
+rm -f .../tt-mlir-stamp/tt-mlir-{build,configure,install,done}
+```
+
+### 2. HuggingFace Authentication
+
+**Symptom:** 401/403 errors when downloading models
+
+**Fix:** Export HF_TOKEN before running tests:
+```bash
+export HF_TOKEN=<token>
+```
+
+### 3. Fork Safety with pytest
+
+**Symptom:** `AttributeError: module 'os' has no attribute 'memfd_create'`
+
+**Fix:** Use `--forked` flag:
+```bash
+pytest ... --forked
+```
+
+### 4. Test Timeout
+
+Model tests can take 8-10 minutes. Don't use `--timeout` flag as it may not be supported.
+
+## Checklist
+
+- [ ] Identify good (passing) and bad (failing) commits
+- [ ] Create logs directory: `mkdir -p logs`
+- [ ] Calculate midpoint commit
+- [ ] Edit `TT_METAL_VERSION` in CMakeLists.txt
+- [ ] Remove stamp files
+- [ ] Rebuild with `cmake --build build`
+- [ ] Run test with logging: `... 2>&1 | tee logs/test_<commit>.log`
+- [ ] Record result and narrow range
+- [ ] Repeat until culprit is found
+
+## Example Session
+
+```bash
+# 1. List commits
+git -C .../tt-metal/src/tt-metal log --oneline --reverse 215668f..75ad1dc | head -50
+
+# 2. Test midpoint (e.g., commit #26)
+# Edit CMakeLists.txt: set(TT_METAL_VERSION "3b2e6f3226f")
+
+# 3. Rebuild
+rm -f .../tt-mlir-stamp/tt-mlir-{build,configure,install,done}
+cmake --build build
+
+# 4. Test
+export HF_TOKEN=hf_xxx
+pytest -svv tests/runner/test_models.py::test_all_models_torch[...] --forked 2>&1 | tee logs/test_3b2e6f3226f.log
+
+# 5. Check result and continue bisecting
+```
+
+## Tips
+
+1. **Log everything** - Save test output to `logs/test_<commit>.log`
+2. **Verify boundaries first** - Confirm the good commit passes and bad commit fails
+3. **Track progress** - Use a todo list to track which commits have been tested
+4. **Handle flaky tests** - Re-run if results seem inconsistent
+5. **Check for unrelated API changes** - Some build errors are due to tt-mlir/tt-metal API drift, not the regression itself
